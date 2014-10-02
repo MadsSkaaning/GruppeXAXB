@@ -8,6 +8,7 @@ public static void main(String args[]) {
         //create Scanner instance to get input from User
         Scanner scanner = new Scanner(System.in);
       
+	  // Det her er fra nu af den nye gruppe chat, ja tak! Ses vi forresten alle sammen på lørdag???
         System.err.println("Please enter first number to add : ");
         int number = scanner.nextInt();
       
