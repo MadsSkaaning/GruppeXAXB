@@ -16,6 +16,8 @@ public static void main(String args[]) {
       
         //adding two numbers in Java by calling method
        int result = add(number, num);
+	   
+	   //Hej bøsser <3
       
        System.out.printf(" Addition of numbers %d and %d is %d %n", number, num, result);
     }
