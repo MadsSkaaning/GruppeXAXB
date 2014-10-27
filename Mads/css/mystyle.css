@@ -1,0 +1,78 @@
+/* This is developed by Mads Skaaning @ www.madebydelta.com
+ *
+ * Solely made with the purpose of styling the distributed system for Fall semester, 2014 in Distributed Systems.
+ *
+*/
+
+/* TABLE OF CONTENTS */
+
+
+/* 1.1 Text
+ * 10 - Header
+ */
+
+
+/* 1.1 - Text */
+
+
+
+/* X.X - Footer */
+
+footer.copyrightfield {
+position: relative;
+clear: both;
+width: auto;
+height: 0px; /* This is to be removed after not @style.css*/
+background: #333333;
+top: 40px;
+}
+
+
+#boxcontent article {
+float: left;
+width: 50%;
+font-size: 14px;
+}
+
+#spacer {
+width: auto;
+height: 70px;
+background-color: #6987E7;
+position: relative;
+font-family: 'Open Sans', sans-serif;
+color: #fff;
+font-size: 18px;
+}
+
+
+header h1 {
+margin: 35px 0 0 0;
+font-size: 55px;
+color: #6987E7;
+font-family: 'Baumans', cursive;
+}
+
+body
+{
+        border-top: 10px solid #232452;
+        background:#FFFFFF;
+        font-family: 'Open Sans', sans-serif;
+        color:#333333;
+}
+
+
+
+
+/* 
+ * Stylings for index.php frontpage. (Loginbox mostly)
+ */
+
+
+div#loginbox {
+margin-left: auto;
+margin-right: auto;
+width: 25%;
+height: 20%;
+margin-top: 10%;
+background-color: #FFFFFF;
+}
