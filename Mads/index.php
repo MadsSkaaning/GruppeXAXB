@@ -5,7 +5,7 @@
         <title>CBS Calendar Extra</title>
 	
 	
-	<!-- Importing FontAwe !-->
+	<!-- Importing FontAwesome !-->
 	<link rel="stylesheet" href="font-awesome/css/font-awesome.min.css"> 	
 	
 	<!-- Using this reset.css to reset styles. !-->
@@ -20,7 +20,6 @@
 	
 
 <div id="mainbox">
-
 	<div id ="loginbox" class="login">
 
  <h3>Log-in</h3>
@@ -38,16 +37,4 @@
 	</div>
 
 </body>
-
-
-<php  
-
-$var = 2;
-
-echo $var;
-
-
-?>
-
-
 </html>
