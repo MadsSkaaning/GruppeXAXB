@@ -1,0 +1,12 @@
+{
+	"host": "10.246.17.1",
+	"port": "3306",
+	"username": "thursdaycph_dk",
+	"password": "Nymph1234",	
+	"ffcryptkey": "3.1470",
+	"weather_expiration_time": "3600",
+	"weather_lat": "55.681589",
+	"weather_lon": "12.529092",
+	"weather_future_in_days": "14",
+	"dbname": "thursdaycph_dk"
+}
