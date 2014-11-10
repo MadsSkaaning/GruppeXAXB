@@ -5,7 +5,6 @@ public class RunMe {
 		
 		Configurations cf = new Configurations();
 		
-		cf.ReadFile();
 			System.out.println("IP Address is " + cf.getHost());
 			System.out.println("Weather longitude is: " + cf.getWeather_lon());
 			System.out.println("Weather lat is: " + cf.getWeather_lat());
@@ -13,5 +12,6 @@ public class RunMe {
 			System.out.println("PASS: " + cf.getPassword());
 			System.out.println("" + cf.getFfcryptkey());
 			System.out.println();
+			
 	}
 }

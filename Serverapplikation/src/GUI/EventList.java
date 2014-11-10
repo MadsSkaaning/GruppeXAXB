@@ -128,10 +128,10 @@ import java.awt.event.ActionEvent;
 		}
 		
 		public void addActionListener(ActionListener l) {
-			btnAdd.addActionListener(l);
-			btnDelete.addActionListener(l);
-			btnLogout.addActionListener(l);
-			btnMainMenu.addActionListener(l);
+		//	btnAdd.addActionListener(l);
+		//	btnDelete.addActionListener(l);
+		//	btnLogout.addActionListener(l);
+		//	btnMainMenu.addActionListener(l);
 		}
 
 		public JButton getBtnAdd() {
