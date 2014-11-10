@@ -118,7 +118,6 @@ import java.awt.Dimension;
 			btnLogout.setBounds(624, 694, 117, 43);
 			
 			add(btnLogout);
-			
 			JLabel label_1 = new JLabel("");
 			label_1.setIcon(new ImageIcon(AddCourse.class.getResource("/Images/MetalBackground.jpg")));
 			label_1.setBounds(0, 0, 1366, 768);

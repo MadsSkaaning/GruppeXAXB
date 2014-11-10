@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-// Importing json packaes
+// Importing json packages
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -24,10 +24,6 @@ public class Configurations {
     private String weather_lat;
     private String weather_lon;
     private String weather_future_in_days;
-
-    // Opret DB name
-    // Opret update time på QOTD
-
 
     public String getHost() {
         return host;
