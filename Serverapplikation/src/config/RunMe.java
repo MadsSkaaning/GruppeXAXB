@@ -1,7 +1,5 @@
 package config;
 
-import org.apache.commons.lang.SystemUtils;
-
 public class RunMe {
 
 	public static void main (String [] args){
