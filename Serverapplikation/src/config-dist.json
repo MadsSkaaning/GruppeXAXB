@@ -1,8 +1,8 @@
 {
-	"host": "54.172.101.8555",
+	"host": "10.246.17.1",
 	"port": "3306",
-	"username": "root",
-	"password": "doekdoek",	
+	"username": "thursdaycph_dk",
+	"password": "Nymph1234",	
 	"ffcryptkey": "3.1470",
 	"weather_expiration_time": "3600",
 	"weather_lat": "55.681589",
