@@ -32,7 +32,6 @@ public class QOTDModel {
     /**
      *
      */ 
-    
     private static String readUrl(String urlString) throws Exception {
         BufferedReader reader = null;
         try {

@@ -1,9 +1,9 @@
 import java.sql.SQLException;
 
+import shared.AuthUser;
 import model.QOTD.QOTDModel;
 import model.calendar.Event;
 import model.note.Note;
-import JsonClasses.AuthUser;
 import JsonClasses.CalendarInfo;
 import JsonClasses.CreateCalender;
 import JsonClasses.DeleteCalender;

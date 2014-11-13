@@ -6,6 +6,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import JsonClasses.*;
 
+import config.Configurations;
+
 public class TCPClient {
 	public static void main(String[] args) throws Exception {
 		String modifiedSentence;
@@ -17,7 +19,7 @@ public class TCPClient {
 		String gsonString = gson.toJson(CC);
 		System.out.println(CC);
 		System.out.println(gsonString);
-
+		
 		Socket clientSocket = new Socket("localhost", 8888);
 		DataOutputStream outToServer = new DataOutputStream(
 				clientSocket.getOutputStream());

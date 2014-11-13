@@ -10,5 +10,6 @@ public class RunMe {
 			System.out.println("Weather lat is: " + cf.getWeather_lat());
 			System.out.println("Weather is set to display: " + cf.getWeather_future_in_days() + " days from today");
 			System.out.println("PASS: " + cf.getPassword());
+			System.out.println(cf.getFfcryptkey());
 	}
 }

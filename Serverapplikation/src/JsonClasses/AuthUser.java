@@ -7,8 +7,17 @@ public class AuthUser implements java.io.Serializable
 	private String email;
 	private String password;
 	private boolean isAdmin;
+	private boolean isAuthenticated;
 	
 	//Getters and setters for everything, bitch
+	
+	public boolean isAuthenticated() {
+		return isAuthenticated;
+	}
+	public void setAuthenticated(boolean isAuthenticated) {
+		this.isAuthenticated = isAuthenticated;
+	}
+	
 	public String getOverallID() {
 		return overallID;
 	}
@@ -33,5 +42,6 @@ public class AuthUser implements java.io.Serializable
 	public void setAuthUserIsAdmin(boolean isAdmin) {
 		this.isAdmin = isAdmin;
 	}
+
 
 }

@@ -31,6 +31,12 @@ public class QOTD {
 		this.topic = topic;
 	}
 	
+	public static void main (String [] args ){
+		
+		
+		
+	}
+	
 	
 }
 
