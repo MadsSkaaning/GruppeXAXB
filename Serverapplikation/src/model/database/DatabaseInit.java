@@ -14,7 +14,6 @@ public class DatabaseInit extends Model {
         new DatabaseInit().go();
     }
 
-
     public void go() throws SQLException, IOException {
 
 
