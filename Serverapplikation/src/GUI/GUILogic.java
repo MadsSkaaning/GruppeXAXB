@@ -23,7 +23,6 @@ public class GUILogic {
 	public GUILogic(){
 		screen = new Screen();
 
-
 		screen.getLogin().addActionListener(new LoginActionListener());
 		screen.getMainMenu().addActionListener(new MainMenuActionListener());
 		screen.getUserInfo().addActionListener(new UserInfoActionListener());
