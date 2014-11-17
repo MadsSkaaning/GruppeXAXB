@@ -71,11 +71,6 @@ public class UserList extends JPanel {
 	        	data[count][3] = rs.getString("created");
 	        	data[count][4] = rs.getString("password");
 
-	        	data[count][0] = rs.getString("Userid");
-	        	data[count][1] = rs.getString("Email");
-	        	data[count][2] = rs.getString("Active");
-	        	data[count][3] = rs.getString("Created datetime");
-	        	data[count][4] = rs.getString("Password");
 
 
 	        	count++;
