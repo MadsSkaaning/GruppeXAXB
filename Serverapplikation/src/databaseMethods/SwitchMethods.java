@@ -131,7 +131,7 @@ public class SwitchMethods extends Model
 	 */
 	public String authenticate(String email, String password, boolean isAdmin) throws Exception {
 
-		String[] keys = {"userid", "email", "active", "password"};
+		String[] keys = {"userid", "email", "active", "password", "isAdmin"};
 
 		qb = new QueryBuilder();
 
