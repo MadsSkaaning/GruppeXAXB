@@ -44,6 +44,8 @@ public class TCPClient {
 		byte[] encrypted = input;
 		for (int i = 0; i < encrypted.length; i++)
 			encrypted[i] = (byte) (encrypted[i] ^ key);
+		
+		System.out.println(encrypted);
 		outToServer.write(encrypted);
 		outToServer.flush();
 		BufferedReader inFromServer = new BufferedReader(new InputStreamReader(
