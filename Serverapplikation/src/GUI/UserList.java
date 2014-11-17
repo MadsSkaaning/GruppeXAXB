@@ -135,10 +135,6 @@ public class UserList extends JPanel {
         add(btnLogout);
         
         btnMainMenu = new JButton("Main Menu");
-//        btnMainMenu.addActionListener(new ActionListener() {
-//        	public void actionPerformed(ActionEvent arg0) {
-//        	}
-//        });
         btnMainMenu.setForeground(Color.WHITE);
         btnMainMenu.setFont(new Font("Arial", Font.BOLD, 30));
         btnMainMenu.setContentAreaFilled(false);
@@ -149,11 +145,8 @@ public class UserList extends JPanel {
         JLabel lblUserlist = new JLabel("Userlist");
         lblUserlist.setForeground(Color.WHITE);
         lblUserlist.setFont(new Font("Arial", Font.BOLD, 78));
-
         lblUserlist.setBounds(549, 118, 298, 90);
-
         lblUserlist.setBounds(534, 90, 298, 90);
-
         add(lblUserlist);
         
         JButton btnDelete = new JButton("Delete");
@@ -175,6 +168,9 @@ public class UserList extends JPanel {
         lblBackground.setOpaque(true);
         lblBackground.setBounds(0, 0, 1376, 768);
         add(lblBackground);
+  
+    
+    
     }
  
     private void printDebugData(JTable table) {
@@ -208,9 +204,6 @@ public class UserList extends JPanel {
         UserList newContentPane = new UserList();
         newContentPane.setOpaque(true); //content panes must be opaque
         frame.setContentPane(newContentPane);
- 
-
-        
         frame.setVisible(true);
     }
  
@@ -220,7 +213,6 @@ public class UserList extends JPanel {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 createAndShowGUI();
-     
 
         }
         });
@@ -234,9 +226,6 @@ public class UserList extends JPanel {
 		
 	}
 
-	public static ActionListener getActionlistener() {
-		return ActionListener;
-	}
 
 	public JButton getBtnAdd() {
 		return btnAdd;

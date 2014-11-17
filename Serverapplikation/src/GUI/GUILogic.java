@@ -27,7 +27,7 @@ public class GUILogic {
 		screen.getMainMenu().addActionListener(new MainMenuActionListener());
 		screen.getUserInfo().addActionListener(new UserInfoActionListener());
 		screen.getNoteList().addActionListener(new NoteListActionListener());
-	//	screen.getUserList().addActionListener(new UserListActionListener());
+		screen.getUserList().addActionListener(new UserListActionListener());
 		screen.getEventlist().addActionListener(new EventListActionListener());
 		screen.getAddEventGUI().addActionListener(new AddEventGUIActionListener());
 		screen.getAddUser().addActionListener(new AddUserActionListener());
