@@ -2,10 +2,14 @@ import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.Socket;
+import java.util.Scanner;
+
+import model.user.encryptionAES;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import JsonClasses.*;
 
+import JsonClasses.*;
 import config.Configurations;
 
 public class TCPClient {
@@ -13,12 +17,24 @@ public class TCPClient {
 		String modifiedSentence;
 		Gson gson = new GsonBuilder().create();
 		CreateCalendar CC = new CreateCalendar();
-		CC.setCalenderName("Din mors kalender2");
-		CC.setPublicOrPrivate(1);
-		CC.setUserName("John");
-		String gsonString = gson.toJson(CC);
-		System.out.println(CC);
+		encryptionAES aes = new encryptionAES();
+		AuthUser authUser = new AuthUser();
+		Scanner userInput = new Scanner(System.in);
+		
+		System.out.println("Indtast brugernavn/mail");
+		String brugernavn = userInput.nextLine();		
+		authUser.setAuthUserEmail(brugernavn);
+		
+		System.out.println("Indtast dit password");
+		String password = aes.encrypt(userInput.nextLine());
+		authUser.setAuthUserEmail(password);
+		String gsonString = gson.toJson(authUser);
+		System.out.println(authUser);
 		System.out.println(gsonString);
+		
+		
+		Configurations cf = new Configurations();
+		
 		
 		Socket clientSocket = new Socket("localhost", 8888);
 		DataOutputStream outToServer = new DataOutputStream(
@@ -28,7 +44,6 @@ public class TCPClient {
 		byte[] encrypted = input;
 		for (int i = 0; i < encrypted.length; i++)
 			encrypted[i] = (byte) (encrypted[i] ^ key);
-
 		outToServer.write(encrypted);
 		outToServer.flush();
 		BufferedReader inFromServer = new BufferedReader(new InputStreamReader(
