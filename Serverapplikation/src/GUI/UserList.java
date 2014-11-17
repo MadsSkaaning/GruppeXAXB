@@ -53,8 +53,8 @@ public class UserList extends JPanel {
                                 "Password"};
  
 
-        	
-        	Object[][] data = new Object[999][5];
+
+        	Object[][] data = new Object[getUserCount()][5];
         
 	
     
@@ -249,6 +249,30 @@ public class UserList extends JPanel {
 
 	public JButton getBtnLogout() {
 		return btnLogout;
+	}
+	
+	public int getUserCount(){
+		
+		int count = 0;
+		
+		QueryBuilder qb2 = new QueryBuilder();
+		try {
+			rs = qb2.selectFrom("users").all().ExecuteQuery();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			while(rs.next()){
+				
+				count++;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return count; 
 	}
 	
 }
