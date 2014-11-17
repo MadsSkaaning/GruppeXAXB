@@ -17,7 +17,7 @@ public class GUILogic {
 	private boolean u;
 	private boolean full = false;
 	
-	AuthUser a = new AuthUser();
+	AuthUser a = new AuthUser();  
 	
 
 	public GUILogic(){

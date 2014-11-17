@@ -45,18 +45,6 @@ public class encryptionAES {
 		                return key;
 		        }
 
-		        // performs encryption & decryption 
-		        public static void main(String[] args) throws Exception 
-		        {
-		        	
-		                String plainText = "1234";
-		                String encryptedText = encrypt(plainText);
-		                String decryptedText = decrypt(encryptedText);
-
-		                System.out.println("Plain Text : " + plainText);
-		                System.out.println("Encrypted Text : " + encryptedText);
-		                System.out.println("Decrypted Text : " + decryptedText);
-		        }
 
 }
 

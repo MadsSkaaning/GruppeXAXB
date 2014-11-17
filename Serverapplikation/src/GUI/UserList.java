@@ -64,11 +64,19 @@ public class UserList extends JPanel {
 			
 	        int count = 0;
 	        while (rs.next()) {
+
 	        	data[count][0] = rs.getString("userid");
 	        	data[count][1] = rs.getString("email");
 	        	data[count][2] = rs.getString("active");
 	        	data[count][3] = rs.getString("created");
 	        	data[count][4] = rs.getString("password");
+
+	        	data[count][0] = rs.getString("Userid");
+	        	data[count][1] = rs.getString("Email");
+	        	data[count][2] = rs.getString("Active");
+	        	data[count][3] = rs.getString("Created datetime");
+	        	data[count][4] = rs.getString("Password");
+
 
 	        	count++;
 	        }
@@ -131,11 +139,11 @@ public class UserList extends JPanel {
         btnLogout.setBounds(642, 688, 152, 44);
         add(btnLogout);
         
-        JButton btnMainMenu = new JButton("Main Menu");
-        btnMainMenu.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent arg0) {
-        	}
-        });
+        btnMainMenu = new JButton("Main Menu");
+//        btnMainMenu.addActionListener(new ActionListener() {
+//        	public void actionPerformed(ActionEvent arg0) {
+//        	}
+//        });
         btnMainMenu.setForeground(Color.WHITE);
         btnMainMenu.setFont(new Font("Arial", Font.BOLD, 30));
         btnMainMenu.setContentAreaFilled(false);
@@ -224,7 +232,7 @@ public class UserList extends JPanel {
     }
     
     public void addActionListener(ActionListener l) {
-//		btnAdd.addActionListener(l);
+		btnAdd.addActionListener(l);
 		btnDelete.addActionListener(l);
 		btnLogout.addActionListener(l);
 		btnMainMenu.addActionListener(l);
