@@ -60,7 +60,7 @@ import model.QueryBuild.QueryBuilder;
 			DropdownList.setBackground(Color.WHITE);
 			DropdownList.setModel(new DefaultComboBoxModel(new String[] {"Hold XA Calendar", "Hold XB Calendar", "Custom Events"}));
 			DropdownList.setForeground(Color.BLACK);
-			DropdownList.setBounds(950, 120, 137, 29);
+			DropdownList.setBounds(924, 120, 216, 53);
 			add(DropdownList);
 
 			JLabel lblEvents = new JLabel("Eventlist");
