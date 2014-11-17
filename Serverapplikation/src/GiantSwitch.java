@@ -1,9 +1,9 @@
 import java.sql.SQLException;
 
-import shared.AuthUser;
 import model.QOTD.QOTDModel;
 import model.calendar.Event;
 import model.note.Note;
+import JsonClasses.AuthUser;
 import JsonClasses.CalendarInfo;
 import JsonClasses.CreateCalender;
 import JsonClasses.DeleteCalender;
@@ -48,7 +48,6 @@ public class GiantSwitch {
 			try {
 				answer = SW.authenticate(AU.getAuthUserEmail(), AU.getAuthUserPassword(), AU.getAuthUserIsAdmin());
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			break;
@@ -177,6 +176,4 @@ public class GiantSwitch {
 		else
 			return "error";
 	}
-	
-
 }

@@ -9,9 +9,7 @@ public class SwitchMethods extends Model
 {
 	QueryBuilder qb = new QueryBuilder();
 	QOTDModel qm = new QOTDModel();
-	
 
-	
 	/**
 	 * Allows the client to create a new calendar
 	 * @param userName
