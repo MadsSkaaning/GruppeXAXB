@@ -27,8 +27,13 @@ import javax.swing.JTextPane;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+
+import model.QueryBuild.QueryBuilder;
 
 
 	public class EventList extends JPanel {
@@ -44,6 +49,7 @@ import javax.swing.DefaultComboBoxModel;
 		private JLabel label;
 		private final JLabel lblBackground = new JLabel("");
 		private JComboBox DropdownList;
+		private ResultSet rs;
 		
 		
 		public EventList() {
@@ -65,15 +71,29 @@ import javax.swing.DefaultComboBoxModel;
 
 			
 			//Laver tabellen inde i Eventlisten.
-			String[] columnNames = { "Event", "Date", "Note", "" };
+			String[] columnNames = { "Event ID","Name", "Start Date", "Note", "Created By" };
 
-			Object[][] data = {
+			Object[][] data = new Object[getEventCount()][5];
+	        
+			
+		    
+	        try {
+				QueryBuilder qb = new QueryBuilder();
+				rs = qb.selectFrom("events").all().ExecuteQuery();
+				
+		        int count = 0;
+		        while (rs.next()) {
+		        	data[count][0] = rs.getString("eventid");
+		        	data[count][1] = rs.getString("name");
+		        	data[count][2] = rs.getString("start");
+		        	data[count][3] = rs.getString("text");
+		        	data[count][4] = rs.getString("createdby");
 
-					{ "D�K Julefrokost", "11.11.2022", "Game on!", new Boolean(false) },
-					{ "D�K Julefrokost", "11.11.2022", "Game on!", new Boolean(true) },
-					{ "D�K Julefrokost", "11.11.2022", "Game on!", new Boolean(false) },
-					{ "D�K Julefrokost", "11.11.2022", "Game on!", new Boolean(true) },
-					{ "D�K Julefrokost", "11.11.2022", "Game on!", new Boolean(false) } };
+		        	count++;
+		        }
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
 
 			final JTable table = new JTable(data, columnNames);
 			table.setSurrendersFocusOnKeystroke(true);
@@ -165,6 +185,30 @@ import javax.swing.DefaultComboBoxModel;
 		public JButton getBtnMainMenu() {
 			return btnMainMenu;
 			
+		}
+		
+		public int getEventCount(){
+			
+			int count = 0;
+			
+			QueryBuilder qb2 = new QueryBuilder();
+			try {
+				rs = qb2.selectFrom("events").all().ExecuteQuery();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			try {
+				while(rs.next()){
+					
+					count++;
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return count; 
 		}
 	}
 
