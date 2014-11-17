@@ -5,14 +5,14 @@
 	import java.awt.Dimension;
 
 	import javax.swing.JLabel;
-	import javax.swing.ImageIcon;
-	import javax.swing.JTable;
-	import javax.swing.JTextField;
+import javax.swing.ImageIcon;
+import javax.swing.JTable;
+import javax.swing.JTextField;
 
 	import java.awt.Font;
 
 	import javax.swing.SwingConstants;
-	import javax.swing.JButton;
+import javax.swing.JButton;
 
 	import java.awt.Color;
 
@@ -21,11 +21,14 @@
 	import java.awt.Component;
 
 	import javax.swing.border.CompoundBorder;
-	import javax.swing.border.BevelBorder;
-	import javax.swing.border.MatteBorder;
-	import javax.swing.JTextPane;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.MatteBorder;
+import javax.swing.JTextPane;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 
 	public class EventList extends JPanel {
@@ -38,23 +41,27 @@ import java.awt.event.ActionEvent;
 		private JButton btnDelete;
 		private JButton btnLogout;
 		private JButton btnMainMenu;
+		private JLabel label;
+		private final JLabel lblBackground = new JLabel("");
+		private JComboBox DropdownList;
 		
 		
 		public EventList() {
 			setSize(new Dimension(1366, 768));
 			setLayout(null);
+			
+			DropdownList = new JComboBox();
+			DropdownList.setBackground(Color.WHITE);
+			DropdownList.setModel(new DefaultComboBoxModel(new String[] {"Hold XA Calendar", "Hold XB Calendar", "Custom Events"}));
+			DropdownList.setForeground(Color.BLACK);
+			DropdownList.setBounds(950, 120, 137, 29);
+			add(DropdownList);
 
 			JLabel lblEvents = new JLabel("Eventlist");
 			lblEvents.setForeground(Color.WHITE);
 			lblEvents.setFont(new Font("Arial", Font.BOLD, 78));
-			lblEvents.setBounds(521, 90, 323, 90);
+			lblEvents.setBounds(514, 83, 368, 90);
 			add(lblEvents);
-
-			JLabel lblUpcomingEvent = new JLabel("Upcomming Events:");
-			lblUpcomingEvent.setFont(new Font("Arial", Font.BOLD, 27));
-			lblUpcomingEvent.setForeground(Color.WHITE);
-			lblUpcomingEvent.setBounds(51, 140, 309, 33);
-			add(lblUpcomingEvent);
 
 			
 			//Laver tabellen inde i Eventlisten.
@@ -62,11 +69,11 @@ import java.awt.event.ActionEvent;
 
 			Object[][] data = {
 
-					{ "DØK Julefrokost", "11.11.2022", "Game on!", new Boolean(false) },
-					{ "DØK Julefrokost", "11.11.2022", "Game on!", new Boolean(true) },
-					{ "DØK Julefrokost", "11.11.2022", "Game on!", new Boolean(false) },
-					{ "DØK Julefrokost", "11.11.2022", "Game on!", new Boolean(true) },
-					{ "DØK Julefrokost", "11.11.2022", "Game on!", new Boolean(false) } };
+					{ "Dï¿½K Julefrokost", "11.11.2022", "Game on!", new Boolean(false) },
+					{ "Dï¿½K Julefrokost", "11.11.2022", "Game on!", new Boolean(true) },
+					{ "Dï¿½K Julefrokost", "11.11.2022", "Game on!", new Boolean(false) },
+					{ "Dï¿½K Julefrokost", "11.11.2022", "Game on!", new Boolean(true) },
+					{ "Dï¿½K Julefrokost", "11.11.2022", "Game on!", new Boolean(false) } };
 
 			final JTable table = new JTable(data, columnNames);
 			table.setSurrendersFocusOnKeystroke(true);
@@ -89,54 +96,63 @@ import java.awt.event.ActionEvent;
 			// Add the scroll pane to this panel.
 			add(scrollPane);
 			
-			JButton btnMainMenu = new JButton("Main Menu");
+			btnDelete = new JButton("Delete");
+			btnDelete.setOpaque(true);
+			btnDelete.setForeground(new Color(0, 0, 205));
+			btnDelete.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
+			btnDelete.setBounds(1222, 227, 118, 29);
+			add(btnDelete);
+			
+			btnAdd = new JButton("Add");
+			btnAdd.setOpaque(true);
+			btnAdd.setForeground(new Color(0, 0, 205));
+			btnAdd.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
+			btnAdd.setBounds(1222, 193, 118, 29);
+			add(btnAdd);
+			
+			btnMainMenu = new JButton("Main Menu");
 			btnMainMenu.setForeground(Color.WHITE);
 			btnMainMenu.setFont(new Font("Arial", Font.BOLD, 30));
 			btnMainMenu.setContentAreaFilled(false);
 			btnMainMenu.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-			btnMainMenu.setBounds(601, 612, 163, 43);
+			btnMainMenu.setBounds(601, 553, 163, 43);
 			add(btnMainMenu);
 			
-			JButton btnLogout = new JButton("Log out");
+			btnLogout = new JButton("Log out");
 			btnLogout.setForeground(Color.WHITE);
 			btnLogout.setFont(new Font("Arial", Font.BOLD, 30));
 			btnLogout.setContentAreaFilled(false);
 			btnLogout.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-			btnLogout.setBounds(624, 667, 117, 43);
+			btnLogout.setBounds(624, 627, 117, 43);
 			add(btnLogout);
-						
-						JButton btnDelete = new JButton("Delete");
-						btnDelete.setOpaque(true);
-						btnDelete.setForeground(new Color(0, 0, 205));
-						btnDelete.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
-						btnDelete.setBounds(988, 194, 118, 29);
-						add(btnDelete);
-						
-						JButton btnAdd = new JButton("Add");
-						btnAdd.setOpaque(true);
-						btnAdd.setForeground(new Color(0, 0, 205));
-						btnAdd.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
-						btnAdd.setBounds(988, 234, 118, 29);
-						add(btnAdd);
 			
-						JLabel label = new JLabel("");
-						label.setIcon(new ImageIcon(EventList.class
-								.getResource("/Images/MetalBackground.jpg")));
-						label.setBounds(-26, -28, 1366, 768);
-						add(label);
+			label = new JLabel("");
+			label.setIcon(new ImageIcon(NoteList.class.getResource("/Images/CBSLogo3.png")));
+			label.setBounds(10, 698, 250, 59);
+			add(label);
+			lblBackground.setIcon(new ImageIcon(NoteList.class.getResource("/Images/MetalBackground.jpg")));
+			lblBackground.setBounds(0, 0, 1366, 768);
+			add(lblBackground);
+	
 
 		}
 		
 		public void addActionListener(ActionListener l) {
-		//	btnAdd.addActionListener(l);
-		//	btnDelete.addActionListener(l);
-		//	btnLogout.addActionListener(l);
-		//	btnMainMenu.addActionListener(l);
+			btnAdd.addActionListener(l);
+			btnDelete.addActionListener(l);
+			btnLogout.addActionListener(l);
+			btnMainMenu.addActionListener(l);
+			DropdownList.addActionListener(l);
 		}
 
 		public JButton getBtnAdd() {
 			return btnAdd;
 		}
+
+		public JComboBox getDropdownList() {
+			return DropdownList;
+		}
+
 
 		public JButton getBtnDelete() {
 			return btnDelete;
@@ -148,8 +164,7 @@ import java.awt.event.ActionEvent;
 
 		public JButton getBtnMainMenu() {
 			return btnMainMenu;
+			
 		}
-		
-		
 	}
 
