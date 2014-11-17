@@ -9,6 +9,8 @@ public class Calendar {
     private String type;
     private String title;
     private String events;
+    private String createdby;
+    private String PrivatePublic;
 
     // Settere og gettere for Event objektet 
 
@@ -39,9 +41,20 @@ public class Calendar {
         return events;
 	}
     
-    
+	public String getCreatedby() {
+		return createdby;
+	}
+	public void setCreatedby(String createdby) {
+		this.createdby = createdby;
+	}
+	public String getPrivatePublic() {
+		return PrivatePublic;
+	}
+	public void setPrivatePublic(String privatepublic) {
+		PrivatePublic = privatepublic;
+	}
 	public Calendar(String calendarid, String type, String title,
-			String events) {
+			String events, String createdby, String privatepublic) {
 		
 		super();
 		this.calendarid = calendarid;
