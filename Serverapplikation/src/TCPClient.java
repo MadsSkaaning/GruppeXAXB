@@ -27,7 +27,7 @@ public class TCPClient {
 		
 		System.out.println("Indtast dit password");
 		String password = aes.encrypt(userInput.nextLine());
-		authUser.setAuthUserEmail(password);
+		authUser.setAuthUserPassword(password);
 		String gsonString = gson.toJson(authUser);
 		System.out.println(authUser);
 		System.out.println(gsonString);
@@ -36,7 +36,7 @@ public class TCPClient {
 		Configurations cf = new Configurations();
 		
 		
-		Socket clientSocket = new Socket("localhost", 8888);
+		Socket clientSocket = new Socket("172.17.143.102", 8888);
 		DataOutputStream outToServer = new DataOutputStream(
 				clientSocket.getOutputStream());
 		byte[] input = gsonString.getBytes();
