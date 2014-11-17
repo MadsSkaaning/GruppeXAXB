@@ -49,7 +49,7 @@ public class encryptionAES {
 		        public static void main(String[] args) throws Exception 
 		        {
 		        	
-		                String plainText = "1234";
+		                String plainText = "philip";
 		                String encryptedText = encrypt(plainText);
 		                String decryptedText = decrypt(encryptedText);
 
