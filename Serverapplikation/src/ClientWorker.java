@@ -45,9 +45,6 @@ public class ClientWorker implements  Runnable{
 			System.out.println("svar sendt");
 			
 			
-			//Den burde nu starte GUI skærmen
-
-			
 			//BufferedWriter writer = new BufferedWriter(arg0)
 		}catch(Exception exception){
 			System.err.print(exception);

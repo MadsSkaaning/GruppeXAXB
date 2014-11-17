@@ -55,6 +55,7 @@ public class AuthenticateUser {
 						return 4; // returnerer fejlkoden "4" hvis brugertype ikke stemmer overens med loginplatform
 					}
 				} else {
+					
 					return 3; // returnerer fejlkoden "3" hvis password ikke matcher
 				}
 			} else {
