@@ -22,6 +22,8 @@ public class Calendars {
 					int type = rs.getInt("type");
 					int title = rs.getInt("title");
 					int events = rs.getInt("events");
+					int createdby = rs.getInt("createdby");
+					int privatepublic = rs.getInt("privatepublic");
 					
 					String nameEvent = rs.getString("name");
 					String text = rs.getString("text");
@@ -30,9 +32,11 @@ public class Calendars {
 					String stringType = String.valueOf(type);
 					String stringtitle = String.valueOf(title);
 					String stringevents = String.valueOf(events);
+					String stringcreatedby = String.valueOf(createdby);
+					String stringprivatepublic = String.valueOf(privatepublic);
 
 					
-					calendars.add(new Calendar(stringCalendarID, stringType, stringtitle,stringevents));				
+					calendars.add(new Calendar(stringCalendarID, stringType, stringtitle,stringevents, stringcreatedby, stringprivatepublic));				
 				}
 				
 			} catch (SQLException e) {
