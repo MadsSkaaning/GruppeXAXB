@@ -129,10 +129,13 @@ public class SwitchMethods extends Model
 	 * @return
 	 * @throws Exception
 	 */
-	public String authenticate(String email, String password, boolean isAdmin) throws Exception {
+	public String authenticate(String email, String password) throws Exception {
 
-		String[] keys = {"userid", "email", "active", "password", "isAdmin"};
+		// Old working string. String[] keys = {"userid", "email", "active", "password", "isAdmin"};
 
+		String[] keys = {"userid", "email", "active", "password"};
+		
+		
 		qb = new QueryBuilder();
 
 		// Henter info om bruger fra database via querybuilder
@@ -154,7 +157,7 @@ public class SwitchMethods extends Model
 					resultSet = qb.selectFrom(key, "roles").where("userid", "=", new Integer(userID).toString()).ExecuteQuery();
 
 					// Hvis brugeren baade logger ind og er registreret som admin, eller hvis brugeren baade logger ind og er registreret som bruger
-					if((resultSet.getString("type").equals("admin") && isAdmin) || (resultSet.getString("type").equals("user") && !isAdmin))
+					if((resultSet.getString("type").equals("admin")) || (resultSet.getString("type").equals("user")))
 					{
 						return "0"; // returnerer "0" hvis bruger/admin er godkendt
 					} else {

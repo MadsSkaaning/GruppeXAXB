@@ -19,7 +19,8 @@ public class AuthenticateUser {
 	 * @return
 	 * @throws Exception
 	 */
-	public int authenticate(String email, String password, boolean isAdmin) throws Exception {
+		
+		public int authenticate(String email, String password, boolean isAdmin) throws Exception {
 
 		String[] keys = {"userid", "email", "active", "password"};
 
@@ -46,7 +47,10 @@ public class AuthenticateUser {
 					// Hvis brugeren baade logger ind og er registreret som admin, eller hvis brugeren baade logger ind og er registreret som bruger
 					if((resultSet.getString("type").equals("admin") && isAdmin) || (resultSet.getString("type").equals("user") && !isAdmin))
 					{
+						System.out.println("pik og patter");
+
 						return 0; // returnerer "0" hvis bruger/admin er godkendt
+						
 					} else {
 						return 4; // returnerer fejlkoden "4" hvis brugertype ikke stemmer overens med loginplatform
 					}

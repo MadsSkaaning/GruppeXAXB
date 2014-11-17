@@ -1,27 +1,24 @@
 CREATE DATABASE IF NOT EXISTS cbscalendar;
 use cbscalendar;
-SET SESSION FOREIGN_KEY_CHECKS=0;
 
 /* Create Tables */
 
 CREATE TABLE IF NOT EXISTS Calendar
 (
-	CalendarID int NOT NULL AUTO_INCREMENT,
+	calendarid int NOT NULL AUTO_INCREMENT,
 	Name varchar(255) NOT NULL,
-	Active tinyint,
-	CreatedBy varchar(255) NOT NULL,
-	-- 1 = public
-	-- 2 = private
-	PrivatePublic tinyint NOT NULL COMMENT '1 = public
+	active tinyint,
+	createdby varchar(255) NOT NULL,
+	privatepublic tinyint NOT NULL COMMENT '1 = public
 	2 = private',
-	PRIMARY KEY (CalendarID)
+	PRIMARY KEY (calendarid)
 );
 
 
 CREATE TABLE IF NOT EXISTS dailyupdate
 (
 	date datetime NOT NULL UNIQUE,
-	apparentTemperature double,
+	apparenttemperature double,
 	summary text,
 	qotd varchar(300) NOT NULL,
 	msg_type varchar (100) NOT NULL,
@@ -44,7 +41,7 @@ CREATE TABLE IF NOT EXISTS events
 	-- 
 	customevent boolean COMMENT 'Decides wether the event is an import-event or user created
 ',
-	CalendarID int NOT NULL,
+	calendarid int NOT NULL,
 	PRIMARY KEY (eventid)
 );
 
@@ -60,9 +57,9 @@ CREATE TABLE IF NOT EXISTS locationdata
 
 CREATE TABLE IF NOT EXISTS notes
 (
-	noteId int NOT NULL AUTO_INCREMENT,
-	eventId int NOT NULL,
-	createdBy varchar(255) NOT NULL,
+	noteby int NOT NULL AUTO_INCREMENT,
+	eventid int NOT NULL,
+	createdby varchar(255) NOT NULL,
 	text text,
 	dateTime datetime NOT NULL,
 	active bit,
@@ -83,7 +80,7 @@ CREATE TABLE IF NOT EXISTS roles
 CREATE TABLE IF NOT EXISTS userevents
 (
 	userid int NOT NULL,
-	CalendarID int NOT NULL
+	calendarid int NOT NULL
 );
 
 
@@ -94,7 +91,6 @@ CREATE TABLE IF NOT EXISTS users
 	active boolean,
 	created datetime NOT NULL,
 	password varchar(200) NOT NULL,
-	isAdmin boolean NOT NULL,
 	PRIMARY KEY (userid)
 );
 
@@ -103,26 +99,27 @@ CREATE TABLE IF NOT EXISTS users
 INSERT INTO `cbscalendar`.`users`
 (`email`,
 `active`,
+`created`,
 `password`)
 VALUES
-("admin@admin.dk",
+("admin",
 true,
-"d6YSr320JnLXlp8YYxUcNQ==");
-
+"2014-10-10 00:00:00",
+"2OkRtrxUND6zSG0HaT0AXQ==");
 
 
 /* Create Foreign Keys */
 
 ALTER TABLE events
-	ADD FOREIGN KEY (CalendarID)
-	REFERENCES Calendar (CalendarID)
+	ADD FOREIGN KEY (calendarid)
+	REFERENCES calendar (calendarid)
 	ON UPDATE RESTRICT
 ;
 
 
 ALTER TABLE userevents
-	ADD FOREIGN KEY (CalendarID)
-	REFERENCES Calendar (CalendarID)
+	ADD FOREIGN KEY (calendarid)
+	REFERENCES Calendar (calendarid)
 	ON UPDATE RESTRICT
 ;
 
