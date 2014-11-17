@@ -142,7 +142,7 @@ public class UserInfo extends JPanel {
 				btnMainMenu.setFont(new Font("Arial", Font.BOLD, 30));
 				btnMainMenu.setContentAreaFilled(false);
 				btnMainMenu.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-				btnMainMenu.setBounds(601, 557, 163, 43);
+				btnMainMenu.setBounds(563, 557, 239, 59);
 				add(btnMainMenu);
 				
 				lblUserInfo = new JLabel("User Info");
