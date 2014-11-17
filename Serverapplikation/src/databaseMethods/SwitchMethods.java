@@ -56,7 +56,7 @@ public class SwitchMethods extends Model
 	{
 		String [] keys = {"Name","active","CreatedBy","PrivatePublic"};
 		String [] values = {newCalenderName,"1",userName, Integer.toString(publicOrPrivate)};
-		qb.update("calendar", keys, values).all().Execute();
+		qb.insertInto("calendar", keys).values(values).Execute();
 		
 //		doUpdate("insert into test.calender (Name, Active, CreatedBy, PrivatePublic) VALUES ('"+newCalenderName+"', '1', '"+userName+"', '"+publicOrPrivate+"');");
 	}

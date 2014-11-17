@@ -4,6 +4,8 @@ import java.io.DataOutputStream;
 import java.net.Socket;
 
 
+//Når serveren starter - kører denne klasse.
+
 public class ClientWorker implements  Runnable{
 	private Socket connectionSocketConected;
 	private CalendarInfo CI = new CalendarInfo();

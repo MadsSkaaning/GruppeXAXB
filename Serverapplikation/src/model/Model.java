@@ -1,7 +1,4 @@
 package model;
-
-
-
 import com.ibatis.common.jdbc.ScriptRunner;
 import com.sun.org.apache.xml.internal.serializer.ToStream;
 
@@ -11,7 +8,6 @@ import java.io.*;
 import java.sql.*;
 
 import org.apache.commons.io.input.ReaderInputStream;
-
 
 /**
  * model.Model superclass, never instansiated. All child model classes inherits its properties, classes and methods */
