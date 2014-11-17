@@ -3,6 +3,8 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.Socket;
 
+import GUI.GUILogic;
+
 
 //Når serveren starter - kører denne klasse.
 
@@ -41,6 +43,11 @@ public class ClientWorker implements  Runnable{
 			//Sends the capitalized message back to client!!
 			outToClient.writeBytes(returnSvar + "\n");
 			System.out.println("svar sendt");
+			
+			
+			//Den burde nu starte GUI skærmen
+
+			
 			//BufferedWriter writer = new BufferedWriter(arg0)
 		}catch(Exception exception){
 			System.err.print(exception);
