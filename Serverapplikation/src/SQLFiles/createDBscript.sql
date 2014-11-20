@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS locationdata
 
 CREATE TABLE IF NOT EXISTS notes
 (
-	noteby int NOT NULL AUTO_INCREMENT,
+	noteid int NOT NULL AUTO_INCREMENT,
 	eventid int NOT NULL,
 	createdby varchar(255) NOT NULL,
 	text text,
