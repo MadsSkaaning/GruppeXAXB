@@ -78,6 +78,7 @@ public class AddUser extends JPanel {
 		textField_Password.setForeground(new Color(105, 105, 105));
 		textField_Password.setColumns(10);
 		textField_Password.setBounds(755, 305, 120, 34);
+		textField_Email.hashCode();
 		add(textField_Password);
 
 		JLabel lblTeam = new JLabel("Password");

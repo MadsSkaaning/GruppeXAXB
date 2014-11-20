@@ -1,7 +1,11 @@
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.InputStreamReader;
 import java.net.Socket;
+
+import com.sun.imageio.plugins.common.InputStreamAdapter;
 
 import GUI.GUILogic;
 
@@ -21,18 +25,22 @@ public class ClientWorker implements  Runnable{
 	
 	public void run(){
 		try{
-			System.out.println("forbindelse Oprettet!");
+			System.out.println("Client " + connectionSocketConected.getInetAddress() + " connected!");
 			//BufferedReader inFromClient = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
 			byte[] b = new byte[500000];
 			int count = connectionSocketConected.getInputStream().read(b);
 			ByteArrayInputStream bais = new ByteArrayInputStream(b);
-			DataInputStream inFromClient = new DataInputStream(connectionSocketConected.getInputStream());		
+			
+			//DataInputStream inFromClient = new DataInputStream(connectionSocketConected.getInputStream());
+			
+			BufferedReader inFromClient = new BufferedReader(new InputStreamReader(connectionSocketConected.getInputStream()));
+			
 			//Creates an object of the data which is to be send back to the client, via the connectionSocket
 			DataOutputStream outToClient = new DataOutputStream(connectionSocketConected.getOutputStream());
 			System.out.println("Outtoclient oprettet!");
 			//Sets client sentence equals input from client
 			//incomingJson = inFromClient.readLine();			
-			
+		
 			String ny = cryp.decrypt(b);
 			
 			//cryp.StringEncryption(inFromClient.readLine());
