@@ -107,24 +107,21 @@ public class UserList extends JPanel {
         add(scrollPane);
         
         btnAdd = new JButton("Add");
+        btnAdd.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        	}
+        });
         btnAdd.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
         btnAdd.setForeground(new Color(0, 0, 205));
         btnAdd.setOpaque(true);
-        btnAdd.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent arg0) {
-
-          String firstName = JOptionPane.showInputDialog(null, "UserID", null);
-          String lastName = JOptionPane.showInputDialog(null, "Email", null);
-          String eMail = JOptionPane.showInputDialog(null, "Date", null);
-          String password = JOptionPane.showInputDialog(null, "Write your password", null);
-          
-        	}
-        });
-        
         btnAdd.setBounds(1019, 556, 118, 29);
         add(btnAdd);
         
         btnLogout = new JButton("Log out");
+        btnLogout.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        	}
+        });
         btnLogout.setForeground(Color.WHITE);
         btnLogout.setFont(new Font("Arial", Font.BOLD, 30));
         btnLogout.setContentAreaFilled(false);
@@ -133,6 +130,10 @@ public class UserList extends JPanel {
         add(btnLogout);
         
         btnMainMenu = new JButton("Main Menu");
+        btnMainMenu.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        	}
+        });
         btnMainMenu.setForeground(Color.WHITE);
         btnMainMenu.setFont(new Font("Arial", Font.BOLD, 30));
         btnMainMenu.setContentAreaFilled(false);
@@ -167,8 +168,6 @@ public class UserList extends JPanel {
         lblBackground.setBounds(0, 0, 1376, 768);
         add(lblBackground);
   
-    
-    
     }
  
     private void printDebugData(JTable table) {
@@ -223,7 +222,6 @@ public class UserList extends JPanel {
 		btnMainMenu.addActionListener(l);
 		
 	}
-
 
 	public JButton getBtnAdd() {
 		return btnAdd;

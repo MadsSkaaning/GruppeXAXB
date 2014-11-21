@@ -14,6 +14,20 @@ import config.Configurations;
 
 public class TCPClient {
 	public static void main(String[] args) throws Exception {
+		
+		// 1: Connect til server
+		/*
+		Socket clientSocket = new Socket("localhost", 8888);
+		DataOutputStream outToServer = new DataOutputStream(
+				clientSocket.getOutputStream());
+		
+		// 2: Authenticate user
+		// Spørg om brugernavn + password pa den ene eller anden måde
+		// User user = new User(brugernavn, password);
+		outToServer.write("login", "", "");
+		outToServer.
+		*/
+		
 		String modifiedSentence;
 		Gson gson = new GsonBuilder().create();
 		CreateCalendar CC = new CreateCalendar();
@@ -35,12 +49,14 @@ public class TCPClient {
 		
 		Configurations cf = new Configurations();
 		
+		cf.getFfcryptkey();
 		
+		//cf.getHost, cf.getPort
 		Socket clientSocket = new Socket("localhost", 8888);
 		DataOutputStream outToServer = new DataOutputStream(
 				clientSocket.getOutputStream());
 		byte[] input = gsonString.getBytes();
-		byte key = (byte) 3.1470;
+		byte key = (byte) Double.parseDouble(cf.getFfcryptkey());
 		byte[] encrypted = input;
 		for (int i = 0; i < encrypted.length; i++)
 			encrypted[i] = (byte) (encrypted[i] ^ key);

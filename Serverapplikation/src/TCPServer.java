@@ -10,7 +10,7 @@ class TCPServer{
 
 		//Creates a socket to send and recieve messages in port 8888
 		ServerSocket welcomeSocket = new ServerSocket(8888);
-		
+		System.out.println("Server listens on port 8888");
 		//While something is true
 		while(true){
 			//Creates a socket and a buffered reader which recieves some sort of input from somewhere around the internet!

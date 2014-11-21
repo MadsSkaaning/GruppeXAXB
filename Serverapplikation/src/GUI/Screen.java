@@ -58,12 +58,12 @@ public class Screen extends JFrame {
 		this.setContentPane(contentPane);
 		contentPane.setLayout(new CardLayout(0, 0));
 		
-		contentPane.add(addUser, "name_10334207821613");
-		
 		addEventGUI = new AddEventGUI();
 		contentPane.add(addEventGUI, "name_6308445225625");
 		login.getBtnLogIn().setContentAreaFilled(false);
 		login.getBtnForgotLogIn().setContentAreaFilled(false);
+		
+		contentPane.add(addUser, "name_10334207821613");
 		
 		contentPane.add(login, "name_276091497157488");
 		

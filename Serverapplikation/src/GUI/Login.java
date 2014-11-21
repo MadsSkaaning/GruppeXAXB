@@ -71,7 +71,9 @@ public class Login extends JPanel {
 		btnLogIn.setBackground(Color.WHITE);
 		btnLogIn.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
 		btnLogIn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
+			public void actionPerformed(ActionEvent arg0){
+				textFieldUsername.setText("");
+				textFieldPassword.setText("");
 			}
 		});
 		textFieldUsername.setOpaque(false);
@@ -99,8 +101,8 @@ public class Login extends JPanel {
 		add(btnForgotLogIn);
 		lblCBSlogo.setIcon(new ImageIcon(Login.class.getResource("/Images/CBSLogo3.png")));
 		lblCBSlogo.setBounds(10, 698, 250, 59);
-		
 		add(lblCBSlogo);
+		
 		setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		textFieldPassword.setOpaque(false);
 		textFieldPassword.setHorizontalAlignment(SwingConstants.CENTER);

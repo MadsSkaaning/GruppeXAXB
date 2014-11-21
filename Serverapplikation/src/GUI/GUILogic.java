@@ -134,6 +134,7 @@ public class GUILogic {
 			if (e.getSource() == screen.getAddUser().getBtnMainMenu()){
 				screen.show(Screen.MAINMENU);
 			}
+	
 			if (e.getSource() == screen.getAddUser().getBtnSubmit()){
 				String Email = screen.getAddUser().getTextField_Email().getText();
 				String Type = screen.getAddUser().getTextField_Type().getText();
@@ -201,7 +202,7 @@ public class GUILogic {
 				screen.show(Screen.LOGIN);
 			}
 			if (e.getSource() == screen.getUserList().getBtnAdd()){
-			
+				screen.show(Screen.ADDUSER);
 			}
 			if (e.getSource() == screen.getUserList().getBtnDelete()){
 				
