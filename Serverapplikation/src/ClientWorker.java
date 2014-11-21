@@ -3,6 +3,10 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.net.Socket;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import config.Configurations;
 import GUI.GUILogic;
 
 
@@ -14,6 +18,9 @@ public class ClientWorker implements  Runnable{
 	private GiantSwitch GS = new GiantSwitch();
 	private encryption cryp = new encryption();
 	private String incomingJson;
+	private Configurations cf = new Configurations();
+	
+	Gson gson = new GsonBuilder().create();
 	
 	ClientWorker(Socket connectionSocket){
 		this.connectionSocketConected = connectionSocket;
@@ -33,19 +40,28 @@ public class ClientWorker implements  Runnable{
 			//Sets client sentence equals input from client
 			//incomingJson = inFromClient.readLine();			
 			
-			String ny = cryp.decrypt(b);
+			String ny = cryp.decrypt(b) +"DETTE ER NY STRENG" ;
 			
-			//cryp.StringEncryption(inFromClient.readLine());
+			
 			System.out.println("Besked modtaget!");
-			//Sysout recieved message
+			
 			System.out.println("Received: " + ny);
-			String returnSvar = GS.GiantSwitchMethod(ny);		
-			//Sends the capitalized message back to client!!
-			outToClient.writeBytes(returnSvar + "\n");
-			System.out.println("svar sendt");
+			
+			String stringKey = cf.getFfcryptkey();
+			
+			double doubleKey = Double.parseDouble(stringKey);
+			
+			byte key = (byte) doubleKey;
+
+			byte[] encrypted = ny.getBytes();
+
+			for (int i=0; i<encrypted.length; i++) encrypted[i] = (byte) (encrypted[i] ^ key);		
+			
+			outToClient.write(encrypted);
+			
+			System.out.println("svar sendt" + encrypted);
 			
 			
-			//BufferedWriter writer = new BufferedWriter(arg0)
 		}catch(Exception exception){
 			System.err.print(exception);
 		}
