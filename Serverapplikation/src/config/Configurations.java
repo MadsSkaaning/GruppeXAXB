@@ -25,8 +25,12 @@ public class Configurations {
     private String weather_lon;
     private String weather_future_in_days;
 
-    public String getHost() {
+    public Configurations() {
+    	
     	ReadFile();
+    }
+    
+    public String getHost() {
         return host;
     }
 
@@ -36,7 +40,6 @@ public class Configurations {
     }
 
     public String getPort() {
-    	ReadFile();
         return port;
     }
 
@@ -46,7 +49,6 @@ public class Configurations {
 
     public String getUsername() {
     	
-    	ReadFile();
         return username;
     }
 
@@ -55,7 +57,6 @@ public class Configurations {
     }
 
     public String getPassword() {
-    	ReadFile();
         return password;
     }
 
@@ -64,7 +65,6 @@ public class Configurations {
     }
 
     public String getDbname() {
-    	ReadFile();
         return dbname;
     }
 
@@ -73,7 +73,6 @@ public class Configurations {
     }
 
     public String getFfcryptkey() {
-    	ReadFile();
         return ffcryptkey;
     }
 
@@ -85,7 +84,6 @@ public class Configurations {
 // Weather settrs and getters.
 
     public String getWeather_expiration_time() {
-    	ReadFile();
         return weather_expiration_time;
     }
 
@@ -95,7 +93,6 @@ public class Configurations {
 
 
     public String getWeather_lat() {
-    	ReadFile();
         return weather_lat;
     }
 
@@ -105,7 +102,6 @@ public class Configurations {
 
 
     public String getWeather_lon() {
-    	ReadFile();
         return weather_lon;
     }
 
@@ -114,7 +110,6 @@ public class Configurations {
     }
 
     public String getWeather_future_in_days() {
-    	ReadFile();
         return weather_future_in_days;
     }
 
