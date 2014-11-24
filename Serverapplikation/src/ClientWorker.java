@@ -47,13 +47,17 @@ public class ClientWorker implements  Runnable{
 			
 			System.out.println("Received: " + ny);
 			
+			String jsonNy = gson.toJson(ny);
+			
+			
+			
 			String stringKey = cf.getFfcryptkey();
 			
 			double doubleKey = Double.parseDouble(stringKey);
 			
 			byte key = (byte) doubleKey;
 
-			byte[] encrypted = ny.getBytes();
+			byte[] encrypted = jsonNy.getBytes();
 
 			for (int i=0; i<encrypted.length; i++) encrypted[i] = (byte) (encrypted[i] ^ key);		
 			
