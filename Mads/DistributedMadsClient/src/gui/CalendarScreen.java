@@ -3,7 +3,6 @@ package gui;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import gui.AdminAddUser.Eventhandler;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;

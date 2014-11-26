@@ -3,7 +3,6 @@
  */
 package logic;
 
-import gui.AdminScreen;
 import gui.CustomerScreen;
 import gui.LoginScreen;
 
@@ -53,10 +52,7 @@ public final class LoginVerificationLogic implements ActionListener {
 			//	if(User.currentUser.equals("id")){
 
 					
-					AdminScreen adminscreen = new AdminScreen();
-					this.loginScreen.setVisible(false);
-					adminscreen.run();
-
+System.out.println("lololol");
 
 				}else{						
 
