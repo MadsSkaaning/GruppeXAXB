@@ -29,6 +29,9 @@ public class ClientWorker implements  Runnable{
 	public void run(){
 		try{
 			System.out.println("forbindelse Oprettet!");
+			
+			//Gets ip adress and displays it to server
+			System.out.println("Client " + connectionSocketConected.getInetAddress() + " connected!");
 			//BufferedReader inFromClient = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
 			byte[] b = new byte[500000];
 			int count = connectionSocketConected.getInputStream().read(b);
@@ -40,13 +43,10 @@ public class ClientWorker implements  Runnable{
 			//Sets client sentence equals input from client
 			//incomingJson = inFromClient.readLine();			
 			
+			
 			String ny = cryp.decrypt(b) +"DETTE ER NY STRENG" ;
-			
-			
 			System.out.println("Besked modtaget!");
-			
 			System.out.println("Received: " + ny);
-			
 			String jsonNy = gson.toJson(ny);
 			
 			

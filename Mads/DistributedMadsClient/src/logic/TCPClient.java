@@ -1,4 +1,6 @@
 package logic;
+import gui.LoginScreen;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
@@ -53,10 +55,7 @@ public class TCPClient {
 		System.out.println(authUser);
 		System.out.println(gsonString);
 				
-		//cf.getHost, cf.getPort
-		
-		cf.getServerhost();
-		
+		//cf.getHost, cf.getPort		
 		
 		Socket clientSocket = new Socket("localhost", Integer.parseInt(cf.getServerhost()));
 		DataOutputStream outToServer = new DataOutputStream(
@@ -73,6 +72,8 @@ public class TCPClient {
 		BufferedReader inFromServer = new BufferedReader(new InputStreamReader(
 				clientSocket.getInputStream()));
 		modifiedSentence = inFromServer.readLine();
+		
+		
 		System.out.println(modifiedSentence);
 		System.out.println("FROM SERVER: " + modifiedSentence);
 		clientSocket.close();

@@ -1,16 +1,25 @@
 import java.io.*;
 import java.net.*;
+
 import JsonClasses.CalendarInfo;
 
 import com.google.gson.stream.JsonReader;
+import com.mysql.jdbc.Connection;
+
+import config.Configurations;
 
 class TCPServer{    
 	
 	public static void main(String argv[]) throws Exception       {
 
 		//Creates a socket to send and recieve messages in port 8888
+		
+		Configurations cf = new Configurations();
+		
 		ServerSocket welcomeSocket = new ServerSocket(8888);
 		System.out.println("Server listens on port 8888");
+		
+		
 		//While something is true
 		while(true){
 			//Creates a socket and a buffered reader which recieves some sort of input from somewhere around the internet!
