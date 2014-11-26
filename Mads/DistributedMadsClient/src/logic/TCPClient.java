@@ -29,6 +29,9 @@ public class TCPClient {
 		outToServer.
 		*/
 		
+		Configurations cf = new Configurations();
+
+		
 		String modifiedSentence;
 		Gson gson = new GsonBuilder().create();
 		CreateCalendar CC = new CreateCalendar();
@@ -42,21 +45,20 @@ public class TCPClient {
 		
 		System.out.println("Indtast dit password");
 		String password = aes.encrypt(userInput.nextLine());
+
+		System.out.println(cf.getServerhost());
+		
 		authUser.setAuthUserPassword(password);
 		String gsonString = gson.toJson(authUser);
 		System.out.println(authUser);
 		System.out.println(gsonString);
-		
-		
-		Configurations cf = new Configurations();
-		
-		cf.getFfcryptkey();
-		
+				
 		//cf.getHost, cf.getPort
 		
+		cf.getServerhost();
 		
 		
-		Socket clientSocket = new Socket("localhost", 8888);
+		Socket clientSocket = new Socket("localhost", Integer.parseInt(cf.getServerhost()));
 		DataOutputStream outToServer = new DataOutputStream(
 				clientSocket.getOutputStream());
 		byte[] input = gsonString.getBytes();

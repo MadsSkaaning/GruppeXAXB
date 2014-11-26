@@ -15,10 +15,8 @@ public class Configurations {
     private String username;
     private String dbname;
     private String password;
-    
-    
-
-  
+    private String serverhost;
+   
    
    
     // FFkey is used in Encryption.java
@@ -29,6 +27,16 @@ public class Configurations {
     	ReadFile();
     }
     
+
+	public String getServerhost() {
+		return serverhost;
+	}
+
+
+	public void setServerhost(String serverhost) {
+		this.serverhost = serverhost;
+	}
+
 
 	public String getHost() {
         return host;
@@ -104,10 +112,8 @@ public class Configurations {
             setFfcryptkey((String) jsonObject.get("ffcryptkey"));
             
             // Getting json values for server host
+            setServerhost((String) jsonObject.get("serverhost"));
             
-            
-            
-
 
         } catch (ParseException ex) {
             ex.printStackTrace();

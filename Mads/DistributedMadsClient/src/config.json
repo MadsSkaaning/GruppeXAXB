@@ -9,6 +9,6 @@
 	"weather_lon": "12.529092",
 	"weather_future_in_days": "14",
 	"dbname": "cbscalendar",
-	"socketport": "8888"
+	"serverhost": "8888"
 }
 
