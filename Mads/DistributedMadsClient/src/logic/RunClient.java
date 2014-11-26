@@ -16,14 +16,14 @@ public class RunClient {
 	 *
 	 * @param args the arguments
 	 */
-	public static void main (String [] args){
-
-		LoginScreen entry; 
-		entry = new LoginScreen(); 
-
-		entry.run(); 
-
-	} 
+//	public static void main (String [] args){
+//
+//		LoginScreen entry; 
+//		entry = new LoginScreen(); 
+//
+//		entry.run(); 
+//
+//	} 
 
 }
 

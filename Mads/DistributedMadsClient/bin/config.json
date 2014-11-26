@@ -8,12 +8,7 @@
 	"weather_lat": "55.681589",
 	"weather_lon": "12.529092",
 	"weather_future_in_days": "14",
-	"dbname": "cbscalendar"
-	"menutext1": "Calendar",
-	"menutext2": "Events",
-	"menutext3": "Profile",
-	"menutext4": "Extra",
-	"menutext5": "...",
-	"menutext6": "..."
+	"dbname": "cbscalendar",
+	"socketport": "8888"
 }
 
