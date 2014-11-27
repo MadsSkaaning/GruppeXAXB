@@ -36,7 +36,6 @@ public class Login extends JPanel {
 	private final JButton btnLogIn = new JButton("");
 	private final JButton btnForgotLogIn = new JButton("Enter username and password.");
 	private final JTextField textFieldUsername = new JTextField();
-	private final JLabel lblCBSlogo = new JLabel("");
 	private final JLabel lblBackground = new JLabel("");
 	private final JPasswordField textFieldPassword = new JPasswordField();
 	
@@ -53,17 +52,17 @@ public class Login extends JPanel {
 		lblWelcome.setCursor(Cursor.getPredefinedCursor(Cursor.N_RESIZE_CURSOR));
 		lblWelcome.setForeground(new Color(255, 255, 255));
 		lblWelcome.setFont(new Font("Arial", Font.BOLD, 78));
-		lblWelcome.setBounds(510, 90, 346, 107);
+		lblWelcome.setBounds(358, 136, 346, 107);
 		
 		add(lblWelcome);
 		lblUsername.setForeground(new Color(255, 255, 255));
 		lblUsername.setFont(new Font("Arial", Font.BOLD, 26));
-		lblUsername.setBounds(499, 335, 125, 30);
+		lblUsername.setBounds(347, 334, 125, 30);
 		
 		add(lblUsername);
 		lblPassword.setForeground(new Color(255, 255, 255));
 		lblPassword.setFont(new Font("Arial", Font.BOLD, 26));
-		lblPassword.setBounds(499, 378, 123, 30);
+		lblPassword.setBounds(347, 377, 123, 30);
 		
 		add(lblPassword);
 		btnLogIn.setIcon(new ImageIcon(Login.class.getResource("/Images/Login-Button.png")));
@@ -84,10 +83,10 @@ public class Login extends JPanel {
 		textFieldUsername.setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		textFieldUsername.setColumns(10);
 		textFieldUsername.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255)));
-		textFieldUsername.setBounds(705, 334, 164, 37);
+		textFieldUsername.setBounds(553, 333, 164, 37);
 		
 		add(textFieldUsername);
-		btnLogIn.setBounds(703, 445, 153, 41);
+		btnLogIn.setBounds(551, 444, 153, 41);
 		
 		add(btnLogIn);
 		btnForgotLogIn.setFont(new Font("Tahoma", Font.ITALIC, 12));
@@ -100,24 +99,21 @@ public class Login extends JPanel {
 		btnForgotLogIn.setContentAreaFilled(false);
 		btnForgotLogIn.setForeground(new Color(255, 255, 255));
 		btnForgotLogIn.setBorderPainted(false);
-		btnForgotLogIn.setBounds(467, 245, 403, 41);
+		btnForgotLogIn.setBounds(315, 244, 403, 41);
 		
 		add(btnForgotLogIn);
-		lblCBSlogo.setIcon(new ImageIcon(Login.class.getResource("/Images/CBSLogo3.png")));
-		lblCBSlogo.setBounds(10, 698, 250, 59);
-		add(lblCBSlogo);
 		
 		setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		textFieldPassword.setOpaque(false);
 		textFieldPassword.setHorizontalAlignment(SwingConstants.CENTER);
 		textFieldPassword.setColumns(10);
 		textFieldPassword.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255)));
-		textFieldPassword.setBounds(705, 372, 164, 37);
+		textFieldPassword.setBounds(553, 371, 164, 37);
 		
 		add(textFieldPassword);
 		lblBackground.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBackground.setIcon(new ImageIcon(Login.class.getResource("/Images/MetalBackground.jpg")));
-		lblBackground.setSize(new Dimension(1366, 768));
+		lblBackground.setSize(new Dimension(1024, 768));
 		lblBackground.setBounds(0, 0, 1024, 768);
 		
 		add(lblBackground);

@@ -46,27 +46,26 @@ import model.QueryBuild.QueryBuilder;
 		private JButton btnDelete;
 		private JButton btnLogout;
 		private JButton btnMainMenu;
-		private JLabel label;
 		private final JLabel lblBackground = new JLabel("");
 		private JComboBox DropdownList;
 		private ResultSet rs;
 		
 		
 		public EventList() {
-			setSize(new Dimension(1366, 768));
+			setSize(new Dimension(1024, 768));
 			setLayout(null);
 			
 			DropdownList = new JComboBox();
 			DropdownList.setBackground(Color.WHITE);
 			DropdownList.setModel(new DefaultComboBoxModel(new String[] {"Hold XA Calendar", "Hold XB Calendar", "Custom Events"}));
 			DropdownList.setForeground(Color.BLACK);
-			DropdownList.setBounds(924, 120, 216, 53);
+			DropdownList.setBounds(727, 160, 216, 53);
 			add(DropdownList);
 
 			JLabel lblEvents = new JLabel("Eventlist");
 			lblEvents.setForeground(Color.WHITE);
 			lblEvents.setFont(new Font("Arial", Font.BOLD, 78));
-			lblEvents.setBounds(514, 83, 368, 90);
+			lblEvents.setBounds(365, 138, 368, 90);
 			add(lblEvents);
 
 			
@@ -111,7 +110,7 @@ import model.QueryBuild.QueryBuilder;
 					BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255,
 							255), new Color(0, 0, 205), new Color(255, 255, 255)),
 					null));
-			scrollPane.setBounds(387, 194, 591, 361);
+			scrollPane.setBounds(238, 249, 591, 361);
 
 			// Add the scroll pane to this panel.
 			add(scrollPane);
@@ -120,38 +119,35 @@ import model.QueryBuild.QueryBuilder;
 			btnDelete.setOpaque(true);
 			btnDelete.setForeground(new Color(0, 0, 205));
 			btnDelete.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
-			btnDelete.setBounds(1222, 227, 118, 29);
+			btnDelete.setBounds(856, 377, 118, 29);
 			add(btnDelete);
 			
 			btnAdd = new JButton("Add");
 			btnAdd.setOpaque(true);
 			btnAdd.setForeground(new Color(0, 0, 205));
 			btnAdd.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
-			btnAdd.setBounds(1222, 193, 118, 29);
+			btnAdd.setBounds(856, 343, 118, 29);
 			add(btnAdd);
 			
-			btnMainMenu = new JButton("Main Menu");
+			btnMainMenu = new JButton("");
+			btnMainMenu.setIcon(new ImageIcon(EventList.class.getResource("/Images/homebtn.png")));
 			btnMainMenu.setForeground(Color.WHITE);
 			btnMainMenu.setFont(new Font("Arial", Font.BOLD, 30));
 			btnMainMenu.setContentAreaFilled(false);
-			btnMainMenu.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-			btnMainMenu.setBounds(601, 553, 163, 43);
+			btnMainMenu.setBorder(null);
+			btnMainMenu.setBounds(10, 11, 153, 41);
 			add(btnMainMenu);
 			
-			btnLogout = new JButton("Log out");
+			btnLogout = new JButton("");
+			btnLogout.setIcon(new ImageIcon(EventList.class.getResource("/Images/Logout.png")));
 			btnLogout.setForeground(Color.WHITE);
 			btnLogout.setFont(new Font("Arial", Font.BOLD, 30));
 			btnLogout.setContentAreaFilled(false);
-			btnLogout.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-			btnLogout.setBounds(624, 627, 117, 43);
+			btnLogout.setBorder(null);
+			btnLogout.setBounds(10, 63, 153, 41);
 			add(btnLogout);
-			
-			label = new JLabel("");
-			label.setIcon(new ImageIcon(NoteList.class.getResource("/Images/CBSLogo3.png")));
-			label.setBounds(10, 698, 250, 59);
-			add(label);
 			lblBackground.setIcon(new ImageIcon(NoteList.class.getResource("/Images/MetalBackground.jpg")));
-			lblBackground.setBounds(0, 0, 1366, 768);
+			lblBackground.setBounds(0, 0, 1024, 768);
 			add(lblBackground);
 	
 

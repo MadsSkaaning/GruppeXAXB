@@ -98,7 +98,7 @@ public class UserList extends JPanel {
         scrollPane.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255, 255), new Color(0, 0, 205), new Color(255, 255, 255)), new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 255, 255))));
         scrollPane.setViewportBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255, 255), new Color(0, 0, 205), new Color(255, 255, 255)), null));
 
-        scrollPane.setBounds(417, 225, 590, 360);
+        scrollPane.setBounds(333, 217, 590, 360);
 
         scrollPane.setBounds(388, 225, 591, 361);
 
@@ -114,10 +114,11 @@ public class UserList extends JPanel {
         btnAdd.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
         btnAdd.setForeground(new Color(0, 0, 205));
         btnAdd.setOpaque(true);
-        btnAdd.setBounds(1019, 556, 118, 29);
+        btnAdd.setBounds(964, 548, 118, 29);
         add(btnAdd);
         
-        btnLogout = new JButton("Log out");
+        btnLogout = new JButton("");
+        btnLogout.setIcon(new ImageIcon(UserList.class.getResource("/Images/Logout.png")));
         btnLogout.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         	}
@@ -125,11 +126,12 @@ public class UserList extends JPanel {
         btnLogout.setForeground(Color.WHITE);
         btnLogout.setFont(new Font("Arial", Font.BOLD, 30));
         btnLogout.setContentAreaFilled(false);
-        btnLogout.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-        btnLogout.setBounds(642, 688, 152, 44);
+        btnLogout.setBorder(null);
+        btnLogout.setBounds(18, 68, 153, 41);
         add(btnLogout);
         
-        btnMainMenu = new JButton("Main Menu");
+        btnMainMenu = new JButton("");
+        btnMainMenu.setIcon(new ImageIcon(UserList.class.getResource("/Images/homebtn.png")));
         btnMainMenu.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
         	}
@@ -137,35 +139,30 @@ public class UserList extends JPanel {
         btnMainMenu.setForeground(Color.WHITE);
         btnMainMenu.setFont(new Font("Arial", Font.BOLD, 30));
         btnMainMenu.setContentAreaFilled(false);
-        btnMainMenu.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-        btnMainMenu.setBounds(622, 646, 194, 44);
+        btnMainMenu.setBorder(null);
+        btnMainMenu.setBounds(18, 15, 153, 41);
         add(btnMainMenu);
-        
-        JLabel lblUserlist = new JLabel("Userlist");
-        lblUserlist.setForeground(Color.WHITE);
-        lblUserlist.setFont(new Font("Arial", Font.BOLD, 78));
-        lblUserlist.setBounds(549, 118, 298, 90);
-        lblUserlist.setBounds(534, 90, 298, 90);
-        add(lblUserlist);
         
         btnDelete = new JButton("Delete");
         btnDelete.setOpaque(true);
         btnDelete.setForeground(new Color(0, 0, 205));
         btnDelete.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
-        btnDelete.setBounds(1019, 515, 118, 29);
+        btnDelete.setBounds(964, 507, 118, 29);
         add(btnDelete);
         
-        JLabel lblNewLabel = new JLabel("");
-        lblNewLabel.setIcon(new ImageIcon(UserList.class.getResource("/Images/CBSLogo3.png")));
-        lblNewLabel.setBounds(36, 695, 223, 67);
-        add(lblNewLabel);
+        JLabel lblUserlist = new JLabel("Userlist");
+        lblUserlist.setForeground(Color.WHITE);
+        lblUserlist.setFont(new Font("Arial", Font.BOLD, 78));
+        lblUserlist.setBounds(276, 155, 298, 90);
+        lblUserlist.setBounds(534, 90, 298, 90);
+        add(lblUserlist);
     
         JLabel lblBackground = new JLabel("Background");
         lblBackground.setIcon(new ImageIcon(UserList.class.getResource("/Images/MetalBackground.jpg")));
         lblBackground.setBackground(new Color(245, 245, 245));
         lblBackground.setForeground(new Color(245, 255, 250));
         lblBackground.setOpaque(true);
-        lblBackground.setBounds(0, 0, 1376, 768);
+        lblBackground.setBounds(0, 0, 1024, 768);
         add(lblBackground);
   
     }
@@ -194,7 +191,7 @@ public class UserList extends JPanel {
     private static void createAndShowGUI() {
         //Create and set up the window.
         JFrame frame = new JFrame("SimpleTableDemo");
-        frame.setSize(1366, 768);
+        frame.setSize(1024, 768);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  
         //Create and set up the content pane.

@@ -112,7 +112,7 @@ public class NoteList extends JPanel {
 		label.setBounds(10, 698, 250, 59);
 		add(label);
 		lblBackground.setIcon(new ImageIcon(NoteList.class.getResource("/Images/MetalBackground.jpg")));
-		lblBackground.setBounds(0, 0, 1366, 768);
+		lblBackground.setBounds(0, 0, 1024, 768);
 		
 		add(lblBackground);
 	}

@@ -21,7 +21,6 @@ public class MainMenu extends JPanel {
 	private JButton btnUserlist_1;
 	private JButton btnEventlist;
 	private JButton btnNotelist;
-	private JLabel lblCBSlogo;
 	
 
 	
@@ -32,7 +31,7 @@ public class MainMenu extends JPanel {
 		lblMainMenu = new JLabel("Main Menu");
 		lblMainMenu.setForeground(Color.WHITE);
 		lblMainMenu.setFont(new Font("Arial", Font.BOLD, 78));
-		lblMainMenu.setBounds(481, 90, 404, 90);
+		lblMainMenu.setBounds(310, 158, 404, 90);
 		add(lblMainMenu);
 		
 		btnUserlist = new JButton("Userlist");
@@ -47,7 +46,7 @@ public class MainMenu extends JPanel {
 		btnUserlist_1.setFont(new Font("Arial", Font.BOLD, 30));
 		btnUserlist_1.setBorder(null);
 		btnUserlist_1.setBackground(Color.WHITE);
-		btnUserlist_1.setBounds(610, 370, 153, 41);
+		btnUserlist_1.setBounds(439, 438, 153, 41);
 		add(btnUserlist_1);
 		
 		btnEventlist = new JButton("");
@@ -57,7 +56,7 @@ public class MainMenu extends JPanel {
 		btnEventlist.setFont(new Font("Arial", Font.BOLD, 30));
 		btnEventlist.setBorder(null);
 		btnEventlist.setBackground(Color.WHITE);
-		btnEventlist.setBounds(610, 422, 153, 41);
+		btnEventlist.setBounds(439, 490, 153, 41);
 		add(btnEventlist);
 		
 		btnNotelist = new JButton("");
@@ -67,7 +66,7 @@ public class MainMenu extends JPanel {
 		btnNotelist.setFont(new Font("Arial", Font.BOLD, 30));
 		btnNotelist.setBorder(null);
 		btnNotelist.setBackground(Color.WHITE);
-		btnNotelist.setBounds(610, 300, 153, 41);
+		btnNotelist.setBounds(439, 368, 153, 41);
 		add(btnNotelist);
 		
 		btnLogOut = new JButton("");
@@ -77,13 +76,8 @@ public class MainMenu extends JPanel {
 		btnLogOut.setFont(new Font("Arial", Font.BOLD, 30));
 		btnLogOut.setBorder(null);
 		btnLogOut.setBackground(Color.WHITE);
-		btnLogOut.setBounds(610, 541, 153, 41);
+		btnLogOut.setBounds(439, 609, 153, 41);
 		add(btnLogOut);
-		
-		lblCBSlogo = new JLabel("");
-		lblCBSlogo.setIcon(new ImageIcon(MainMenu.class.getResource("/Images/CBSLogo3.png")));
-		lblCBSlogo.setBounds(10, 698, 250, 59);
-		add(lblCBSlogo);
 		
 		JLabel lblBackground = new JLabel("");
 		lblBackground.setIcon(new ImageIcon(MainMenu.class.getResource("/Images/MetalBackground.jpg")));

@@ -41,7 +41,7 @@ import java.awt.Dimension;
 		
 		public AddCourse() {
 			setAlignmentY(Component.BOTTOM_ALIGNMENT);
-			setSize(new Dimension(1366, 768));
+			setSize(new Dimension(1024, 768));
 			setLayout(null);
 
 			JLabel lblEvents = new JLabel("Add Course");
@@ -120,7 +120,7 @@ import java.awt.Dimension;
 			add(btnLogout);
 			JLabel label_1 = new JLabel("");
 			label_1.setIcon(new ImageIcon(AddCourse.class.getResource("/Images/MetalBackground.jpg")));
-			label_1.setBounds(0, 0, 1366, 768);
+			label_1.setBounds(0, 0, 1024, 768);
 			add(label_1);
 			
 
