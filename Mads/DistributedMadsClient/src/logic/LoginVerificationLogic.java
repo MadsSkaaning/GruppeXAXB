@@ -51,15 +51,20 @@ public final class LoginVerificationLogic implements ActionListener {
 					
 			//	if(User.currentUser.equals("id")){
 
-					
-System.out.println("lololol");
-
+				
 				}else{						
 
 					CustomerScreen mainscreen = new CustomerScreen();
 					this.loginScreen.setVisible(false);
 					mainscreen.runcustomerscreen();
 
+					
+//					if (DB.getUsername(User.username) )
+//					
+//					{
+						
+						
+					}
 
 
 				}
@@ -68,4 +73,3 @@ System.out.println("lololol");
 
 		}
 	}
-}

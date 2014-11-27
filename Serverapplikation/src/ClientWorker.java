@@ -28,6 +28,11 @@ public class ClientWorker implements  Runnable{
 	
 	public void run(){
 		try{
+			
+			
+			
+			//Denne klase beskriver den info får når en client aktivt er forbundet til serveren.
+			
 			System.out.println("forbindelse Oprettet!");
 			
 			//Gets ip adress and displays it to server
