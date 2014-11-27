@@ -45,9 +45,7 @@ public class TCPClient {
 		boolean userAuthenticated = false;
 		
 		
-		
-		while (!userAuthenticated)
-			
+					
 			
 		System.out.println("Indtast brugernavn/mail");
 		String brugernavn = userInput.nextLine();		

@@ -53,8 +53,6 @@ public class ClientWorker implements  Runnable{
 			System.out.println("Received: " + ny);
 			String jsonNy = gson.toJson(ny);
 			
-			
-			
 			String stringKey = cf.getFfcryptkey();
 			
 			double doubleKey = Double.parseDouble(stringKey);
