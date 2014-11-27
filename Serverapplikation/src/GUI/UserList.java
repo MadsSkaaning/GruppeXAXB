@@ -43,7 +43,7 @@ public class UserList extends JPanel {
 	
     @SuppressWarnings("null")
 	public UserList() {
-    	setSize(new Dimension(1366, 768));
+    	setSize(new Dimension(1024, 768));
  
         String[] columnNames = {"UserID",
                                 "Email",

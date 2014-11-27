@@ -35,7 +35,7 @@ public class NoteList extends JPanel {
 	 * Create the panel.
 	 */
 	public NoteList() {
-		setSize(new Dimension(1366, 768));
+		setSize(new Dimension(1024, 768));
 		setLayout(null);
 		
 		//Laver tabellen inde i Eventlisten.

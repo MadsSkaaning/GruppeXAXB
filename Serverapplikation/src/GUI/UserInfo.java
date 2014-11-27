@@ -32,8 +32,8 @@ public class UserInfo extends JPanel {
 	 * Create the panel.
 	 */
 	public UserInfo() {
-		setPreferredSize(new Dimension(1366, 768));
-		setSize(new Dimension(1366, 768));
+		setPreferredSize(new Dimension(1024, 768));
+		setSize(new Dimension(1024, 768));
 		setLayout(null);
 		
 		lblCBSlogo = new JLabel("");
