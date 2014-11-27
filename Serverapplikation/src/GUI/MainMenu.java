@@ -25,7 +25,7 @@ public class MainMenu extends JPanel {
 
 	
 	public MainMenu() {
-		setSize(new Dimension(1366, 768));
+		setSize(new Dimension(1024, 768));
 		setLayout(null);
 		
 		lblMainMenu = new JLabel("Main Menu");

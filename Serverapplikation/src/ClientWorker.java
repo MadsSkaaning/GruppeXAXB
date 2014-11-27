@@ -43,7 +43,6 @@ public class ClientWorker implements  Runnable{
 			//Sets client sentence equals input from client
 			//incomingJson = inFromClient.readLine();			
 			
-			
 			String ny = cryp.decrypt(b) +"DETTE ER NY STRENG" ;
 			System.out.println("Besked modtaget!");
 			System.out.println("Received: " + ny);
