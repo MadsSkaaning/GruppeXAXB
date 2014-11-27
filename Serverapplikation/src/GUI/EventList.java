@@ -59,7 +59,7 @@ import model.QueryBuild.QueryBuilder;
 			DropdownList.setBackground(Color.WHITE);
 			DropdownList.setModel(new DefaultComboBoxModel(new String[] {"Hold XA Calendar", "Hold XB Calendar", "Custom Events"}));
 			DropdownList.setForeground(Color.BLACK);
-			DropdownList.setBounds(727, 160, 216, 53);
+			DropdownList.setBounds(802, 240, 216, 53);
 			add(DropdownList);
 
 			JLabel lblEvents = new JLabel("Eventlist");
@@ -110,7 +110,7 @@ import model.QueryBuild.QueryBuilder;
 					BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255,
 							255), new Color(0, 0, 205), new Color(255, 255, 255)),
 					null));
-			scrollPane.setBounds(238, 249, 591, 361);
+			scrollPane.setBounds(96, 240, 693, 370);
 
 			// Add the scroll pane to this panel.
 			add(scrollPane);

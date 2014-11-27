@@ -98,23 +98,18 @@ public class UserList extends JPanel {
         scrollPane.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255, 255), new Color(0, 0, 205), new Color(255, 255, 255)), new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 255, 255))));
         scrollPane.setViewportBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255, 255), new Color(0, 0, 205), new Color(255, 255, 255)), null));
 
-        scrollPane.setBounds(333, 217, 590, 360);
+        scrollPane.setBounds(96, 240, 693, 370);
 
-        scrollPane.setBounds(388, 225, 591, 361);
 
  
         //Add the scroll pane to this panel.
         add(scrollPane);
         
         btnAdd = new JButton("Add");
-        btnAdd.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        	}
-        });
         btnAdd.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
         btnAdd.setForeground(new Color(0, 0, 205));
         btnAdd.setOpaque(true);
-        btnAdd.setBounds(964, 548, 118, 29);
+		btnAdd.setBounds(856, 343, 118, 29);
         add(btnAdd);
         
         btnLogout = new JButton("");
@@ -147,14 +142,13 @@ public class UserList extends JPanel {
         btnDelete.setOpaque(true);
         btnDelete.setForeground(new Color(0, 0, 205));
         btnDelete.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
-        btnDelete.setBounds(964, 507, 118, 29);
+		btnDelete.setBounds(856, 377, 118, 29);
         add(btnDelete);
         
         JLabel lblUserlist = new JLabel("Userlist");
         lblUserlist.setForeground(Color.WHITE);
         lblUserlist.setFont(new Font("Arial", Font.BOLD, 78));
-        lblUserlist.setBounds(276, 155, 298, 90);
-        lblUserlist.setBounds(534, 90, 298, 90);
+        lblUserlist.setBounds(365, 138, 368, 90);
         add(lblUserlist);
     
         JLabel lblBackground = new JLabel("Background");

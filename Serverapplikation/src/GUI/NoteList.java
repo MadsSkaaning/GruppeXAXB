@@ -13,6 +13,7 @@ import javax.swing.ImageIcon;
 
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
@@ -43,11 +44,11 @@ public class NoteList extends JPanel {
 
 		Object[][] data = {
 
-				{ "DØK Julefrokost", "11.11.2022", "Game on!","3"},
-				{ "DØK Julefrokost", "11.11.2022", "Game on!","3"},
-				{ "DØK Julefrokost", "11.11.2022", "Game on!","3"},
-				{ "DØK Julefrokost", "11.11.2022", "Game on!","3" },
-				{ "DØK Julefrokost", "11.11.2022", "Game on!","3" } 
+				{ "Dï¿½K Julefrokost", "11.11.2022", "Game on!","3"},
+				{ "Dï¿½K Julefrokost", "11.11.2022", "Game on!","3"},
+				{ "Dï¿½K Julefrokost", "11.11.2022", "Game on!","3"},
+				{ "Dï¿½K Julefrokost", "11.11.2022", "Game on!","3" },
+				{ "Dï¿½K Julefrokost", "11.11.2022", "Game on!","3" } 
 				};
 
 		final JTable table = new JTable(data, columnNames);
@@ -66,7 +67,7 @@ public class NoteList extends JPanel {
 				BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255,
 						255), new Color(0, 0, 205), new Color(255, 255, 255)),
 				null));
-		scrollPane.setBounds(149, 171, 1062, 376);
+		scrollPane.setBounds(96, 240, 693, 370);
 
 		// Add the scroll pane to this panel.
 		add(scrollPane);
@@ -74,38 +75,41 @@ public class NoteList extends JPanel {
 		lblHeader = new JLabel("NoteList");
 		lblHeader.setForeground(Color.WHITE);
 		lblHeader.setFont(new Font("Arial", Font.BOLD, 78));
-		lblHeader.setBounds(527, 90, 312, 90);
+		lblHeader.setBounds(365, 138, 368, 90);
 		add(lblHeader);
 		
 		btnDelete = new JButton("Delete");
 		btnDelete.setOpaque(true);
 		btnDelete.setForeground(new Color(0, 0, 205));
 		btnDelete.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
-		btnDelete.setBounds(1222, 227, 118, 29);
+		btnDelete.setBounds(856, 377, 118, 29);
 		add(btnDelete);
 		
 		btnAdd = new JButton("Add");
 		btnAdd.setOpaque(true);
 		btnAdd.setForeground(new Color(0, 0, 205));
 		btnAdd.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
-		btnAdd.setBounds(1222, 193, 118, 29);
+		btnAdd.setBounds(856, 343, 118, 29);
 		add(btnAdd);
 		
-		btnMainMenu = new JButton("Main Menu");
-		btnMainMenu.setForeground(Color.WHITE);
-		btnMainMenu.setFont(new Font("Arial", Font.BOLD, 30));
-		btnMainMenu.setContentAreaFilled(false);
-		btnMainMenu.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-		btnMainMenu.setBounds(601, 553, 163, 43);
-		add(btnMainMenu);
-		
-		btnLogout = new JButton("Log out");
-		btnLogout.setForeground(Color.WHITE);
-		btnLogout.setFont(new Font("Arial", Font.BOLD, 30));
-		btnLogout.setContentAreaFilled(false);
-		btnLogout.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-		btnLogout.setBounds(624, 627, 117, 43);
-		add(btnLogout);
+        btnLogout = new JButton("");
+        btnLogout.setIcon(new ImageIcon(UserList.class.getResource("/Images/Logout.png")));
+
+        btnLogout.setForeground(Color.WHITE);
+        btnLogout.setFont(new Font("Arial", Font.BOLD, 30));
+        btnLogout.setContentAreaFilled(false);
+        btnLogout.setBorder(null);
+        btnLogout.setBounds(18, 68, 153, 41);
+        add(btnLogout);
+        
+        btnMainMenu = new JButton("");
+        btnMainMenu.setIcon(new ImageIcon(UserList.class.getResource("/Images/homebtn.png")));
+        btnMainMenu.setForeground(Color.WHITE);
+        btnMainMenu.setFont(new Font("Arial", Font.BOLD, 30));
+        btnMainMenu.setContentAreaFilled(false);
+        btnMainMenu.setBorder(null);
+        btnMainMenu.setBounds(18, 15, 153, 41);
+        add(btnMainMenu);
 		
 		label = new JLabel("");
 		label.setIcon(new ImageIcon(NoteList.class.getResource("/Images/CBSLogo3.png")));
