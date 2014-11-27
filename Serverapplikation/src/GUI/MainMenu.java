@@ -25,7 +25,7 @@ public class MainMenu extends JPanel {
 
 	
 	public MainMenu() {
-		setSize(new Dimension(1366, 768));
+		setSize(new Dimension(1024, 768));
 		setLayout(null);
 		
 		lblMainMenu = new JLabel("Main Menu");
@@ -66,13 +66,14 @@ public class MainMenu extends JPanel {
 		btnNotelist.setBounds(610, 243, 145, 50);
 		add(btnNotelist);
 		
-		btnLogOut = new JButton("Log Out");
+		btnLogOut = new JButton("");
+		btnLogOut.setIcon(new ImageIcon(MainMenu.class.getResource("/Images/Logout.png")));
 		btnLogOut.setContentAreaFilled(false);
 		btnLogOut.setForeground(Color.WHITE);
 		btnLogOut.setFont(new Font("Arial", Font.BOLD, 30));
 		btnLogOut.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
 		btnLogOut.setBackground(Color.WHITE);
-		btnLogOut.setBounds(610, 541, 145, 50);
+		btnLogOut.setBounds(610, 541, 153, 41);
 		add(btnLogOut);
 		
 		lblCBSlogo = new JLabel("");
