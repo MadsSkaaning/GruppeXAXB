@@ -44,10 +44,14 @@ public class ClientWorker implements  Runnable{
 			//incomingJson = inFromClient.readLine();			
 			
 			
-			String ny = cryp.decrypt(b) +"DETTE ER NY STRENG" ;
+			String ny = cryp.decrypt(b);
 			System.out.println("Besked modtaget!");
 			System.out.println("Received: " + ny);
 			String jsonNy = gson.toJson(ny);
+			
+		    
+			
+			String svar = GS.GiantSwitchMethod(ny);
 			
 			
 			
@@ -57,7 +61,7 @@ public class ClientWorker implements  Runnable{
 			
 			byte key = (byte) doubleKey;
 
-			byte[] encrypted = jsonNy.getBytes();
+			byte[] encrypted = svar.getBytes();
 
 			for (int i=0; i<encrypted.length; i++) encrypted[i] = (byte) (encrypted[i] ^ key);		
 			
