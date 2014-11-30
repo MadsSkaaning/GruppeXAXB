@@ -159,7 +159,7 @@ public class SwitchMethods extends Model
 					resultSet = qb.selectFrom(key, "roles").where("userid", "=", new Integer(userID).toString()).ExecuteQuery();
 
 					// Hvis brugeren baade logger ind og er registreret som admin, eller hvis brugeren baade logger ind og er registreret som bruger
-					if((resultSet.getString("type").equals("admin")) || (resultSet.getString("type").equals("user")))
+					if(resultSet.next() && (resultSet.getString("type").equals("admin")) || (resultSet.getString("type").equals("user")))
 					{
 						return "0"; // returnerer "0" hvis bruger/admin er godkendt
 					} else {
