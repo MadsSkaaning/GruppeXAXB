@@ -6,6 +6,13 @@ public class CreateCalendar implements java.io.Serializable
 	private String overallID = "createCalendar";
 	private String calendarID;
 	private String createdby;
+	private String calendarName;
+	public String getCalendarName() {
+		return calendarName;
+	}
+	public void setCalendarName(String calendarName) {
+		this.calendarName = calendarName;
+	}
 	private int publicOrPrivate;
 	
 	
