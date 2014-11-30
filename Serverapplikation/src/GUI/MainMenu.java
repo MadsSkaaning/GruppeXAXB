@@ -56,7 +56,7 @@ public class MainMenu extends JPanel {
 		btnEventlist.setFont(new Font("Arial", Font.BOLD, 30));
 		btnEventlist.setBorder(null);
 		btnEventlist.setBackground(Color.WHITE);
-		btnEventlist.setBounds(439, 490, 153, 41);
+		btnEventlist.setBounds(439, 506, 153, 41);
 		add(btnEventlist);
 		
 		btnNotelist = new JButton("");
@@ -70,13 +70,17 @@ public class MainMenu extends JPanel {
 		add(btnNotelist);
 		
 		btnLogOut = new JButton("");
+		btnLogOut.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		btnLogOut.setIcon(new ImageIcon(MainMenu.class.getResource("/Images/Logout.png")));
 		btnLogOut.setContentAreaFilled(false);
 		btnLogOut.setForeground(Color.WHITE);
 		btnLogOut.setFont(new Font("Arial", Font.BOLD, 30));
 		btnLogOut.setBorder(null);
 		btnLogOut.setBackground(Color.WHITE);
-		btnLogOut.setBounds(439, 609, 153, 41);
+		btnLogOut.setBounds(18, 68, 153, 41);
 		add(btnLogOut);
 		
 		JLabel lblBackground = new JLabel("");
