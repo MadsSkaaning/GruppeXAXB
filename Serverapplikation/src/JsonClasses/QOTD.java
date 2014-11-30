@@ -5,6 +5,7 @@ public class QOTD {
 	private String quote;
 	private String author;
 	private String topic;
+	private String overallID ="getQuote";
 	
 	public QOTD(String quote, String author, String topic) {
 		super();
@@ -31,10 +32,22 @@ public class QOTD {
 		this.topic = topic;
 	}
 	
-	public static void main (String [] args ){
-		
-		
-		
+	/**
+	 * Gets the overall id.
+	 *
+	 * @return the overall id
+	 */
+	public String getOverallID() {
+		return overallID;
+	}
+	
+	/**
+	 * Sets the overall id.
+	 *
+	 * @param overallID the new overall id
+	 */
+	public void setOverallID(String overallID) {
+		this.overallID = overallID;
 	}
 	
 	

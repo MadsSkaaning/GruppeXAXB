@@ -60,6 +60,10 @@ public class SwitchMethods extends Model
 		
 //		doUpdate("insert into test.calendar (Name, Active, CreatedBy, PrivatePublic) VALUES ('"+newCalendarName+"', '1', '"+userName+"', '"+publicOrPrivate+"');");
 	}
+	
+	
+	
+	
 	/**
 	 * Allows the client to delete a calendar
 	 * @param userName
@@ -113,8 +117,6 @@ public class SwitchMethods extends Model
 		{
 			stringToBeReturend = "The calendar you are trying to delete, does not exists.";
 		}
-		
-		
 		
 		return stringToBeReturend;
 	}

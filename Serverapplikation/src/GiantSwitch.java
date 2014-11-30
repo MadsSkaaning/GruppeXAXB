@@ -1,5 +1,6 @@
 import java.sql.SQLException;
 
+import model.Forecast.ForecastModel;
 import model.QOTD.QOTDModel;
 import model.calendar.Event;
 import model.note.Note;
@@ -21,7 +22,7 @@ public class GiantSwitch {
 		//Events eventsKlasse = new Events(0, 0, 0, jsonString, jsonString, jsonString, jsonString, jsonString);
 
 		Note noteKlasse = new Note();
-		//ForecastModel forecastKlasse = new ForecastModel();
+		ForecastModel forecastKlasse = new ForecastModel();
 		QOTDModel QOTDKlasse = new QOTDModel();
 		SwitchMethods SW = new SwitchMethods();
 		
@@ -73,7 +74,6 @@ public class GiantSwitch {
 		
 		case "saveImportedCalendar":
 			
-			
 			break;
 			
 		case "getCalendar":
@@ -85,6 +85,7 @@ public class GiantSwitch {
 			break;
 
 		case "createEvent":
+			
 			System.out.println("Recieved saveEvent");
 			break;
 
@@ -122,6 +123,8 @@ public class GiantSwitch {
 		 ************/
 
 		case "getClientForecast":
+			
+			
 			System.out.println("Recieved getClientForecast");
 			break;
 		
