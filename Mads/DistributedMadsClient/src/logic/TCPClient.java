@@ -157,27 +157,24 @@ import config.Configurations;
 
 public class TCPClient {
 	
-	
-	
 	public static void main(String[] args) throws Exception {
 		
 		
 		AuthUser AU = new AuthUser();
 		//Ny auth
 		
-
+		
 		Gson gson = new GsonBuilder().create();
-		
-		
 		
 		AU.setAuthUserEmail("test");
 		AU.setAuthUserIsAdmin(false);
-		
 		AU.setAuthUserPassword("123");
+		
 		String objecttilserver = gson.toJson(AU);
 		
 		
 		Configurations cf = new Configurations();
+		
 		
 		
 		Socket clientSocket = new Socket("localhost", 8888);
