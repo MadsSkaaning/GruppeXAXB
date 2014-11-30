@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -13,14 +14,19 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.BevelBorder;
+
 import java.awt.Color;
+
 import javax.swing.JLabel;
+
 import java.awt.Font;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import javax.swing.border.MatteBorder;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
+
 import model.QueryBuild.QueryBuilder;
  
 public class UserList extends JPanel {
@@ -28,7 +34,6 @@ public class UserList extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private static final ActionListener ActionListener = null;
 	private boolean DEBUG = false;
 	private JButton btnAdd;
 	private JButton btnDelete;
@@ -36,20 +41,19 @@ public class UserList extends JPanel {
 	private JButton btnMainMenu;
 	private ResultSet rs;
 	
-    public UserList() {
-    	setSize(new Dimension(1366, 768));
+    @SuppressWarnings("null")
+	public UserList() {
+    	setSize(new Dimension(1024, 768));
  
         String[] columnNames = {"UserID",
                                 "Email",
                                 "Active",
-                                "Created datetime",
+                                "Created",
                                 "Password"};
  
 
 
-        	Object[][] data = {
-        		
-        };
+        	Object[][] data = new Object[getUserCount()][5];
         
 	
     
@@ -59,12 +63,14 @@ public class UserList extends JPanel {
 			
 	        int count = 0;
 	        while (rs.next()) {
+
 	        	data[count][0] = rs.getString("userid");
 	        	data[count][1] = rs.getString("email");
 	        	data[count][2] = rs.getString("active");
-	        	data[count][3] = rs.getString("created datetime");
+	        	data[count][3] = rs.getString("created");
 	        	data[count][4] = rs.getString("password");
 
+	        	
 	        	count++;
 	        }
 		} catch (SQLException e1) {
@@ -92,81 +98,67 @@ public class UserList extends JPanel {
         scrollPane.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255, 255), new Color(0, 0, 205), new Color(255, 255, 255)), new MatteBorder(1, 1, 1, 1, (Color) new Color(255, 255, 255))));
         scrollPane.setViewportBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255, 255), new Color(0, 0, 205), new Color(255, 255, 255)), null));
 
-        scrollPane.setBounds(417, 225, 590, 360);
+        scrollPane.setBounds(96, 240, 693, 370);
 
-        scrollPane.setBounds(388, 225, 591, 361);
 
  
         //Add the scroll pane to this panel.
         add(scrollPane);
         
-        JButton btnAdd = new JButton("Add");
+        btnAdd = new JButton("Add");
         btnAdd.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
         btnAdd.setForeground(new Color(0, 0, 205));
         btnAdd.setOpaque(true);
-        btnAdd.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent arg0) {
-
-          String firstName = JOptionPane.showInputDialog(null, "UserID", null);
-          String lastName = JOptionPane.showInputDialog(null, "Email", null);
-          String eMail = JOptionPane.showInputDialog(null, "Date", null);
-          String password = JOptionPane.showInputDialog(null, "Write your password", null);
-          
-        	}
-        });
-        
-        btnAdd.setBounds(1019, 556, 118, 29);
+		btnAdd.setBounds(856, 343, 118, 29);
         add(btnAdd);
         
-        JButton btnLogout = new JButton("Log out");
+        btnLogout = new JButton("");
+        btnLogout.setIcon(new ImageIcon(UserList.class.getResource("/Images/Logout.png")));
+        btnLogout.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        	}
+        });
         btnLogout.setForeground(Color.WHITE);
         btnLogout.setFont(new Font("Arial", Font.BOLD, 30));
         btnLogout.setContentAreaFilled(false);
-        btnLogout.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-        btnLogout.setBounds(642, 688, 152, 44);
+        btnLogout.setBorder(null);
+        btnLogout.setBounds(18, 68, 153, 41);
         add(btnLogout);
         
-        JButton btnMainMenu = new JButton("Main Menu");
+        btnMainMenu = new JButton("");
+        btnMainMenu.setIcon(new ImageIcon(UserList.class.getResource("/Images/homebtn.png")));
         btnMainMenu.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent arg0) {
+        	public void actionPerformed(ActionEvent e) {
         	}
         });
         btnMainMenu.setForeground(Color.WHITE);
         btnMainMenu.setFont(new Font("Arial", Font.BOLD, 30));
         btnMainMenu.setContentAreaFilled(false);
-        btnMainMenu.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-        btnMainMenu.setBounds(622, 646, 194, 44);
+        btnMainMenu.setBorder(null);
+        btnMainMenu.setBounds(18, 15, 153, 41);
         add(btnMainMenu);
+        
+        btnDelete = new JButton("Delete");
+        btnDelete.setOpaque(true);
+        btnDelete.setForeground(new Color(0, 0, 205));
+        btnDelete.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
+		btnDelete.setBounds(856, 377, 118, 29);
+        add(btnDelete);
         
         JLabel lblUserlist = new JLabel("Userlist");
         lblUserlist.setForeground(Color.WHITE);
         lblUserlist.setFont(new Font("Arial", Font.BOLD, 78));
-
-        lblUserlist.setBounds(549, 118, 298, 90);
-
-        lblUserlist.setBounds(534, 90, 298, 90);
-
+        lblUserlist.setBounds(365, 138, 368, 90);
         add(lblUserlist);
-        
-        JButton btnDelete = new JButton("Delete");
-        btnDelete.setOpaque(true);
-        btnDelete.setForeground(new Color(0, 0, 205));
-        btnDelete.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
-        btnDelete.setBounds(1019, 515, 118, 29);
-        add(btnDelete);
-        
-        JLabel lblNewLabel = new JLabel("");
-        lblNewLabel.setIcon(new ImageIcon(UserList.class.getResource("/Images/CBSLogo3.png")));
-        lblNewLabel.setBounds(36, 695, 223, 67);
-        add(lblNewLabel);
     
         JLabel lblBackground = new JLabel("Background");
         lblBackground.setIcon(new ImageIcon(UserList.class.getResource("/Images/MetalBackground.jpg")));
         lblBackground.setBackground(new Color(245, 245, 245));
         lblBackground.setForeground(new Color(245, 255, 250));
         lblBackground.setOpaque(true);
-        lblBackground.setBounds(0, 0, 1376, 768);
+        lblBackground.setBounds(0, 0, 1024, 768);
         add(lblBackground);
+  
     }
  
     private void printDebugData(JTable table) {
@@ -193,16 +185,13 @@ public class UserList extends JPanel {
     private static void createAndShowGUI() {
         //Create and set up the window.
         JFrame frame = new JFrame("SimpleTableDemo");
-        frame.setSize(1366, 768);
+        frame.setSize(1024, 768);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
  
         //Create and set up the content pane.
         UserList newContentPane = new UserList();
         newContentPane.setOpaque(true); //content panes must be opaque
         frame.setContentPane(newContentPane);
- 
-
-        
         frame.setVisible(true);
     }
  
@@ -212,22 +201,17 @@ public class UserList extends JPanel {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 createAndShowGUI();
-     
 
         }
         });
     }
     
     public void addActionListener(ActionListener l) {
-//		btnAdd.addActionListener(l);
+		btnAdd.addActionListener(l);
 		btnDelete.addActionListener(l);
 		btnLogout.addActionListener(l);
 		btnMainMenu.addActionListener(l);
 		
-	}
-
-	public static ActionListener getActionlistener() {
-		return ActionListener;
 	}
 
 	public JButton getBtnAdd() {
@@ -244,6 +228,30 @@ public class UserList extends JPanel {
 
 	public JButton getBtnLogout() {
 		return btnLogout;
+	}
+	
+	public int getUserCount(){
+		
+		int count = 0;
+		
+		QueryBuilder qb2 = new QueryBuilder();
+		try {
+			rs = qb2.selectFrom("users").all().ExecuteQuery();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			while(rs.next()){
+				
+				count++;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return count; 
 	}
 	
 }

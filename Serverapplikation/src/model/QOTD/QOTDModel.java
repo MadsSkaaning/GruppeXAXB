@@ -60,7 +60,6 @@ public class QOTDModel {
 			try {
 				json = readUrl("http://dist-sso.it-kartellet.dk/quote/");
 			
-            
     			JSONParser jsonParser = new JSONParser();
     			JSONObject jsonObject = (JSONObject) jsonParser.parse(json);
     			

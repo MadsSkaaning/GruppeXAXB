@@ -18,71 +18,74 @@ public class MainMenu extends JPanel {
 	private JLabel lblMainMenu;
 	private JButton btnLogOut;
 	private JButton btnUserlist;
+	private JButton btnUserlist_1;
 	private JButton btnEventlist;
 	private JButton btnNotelist;
-	private JLabel lblCBSlogo;
 	
 
 	
 	public MainMenu() {
-		setSize(new Dimension(1366, 768));
+		setSize(new Dimension(1024, 768));
 		setLayout(null);
 		
 		lblMainMenu = new JLabel("Main Menu");
 		lblMainMenu.setForeground(Color.WHITE);
 		lblMainMenu.setFont(new Font("Arial", Font.BOLD, 78));
-		lblMainMenu.setBounds(481, 90, 404, 90);
+		lblMainMenu.setBounds(310, 158, 404, 90);
 		add(lblMainMenu);
 		
 		btnUserlist = new JButton("Userlist");
 		btnUserlist.setContentAreaFilled(false);
-		btnUserlist = new JButton("User-list");
-		btnUserlist.addActionListener(new ActionListener() {
+		btnUserlist_1 = new JButton("");
+		btnUserlist_1.setIcon(new ImageIcon(MainMenu.class.getResource("/Images/btnuserlist.png")));
+		btnUserlist_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnUserlist.setForeground(Color.WHITE);
-		btnUserlist.setFont(new Font("Arial", Font.BOLD, 30));
-		btnUserlist.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-		btnUserlist.setBackground(Color.WHITE);
-		btnUserlist.setBounds(610, 330, 145, 50);
-		add(btnUserlist);
+		btnUserlist_1.setForeground(Color.WHITE);
+		btnUserlist_1.setFont(new Font("Arial", Font.BOLD, 30));
+		btnUserlist_1.setBorder(null);
+		btnUserlist_1.setBackground(Color.WHITE);
+		btnUserlist_1.setBounds(439, 438, 153, 41);
+		add(btnUserlist_1);
 		
-		btnEventlist = new JButton("Eventlist");
+		btnEventlist = new JButton("");
+		btnEventlist.setIcon(new ImageIcon(MainMenu.class.getResource("/Images/btneventlist.png")));
 		btnEventlist.setContentAreaFilled(false);
 		btnEventlist.setForeground(Color.WHITE);
 		btnEventlist.setFont(new Font("Arial", Font.BOLD, 30));
-		btnEventlist.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
+		btnEventlist.setBorder(null);
 		btnEventlist.setBackground(Color.WHITE);
-		btnEventlist.setBounds(610, 422, 145, 50);
+		btnEventlist.setBounds(439, 506, 153, 41);
 		add(btnEventlist);
 		
-		btnNotelist = new JButton("Notelist");
+		btnNotelist = new JButton("");
+		btnNotelist.setIcon(new ImageIcon(MainMenu.class.getResource("/Images/btnenotelist.png")));
 		btnNotelist.setContentAreaFilled(false);
 		btnNotelist.setForeground(Color.WHITE);
 		btnNotelist.setFont(new Font("Arial", Font.BOLD, 30));
-		btnNotelist.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
+		btnNotelist.setBorder(null);
 		btnNotelist.setBackground(Color.WHITE);
-		btnNotelist.setBounds(610, 243, 145, 50);
+		btnNotelist.setBounds(439, 368, 153, 41);
 		add(btnNotelist);
 		
-		btnLogOut = new JButton("Log Out");
+		btnLogOut = new JButton("");
+		btnLogOut.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnLogOut.setIcon(new ImageIcon(MainMenu.class.getResource("/Images/Logout.png")));
 		btnLogOut.setContentAreaFilled(false);
 		btnLogOut.setForeground(Color.WHITE);
 		btnLogOut.setFont(new Font("Arial", Font.BOLD, 30));
-		btnLogOut.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
+		btnLogOut.setBorder(null);
 		btnLogOut.setBackground(Color.WHITE);
-		btnLogOut.setBounds(610, 541, 145, 50);
+		btnLogOut.setBounds(18, 68, 153, 41);
 		add(btnLogOut);
-		
-		lblCBSlogo = new JLabel("");
-		lblCBSlogo.setIcon(new ImageIcon(MainMenu.class.getResource("/Images/CBSLogo3.png")));
-		lblCBSlogo.setBounds(10, 698, 250, 59);
-		add(lblCBSlogo);
 		
 		JLabel lblBackground = new JLabel("");
 		lblBackground.setIcon(new ImageIcon(MainMenu.class.getResource("/Images/MetalBackground.jpg")));
-		lblBackground.setBounds(0, 0, 1366, 768);
+		lblBackground.setBounds(0, 0, 1024, 768);
 		add(lblBackground);
 
 	}
@@ -90,12 +93,12 @@ public class MainMenu extends JPanel {
 		btnLogOut.addActionListener(l);
 		btnEventlist.addActionListener(l);
 		btnNotelist.addActionListener(l);
-		btnUserlist.addActionListener(l);
+		btnUserlist_1.addActionListener(l);
 		
 		
 	}
 	public JButton getBtnUserlist() {
-		return btnUserlist;
+		return btnUserlist_1;
 	}
 	public JButton getBtnEventlist() {
 		return btnEventlist;

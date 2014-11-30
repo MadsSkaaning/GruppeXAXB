@@ -1,7 +1,4 @@
 package model;
-
-
-
 import com.ibatis.common.jdbc.ScriptRunner;
 import com.sun.org.apache.xml.internal.serializer.ToStream;
 
@@ -12,15 +9,11 @@ import java.sql.*;
 
 import org.apache.commons.io.input.ReaderInputStream;
 
-
 /**
  * model.Model superclass, never instansiated. All child model classes inherits its properties, classes and methods */
 public abstract class Model {
-
 	
 	private static Configurations cf = new Configurations();
-
-  //  private static String sqlUrl = "jdbc:mysql://" + cf.getHost() + ":" + cf.getPort() + "/";
 	private static String sqlUrl = "jdbc:mysql://" + cf.getHost() + ":" + cf.getPort();
 	private static String sqlUser = cf.getUsername();
 	private static String sqlPasswd = cf.getPassword();
@@ -201,16 +194,6 @@ public abstract class Model {
     private void setConn(Connection conn) {
         this.conn = conn;
     }
-    
-    public static void main (String [] args){
-    	
-    	
-    	System.out.println(cf.getDbname());
-    	System.out.println(cf.getPassword());
-    	
-    	System.out.println(sqlUrl);
-    	
-        }
     
     
 }

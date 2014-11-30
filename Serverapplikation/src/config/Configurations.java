@@ -15,6 +15,7 @@ public class Configurations {
     private String username;
     private String dbname;
     private String password;
+    private String serversocket;
 
     // FFkey is used in Encryption.java
     private String ffcryptkey;
@@ -25,8 +26,12 @@ public class Configurations {
     private String weather_lon;
     private String weather_future_in_days;
 
-    public String getHost() {
+    public Configurations() {
+    	
     	ReadFile();
+    }
+    
+    public String getHost() {
         return host;
     }
 
@@ -36,7 +41,6 @@ public class Configurations {
     }
 
     public String getPort() {
-    	ReadFile();
         return port;
     }
 
@@ -46,7 +50,6 @@ public class Configurations {
 
     public String getUsername() {
     	
-    	ReadFile();
         return username;
     }
 
@@ -55,7 +58,6 @@ public class Configurations {
     }
 
     public String getPassword() {
-    	ReadFile();
         return password;
     }
 
@@ -64,7 +66,6 @@ public class Configurations {
     }
 
     public String getDbname() {
-    	ReadFile();
         return dbname;
     }
 
@@ -73,19 +74,25 @@ public class Configurations {
     }
 
     public String getFfcryptkey() {
-    	ReadFile();
         return ffcryptkey;
     }
 
     public void setFfcryptkey(String ffcryptkey) {
         this.ffcryptkey = ffcryptkey;
     }
+    
+	public String getServersocket() {
+		return serversocket;
+	}
+
+	public void setServersocket(String serversocket) {
+		this.serversocket = serversocket;
+	}
 
 
 // Weather settrs and getters.
 
     public String getWeather_expiration_time() {
-    	ReadFile();
         return weather_expiration_time;
     }
 
@@ -95,7 +102,6 @@ public class Configurations {
 
 
     public String getWeather_lat() {
-    	ReadFile();
         return weather_lat;
     }
 
@@ -105,7 +111,6 @@ public class Configurations {
 
 
     public String getWeather_lon() {
-    	ReadFile();
         return weather_lon;
     }
 
@@ -114,7 +119,6 @@ public class Configurations {
     }
 
     public String getWeather_future_in_days() {
-    	ReadFile();
         return weather_future_in_days;
     }
 
@@ -140,6 +144,7 @@ public class Configurations {
             setUsername((String) jsonObject.get("username"));
             setDbname((String) jsonObject.get("dbname"));
             setPassword((String) jsonObject.get("password"));
+            setServersocket((String) jsonObject.get("serversocket"));
 
             // Getting json values for KEY variables
             setFfcryptkey((String) jsonObject.get("ffcryptkey"));
@@ -160,4 +165,5 @@ public class Configurations {
             e.printStackTrace();
         }
     }
+
 }

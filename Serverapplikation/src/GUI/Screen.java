@@ -51,19 +51,19 @@ public class Screen extends JFrame {
 		setTitle("Doek4life");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1366, 768);
+		setBounds(100, 100, 1024, 768);
 		
 		JPanel contentPane = (JPanel) this.getContentPane();
 		contentPane.setBorder(new EmptyBorder(0, 0, 0, 0));
 		this.setContentPane(contentPane);
 		contentPane.setLayout(new CardLayout(0, 0));
 		
-		contentPane.add(addUser, "name_10334207821613");
-		
 		addEventGUI = new AddEventGUI();
 		contentPane.add(addEventGUI, "name_6308445225625");
 		login.getBtnLogIn().setContentAreaFilled(false);
 		login.getBtnForgotLogIn().setContentAreaFilled(false);
+		
+		contentPane.add(addUser, "name_10334207821613");
 		
 		contentPane.add(login, "name_276091497157488");
 		

@@ -32,8 +32,7 @@ public class QOTD {
 	}
 	
 	public static void main (String [] args ){
-		
-		
+	
 		
 	}
 	

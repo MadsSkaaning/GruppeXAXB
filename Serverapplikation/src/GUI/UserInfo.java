@@ -32,8 +32,8 @@ public class UserInfo extends JPanel {
 	 * Create the panel.
 	 */
 	public UserInfo() {
-		setPreferredSize(new Dimension(1366, 768));
-		setSize(new Dimension(1366, 768));
+		setPreferredSize(new Dimension(1024, 768));
+		setSize(new Dimension(1024, 768));
 		setLayout(null);
 		
 		lblCBSlogo = new JLabel("");
@@ -142,7 +142,7 @@ public class UserInfo extends JPanel {
 				btnMainMenu.setFont(new Font("Arial", Font.BOLD, 30));
 				btnMainMenu.setContentAreaFilled(false);
 				btnMainMenu.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-				btnMainMenu.setBounds(601, 557, 163, 43);
+				btnMainMenu.setBounds(563, 557, 239, 59);
 				add(btnMainMenu);
 				
 				lblUserInfo = new JLabel("User Info");
@@ -155,9 +155,9 @@ public class UserInfo extends JPanel {
 				//>>>>>>> FETCH_HEAD
 						
 						JLabel lblBackground = new JLabel("");
-						lblBackground.setSize(new Dimension(1366, 768));
+						lblBackground.setSize(new Dimension(1024, 768));
 						lblBackground.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/MetalBackground.jpg")));
-						lblBackground.setBounds(0, 0, 1366, 768);
+						lblBackground.setBounds(0, 0, 1024, 768);
 						add(lblBackground);
 		if (active) {
 			lblOnlineDot.setBackground(Color.GREEN);

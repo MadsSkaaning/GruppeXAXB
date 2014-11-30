@@ -3,12 +3,16 @@ package JsonClasses;
 public class AuthUser implements java.io.Serializable
 {
 	private  final long serialVersionUID = 2L;
-	private String overallID = "logIn";
+	private final String overallID = "logIn";
 	private String email;
 	private String password;
 	private boolean isAdmin;
 	private boolean isAuthenticated;
 	
+	//public AuthUser(String email, String password) {
+	//	this.email = email;
+	//	this.password = password;
+	//}
 	//Getters and setters for everything, bitch
 	
 	public boolean isAuthenticated() {
@@ -21,9 +25,6 @@ public class AuthUser implements java.io.Serializable
 	public String getOverallID() {
 		return overallID;
 	}
-	public void setOverallID(String overallID) {
-		this.overallID = overallID;
-	}
 	public String getAuthUserEmail() {
 		return email;
 	}
@@ -33,7 +34,7 @@ public class AuthUser implements java.io.Serializable
 	public String getAuthUserPassword() {
 		return password;
 	}
-	public void setAuthUserPassword(String userName) {
+	public void setAuthUserPassword(String password) {
 		this.password = password;
 	}
 	public boolean getAuthUserIsAdmin() {
