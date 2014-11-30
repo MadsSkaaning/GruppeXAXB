@@ -4,34 +4,39 @@ public class CreateCalendar implements java.io.Serializable
 {
 	private  final long serialVersionUID = 1L;
 	private String overallID = "createCalendar";
-	private String calendarName;
-	private String userName;
+	private String calendarID;
+	private String createdby;
 	private int publicOrPrivate;
 	
-	//Getters and setters for everything, bitch
+	
 	public String getOverallID() {
 		return overallID;
 	}
 	public void setOverallID(String overallID) {
 		this.overallID = overallID;
 	}
-	public String getCalendarName() {
-		return calendarName;
+	public String getCalendarID() {
+		return calendarID;
 	}
-	public void setCalendarName(String calendarName) {
-		this.calendarName = calendarName;
+	public void setCalendarID(String calendarID) {
+		this.calendarID = calendarID;
 	}
-	public String getUserName() {
-		return userName;
+	public String getCreatedby() {
+		return createdby;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setCreatedby(String createdby) {
+		this.createdby = createdby;
 	}
 	public int getPublicOrPrivate() {
 		return publicOrPrivate;
 	}
-	public void setPublicOrPrivate(int publicPrivate) {
-		this.publicOrPrivate = publicPrivate;
+	public void setPublicOrPrivate(int publicOrPrivate) {
+		this.publicOrPrivate = publicOrPrivate;
 	}
-
-}
+	public long getSerialVersionUID() {
+		return serialVersionUID;
+	}
+	
+	
+	
+}	
