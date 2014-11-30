@@ -7,6 +7,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+import config.Configurations;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -31,11 +33,13 @@ public class ForecastModel {
 	         HttpURLConnection conn;
 	         BufferedReader rd;
 	         String line;
-
 	         String result = "";
 
+	         Configurations cf = new Configurations();
+	         
+	         
 	         try {
-	             url = new URL("http://api.openweathermap.org/data/2.5/forecast/daily?lat=55.681589&lon=12.529092&cnt=14&mode=json&units=metric");
+	             url = new URL("http://api.openweathermap.org/data/2.5/forecast/daily?lat=" + cf.getWeather_lat() + "&lon=" + cf.getWeather_lon() + "&cnt=14&mode=json&units=metric");
 	             conn = (HttpURLConnection) url.openConnection();
 	             conn.setRequestMethod("GET");
 	             

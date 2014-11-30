@@ -1,5 +1,7 @@
 import java.sql.SQLException;
+import java.util.ArrayList;
 
+import model.Forecast.Forecast;
 import model.Forecast.ForecastModel;
 import model.QOTD.QOTDModel;
 import model.calendar.Event;
@@ -123,7 +125,13 @@ public class GiantSwitch {
 		 ************/
 
 		case "getClientForecast":
-			
+			ForecastModel fm = new ForecastModel();
+	        
+	        ArrayList<Forecast> forecastList = fm.requestForecast();
+	        
+	        for (int i = 0; i < forecastList.size(); i++) {
+	        	System.out.println(forecastList.get(i).toString());
+			}
 			
 			System.out.println("Recieved getClientForecast");
 			break;

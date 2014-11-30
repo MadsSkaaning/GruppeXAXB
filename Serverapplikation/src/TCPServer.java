@@ -16,8 +16,9 @@ class TCPServer{
 		
 		Configurations cf = new Configurations();
 		
-		ServerSocket welcomeSocket = new ServerSocket(8888);
-		System.out.println("Server listens on port 8888");
+		
+		ServerSocket welcomeSocket = new ServerSocket(Integer.parseInt(cf.getServersocket()));
+		System.out.println("Server listens on port " + cf.getServersocket());
 		
 		
 		//While something is true

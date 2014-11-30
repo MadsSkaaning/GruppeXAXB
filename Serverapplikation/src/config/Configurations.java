@@ -15,6 +15,7 @@ public class Configurations {
     private String username;
     private String dbname;
     private String password;
+    private String serversocket;
 
     // FFkey is used in Encryption.java
     private String ffcryptkey;
@@ -79,6 +80,14 @@ public class Configurations {
     public void setFfcryptkey(String ffcryptkey) {
         this.ffcryptkey = ffcryptkey;
     }
+    
+	public String getServersocket() {
+		return serversocket;
+	}
+
+	public void setServersocket(String serversocket) {
+		this.serversocket = serversocket;
+	}
 
 
 // Weather settrs and getters.
@@ -135,6 +144,7 @@ public class Configurations {
             setUsername((String) jsonObject.get("username"));
             setDbname((String) jsonObject.get("dbname"));
             setPassword((String) jsonObject.get("password"));
+            setServersocket((String) jsonObject.get("serversocket"));
 
             // Getting json values for KEY variables
             setFfcryptkey((String) jsonObject.get("ffcryptkey"));
@@ -155,4 +165,5 @@ public class Configurations {
             e.printStackTrace();
         }
     }
+
 }
