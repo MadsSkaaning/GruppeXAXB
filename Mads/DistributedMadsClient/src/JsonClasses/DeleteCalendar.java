@@ -1,4 +1,4 @@
-package shared;
+package JsonClasses;
 
 public class DeleteCalendar implements java.io.Serializable 
 {

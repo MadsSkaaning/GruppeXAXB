@@ -19,7 +19,15 @@ public class CalendarInfo implements java.io.Serializable {
 		
 		
 		
+<<<<<<< HEAD
 		
+=======
+		/**
+		 * Gets the overall id.
+		 *
+		 * @return the overall id
+		 */
+>>>>>>> FETCH_HEAD
 		public String getOverallID() {
 			return overallID;
 		}

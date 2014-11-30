@@ -1,4 +1,4 @@
-package shared;
+package JsonClasses;
 public class CalendarInfo implements java.io.Serializable {
 
 		private  final long serialVersionUID = 1L;

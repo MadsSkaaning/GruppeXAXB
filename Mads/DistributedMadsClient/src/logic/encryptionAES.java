@@ -1,4 +1,4 @@
-package shared;
+package logic;
 import java.security.Key;
 import javax.crypto.spec.SecretKeySpec;
 import javax.crypto.Cipher;

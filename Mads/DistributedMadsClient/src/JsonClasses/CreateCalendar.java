@@ -1,4 +1,4 @@
-package shared;
+package JsonClasses;
 
 public class CreateCalendar implements java.io.Serializable
 {

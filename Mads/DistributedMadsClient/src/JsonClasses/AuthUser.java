@@ -1,4 +1,4 @@
-package shared;
+package JsonClasses;
 
 public class AuthUser implements java.io.Serializable
 {

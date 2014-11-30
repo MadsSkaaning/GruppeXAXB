@@ -1,4 +1,4 @@
-package shared;
+package gui;
 public class WeatherInfo {
 	
 	private String weatherLocation;
