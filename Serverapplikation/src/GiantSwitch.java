@@ -55,7 +55,7 @@ public class GiantSwitch {
 		case "logOut":
 			System.out.println("Recieved logOut");
 			break;
-
+ 
 		/*************
 		 ** CALENDAR **
 		 *************/

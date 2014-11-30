@@ -1,6 +1,8 @@
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.net.Socket;
 
 import com.google.gson.Gson;
@@ -8,6 +10,7 @@ import com.google.gson.GsonBuilder;
 
 import config.Configurations;
 import GUI.GUILogic;
+import JsonClasses.AuthUser;
 
 
 //Når serveren starter - kører denne klasse.
@@ -30,44 +33,32 @@ public class ClientWorker implements  Runnable{
 		try{
 			System.out.println("forbindelse Oprettet!");
 			
-			//Gets ip adress and displays it to server
-			System.out.println("Client " + connectionSocketConected.getInetAddress() + " connected!");
-			//BufferedReader inFromClient = new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
-			byte[] b = new byte[500000];
-			int count = connectionSocketConected.getInputStream().read(b);
-			ByteArrayInputStream bais = new ByteArrayInputStream(b);
-			DataInputStream inFromClient = new DataInputStream(connectionSocketConected.getInputStream());		
-			//Creates an object of the data which is to be send back to the client, via the connectionSocket
-			DataOutputStream outToClient = new DataOutputStream(connectionSocketConected.getOutputStream());
+			ObjectInputStream inFromClient = new ObjectInputStream(connectionSocketConected.getInputStream());
+			
+			ObjectOutputStream outToClient = new ObjectOutputStream(connectionSocketConected.getOutputStream());
 			System.out.println("Outtoclient oprettet!");
 			//Sets client sentence equals input from client
 			//incomingJson = inFromClient.readLine();			
 			
 			
-			String ny = cryp.decrypt(b);
+			
 			System.out.println("Besked modtaget!");
-			System.out.println("Received: " + ny);
-			String jsonNy = gson.toJson(ny);
+			System.out.println("Received: ");
+			
+			
+			String input = (String) inFromClient.readObject();
 			
 		    
 			
-			String svar = GS.GiantSwitchMethod(ny);
+			
+			String svar = GS.GiantSwitchMethod(input);
 			
 			
+					
+			outToClient.writeObject(svar);
 			
-			String stringKey = cf.getFfcryptkey();
 			
-			double doubleKey = Double.parseDouble(stringKey);
-			
-			byte key = (byte) doubleKey;
-
-			byte[] encrypted = svar.getBytes();
-
-			for (int i=0; i<encrypted.length; i++) encrypted[i] = (byte) (encrypted[i] ^ key);		
-			
-			outToClient.write(encrypted);
-			
-			System.out.println("svar sendt" + encrypted);
+			System.out.println("svar sendt");
 			
 			
 		}catch(Exception exception){
