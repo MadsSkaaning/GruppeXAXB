@@ -45,7 +45,6 @@ public class CalendarInfo implements java.io.Serializable {
 		/** The public or private. */
 		private int publicOrPrivate;
 		
-		
 		/**
 		 * Gets the overall id.
 		 *
