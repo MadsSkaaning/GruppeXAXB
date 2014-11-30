@@ -31,8 +31,8 @@ public class AddUser extends JPanel {
 	 * Create the panel.
 	 */
 	public AddUser() {
-		setPreferredSize(new Dimension(1366, 768));
-		setSize(new Dimension(1366, 768));
+		setPreferredSize(new Dimension(1024, 768));
+		setSize(new Dimension(1024, 768));
 		setLayout(null);
 		
 		lblCBSlogo = new JLabel("");
@@ -120,9 +120,9 @@ public class AddUser extends JPanel {
 				add(lblUserInfo);
 								
 				JLabel lblBackground = new JLabel("");
-				lblBackground.setSize(new Dimension(1366, 768));
+				lblBackground.setSize(new Dimension(1024, 768));
 				lblBackground.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/MetalBackground.jpg")));
-				lblBackground.setBounds(0, 0, 1366, 768);
+				lblBackground.setBounds(0, 0, 1024, 768);
 				add(lblBackground);
 		
 		

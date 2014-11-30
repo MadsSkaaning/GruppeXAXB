@@ -1,4 +1,4 @@
-package model.QOTD;
+package JsonClasses;
 
 public class QOTD {
 
@@ -32,7 +32,8 @@ public class QOTD {
 	}
 	
 	public static void main (String [] args ){
-	
+		
+		
 		
 	}
 	

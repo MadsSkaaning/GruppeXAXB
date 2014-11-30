@@ -3,8 +3,19 @@ public class CalendarInfo implements java.io.Serializable {
 
 		private  final long serialVersionUID = 1L;
 		private String overallID = "createCalendar";
+		
+		private String activityID;
+		private String eventID;
+		private String type;
+		private String title;
+		private String description;
+		private String start;
+		private String end;
+		private String locatoin;
+		
 		private String calendarName;
 		private String userName;
+	
 		private int publicOrPrivate;
 		
 		//Getters and setters for everything, bitch
