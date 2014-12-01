@@ -144,7 +144,6 @@
 package logic;
 
 import java.net.*;
-import java.util.Scanner;
 import java.io.*;
 
 import JsonClasses.AuthUser;
@@ -153,40 +152,47 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import config.Configurations;
+import java.util.Scanner;
 
 
 public class TCPClient {
 	
 	public static void main(String[] args) throws Exception {
-		
-		
 		AuthUser AU = new AuthUser();
 		//Ny auth
 		
-		
+		// Creates the gson builder we are going to use to pack over JSon classes and send to and receive from server.
 		Gson gson = new GsonBuilder().create();
 		
-		AU.setAuthUserEmail("test");
-		AU.setAuthUserIsAdmin(false);
-		AU.setAuthUserPassword("123");
 		
+		Scanner input = new Scanner(System.in);
+		
+		// For now waiting on users input.
+		
+		System.out.println("Enter email (admin)");
+		AU.setAuthUserEmail(input.nextLine());
+		AU.setAuthUserIsAdmin(false);
+		System.out.println("Enter password (cbs)");
+		AU.setAuthUserPassword(input.nextLine());
+		
+		//Pack the object created above to a Json (AU)
 		String objecttilserver = gson.toJson(AU);
 		
-		
+		// Create configurations in order to get the server sockets.
 		Configurations cf = new Configurations();
 		
-		
-		
-		Socket clientSocket = new Socket("localhost", 8888);
+		// Get server host and serversocket from config.json
+		Socket clientSocket = new Socket(cf.getHost(), Integer.parseInt(cf.getServerhost()));
 
+		
 		ObjectOutputStream outToServer = new ObjectOutputStream(
 				clientSocket.getOutputStream());
-
 		
+		// Write the object to the server when packed in Json.
 		outToServer.writeObject(objecttilserver);
 		outToServer.flush();
 		
-		
+		// This receives information from the server
 		ObjectInputStream infromserver = new ObjectInputStream(clientSocket.getInputStream());
 		
 		String svarfraserver = infromserver.readObject().toString();

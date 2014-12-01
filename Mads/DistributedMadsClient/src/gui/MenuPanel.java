@@ -31,11 +31,9 @@ import javax.swing.JLabel;
 /**
  * The Class MenuPanel.
  */
-public class MenuPanel extends JPanel
+public class MenuPanel extends JPanel implements ActionListener
 {
 
-	
-	
 	//Testing menu variables.
 	
 	
@@ -49,7 +47,6 @@ public class MenuPanel extends JPanel
                 jmenupanel.setBounds(0, 0, 1024, 100);
 
                 // creating button on external JPanel
-                
                 JButton btnHome = new JButton("..");
                 btnHome.setIcon(new ImageIcon(MenuPanel.class.getResource("/shared/img/home-button.png")));
                 btnHome.setBounds(10, 11, 75, 48);
@@ -62,8 +59,6 @@ public class MenuPanel extends JPanel
 
                                 
                 //test purposes code
-                
-
                 jmenupanel.setLayout(null);
                 jmenupanel.add(btnHome);
                 jmenupanel.add(btnCalendar);
@@ -73,7 +68,6 @@ public class MenuPanel extends JPanel
                 //Hides the background color - and use the IMG.
                 jmenupanel.setOpaque(true);
                 jmenupanel.setBackground(new Color(0,0,0,0));
-                
                 final JButton btnLogout = new JButton("Logout");
                 
                 
@@ -102,6 +96,14 @@ public class MenuPanel extends JPanel
 
         	
         }
+
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			
+			
+			// TODO Auto-generated method stub
+			
+		}
         
         
     }

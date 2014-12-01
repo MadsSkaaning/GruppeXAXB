@@ -161,7 +161,7 @@ public class SwitchMethods extends Model
 					// Hvis brugeren baade logger ind og er registreret som admin, eller hvis brugeren baade logger ind og er registreret som bruger
 					if(resultSet.next() && (resultSet.getString("type").equals("admin")) || (resultSet.getString("type").equals("user")))
 					{
-						return "0"; // returnerer "0" hvis bruger/admin er godkendt
+						return "0 - Du er nu logget ind"; // returnerer "0" hvis bruger/admin er godkendt
 					} else {
 						return "4"; // returnerer fejlkoden "4" hvis brugertype ikke stemmer overens med loginplatform
 					}

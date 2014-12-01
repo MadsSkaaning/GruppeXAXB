@@ -33,10 +33,6 @@ public final class LoginVerificationLogic implements ActionListener {
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
 	public void actionPerformed(ActionEvent e) {
-
-
-
-
 		if (e.getSource() == this.loginScreen.btnLogMeIn){
 
 			String id = this.loginScreen.txtEnterCbsEmail.getText();
@@ -48,21 +44,13 @@ public final class LoginVerificationLogic implements ActionListener {
 			if(auth.authenticate()) {
 
 				if(User.currentUser.getisAdmin()){
-					
-			//	if(User.currentUser.equals("id")){
-
 				
 				}else{						
-
+					
 					CustomerScreen mainscreen = new CustomerScreen();
 					this.loginScreen.setVisible(false);
 					mainscreen.runcustomerscreen();
-
-					
-//					if (DB.getUsername(User.username) )
-//					
-//					{
-						
+	
 						
 					}
 
