@@ -90,7 +90,7 @@ public class Calendar extends JPanel {
 	    
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//JOptionPane.showConfirmDialog(null, "the game is rigged."); virker det?
+				//JOptionPane.showConfirmDialog(null, "the game is rigged.");
 				
 
 		int res = JOptionPane.showOptionDialog(window, new Object[] { l_cb, tf_cb, l_name, tf_name, l_pp, tf_pp}, 
