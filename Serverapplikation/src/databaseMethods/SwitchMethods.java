@@ -7,6 +7,7 @@ import model.QueryBuild.QueryBuilder;
 
 public class SwitchMethods extends Model
 {
+	private static final String String = null;
 	QueryBuilder qb = new QueryBuilder();
 	QOTDModel qm = new QOTDModel();
 
@@ -120,6 +121,50 @@ public class SwitchMethods extends Model
 		
 		return stringToBeReturend;
 	}
+	
+	
+	
+	
+	
+	
+	
+	public String getCalendar (String createdby, String calendarName) throws SQLException
+	{
+		String stringToBeReturned ="";
+		testConnection();
+		stringToBeReturned = fetchCalendar(createdby, calendarName);
+
+		return stringToBeReturned;
+	}
+	
+	public String fetchCalendar (String createdby, String calendarName) throws SQLException
+	{
+		
+		String stringToBeReturend = "";
+		String usernameOfCreator ="";
+		String calendarExists = "";
+		resultSet = qb.selectFrom("Calendar").where("Name", "=", calendarName).ExecuteQuery();
+				
+		while(resultSet.next())
+		{
+			calendarExists = resultSet.toString();
+		}
+		if(!calendarExists.equals("")) {
+			stringToBeReturend = "You don't have access to this calendar or it does not exist";
+		}
+		else	
+			{
+				stringToBeReturend = "Your selected calendar";
+				String [] getkeys = {"calendarid","Name","createdby", "privatepublic", "active"};
+				resultSet = qb.selectFrom("Calendar").where("Name", "=", calendarName).ExecuteQuery();
+				
+			}	
+			stringToBeReturend = resultSet.toString();
+			
+		return stringToBeReturend;
+	}	
+	
+	
 	
 	
 	// Metoden faar email og password fra switchen (udtrukket fra en json) samt en boolean der skal saettes til true hvis det er serveren der logger paa, og false hvis det er en klient

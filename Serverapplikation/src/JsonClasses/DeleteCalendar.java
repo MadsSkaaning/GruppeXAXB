@@ -5,7 +5,7 @@ public class DeleteCalendar implements java.io.Serializable
 	private  final long serialVersionUID = 1L;
 	private String overallID = "deleteCalendar";
 	private String calendarName;
-	private String userName;
+	private String createdby;
 	private String active;
 	
 	
@@ -30,10 +30,13 @@ public class DeleteCalendar implements java.io.Serializable
 	public void setCalendarName(String calendarName) {
 		this.calendarName = calendarName;
 	}
-	public String getUserName() {
-		return userName;
+
+	public String getCreatedby() {
+		return createdby;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+
+	public void setCreatedby(String createdby) {
+		this.createdby = createdby;
 	}
+
 }

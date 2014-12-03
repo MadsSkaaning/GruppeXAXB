@@ -10,6 +10,7 @@ import JsonClasses.AuthUser;
 import JsonClasses.CalendarInfo;
 import JsonClasses.CreateCalendar;
 import JsonClasses.DeleteCalendar;
+import JsonClasses.GetCalendar;
 
 import com.google.gson.*;
 
@@ -73,7 +74,7 @@ public class GiantSwitch {
 		case "deleteCalendar":
 			DeleteCalendar DC = (DeleteCalendar)gson.fromJson(jsonString, DeleteCalendar.class);
 			System.out.println(DC.getCalendarName()+ "Den har lagt det nye ind i klassen");
-			answer = SW.deleteCalendar(DC.getUserName(), DC.getCalendarName());
+			answer = SW.deleteCalendar(DC.getCreatedby(), DC.getCalendarName());
 			break;
 		
 		case "saveImportedCalendar":
@@ -81,7 +82,9 @@ public class GiantSwitch {
 			break;
 			
 		case "getCalendar":
+			GetCalendar GC = (GetCalendar)gson.fromJson(jsonString, GetCalendar.class);
 			System.out.println("Recieved getCalendar");
+			answer = SW.getCalendar(GC.getCreatedby(), GC.getCalendarName());
 			break;
 
 		case "getEvents":
