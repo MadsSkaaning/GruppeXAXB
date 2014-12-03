@@ -20,7 +20,10 @@ import model.QueryBuild.QueryBuilder;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
+import config.Configurations;
+
 public class QOTDModel {
+		Configurations cf = new Configurations();
 
 	private ArrayList<QOTD> qotdlist = new ArrayList<>();
 	
@@ -33,6 +36,7 @@ public class QOTDModel {
      *
      */ 
     private static String readUrl(String urlString) throws Exception {
+    	
         BufferedReader reader = null;
         try {
             URL url = new URL(urlString);
@@ -52,13 +56,17 @@ public class QOTDModel {
     
      	public void saveQuote() {
 
+     		
+     		
+     		Configurations cf = new Configurations();
+     		
             /**
              * getting text from website and putiing into string
              * Making a new object of JSON, and prints out quote
              */
             String json;
 			try {
-				json = readUrl("http://dist-sso.it-kartellet.dk/quote/");
+				json = readUrl(cf.getQotdlink());
 			
     			JSONParser jsonParser = new JSONParser();
     			JSONObject jsonObject = (JSONObject) jsonParser.parse(json);
@@ -105,16 +113,18 @@ public class QOTDModel {
   	
   	 public void updateQuote(){
 	     	Date date = new Date(); // Current date & time
-	     	long maxTimeNoUpdate = 86400; // Maximum one day with no update
+	     	
+	     	
+	     	long maxTimeNoUpdate = Long.parseLong(cf.getQotdupdatetime());
+	     	// Maximum one day with no update
 	     	
 	     	long date1 = date.getTime();
 	     	long date2 = date.getTime() - maxTimeNoUpdate; // minus 1 hour -- should be fetched from database
 	     	
 	     	long timeSinceUpdate = date1 - date2; 
 	     	
-	     	
-	     	// if more than 1 hour ago, do update
-	     	if(timeSinceUpdate > 864000){
+	     	// if more than 1 day ago, do update
+	     	if(timeSinceUpdate > Long.parseLong(cf.getQotdupdatetime())){
 	     		// return fresh weather data
 	     		saveQuote();	
 	     	} 

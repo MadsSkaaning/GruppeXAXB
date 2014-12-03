@@ -1,7 +1,6 @@
 package gui;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 
 
 import javax.swing.ImageIcon;
@@ -9,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
 import java.awt.Color;
 
 public class CalendarScreen extends JPanel {
@@ -31,7 +31,7 @@ public class CalendarScreen extends JPanel {
 	JButton btnHome;
 	
 	Eventhandler screenchanger;
-	private CustomerScreen screen;
+	CustomerScreen screen;
 	
 	
 	public CalendarScreen(CustomerScreen screen) {
@@ -77,28 +77,8 @@ public class CalendarScreen extends JPanel {
 		
 		
 		//inject addActionListeners
-		btnHome.addActionListener(new Eventhandler());
+		btnHome.addActionListener(new Eventhandler(this));
 
 		
 }
-	
-	/**
-	 * The Class Eventhandler.
-	 */
-	public class Eventhandler implements ActionListener {
-
-		/* (non-Javadoc)
-		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
-		 */
-		@Override
-		public void actionPerformed(ActionEvent arg0) {
-
-			//CustomerScreen screen = new CustomerScreen();
-
-			screen.changecards.show(screen.contentPane,"menuPanel");
-
-		}
-
-
-	}
 }

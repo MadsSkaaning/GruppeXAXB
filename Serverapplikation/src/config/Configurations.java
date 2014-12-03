@@ -16,6 +16,10 @@ public class Configurations {
     private String dbname;
     private String password;
     private String serversocket;
+    
+    //QOTD variables
+    private String qotdlink;
+    private String qotdupdatetime;
 
     // FFkey is used in Encryption.java
     private String ffcryptkey;
@@ -89,10 +93,24 @@ public class Configurations {
 		this.serversocket = serversocket;
 	}
 
+    public String getQotdlink() {
+		return qotdlink;
+	}
 
-// Weather settrs and getters.
+	public void setQotdlink(String qotdlink) {
+		this.qotdlink = qotdlink;
+	}
 
-    public String getWeather_expiration_time() {
+
+	public String getQotdupdatetime() {
+		return qotdupdatetime;
+	}
+
+	public void setQotdupdatetime(String qotdupdatetime) {
+		this.qotdupdatetime = qotdupdatetime;
+	}
+
+	public String getWeather_expiration_time() {
         return weather_expiration_time;
     }
 
@@ -129,7 +147,8 @@ public class Configurations {
 
     // Method to read files from jSON file
 
-    public void ReadFile() {
+
+	public void ReadFile() {
         JSONParser jsonParser = new JSONParser();
 
         try {
@@ -145,6 +164,10 @@ public class Configurations {
             setDbname((String) jsonObject.get("dbname"));
             setPassword((String) jsonObject.get("password"));
             setServersocket((String) jsonObject.get("serversocket"));
+            
+            // QOTD variables
+            setQotdlink((String) jsonObject.get("qotdlink"));
+            setQotdupdatetime((String) jsonObject.get("qotdupdatetime"));
 
             // Getting json values for KEY variables
             setFfcryptkey((String) jsonObject.get("ffcryptkey"));

@@ -26,6 +26,7 @@ public class ForecastModel {
 	     private ArrayList<Forecast> forecastList = new ArrayList();
 	     private String weatherDescription = "";
 	     QueryBuilder qb = new QueryBuilder();
+	     Configurations cf = new Configurations();
 	     
 	     // 
 	     public ArrayList<Forecast> requestForecast() {
@@ -111,7 +112,7 @@ public class ForecastModel {
 	     	long timeSinceUpdate = 3601; 
 	     	
 	     	// if more than 1 hour ago, do update
-	     	if(timeSinceUpdate > 3600){
+	     	if(timeSinceUpdate > Long.parseLong(cf.getWeather_expiration_time())){
 	     		// return fresh weather data
 	     		return this.requestForecast();
 	     	} else {

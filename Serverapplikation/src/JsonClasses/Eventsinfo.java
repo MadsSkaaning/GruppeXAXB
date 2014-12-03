@@ -13,9 +13,6 @@ public class Eventsinfo {
 	private String eventName;
 	private String createdby;
 	private int publicOrPrivate;
-	
-	
-	
 
 	public String getOverallID() {
 		return overallID;
