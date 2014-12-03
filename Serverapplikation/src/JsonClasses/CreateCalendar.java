@@ -7,7 +7,17 @@ public class CreateCalendar implements java.io.Serializable
 	private String calendarID;
 	private String createdby;
 	private String calendarName;
+	private String active;
 	
+	
+	
+	public String getActive() {
+		return active;
+	}
+
+	public void setActive(String active) {
+		this.active = active;
+	}
 	
 	
 	public String getCalendarName() {

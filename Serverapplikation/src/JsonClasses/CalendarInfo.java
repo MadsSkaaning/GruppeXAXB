@@ -12,9 +12,18 @@ public class CalendarInfo implements java.io.Serializable {
 		private String calendarName;
 		private String createdby;
 		private int publicOrPrivate;
+		private String active;
 	
 		
 		
+		public String getActive() {
+			return active;
+		}
+
+		public void setActive(String active) {
+			this.active = active;
+		}
+
 		public String getOverallID() {
 			return overallID;
 		}

@@ -7,7 +7,17 @@ public class DeleteNote {
 	private String noteID;
 	private String eventID;
 	private String createdby;
+	private String active;
 	
+	
+	
+	public String getActive() {
+		return active;
+	}
+
+	public void setActive(String active) {
+		this.active = active;
+	}
 	
 	
 	public String getOverallID() {

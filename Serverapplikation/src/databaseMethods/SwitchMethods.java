@@ -54,8 +54,8 @@ public class SwitchMethods extends Model
 	
 	public void addNewCalendar (String newCalendarName, String createdby, int publicOrPrivate) throws SQLException
 	{
-		String [] keys = {"Name","active","CreatedBy","PrivatePublic"};
-		String [] values = {newCalendarName,"1", createdby, Integer.toString(publicOrPrivate)};
+		String [] keys = {"Name","CreatedBy","PrivatePublic", "active"};
+		String [] values = {newCalendarName, createdby, Integer.toString(publicOrPrivate),"1"};
 		qb.insertInto("calendar", keys).values(values).Execute();
 		
 //		doUpdate("insert into test.calendar (Name, Active, CreatedBy, PrivatePublic) VALUES ('"+newCalendarName+"', '1', '"+userName+"', '"+publicOrPrivate+"');");
@@ -330,6 +330,8 @@ public class SwitchMethods extends Model
 		
 		return stringToBeReturend;
 	}
+	
+	
 	
 	
 }

@@ -5,9 +5,7 @@ public class GetEvents implements java.io.Serializable
 	private  final long serialVersionUID = 1L;
 	private String overallID = "getEvents";
 	private String eventID;
-	
-	
-	
+
 	public String getOverallID() {
 		return overallID;
 	}

@@ -12,7 +12,17 @@ public class CreateEvent implements java.io.Serializable
 	private String createdby;
 	private String location;
 	private String description;
+	private String active;
 	
+	
+	
+	public String getActive() {
+		return active;
+	}
+
+	public void setActive(String active) {
+		this.active = active;
+	}
 	
 	
 	public String getLocation() {

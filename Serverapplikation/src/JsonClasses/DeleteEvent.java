@@ -6,8 +6,17 @@ public class DeleteEvent implements java.io.Serializable
 	private String overallID = "deleteEvents";
 	private String eventName;
 	private String createdby;
+	private String active;
 	
-	//Getters and setters for everything, bitch
+	
+	
+	public String getActive() {
+		return active;
+	}
+
+	public void setActive(String active) {
+		this.active = active;
+	}
 	public String getOverallID() {
 		return overallID;
 	}

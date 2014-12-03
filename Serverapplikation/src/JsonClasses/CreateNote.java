@@ -7,7 +7,17 @@ public class CreateNote {
 	private String noteID;
 	private String createdby;
 	private String EventID;
+	private String active;
 	
+	
+	
+	public String getActive() {
+		return active;
+	}
+
+	public void setActive(String active) {
+		this.active = active;
+	}
 	
 	
 	public String getOverallID() {
