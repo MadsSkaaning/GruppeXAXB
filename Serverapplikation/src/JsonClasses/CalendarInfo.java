@@ -9,6 +9,7 @@ public class CalendarInfo implements java.io.Serializable {
 		private  final long serialVersionUID = 1L;
 		private String overallID = "calendarInfo";
 		private String activityID;
+		private String calendarID;
 		private String start;
 		private String end;
 		private String location;
@@ -22,6 +23,18 @@ public class CalendarInfo implements java.io.Serializable {
 			return overallID;
 		}
 		
+		public String getCalendarID() {
+			return calendarID;
+		}
+
+		public void setCalendarID(String calendarID) {
+			this.calendarID = calendarID;
+		}
+
+		public long getSerialVersionUID() {
+			return serialVersionUID;
+		}
+
 		/**
 		 * Sets the overall id.
 		 *
