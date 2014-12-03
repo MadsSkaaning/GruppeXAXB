@@ -1,12 +1,12 @@
 package JsonClasses;
 
-public class CreateNote {
+public class DeleteNote {
 	
 	private  final long serialVersionUID = 1L;
-	private String overallID = "createNote";
+	private String overallID = "deleteNote";
 	private String noteID;
+	private String eventID;
 	private String createdby;
-	private String EventID;
 	
 	
 	
@@ -22,6 +22,12 @@ public class CreateNote {
 	public void setNoteID(String noteID) {
 		this.noteID = noteID;
 	}
+	public String getEventID() {
+		return eventID;
+	}
+	public void setEventID(String eventID) {
+		this.eventID = eventID;
+	}
 	public String getCreatedby() {
 		return createdby;
 	}
@@ -31,13 +37,6 @@ public class CreateNote {
 	public long getSerialVersionUID() {
 		return serialVersionUID;
 	}
-	public String getEventID() {
-		return EventID;
-	}
-	public void setEventID(String eventID) {
-		EventID = eventID;
-	}
-
 	
 	
 	
