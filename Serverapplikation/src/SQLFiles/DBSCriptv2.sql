@@ -86,18 +86,6 @@ CREATE TABLE IF NOT EXISTS users
 	PRIMARY KEY (userid)
 );
 
-/* Create Dummy Account */
-
-INSERT INTO `cbscalendar`.`users`
-(`email`,
-`active`,
-`created`,
-`password`)
-VALUES
-("admin",
-true,
-"2014-10-10 00:00:00",
-"2OkRtrxUND6zSG0HaT0AXQ==");
 
 
 /* Create Foreign Keys */
