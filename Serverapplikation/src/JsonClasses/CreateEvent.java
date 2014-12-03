@@ -1,6 +1,6 @@
 package JsonClasses;
 
-public class CreateEvents implements java.io.Serializable
+public class CreateEvent implements java.io.Serializable
 {
 	private  final long serialVersionUID = 1L;
 	private String overallID = "createEvents";
@@ -10,9 +10,23 @@ public class CreateEvents implements java.io.Serializable
 	private String start;
 	private String end;
 	private String createdby;
-	private int publicOrPrivate;
+	private String location;
+	private String description;
 	
 	
+	
+	public String getLocation() {
+		return location;
+	}
+	public void setLocation(String location) {
+		this.location = location;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
 	//Getters and setters for everything, bitch
 	public String getOverallID() {
 		return overallID;
@@ -31,12 +45,6 @@ public class CreateEvents implements java.io.Serializable
 	}
 	public void setCreatedby(String createdby) {
 		this.createdby = createdby;
-	}
-	public int getPublicOrPrivate() {
-		return publicOrPrivate;
-	}
-	public void setPublicOrPrivate(int publicPrivate) {
-		this.publicOrPrivate = publicPrivate;
 	}
 	public String getCalendarID() {
 		return calendarID;

@@ -8,11 +8,7 @@ public class CalendarInfo implements java.io.Serializable {
 
 		private  final long serialVersionUID = 1L;
 		private String overallID = "calendarInfo";
-		private String activityID;
 		private String calendarID;
-		private String start;
-		private String end;
-		private String location;
 		private String calendarName;
 		private String createdby;
 		private int publicOrPrivate;
@@ -97,38 +93,7 @@ public class CalendarInfo implements java.io.Serializable {
 		public void setPublicOrPrivate(int publicPrivate) {
 			this.publicOrPrivate = publicPrivate;
 		}
-		
-		
-		public String getStart() {
-			return start;
-		}
-		public void setStart(String start) {
-			this.start = start;
-		}
 
-		
-		public String getEnd() {
-			return end;
-		}
-		public void setEnd(String end) {
-			this.end = end;
-		}
-		
-	
-		public String getLocation() {
-			return location;
-		}
-		public void setLocation(String location) {
-			this.location = location;
-		}
-
-		
-		public String getActivityID() {
-			return activityID;
-		}
-		public void setActivityID(String activityID) {
-			this.activityID = activityID;
-		}
 		
 		
 		

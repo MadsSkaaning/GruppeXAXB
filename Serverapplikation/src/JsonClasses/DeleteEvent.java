@@ -1,6 +1,6 @@
 package JsonClasses;
 
-public class DeleteEvents implements java.io.Serializable 
+public class DeleteEvent implements java.io.Serializable 
 {
 	private  final long serialVersionUID = 1L;
 	private String overallID = "deleteEvents";
