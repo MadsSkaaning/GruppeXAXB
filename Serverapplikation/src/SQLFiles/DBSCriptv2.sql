@@ -6,11 +6,11 @@ use cbscalendar;
 CREATE TABLE IF NOT EXISTS Calendar
 (
 	calendarid int NOT NULL AUTO_INCREMENT,
-	Name varchar(255) NOT NULL,
+	calendarname varchar(255) NOT NULL,
 	createdby varchar(255) NOT NULL,
 	privatepublic tinyint NOT NULL COMMENT '1 = public
 	2 = private',
-	active bit NOT NULL,
+	active tinyint(4) NOT NULL,
 	PRIMARY KEY (calendarid)
 );
 
@@ -34,13 +34,13 @@ CREATE TABLE IF NOT EXISTS events
 	createdby int NOT NULL,
 	start datetime NOT NULL,
 	end datetime NOT NULL,
-	eventname varchar(0) NOT NULL,
+	eventname varchar(100) NOT NULL,
 	description varchar(300) NOT NULL,
 	-- Decides wether the event is an import-event or user created
 	-- 
 	calendarid int NOT NULL,
 	PRIMARY KEY (eventid),
-	active bit NOT NULL,
+	active tinyint(4) NOT NULL,
 
 	customevent boolean COMMENT 'Decides wether the event is an import-event or user created
 '
@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS notes
 	createdby varchar(255) NOT NULL,
 	note varchar(2000),
 	dateTime datetime NOT NULL,
-	active bit NOT NULL,
+	active tinyint(4) NOT NULL,
 	PRIMARY KEY (noteid)
 );
 
@@ -79,7 +79,7 @@ CREATE TABLE IF NOT EXISTS users
 (
 	userid int NOT NULL AUTO_INCREMENT,
 	email varchar(40) NOT NULL,
-	active bit NOT NULL,
+	active tinyint(5) NOT NULL,
 	created datetime NOT NULL,
 	type varchar(20) NOT NULL,
 	password varchar(200) NOT NULL,

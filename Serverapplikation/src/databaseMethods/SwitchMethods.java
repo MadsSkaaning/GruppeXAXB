@@ -55,7 +55,7 @@ public class SwitchMethods extends Model
 	
 	public void addNewCalendar (String newCalendarName, String createdby, int publicOrPrivate) throws SQLException
 	{
-		String [] keys = {"Name","CreatedBy","PrivatePublic", "active"};
+		String [] keys = {"calendarname","CreatedBy","PrivatePublic", "active"};
 		String [] values = {newCalendarName, createdby, Integer.toString(publicOrPrivate),"1"};
 		qb.insertInto("calendar", keys).values(values).Execute();
 		
@@ -221,13 +221,13 @@ public class SwitchMethods extends Model
 		}
 	}
 	
-	public String createNewEvent (String createdby, String eventname, String start, String end, String location, String description, String calendarid) throws SQLException
+	public String createNewEvent (int createdby, String eventname, String start, String end, String location, String description, String calendarid) throws SQLException
 	{
 		String stringToBeReturned ="";
 		testConnection();
 
 			try {
-				addNewEvent(location, createdby, start, end, eventname, description, calendarid);
+				addNewEvent( createdby, location, start, end, eventname, description, calendarid);
 				stringToBeReturned = "The new event has been created!";
 			} catch (Exception e) {
 				stringToBeReturned = ("Something went wrong.");
@@ -238,10 +238,10 @@ public class SwitchMethods extends Model
 	}
 	
 	
-	public void addNewEvent (String createdby, String eventname, String start, String end, String location, String description, String calendarid) throws SQLException
+	public void addNewEvent (int createdby, String eventname, String start, String end, String location, String description, String calendarid) throws SQLException
 	{
-		String [] keys = {"location","createdby","start","end", "eventname", "description", "calendarid", "active"};
-		String [] values = {location, createdby, start, end, eventname, description, calendarid, "1"};
+		String [] keys = {"createdby", "eventname", "start","end", "location", "description", "calendarid", "active"};
+		String [] values = {Integer.toString(createdby), location, start, end, eventname, description, calendarid, "1"};
 		qb.insertInto("events", keys).values(values).Execute();
 		
 //		doUpdate("insert into test.calendar (Name, Active, CreatedBy, PrivatePublic) VALUES ('"+newCalendarName+"', '1', '"+userName+"', '"+publicOrPrivate+"');");

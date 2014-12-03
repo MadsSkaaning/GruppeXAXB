@@ -3,13 +3,13 @@ package JsonClasses;
 public class CreateEvent implements java.io.Serializable
 {
 	private  final long serialVersionUID = 1L;
-	private String overallID = "createEvents";
+	private String overallID = "createEvent";
 	private String eventName;
 	private String calendarID;
 	private String eventID;
 	private String start;
 	private String end;
-	private String createdby;
+	private int createdby;
 	private String location;
 	private String description;
 	private String active;
@@ -50,10 +50,10 @@ public class CreateEvent implements java.io.Serializable
 	public void setEventName(String eventName) {
 		this.eventName = eventName;
 	}
-	public String getCreatedby() {
+	public int getCreatedby() {
 		return createdby;
 	}
-	public void setCreatedby(String createdby) {
+	public void setCreatedby(int createdby) {
 		this.createdby = createdby;
 	}
 	public String getCalendarID() {
