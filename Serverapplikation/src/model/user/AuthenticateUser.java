@@ -42,7 +42,7 @@ public class AuthenticateUser {
 
 					String[] key = {"type"};
 
-					resultSet = qb.selectFrom(key, "roles").where("userid", "=", new Integer(userID).toString()).ExecuteQuery();
+					resultSet = qb.selectFrom(key, "users").where("userid", "=", new Integer(userID).toString()).ExecuteQuery();
 
 					// Hvis brugeren baade logger ind og er registreret som admin, eller hvis brugeren baade logger ind og er registreret som bruger
 					if((resultSet.getString("type").equals("admin") && isAdmin) || (resultSet.getString("type").equals("user") && !isAdmin))
