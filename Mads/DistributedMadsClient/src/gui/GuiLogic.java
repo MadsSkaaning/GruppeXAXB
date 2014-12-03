@@ -6,10 +6,7 @@ public class GuiLogic {
 	
 	public GuiLogic() {
 		
-		screen = new CustomerScreen();
-		
-		screen.
-		
+		screen = new CustomerScreen();		
 		
 		
 	}
