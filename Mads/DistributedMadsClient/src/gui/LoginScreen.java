@@ -33,9 +33,7 @@ public class LoginScreen extends JFrame {
 
 	/** The connecter. */
 	DatabaseConnect connecter = new DatabaseConnect();
-
-
-
+	
 	/** The content pane. */
 	private JPanel contentPane;
 
