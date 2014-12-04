@@ -1,5 +1,6 @@
 package gui;
 
+import java.awt.Color;
 import java.awt.event.ActionListener;
 
 import javax.swing.JPanel;
@@ -7,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
+import javax.swing.border.LineBorder;
 
 public class UserEventScreen extends JPanel {
 	private JTable table;
@@ -35,7 +37,16 @@ public class UserEventScreen extends JPanel {
 		lblBackground.setBounds(0, 0, 1024, 768);
 		add(lblBackground);
 
+		
+		// Opretter et panel her der skal være 
+		final JPanel addEventPanel = new JPanel();
+		addEventPanel.setBorder(new LineBorder(new Color(0, 0, 0), 3, true));
+		addEventPanel.setBounds(159,159,600,450);
+		addEventPanel.setVisible(false);
+		addEventPanel.setLayout(null);
+		
 	}
+	
 	
 	public JButton getReturn(){
 		

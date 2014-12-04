@@ -20,6 +20,7 @@ import java.awt.GridLayout;
 import javax.swing.ImageIcon;
 
 import java.awt.event.ActionEvent;
+import java.awt.Font;
 
 public class CalendarScreen extends JPanel {
 
@@ -33,6 +34,9 @@ public class CalendarScreen extends JPanel {
 	public CalendarScreen() {
 		setLayout(null);
 		setBounds(0, 0, 1024, 768);
+		btnHome.setIcon(new ImageIcon(CalendarScreen.class.getResource("/images/home-button.png")));
+		btnHome.setBounds(10, 17, 64, 64);
+		add(btnHome);
 		
 		
 		// Opretter et panel her der skal være 
@@ -43,47 +47,52 @@ public class CalendarScreen extends JPanel {
 		addEventPanel.setLayout(null);
 		
 		JButton btntest = new JButton("Close");
-		btntest.setBounds(241, 173, 73, 23);
+		btntest.setBounds(124, 285, 73, 23);
 		addEventPanel.add(btntest);
 		
 		JTextField input1 = new JTextField(20);
-		input1.setBounds(152, 9, 166, 20);
+		input1.setBounds(160, 124, 166, 20);
 		JTextField input2 = new JTextField(20);
-		input2.setBounds(152, 37, 166, 20);
+		input2.setBounds(160, 152, 166, 20);
 		
 		JLabel label_3 = new JLabel("Field 1");
-		label_3.setBounds(116, 12, 31, 14);
+		label_3.setBounds(82, 127, 73, 14);
 		addEventPanel.add(label_3);
 		addEventPanel.add(input1);
 		JLabel label = new JLabel("Field 2");
-		label.setBounds(116, 40, 31, 14);
+		label.setBounds(82, 155, 73, 14);
 		addEventPanel.add(label);
 		addEventPanel.add(input2);		
 		
 		JLabel label_1 = new JLabel("Field 2");
-		label_1.setBounds(530, 12, 31, 14);
+		label_1.setBounds(82, 214, 73, 14);
 		addEventPanel.add(label_1);
 		
 		textField = new JTextField(20);
-		textField.setBounds(152, 96, 166, 20);
+		textField.setBounds(160, 211, 166, 20);
 		addEventPanel.add(textField);
 		
 		JLabel label_2 = new JLabel("Field 2");
-		label_2.setBounds(116, 68, 31, 14);
+		label_2.setBounds(82, 183, 73, 14);
 		addEventPanel.add(label_2);
 		
 		textField_1 = new JTextField(20);
-		textField_1.setBounds(152, 65, 166, 20);
+		textField_1.setBounds(160, 180, 166, 20);
+		
+		 java.util.Date date= new java.util.Date();
+
+		
+		textField_1.setText("" + date);
 		addEventPanel.add(textField_1);
 		addEventPanel.setVisible(false);
 		add(addEventPanel);
-		btnHome.setIcon(new ImageIcon(CalendarScreen.class.getResource("/images/home-button.png")));
-		btnHome.setBounds(10, 17, 64, 64);
-		add(btnHome);
 		
-		JLabel lblHerKommerDer = new JLabel("HER KOMMER DER EN CALENDER");
-		lblHerKommerDer.setBounds(322, 31, 217, 50);
-		add(lblHerKommerDer);
+		JLabel lblAddNewEvent = new JLabel("Add New Event");
+		lblAddNewEvent.setFont(new Font("Tekton Pro", Font.PLAIN, 18));
+		lblAddNewEvent.setBounds(160, 46, 166, 37);
+		addEventPanel.add(lblAddNewEvent);
+		
+
 		
 		final JScrollPane scrollPane_1 = new JScrollPane();
 		scrollPane_1.setBounds(38, 161, 940, 532);
