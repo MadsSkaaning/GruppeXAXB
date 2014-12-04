@@ -161,6 +161,12 @@ public class GUILogic {
 				String[] Values = { Email, Password, Type, Active};
 				try {
 					qb.insertInto("users", kolonner ).values(Values).Execute();
+					
+					JOptionPane.showMessageDialog(null, "\nUser has been succesfully added!"
+							, "Error message",JOptionPane.PLAIN_MESSAGE);
+					
+					screen.show(Screen.USERLIST);
+										
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();

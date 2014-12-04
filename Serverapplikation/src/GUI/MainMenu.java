@@ -23,8 +23,6 @@ public class MainMenu extends JPanel {
 	private JButton btnNotelist;
 	private JButton btnCalendarList;
 	
-
-	
 	public MainMenu() {
 		setSize(new Dimension(1024, 768));
 		setLayout(null);

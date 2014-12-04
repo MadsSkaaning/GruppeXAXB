@@ -69,24 +69,23 @@ import model.QueryBuild.QueryBuilder;
 			add(lblEvents);
 
 			
-			//Laver tabellen inde i Eventlisten.
-			String[] columnNames = { "Event ID","Name", "Start Date", "Note", "Created By" };
+			//Laver tabellen inde i Calendar listen.
+			String[] columnNames = { "calendarid","calendarname", "createdby", "privatepublic", "active" };
 
 			Object[][] data = new Object[getEventCount()][5];
 	        
-			
 		    
 	        try {
 				QueryBuilder qb = new QueryBuilder();
-				rs = qb.selectFrom("events").all().ExecuteQuery();
+				rs = qb.selectFrom("calendar").all().ExecuteQuery();
 				
 		        int count = 0;
 		        while (rs.next()) {
-		        	data[count][0] = rs.getString("eventid");
-		        	data[count][1] = rs.getString("name");
-		        	data[count][2] = rs.getString("start");
-		        	data[count][3] = rs.getString("text");
-		        	data[count][4] = rs.getString("createdby");
+		        	data[count][0] = rs.getString("calendarid");
+		        	data[count][1] = rs.getString("calendarname");
+		        	data[count][2] = rs.getString("createdby");
+		        	data[count][3] = rs.getString("privatepublic");
+		        	data[count][4] = rs.getString("active");
 
 		        	count++;
 		        }
@@ -189,7 +188,7 @@ import model.QueryBuild.QueryBuilder;
 			
 			QueryBuilder qb2 = new QueryBuilder();
 			try {
-				rs = qb2.selectFrom("events").all().ExecuteQuery();
+				rs = qb2.selectFrom("calendar").all().ExecuteQuery();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
