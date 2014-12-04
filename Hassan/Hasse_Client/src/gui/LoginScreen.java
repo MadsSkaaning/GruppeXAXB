@@ -13,18 +13,33 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class LoginScreen extends JPanel {
-	private JTextField usernameField;
-	private JPasswordField passwordField;
+	 private JTextField usernameField;
+	 private JPasswordField passwordField;
 
 	JButton btnLogin = new JButton("Login");
-	
-	
+	String password;
+	String username;
 	public LoginScreen() {
 		setLayout(null);
 		
 		usernameField = new JTextField();
+		usernameField.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				if(e.getActionCommand().equals(usernameField)){
+					
+					username = usernameField.getText();
+					usernameField.setText("");
+					
+					
+				}
+				
+			}
+		});
+		
 		usernameField.setBounds(481, 290, 200, 26);
 		add(usernameField);
+	
 		usernameField.setColumns(10);
 		btnLogin.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -42,21 +57,31 @@ public class LoginScreen extends JPanel {
 		add(lblUsername);
 		
 		passwordField = new JPasswordField();
+		passwordField.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				if(e.getActionCommand().equals(passwordField)){
+					
+					passwordField.setText(passwordField.getText());
+					password = passwordField.getText();
+					
+				}
+			}
+		});
 		passwordField.setBounds(481, 339, 200, 23);
 		add(passwordField);
+		
 		
 		JLabel lblPasssword = new JLabel("Passsword:");
 		lblPasssword.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblPasssword.setBounds(414, 342, 58, 20);
 		add(lblPasssword);
-		
-		
 
 		
 
 	}
 	
-	
+
 	
 	public void addActionListener(ActionListener l) {
 		btnLogin.addActionListener(l);
@@ -67,18 +92,24 @@ public class LoginScreen extends JPanel {
 		return btnLogin;
 	}
 	
+	
+public JTextField getUsernameField(){
+		
+		return usernameField;
+	}
+	
 	@SuppressWarnings("deprecation")
 	public  String getPassword(){
 		
-		String pass = passwordField.getText();
-		
-		return pass;
+		return password;
 	}
 	
 	public String getUsername(){
 		
-		String username = usernameField.getText();
 		
 		return username;
 	}
+	
+	
+	
 }

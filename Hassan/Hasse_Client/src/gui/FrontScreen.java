@@ -2,18 +2,15 @@ package gui;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
 public class FrontScreen extends JPanel {
-	private JTextField forecastField;
-
-	/**
-	 * Create the panel.
-	 */
-	
+	private JTextArea forecastField;
 	private JButton btnCalendar = new JButton("Calendar");
 	private JButton btnEventlist = new JButton("Eventlist");
 	private JButton btnNewButton = new JButton("Logout");
@@ -29,7 +26,7 @@ public class FrontScreen extends JPanel {
 		lblLoggedInAs.setBounds(722, 41, 200, 50);
 		add(lblLoggedInAs);
 		
-		forecastField = new JTextField();
+		forecastField = new JTextArea();
 		forecastField.setEditable(false);
 		forecastField.setBounds(410, 157, 293, 133);
 		add(forecastField);
@@ -71,5 +68,10 @@ public class FrontScreen extends JPanel {
 	public JButton getExit(){
 		
 		return btnExit;
+	}
+	
+	public JTextArea getForecastfield(){
+		
+		return forecastField;
 	}
 }

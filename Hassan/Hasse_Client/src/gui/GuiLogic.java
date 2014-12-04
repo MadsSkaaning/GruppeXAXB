@@ -2,7 +2,7 @@ package gui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import logic.Controller;
 
 
 
@@ -14,7 +14,7 @@ public class GuiLogic {
 	
  private MainScreen screen;
  
- 
+
  
  public GuiLogic(){
 	 
@@ -33,6 +33,7 @@ public class GuiLogic {
  }
  
  
+ 
  public void run() {
 
 		screen.show("loginScreen");
@@ -40,10 +41,21 @@ public class GuiLogic {
 	}
  
  
-	private class LoginActionListener implements ActionListener {
+	public class LoginActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == screen.getLoginScreen().getbtnLogic()){
-				screen.show("frontScreen");
+				
+				Controller userInputs = new Controller();
+				
+				if(userInputs.userControlls("login").equals("login")){
+				
+					screen.getFrontScreen().getForecastfield().setText(userInputs.userControlls("forecast"));
+					
+					//screen.getFrontScreen().getQutelabel
+				
+					screen.show("frontScreen");
+					
+				}else{System.out.println("failed2");}
 			}
 			
 			
@@ -54,10 +66,19 @@ public class GuiLogic {
 	private class FrontActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == screen.getFrontScreen().getCalendar()){
+				
+				Controller userInputs = new Controller();
+				
+				userInputs.userControlls("createCalendar");
+				
 				screen.show("calendarScreen");
 			}
 			
 			else if (e.getSource() == screen.getFrontScreen().getEvenList()){
+				
+				Controller moreuserInputs = new Controller();
+				
+				moreuserInputs.userControlls("createEvent");
 				
 				screen.show("eventScreen");
 				
@@ -101,6 +122,9 @@ public class GuiLogic {
 	}
 	
 	
+public Class<LoginActionListener> getLoginActionListener(){
 	
+	return LoginActionListener.class;
+}	
 
 }
