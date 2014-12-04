@@ -108,10 +108,6 @@ public class Login extends JPanel {
 
 	}
 
-	public JTextField getTextField() {
-		return textFieldUsername;
-	}
-
 
 	public JButton getBtnLogIn() {
 		return btnLogIn;
@@ -125,10 +121,6 @@ public class Login extends JPanel {
 		return textFieldUsername;
 	}
 
-	public JPasswordField getTextFieldPassword() {
-		return textFieldPassword;
-	}
-
 	public String getUsername(){
 		
 		username = textFieldUsername.getText();
@@ -136,6 +128,7 @@ public class Login extends JPanel {
 		return username;
 	}
 
+	@SuppressWarnings("deprecation")
 	public String getPassword(){
 		
 		password = textFieldPassword.getText();

@@ -93,10 +93,10 @@ public class Calendar extends JPanel {
 				//JOptionPane.showConfirmDialog(null, "the game is rigged.");
 				
 
-		int res = JOptionPane.showOptionDialog(window, new Object[] { l_cb, tf_cb, l_name, tf_name, l_pp, tf_pp}, 
+		int res = JOptionPane.showOptionDialog(window, new Object[] { l_cb, tf_cb, l_name, tf_name, l_pp, tf_pp, b_add}, 
 				"Create calendar",
 				JOptionPane.OK_CANCEL_OPTION,
-				JOptionPane.PLAIN_MESSAGE,null, new String[]{"Create", "Cancel"},
+				JOptionPane.PLAIN_MESSAGE,null, new String[]{"Create", "Cancel"}, 
 				"default");
 				
 				

@@ -15,9 +15,6 @@ public class Loginlogik {
 	
 	private AuthUser AU = new AuthUser();
 	
-//	String loginfo = Login.getTextFieldUsername()().getText();
-	
-	//String loginfo = login.getTextFieldUsername()().getText();
 	
 	public String authenticateUser(){
 		
@@ -25,11 +22,8 @@ public class Loginlogik {
 		AU.setAuthUserEmail(login.getUsername());
 		System.out.println(login.getUsername());
 		AU.setAuthUserIsAdmin(false);
-//		AU.setAuthUserPassword(login.getPassword());
-//		System.out.println(login.getPassword());
-		AU.setAuthUserEmail("philip");
-		AU.setAuthUserPassword("1234");
-//		System.out.println(loginfo);
+//		AU.setAuthUserEmail("philip");
+//		AU.setAuthUserPassword("1234");
 		
 		String objecttilserver = gson.toJson(AU);
 		
