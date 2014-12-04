@@ -19,7 +19,6 @@ public class GUILogic {
 	
 	AuthUser a = new AuthUser();  
 	
-
 	public GUILogic(){
 		screen = new Screen();
 
@@ -28,11 +27,11 @@ public class GUILogic {
 		screen.getUserInfo().addActionListener(new UserInfoActionListener());
 		screen.getNoteList().addActionListener(new NoteListActionListener());
 		screen.getUserList().addActionListener(new UserListActionListener());
+		screen.getCalendarList().addActionListener(new CalendarListActionListener()); 
 		screen.getEventlist().addActionListener(new EventListActionListener());
 		screen.getAddEventGUI().addActionListener(new AddEventGUIActionListener());
 		screen.getAddUser().addActionListener(new AddUserActionListener());
-		screen.getCalendarList().addActionListener(new CalendarListActionListener()); 
-
+		
 		
 		
 	}
@@ -82,6 +81,9 @@ public class GUILogic {
 			}
 			if (e.getSource() == screen.getMainMenu().getBtnEventlist()){
 				screen.show(Screen.EVENTLIST);
+			}
+			if (e.getSource() == screen.getMainMenu().getBtnCalendarList()){
+				screen.show(Screen.CALENDARLIST);
 			}
 			
 

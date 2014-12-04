@@ -46,7 +46,7 @@ public class AddUser extends JPanel {
 		btnLogout.setForeground(new Color(255, 255, 255));
 		btnLogout.setFont(new Font("Arial", Font.BOLD, 30));
 		btnLogout.setContentAreaFilled(false);
-		btnLogout.setBounds(630, 506, 117, 43);
+		btnLogout.setBounds(571, 567, 117, 43);
 		add(btnLogout);
 
 		textField_Email = new JTextField();
@@ -59,32 +59,32 @@ public class AddUser extends JPanel {
 		JLabel lblUserID = new JLabel("Email");
 		lblUserID.setForeground(new Color(255, 255, 255));
 		lblUserID.setFont(new Font("Arial", Font.BOLD, 26));
-		lblUserID.setBounds(483, 211, 104, 30);
+		lblUserID.setBounds(424, 272, 104, 30);
 		add(lblUserID);
 
 		textField_Type = new JTextField();
 		textField_Type.setForeground(new Color(105, 105, 105));
 		textField_Type.setColumns(10);
-		textField_Type.setBounds(755, 259, 120, 34);
+		textField_Type.setBounds(696, 320, 120, 34);
 		add(textField_Type);
 
 		JLabel lblEmail = new JLabel("Type");
 		lblEmail.setForeground(new Color(255, 255, 255));
 		lblEmail.setFont(new Font("Arial", Font.BOLD, 26));
-		lblEmail.setBounds(483, 257, 109, 30);
+		lblEmail.setBounds(424, 318, 109, 30);
 		add(lblEmail);
 
 		textField_Password = new JTextField();
 		textField_Password.setForeground(new Color(105, 105, 105));
 		textField_Password.setColumns(10);
-		textField_Password.setBounds(755, 305, 120, 34);
+		textField_Password.setBounds(696, 366, 120, 34);
 		textField_Email.hashCode();
 		add(textField_Password);
 
 		JLabel lblTeam = new JLabel("Password");
 		lblTeam.setFont(new Font("Arial", Font.BOLD, 26));
 		lblTeam.setForeground(new Color(255, 255, 255));
-		lblTeam.setBounds(483, 303, 127, 30);
+		lblTeam.setBounds(424, 364, 127, 30);
 		add(lblTeam);
 
 		btnSubmit = new JButton("Create User");
@@ -100,7 +100,7 @@ public class AddUser extends JPanel {
 			}
 		}
 		);
-		btnSubmit.setBounds(570, 425, 239, 43);
+		btnSubmit.setBounds(511, 486, 239, 43);
 		add(btnSubmit);
 
 		
@@ -110,13 +110,13 @@ public class AddUser extends JPanel {
 				btnMainMenu.setFont(new Font("Arial", Font.BOLD, 30));
 				btnMainMenu.setContentAreaFilled(false);
 				btnMainMenu.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-				btnMainMenu.setBounds(609, 467, 164, 44);
+				btnMainMenu.setBounds(550, 528, 164, 44);
 				add(btnMainMenu);
 				
 				lblUserInfo = new JLabel("Create user");
 				lblUserInfo.setForeground(Color.WHITE);
 				lblUserInfo.setFont(new Font("Arial", Font.BOLD, 78));
-				lblUserInfo.setBounds(451, 90, 464, 90);
+				lblUserInfo.setBounds(392, 151, 464, 90);
 				add(lblUserInfo);
 								
 				JLabel lblBackground = new JLabel("");

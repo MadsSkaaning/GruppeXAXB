@@ -19,6 +19,7 @@ public class Screen extends JFrame {
 	public static final String EVENTLIST = "screeneventList";
 	public static final String ADDEVENTGUI = "screenaddEventGUI";
 	public static final String ADDUSER = "screenaddUser";
+	public static final String CALENDARLIST = "screencalendarList";
 	
 	private JPanel contentPane;
 	private final Login login = new Login();
@@ -27,10 +28,10 @@ public class Screen extends JFrame {
 	private final NoteList noteList = new NoteList();
 	private final UserList userlist = new UserList();
 	private final CalendarList calendarList = new CalendarList();
-	CardLayout c;
 	private final EventList eventList = new EventList();
 	private AddEventGUI addEventGUI;
 	private final AddUser addUser = new AddUser();
+	CardLayout c;
 
 	/**
 	 * Launch the application.
@@ -49,7 +50,7 @@ public class Screen extends JFrame {
 	}
 
 	public Screen() {
-		setTitle("Doek4life");
+		setTitle("CBS Calendar Extra");
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1024, 768);

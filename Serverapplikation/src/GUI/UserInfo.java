@@ -133,7 +133,7 @@ public class UserInfo extends JPanel {
 		} else {
 			lblOnlineDot.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/Green.png")));
 		}
-//<<<<<<< HEAD
+		
 		lblOnlineDot.setBounds(755, 433, 20, 20);
 		add(lblOnlineDot);
 				
@@ -150,15 +150,14 @@ public class UserInfo extends JPanel {
 				lblUserInfo.setFont(new Font("Arial", Font.BOLD, 78));
 				lblUserInfo.setBounds(514, 90, 338, 90);
 				add(lblUserInfo);
-				//=======
+
 				
-				//>>>>>>> FETCH_HEAD
-						
-						JLabel lblBackground = new JLabel("");
-						lblBackground.setSize(new Dimension(1024, 768));
-						lblBackground.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/MetalBackground.jpg")));
-						lblBackground.setBounds(0, 0, 1024, 768);
-						add(lblBackground);
+				JLabel lblBackground = new JLabel("");
+				lblBackground.setSize(new Dimension(1024, 768));
+				lblBackground.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/MetalBackground.jpg")));
+				lblBackground.setBounds(0, 0, 1024, 768);
+				add(lblBackground);
+				
 		if (active) {
 			lblOnlineDot.setBackground(Color.GREEN);
 			lblOnlineDot.repaint();
@@ -168,7 +167,6 @@ public class UserInfo extends JPanel {
 			lblOnlineDot.repaint();
 			lblOnlineDot.setText("Offline");
 		}
-		
 
 	}
 	
