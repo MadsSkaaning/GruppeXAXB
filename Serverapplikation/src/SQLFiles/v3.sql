@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `cbscalendar`.`users` (
   `userid` INT(11) NOT NULL AUTO_INCREMENT,
   `email` VARCHAR(40) NOT NULL,
   `active` TINYINT(5) NOT NULL,
-  `created` DATETIME NOT NULL,
+  `created` DATETIME DEFAULT CURRENT_TIMESTAMP,
   `type` VARCHAR(20) NOT NULL,
   `password` VARCHAR(200) NOT NULL,
   PRIMARY KEY (`userid`))

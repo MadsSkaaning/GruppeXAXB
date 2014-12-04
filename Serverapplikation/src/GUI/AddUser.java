@@ -41,18 +41,19 @@ public class AddUser extends JPanel {
 		add(lblCBSlogo);
 		
 
-		btnLogout = new JButton("Log out");
-		btnLogout.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
+		btnLogout = new JButton("");
+		btnLogout.setIcon(new ImageIcon(AddUser.class.getResource("/Images/Logout.png")));
+		btnLogout.setBorder(null);
 		btnLogout.setForeground(new Color(255, 255, 255));
 		btnLogout.setFont(new Font("Arial", Font.BOLD, 30));
 		btnLogout.setContentAreaFilled(false);
-		btnLogout.setBounds(571, 567, 117, 43);
+		btnLogout.setBounds(21, 57, 153, 41);
 		add(btnLogout);
 
 		textField_Email = new JTextField();
 		textField_Email.setForeground(new Color(105, 105, 105));
 		textField_Email.setName("");
-		textField_Email.setBounds(755, 213, 120, 34);
+		textField_Email.setBounds(696, 272, 120, 34);
 		add(textField_Email);
 		textField_Email.setColumns(10);
 
@@ -105,12 +106,13 @@ public class AddUser extends JPanel {
 
 		
 				
-				btnMainMenu = new JButton("Main menu");
+				btnMainMenu = new JButton("");
+				btnMainMenu.setIcon(new ImageIcon(AddUser.class.getResource("/Images/homebtn.png")));
 				btnMainMenu.setForeground(Color.WHITE);
 				btnMainMenu.setFont(new Font("Arial", Font.BOLD, 30));
 				btnMainMenu.setContentAreaFilled(false);
-				btnMainMenu.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-				btnMainMenu.setBounds(550, 528, 164, 44);
+				btnMainMenu.setBorder(null);
+				btnMainMenu.setBounds(22, 11, 153, 41);
 				add(btnMainMenu);
 				
 				lblUserInfo = new JLabel("Create user");

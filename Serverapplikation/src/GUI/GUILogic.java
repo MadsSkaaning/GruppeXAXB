@@ -3,6 +3,8 @@ package GUI;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 import GUI.UserInformation;
 import GUI.AuthUser;
@@ -142,6 +144,9 @@ public class GUILogic {
 				String Email = screen.getAddUser().getTextField_Email().getText();
 				String Type = screen.getAddUser().getTextField_Type().getText();
 				String Password = screen.getAddUser().getTextField_Password().getText();
+				String Active = "1";
+				
+				final DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS'0'");
 				
 				if (Email.equals("")|| Type.equals("")|| Password.equals(""))
 				{
@@ -152,13 +157,10 @@ public class GUILogic {
 				{
 				QueryBuilder qb = new QueryBuilder();
 				
-				String[] kolonner = { "email", "password"};
-				String[] Values = { Email, Password};
-				String[] kolonner2 = { "types"};
-				String[] Values2 = { Type};
+				String[] kolonner = { "email", "password", "type", "active"};
+				String[] Values = { Email, Password, Type, Active};
 				try {
-					qb.insertInto("users", kolonner ).values(Values).ExecuteQuery();
-					qb.insertInto("roles", kolonner ).values(Values).ExecuteQuery();
+					qb.insertInto("users", kolonner ).values(Values).Execute();
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
