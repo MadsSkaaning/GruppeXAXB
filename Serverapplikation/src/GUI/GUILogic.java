@@ -31,6 +31,7 @@ public class GUILogic {
 		screen.getEventlist().addActionListener(new EventListActionListener());
 		screen.getAddEventGUI().addActionListener(new AddEventGUIActionListener());
 		screen.getAddUser().addActionListener(new AddUserActionListener());
+		screen.getCalendarList().addActionListener(new CalendarListActionListener()); 
 
 		
 		
@@ -218,6 +219,18 @@ public class GUILogic {
 				screen.show(Screen.MAINMENU);
 			}
 			if (e.getSource() == screen.getEventlist().getBtnLogout()){
+				screen.show(Screen.LOGIN);
+			}
+		}
+	}
+	
+	private class CalendarListActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+
+			if (e.getSource() == screen.getCalendarList().getBtnMainMenu()){
+				screen.show(Screen.MAINMENU);
+			}
+			if (e.getSource() == screen.getCalendarList().getBtnLogout()){
 				screen.show(Screen.LOGIN);
 			}
 		}

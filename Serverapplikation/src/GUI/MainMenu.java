@@ -21,6 +21,7 @@ public class MainMenu extends JPanel {
 	private JButton btnUserlist_1;
 	private JButton btnEventlist;
 	private JButton btnNotelist;
+	private JButton btnCalendarList;
 	
 
 	
@@ -83,6 +84,21 @@ public class MainMenu extends JPanel {
 		btnLogOut.setBounds(18, 68, 153, 41);
 		add(btnLogOut);
 		
+		btnCalendarList = new JButton("");
+		btnCalendarList.setIcon(new ImageIcon(MainMenu.class.getResource("/Images/calendarbtn.png")));
+		btnCalendarList.setForeground(Color.WHITE);
+		btnCalendarList.setFont(new Font("Arial", Font.BOLD, 30));
+		btnCalendarList.setContentAreaFilled(false);
+		btnCalendarList.setBorder(null);
+		btnCalendarList.setBackground(Color.WHITE);
+		btnCalendarList.setBounds(439, 563, 153, 41);
+		add(btnCalendarList);
+		
+		btnCalendarList.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		
 		JLabel lblBackground = new JLabel("");
 		lblBackground.setIcon(new ImageIcon(MainMenu.class.getResource("/Images/MetalBackground.jpg")));
 		lblBackground.setBounds(0, 0, 1024, 768);
@@ -94,6 +110,7 @@ public class MainMenu extends JPanel {
 		btnEventlist.addActionListener(l);
 		btnNotelist.addActionListener(l);
 		btnUserlist_1.addActionListener(l);
+		btnCalendarList.addActionListener(l);
 		
 		
 	}
@@ -108,6 +125,9 @@ public class MainMenu extends JPanel {
 	}
 	public JButton getBtnLogOut() {
 		return btnLogOut;
+	}
+	public JButton getBtnCalendarList() {
+		return btnCalendarList;
 	}
 	
 }

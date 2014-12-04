@@ -10,15 +10,15 @@ import java.awt.CardLayout;
 
 public class Screen extends JFrame {
 
-	public static final String LOGIN = "name_276091497157488";
-	public static final String MAINMENU = "name_276416022878030";
-	public static final String USERINFO = "name_277892826656058";
-	public static final String ADDUSERGUI = "name_278604525733268";
-	public static final String NOTELIST = "name_278522430661848";
-	public static final String USERLIST = "name_280161954000083";
-	public static final String EVENTLIST = "name_534038022095149";
-	public static final String ADDEVENTGUI = "name_6308445225625";
-	public static final String ADDUSER = "name_10334207821613";
+	public static final String LOGIN = "screenlogin";
+	public static final String MAINMENU = "screenmainMenu";
+	public static final String USERINFO = "screenuserInfo";
+	public static final String ADDUSERGUI = "screenaddUser";
+	public static final String NOTELIST = "screennoteList";
+	public static final String USERLIST = "screenuserList";
+	public static final String EVENTLIST = "screeneventList";
+	public static final String ADDEVENTGUI = "screenaddEventGUI";
+	public static final String ADDUSER = "screenaddUser";
 	
 	private JPanel contentPane;
 	private final Login login = new Login();
@@ -26,6 +26,7 @@ public class Screen extends JFrame {
 	private final UserInfo userInfo = new UserInfo();
 	private final NoteList noteList = new NoteList();
 	private final UserList userlist = new UserList();
+	private final CalendarList calendarList = new CalendarList();
 	CardLayout c;
 	private final EventList eventList = new EventList();
 	private AddEventGUI addEventGUI;
@@ -59,23 +60,27 @@ public class Screen extends JFrame {
 		contentPane.setLayout(new CardLayout(0, 0));
 		
 		addEventGUI = new AddEventGUI();
-		contentPane.add(addEventGUI, "name_6308445225625");
+		contentPane.add(addEventGUI, "screenaddEventGUI");
 		login.getBtnLogIn().setContentAreaFilled(false);
 		login.getBtnForgotLogIn().setContentAreaFilled(false);
 		
-		contentPane.add(addUser, "name_10334207821613");
+		contentPane.add(addUser, "screenaddUser");
 		
-		contentPane.add(login, "name_276091497157488");
+		contentPane.add(login, "screenlogin");
 		
-		contentPane.add(mainMenu, "name_276416022878030");
+		contentPane.add(mainMenu, "screenmainMenu");
 		
-		contentPane.add(userInfo, "name_277892826656058");
+		contentPane.add(userInfo, "screenuserInfo");
 		
-		contentPane.add(noteList, "name_278522430661848");
+		contentPane.add(noteList, "screennoteList");
 		
-		contentPane.add(eventList, "name_534038022095149");
+		contentPane.add(eventList, "screeneventList");
 		
-		contentPane.add(userlist, "name_280161954000083");
+		contentPane.add(userlist, "screenuserList");
+		
+		contentPane.add(calendarList, "screencalendarList");
+		
+		
 		c = (CardLayout) getContentPane().getLayout();
 	}
 	
@@ -108,4 +113,8 @@ public class Screen extends JFrame {
 	public AddUser getAddUser() {
 		return addUser;
 	}
+	public CalendarList getCalendarList(){
+		return calendarList;
+	}
+	
 }
