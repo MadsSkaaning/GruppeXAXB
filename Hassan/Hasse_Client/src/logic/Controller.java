@@ -104,6 +104,16 @@ public class Controller {
 		
 		break;
 		
+		
+	case "deleteEvent":
+		
+		try {
+			dothis = clientconnection.serverComm(login.deleteEvent());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		break;
 			
 		default: System.out.println("ÆVVVV");
 			

@@ -11,6 +11,7 @@ import JsonClasses.CalendarInfo;
 import JsonClasses.CreateCalendar;
 import JsonClasses.CreateEvent;
 import JsonClasses.DeleteCalendar;
+import JsonClasses.DeleteEvent;
 import JsonClasses.GetCalendar;
 import JsonClasses.GetEvent;
 
@@ -75,7 +76,7 @@ public class GiantSwitch {
 		
 		case "deleteCalendar":
 			DeleteCalendar DC = (DeleteCalendar)gson.fromJson(jsonString, DeleteCalendar.class);
-			System.out.println(DC.getCalendarName()+ "Den har lagt det nye ind i klassen");
+			System.out.println(DC.getCalendarName()+ "Has been deleted");
 			answer = SW.deleteCalendar(DC.getCreatedby(), DC.getCalendarName());
 			break;
 		
@@ -106,7 +107,10 @@ public class GiantSwitch {
 			break;
 			
 		case "deleteEvent":
-			System.out.println("Recieved deleteEvent");
+			DeleteEvent DE = (DeleteEvent)gson.fromJson(jsonString, DeleteEvent.class);
+			System.out.println(DE.getEventID()+ "Has been deleted");
+			answer = SW.deleteEvent(DE.getCreatedby(), DE.getEventID());
+			break;
 		
 		case "createNote":
 			System.out.println("Recieved createNote");

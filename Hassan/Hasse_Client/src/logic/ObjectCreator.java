@@ -3,6 +3,7 @@ package logic;
 import JsonClasses.AuthUser;
 import JsonClasses.CreateCalendar;
 import JsonClasses.CreateEvent;
+import JsonClasses.DeleteEvent;
 import JsonClasses.GetCalendar;
 import JsonClasses.GetEvent;
 import JsonClasses.QOTD;
@@ -32,6 +33,8 @@ public class ObjectCreator {
 	private GetCalendar gC = new GetCalendar();
 	
 	private GetEvent gE = new GetEvent();
+	
+	private DeleteEvent DE = new DeleteEvent();
 	
 	
 	public String authenticateUser(){
@@ -126,6 +129,20 @@ public String getEvent(){
 	
 	String getEventRequest = gson.toJson(gE);
 	return getEventRequest;
+
+
+
+}
+
+public String deleteEvent(){
+	
+	
+	
+	DE.setCreatedby("1");
+	DE.setEventID("1");
+	
+	String getDeleteEvent = gson.toJson(DE);
+	return getDeleteEvent;
 
 
 

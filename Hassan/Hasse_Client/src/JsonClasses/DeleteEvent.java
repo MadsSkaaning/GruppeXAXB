@@ -3,8 +3,8 @@ package JsonClasses;
 public class DeleteEvent implements java.io.Serializable 
 {
 	private  final long serialVersionUID = 1L;
-	private String overallID = "deleteEvents";
-	private String eventName;
+	private String overallID = "deleteEvent";
+	private String eventID;
 	private String createdby;
 	private String active;
 	
@@ -23,12 +23,16 @@ public class DeleteEvent implements java.io.Serializable
 	public void setOverallID(String overallID) {
 		this.overallID = overallID;
 	}
-	public String getEventName() {
-		return eventName;
+
+	
+	public String getEventID() {
+		return eventID;
 	}
-	public void setEventName(String eventName) {
-		this.eventName = eventName;
+
+	public void setEventID(String eventID) {
+		this.eventID = eventID;
 	}
+
 	public String getCreatedby() {
 		return createdby;
 	}

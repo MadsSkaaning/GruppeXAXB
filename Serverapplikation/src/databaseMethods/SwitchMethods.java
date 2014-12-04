@@ -248,49 +248,56 @@ public class SwitchMethods extends Model
 //		doUpdate("insert into test.calendar (Name, Active, CreatedBy, PrivatePublic) VALUES ('"+newCalendarName+"', '1', '"+userName+"', '"+publicOrPrivate+"');");
 	}
 	
-	public String deleteEvent (String createdby, String eventname) throws SQLException
+	public String deleteEvent (String createdby, String eventid) throws SQLException
 	{
 		String stringToBeReturned ="";
 		testConnection();
-		stringToBeReturned = removeCalendar(createdby, eventname);
+		stringToBeReturned = removeEvent(createdby, eventid);
 
 		return stringToBeReturned;
 	}
 	
-	public String removeEvent (String createdby, String eventname) throws SQLException
+	public String removeEvent (String createdby, String eventid) throws SQLException
 	{
 		String stringToBeReturned = "";
 		String usernameOfCreator ="";
 		String eventExists = "";
-		resultSet = qb.selectFrom("events").where("eventname", "=", eventname).ExecuteQuery();
+		resultSet = qb.selectFrom("events").where("eventid", "=", eventid).ExecuteQuery();
+		System.out.println("test");
 				
-//				("select * from events where eventname = '"+eventname+"';");
+//				("select * from events where eventid = '"+eventid+"';");
 		while(resultSet.next())
 		{
 			eventExists = resultSet.toString();
+			System.out.println("test1");
 		}
+		//Husk at indsætte ! før eventExist når klient tilknyttes.
 		if(!eventExists.equals(""))
 		{
 			String [] value = {"createdby"};
-			resultSet = qb.selectFrom(value, "events").where("eventname", "=", eventname).ExecuteQuery();
-			while(resultSet.next())
+			resultSet = qb.selectFrom("events").where("createdby", "=", createdby).ExecuteQuery();
+
 			{
 				usernameOfCreator = resultSet.toString();
 				System.out.println(usernameOfCreator);
 			}
-			if(!usernameOfCreator.equals(createdby))
+			//Husk at indsætte ! før usernameofcreator når klient tilknyttes.
+			if(usernameOfCreator.equals(createdby))
 			{
 				stringToBeReturned = "Only the creator of the event is able to delete it.";
 			}
 			else
 			{
-				String [] keys = {"Active"};
-				String [] values = {"2"};
-				qb.update("events", keys, values).where("eventname", "=", eventname).Execute();
+				System.out.println("test5");
+				String [] keys = {"active"};
+				String [] values = {"0"};
+				qb.update("events", keys, values).where("createdby", "=", createdby).Execute();
 				stringToBeReturned = "Event has been deleted";
 			}
 			stringToBeReturned = resultSet.toString();
 		}
+		
+
 		else
 		{
 			stringToBeReturned = "The event you are trying to delete, does not exists.";
