@@ -48,6 +48,8 @@ public class GuiLogic {
 				Controller userInputs = new Controller();
 				
 				if(userInputs.userControlls("login").equals("login")){
+					
+					userInputs.userControlls("createCalendar");
 				
 					screen.getFrontScreen().getForecastfield().setText(userInputs.userControlls("forecast"));
 					
@@ -69,7 +71,7 @@ public class GuiLogic {
 				
 				Controller userInputs = new Controller();
 				
-				userInputs.userControlls("createCalendar");
+				userInputs.userControlls("getCalendar");
 				
 				screen.show("calendarScreen");
 			}
@@ -78,7 +80,7 @@ public class GuiLogic {
 				
 				Controller moreuserInputs = new Controller();
 				
-				moreuserInputs.userControlls("createEvent");
+				moreuserInputs.userControlls("getEvent");
 				
 				screen.show("eventScreen");
 				

@@ -1,6 +1,4 @@
 package logic;
-
-
 import gui.*;
 
 
@@ -85,7 +83,29 @@ public class Controller {
 			
 			break;
 			
-		default: System.out.println("failedmotherfucker");
+	case "getCalendar":
+			
+			try {
+				dothis = clientconnection.serverComm(login.getCalendar());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			break;
+			
+			
+	case "getEvent":
+		
+		try {
+			dothis = clientconnection.serverComm(login.getEvent());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		break;
+		
+			
+		default: System.out.println("ÆVVVV");
 			
 			
 			

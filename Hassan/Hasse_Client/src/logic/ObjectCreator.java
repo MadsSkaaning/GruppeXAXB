@@ -3,6 +3,8 @@ package logic;
 import JsonClasses.AuthUser;
 import JsonClasses.CreateCalendar;
 import JsonClasses.CreateEvent;
+import JsonClasses.GetCalendar;
+import JsonClasses.GetEvent;
 import JsonClasses.QOTD;
 import JsonClasses.WeatherInfo;
 
@@ -26,6 +28,10 @@ public class ObjectCreator {
 	private CreateCalendar CC = new CreateCalendar();
 	
 	private CreateEvent CE = new CreateEvent();
+	
+	private GetCalendar gC = new GetCalendar();
+	
+	private GetEvent gE = new GetEvent();
 	
 	
 	public String authenticateUser(){
@@ -87,7 +93,7 @@ public String createEvent(){
 		CE.setLocation("1");
 		CE.setStart("01-01-01 02:01:00");
 		CE.setEnd("02-02-02 00:01:02");
-		CE.setEventName("Bøgse");
+		CE.setEventName("Bï¿½gse");
 		CE.setDescription("dette er flot");
 		CE.setCalendarID("1");
 		
@@ -97,13 +103,32 @@ public String createEvent(){
 		String createCalendarRequest = gson.toJson(CE);
 		
 		return createCalendarRequest;
+	}
+	
+	
+public String getCalendar(){
+			
+			
+			gC.setCalendarName("Fuckalting");
+			
+			String getCalendarRequest = gson.toJson(gC);
+			return getCalendarRequest;
 	
 	
 	
+}
+
+public String getEvent(){
 	
 	
 	
+	gE.setEventID("1");
 	
+	String getEventRequest = gson.toJson(gE);
+	return getEventRequest;
+
+
+
 }
 
 }

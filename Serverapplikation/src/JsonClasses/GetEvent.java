@@ -1,9 +1,9 @@
 package JsonClasses;
 
-public class GetEvents implements java.io.Serializable
+public class GetEvent implements java.io.Serializable
 {
 	private  final long serialVersionUID = 1L;
-	private String overallID = "getEvents";
+	private String overallID = "getEvent";
 	private String eventID;
 
 	public String getOverallID() {
@@ -15,7 +15,7 @@ public class GetEvents implements java.io.Serializable
 	public String getEventID() {
 		return eventID;
 	}
-	public void setEventID(String EventID) {
+	public void setEventID(String eventID) {
 		this.eventID = eventID;
 	}
 	public long getSerialVersionUID() {

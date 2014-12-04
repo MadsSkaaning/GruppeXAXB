@@ -12,6 +12,7 @@ import JsonClasses.CreateCalendar;
 import JsonClasses.CreateEvent;
 import JsonClasses.DeleteCalendar;
 import JsonClasses.GetCalendar;
+import JsonClasses.GetEvent;
 
 import com.google.gson.*;
 
@@ -69,7 +70,7 @@ public class GiantSwitch {
 		case "createCalendar":
 			CreateCalendar CC = (CreateCalendar)gson.fromJson(jsonString, CreateCalendar.class);
 			System.out.println(CC.getCalendarName()+ "Den har lagt det nye ind i klassen");
-			answer = SW.createNewCalendar(CC.getCreatedby(), CC.getCalendarName(), CC.getPublicOrPrivate());
+			answer = SW.createNewCalendar(CC.getCalendarName(), CC.getCreatedby(), CC.getPublicOrPrivate());
 			break;
 		
 		case "deleteCalendar":
@@ -83,13 +84,15 @@ public class GiantSwitch {
 			break;
 			
 		case "getCalendar":
-			GetCalendar GC = (GetCalendar)gson.fromJson(jsonString, GetCalendar.class);
+			GetCalendar gC = (GetCalendar)gson.fromJson(jsonString, GetCalendar.class);
 			System.out.println("Recieved getCalendar");
-			answer = SW.getCalendar(GC.getCreatedby(), GC.getCalendarName());
+			answer = SW.getCalendar(gC.getCalendarName());
 			break;
 
-		case "getEvents":
-			System.out.println("Recieved getEvents");
+		case "getEvent":
+			GetEvent gE = (GetEvent)gson.fromJson(jsonString, GetEvent.class);
+			System.out.println("Recieved getEvent");
+			answer = SW.getEvent(gE.getEventID());
 			break;
 
 		case "createEvent":
@@ -155,8 +158,8 @@ public class GiantSwitch {
 	//keyword if
 	public String Determine(String ID) {
 
-		if (ID.contains("getEvents")) {
-			return "getEvents";
+		if (ID.contains("getEvent")) {
+			return "getEvent";
 		} else if (ID.contains("getEventInfo")) {
 			return "getEventInfo";
 		} else if (ID.contains("saveNote")) {

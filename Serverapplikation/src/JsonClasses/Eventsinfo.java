@@ -6,13 +6,13 @@ public class Eventsinfo {
 	private  final long serialVersionUID = 1L;
 	private String overallID = "EventsInfo";
 	private String eventID;
+	private String location;
+	private String createdby;
 	private String start;
 	private String end;
-	private String location;
+	private String eventname;
 	private String description;
-	private String eventName;
-	private String createdby;
-	private int publicOrPrivate;
+	private String calendarid;
 	private String active;
 	
 	
@@ -61,10 +61,10 @@ public class Eventsinfo {
 		this.description = description;
 	}
 	public String getEventName() {
-		return eventName;
+		return eventname;
 	}
-	public void setEventName(String eventName) {
-		this.eventName = eventName;
+	public void setEventName(String eventname) {
+		this.eventname = eventname;
 	}
 	public String getCreatedby() {
 		return createdby;
@@ -72,11 +72,11 @@ public class Eventsinfo {
 	public void setCreatedby(String createdby) {
 		this.createdby = createdby;
 	}
-	public int getPublicOrPrivate() {
-		return publicOrPrivate;
+	public String getCalendarID() {
+		return calendarid;
 	}
-	public void setPublicOrPrivate(int publicOrPrivate) {
-		this.publicOrPrivate = publicOrPrivate;
+	public void setCalendarID(int CalendarID) {
+		this.calendarid = calendarid;
 	}
 	public long getSerialVersionUID() {
 		return serialVersionUID;

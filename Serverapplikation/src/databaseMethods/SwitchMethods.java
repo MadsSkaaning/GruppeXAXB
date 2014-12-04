@@ -20,7 +20,7 @@ public class SwitchMethods extends Model
 	 * @throws SQLException
 	 */
 
-	public String createNewCalendar (String createdby, String calendarName, int privatePublic) throws SQLException
+	public String createNewCalendar (String calendarName, String createdby, int privatePublic) throws SQLException
 	{
 		String stringToBeReturned ="";
 		testConnection();
@@ -82,7 +82,7 @@ public class SwitchMethods extends Model
 	
 	public String removeCalendar (String createdby, String calendarName) throws SQLException
 	{
-		String stringToBeReturend = "";
+		String stringToBeReturned = "";
 		String usernameOfCreator ="";
 		String calendarExists = "";
 		resultSet = qb.selectFrom("Calendar").where("Name", "=", calendarName).ExecuteQuery();
@@ -103,65 +103,66 @@ public class SwitchMethods extends Model
 			}
 			if(!usernameOfCreator.equals(createdby))
 			{
-				stringToBeReturend = "Only the creator of the calendar is able to delete it.";
+				stringToBeReturned = "Only the creator of the calendar is able to delete it.";
 			}
 			else
 			{
 				String [] keys = {"Active"};
 				String [] values = {"2"};
 				qb.update("Calendar", keys, values).where("Name", "=", calendarName).Execute();
-				stringToBeReturend = "Calendar has been set inactive";
+				stringToBeReturned = "Calendar has been set inactive";
 			}
-			stringToBeReturend = resultSet.toString();
+			stringToBeReturned = resultSet.toString();
 		}
 		else
 		{
-			stringToBeReturend = "The calendar you are trying to delete, does not exists.";
+			stringToBeReturned = "The calendar you are trying to delete, does not exists.";
 		}
 		
-		return stringToBeReturend;
+		return stringToBeReturned;
 	}
 	
 	
 	
 	
-	
-	
-	
-	public String getCalendar (String createdby, String calendarName) throws SQLException
+	public String getCalendar (String calendarName) throws SQLException
 	{
 		String stringToBeReturned ="";
 		testConnection();
-		stringToBeReturned = fetchCalendar(createdby, calendarName);
+		stringToBeReturned = fetchCalendar(calendarName);
 
 		return stringToBeReturned;
 	}
 	
-	public String fetchCalendar (String createdby, String calendarName) throws SQLException
+	public String fetchCalendar (String calendarName) throws SQLException
 	{
 		
-		String stringToBeReturend = "";
-		String usernameOfCreator ="";
+		String stringToBeReturned = "";
 		String calendarExists = "";
-		resultSet = qb.selectFrom("Calendar").where("Name", "=", calendarName).ExecuteQuery();
-				
+		resultSet = qb.selectFrom("calendar").where("calendarname", "=", calendarName).ExecuteQuery();
+	
 		while(resultSet.next())
+			
 		{
+
 			calendarExists = resultSet.toString();
+
 		}
-		if(!calendarExists.equals("")) {
-			stringToBeReturend = "You don't have access to this calendar or it does not exist";
+		if(!calendarExists.equals(calendarName)) {
+			
+			String [] getkeys = {"calendarid","calendarname","createdby", "privatepublic", "active"};
+			resultSet = qb.selectFrom("calendar").where("calendarname", "=", calendarName).ExecuteQuery();
+			
+			stringToBeReturned = resultSet.toString();
+
 		}
 		else	
 			{
-				stringToBeReturend = "Your selected calendar";
-				String [] getkeys = {"calendarid","Name","createdby", "privatepublic", "active"};
-				resultSet = qb.selectFrom("Calendar").where("Name", "=", calendarName).ExecuteQuery();
-				
-			}	
-			stringToBeReturend = resultSet.toString();
 			
-		return stringToBeReturend;
+				stringToBeReturned = "You don't have access to this calendar or it does not exist";
+			
+			}
+		return stringToBeReturned;
 	}	
 	
 	
@@ -258,7 +259,7 @@ public class SwitchMethods extends Model
 	
 	public String removeEvent (String createdby, String eventname) throws SQLException
 	{
-		String stringToBeReturend = "";
+		String stringToBeReturned = "";
 		String usernameOfCreator ="";
 		String eventExists = "";
 		resultSet = qb.selectFrom("events").where("eventname", "=", eventname).ExecuteQuery();
@@ -279,24 +280,72 @@ public class SwitchMethods extends Model
 			}
 			if(!usernameOfCreator.equals(createdby))
 			{
-				stringToBeReturend = "Only the creator of the event is able to delete it.";
+				stringToBeReturned = "Only the creator of the event is able to delete it.";
 			}
 			else
 			{
 				String [] keys = {"Active"};
 				String [] values = {"2"};
 				qb.update("events", keys, values).where("eventname", "=", eventname).Execute();
-				stringToBeReturend = "Event has been deleted";
+				stringToBeReturned = "Event has been deleted";
 			}
-			stringToBeReturend = resultSet.toString();
+			stringToBeReturned = resultSet.toString();
 		}
 		else
 		{
-			stringToBeReturend = "The event you are trying to delete, does not exists.";
+			stringToBeReturned = "The event you are trying to delete, does not exists.";
 		}
 		
-		return stringToBeReturend;
+		return stringToBeReturned;
 	}
+	
+	
+	
+	
+	public String getEvent (String eventid) throws SQLException
+	{
+		String stringToBeReturned ="";
+		testConnection();
+		stringToBeReturned = fetchEvent(eventid);
+
+		return stringToBeReturned;
+	}
+	
+	public String fetchEvent (String eventid) throws SQLException
+	{
+		
+		String stringToBeReturned = "";
+		String eventExists = "";
+		resultSet = qb.selectFrom("events").where("eventid", "=", eventid).ExecuteQuery();
+	
+		while(resultSet.next())
+			
+		{
+
+			eventExists = resultSet.toString();
+
+		}
+		if(!eventExists.equals(eventid)) {
+			
+			String [] getkeys = {"eventid","location","createdby", "start", "end", "eventname", "description"};
+			resultSet = qb.selectFrom("events").where("eventid", "=", eventid).ExecuteQuery();
+			
+			stringToBeReturned = resultSet.toString();
+
+		}
+		else	
+			{
+			
+				stringToBeReturned = "You don't have access to this event or it does not exist";
+			
+			}
+		return stringToBeReturned;
+	}	
+	
+	
+	
+	
+	
 	
 	
 	public String createNewNote  (String eventid, String createdby, String note, String datetime, String calendarid) throws SQLException
@@ -314,6 +363,10 @@ public class SwitchMethods extends Model
 		
 		return stringToBeReturned;
 	}
+	
+	
+	
+	
 	
 	public void addNewNote (String eventid, String createdby, String note, String datetime, String calendarid) throws SQLException
 	{
@@ -336,7 +389,7 @@ public class SwitchMethods extends Model
 	
 	public String removeNote (String createdby, String noteid) throws SQLException
 	{
-		String stringToBeReturend = "";
+		String stringToBeReturned = "";
 		String usernameOfCreator ="";
 		String noteExists = "";
 		resultSet = qb.selectFrom("notes").where("noteid", "=", noteid).ExecuteQuery();
@@ -357,23 +410,23 @@ public class SwitchMethods extends Model
 			}
 			if(!usernameOfCreator.equals(createdby))
 			{
-				stringToBeReturend = "Only the creator of the event is able to delete it.";
+				stringToBeReturned = "Only the creator of the event is able to delete it.";
 			}
 			else
 			{
 				String [] keys = {"Active"};
 				String [] values = {"2"};
 				qb.update("notes", keys, values).where("noteid", "=", noteid).Execute();
-				stringToBeReturend = "Note has been deleted";
+				stringToBeReturned = "Note has been deleted";
 			}
-			stringToBeReturend = resultSet.toString();
+			stringToBeReturned = resultSet.toString();
 		}
 		else
 		{
-			stringToBeReturend = "The note you are trying to delete, does not exists.";
+			stringToBeReturned = "The note you are trying to delete, does not exists.";
 		}
 		
-		return stringToBeReturend;
+		return stringToBeReturned;
 	}
 	
 	
