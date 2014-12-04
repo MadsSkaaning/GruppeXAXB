@@ -19,6 +19,9 @@ public class Login {
 	
 	public String authenticateUser(){
 		
+		String user = login.getUsernameField().getText();
+		System.out.println(user);
+		
 		
 		//AU.setAuthUserEmail(login.getUsername());
 		System.out.println(login.getUsername());
@@ -29,9 +32,16 @@ public class Login {
 		System.out.println(loginfo);
 		
 		//Hardcoded variables
-		AU.setAuthUserEmail("user");
-		AU.setAuthUserPassword("cbs");
+		//AU.setAuthUserEmail("user");
+	//	AU.setAuthUserPassword("cbs");
+	//	AU.setAuthUserIsAdmin(false);
+		
+		
+		AU.setAuthUserEmail(login.getUsernameField().getText());
+		AU.setAuthUserPassword(login.getPassword() +"");
 		AU.setAuthUserIsAdmin(false);
+		
+		System.out.println(login.getUsername());
 		
 		
 		String objecttilserver = gson.toJson(AU);

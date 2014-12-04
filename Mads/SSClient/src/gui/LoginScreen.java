@@ -27,7 +27,6 @@ public class LoginScreen extends JPanel {
 		usernameField = new JTextField();
 		usernameField.setBounds(481, 290, 200, 26);
 		add(usernameField);
-		usernameField.setText("");
 		usernameField.setColumns(10);
 		btnLogin.setIcon(new ImageIcon(LoginScreen.class.getResource("/images/Login-Button.png")));
 		btnLogin.setBounds(533, 386, 153, 41);
@@ -46,7 +45,10 @@ public class LoginScreen extends JPanel {
 		passwordField.setBounds(481, 339, 200, 23);
 		add(passwordField);
 		
-		passwordField.setText("");
+		
+		usernameField.setText("yolo fuck");
+		passwordField.setText("hej");
+		
 		
 		JLabel lblPasssword = new JLabel("Passsword:");
 		lblPasssword.setBounds(414, 342, 58, 20);
@@ -79,7 +81,6 @@ public JTextField getUsernameField(){
 		return usernameField;
 	}
 	
-	@SuppressWarnings("deprecation")
 	public  String getPassword(){
 		
 		password = passwordField.getText();

@@ -59,6 +59,7 @@ public class MainScreen extends JFrame {
 	
 	public LoginScreen getLoginScreen(){
 		
+		
 		return loginScreen;
 	
 	}
