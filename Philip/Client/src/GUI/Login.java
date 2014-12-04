@@ -55,28 +55,28 @@ public class Login extends JPanel {
 		lblWelcome.setBounds(339, 90, 346, 107);
 		
 		add(lblWelcome);
+		
 		lblUsername.setForeground(new Color(255, 255, 255));
 		lblUsername.setFont(new Font("Arial", Font.BOLD, 26));
 		lblUsername.setBounds(442, 209, 139, 30);
 		
 		add(lblUsername);
+		
 		lblPassword.setForeground(new Color(255, 255, 255));
 		lblPassword.setFont(new Font("Arial", Font.BOLD, 26));
 		lblPassword.setBounds(442, 300, 139, 30);
 		
 		add(lblPassword);
+		
 		btnLogIn.setContentAreaFilled(false);
 		btnLogIn.setFont(new Font("Arial", Font.BOLD, 30));
 		btnLogIn.setForeground(new Color(255, 255, 255));
 		btnLogIn.setBackground(Color.WHITE);
 		btnLogIn.setOpaque(false);
 		btnLogIn.setBorderPainted(false);
-		btnLogIn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0){
-				textFieldUsername.setText("");
-				textFieldPassword.setText("");
-			}
-		});
+		btnLogIn.setBounds(401, 449, 222, 51);
+		add(btnLogIn);
+
 		textFieldUsername.setOpaque(false);
 		textFieldUsername.setHorizontalAlignment(SwingConstants.CENTER);
 		textFieldUsername.setForeground(Color.BLACK);
@@ -86,10 +86,8 @@ public class Login extends JPanel {
 		textFieldUsername.setBounds(430, 251, 164, 37);
 		
 		add(textFieldUsername);
-		btnLogIn.setBounds(401, 449, 222, 51);
-		
-		add(btnLogIn);
 
+		
 		
 		setFont(new Font("Lucida Grande", Font.PLAIN, 17));
 		textFieldPassword.setOpaque(false);
@@ -97,6 +95,7 @@ public class Login extends JPanel {
 		textFieldPassword.setColumns(10);
 		textFieldPassword.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255)));
 		textFieldPassword.setBounds(430, 348, 164, 37);
+		
 		add(textFieldPassword);
 		
 		
@@ -108,14 +107,17 @@ public class Login extends JPanel {
 
 	}
 
-
-	public JButton getBtnLogIn() {
-		return btnLogIn;
-	}
-
+	
 	public void addActionListener(ActionListener l) {
 		btnLogIn.addActionListener(l);
 }
+	
+
+	public JButton getBtnLogIn() {
+		
+		return btnLogIn;
+	}
+
 
 	public JTextField getTextFieldUsername() {
 		return textFieldUsername;

@@ -2,26 +2,22 @@ package GUI;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.sql.SQLException;
+import logic.Controller;
 
 //import GUI.UserInformation;
 
 
-import javax.swing.JOptionPane;
 
 
 
-import logic.Controller;
+
 //import model.QueryBuild.*;
-import GUI.Screen;
-import JsonClasses.AuthUser;
+
 
 public class GUILogic {
 	private Screen screen;
-	private boolean u;
-	private boolean full = false;
+
 	
-	AuthUser a = new AuthUser();  
 	
 
 	public GUILogic(){
@@ -38,7 +34,7 @@ public class GUILogic {
 	}
 	public void run() {
 
-		screen.show(Screen.LOGIN);
+		screen.show("login");
 		screen.setVisible(true);
 	}
 	
@@ -55,7 +51,7 @@ public class GUILogic {
 				
 				
 				
-					screen.show(Screen.MAINMENU);
+					screen.show("mainmenu");
 					
 				}else{System.out.println("failed2");}
 			}
@@ -68,18 +64,18 @@ public class GUILogic {
 	private class MainMenuActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == screen.getMainMenu().getBtnLogOut()){
-				screen.show(Screen.LOGIN);
+				screen.show("login");
 			}
 
 			if (e.getSource() == screen.getMainMenu().getBtnCalendar()){
-				screen.show(Screen.CALENDAR);
+				screen.show("calendar");
 			}
 			if (e.getSource() == screen.getMainMenu().getBtnEvents()){
-				screen.show(Screen.EVENTS);
+				screen.show("events");
 			}
 			
 			if (e.getSource() == screen.getMainMenu().getBtnProfile()){
-				screen.show(Screen.PROFILE);
+				screen.show("profile");
 			}
 			
 			
@@ -90,7 +86,7 @@ public class GUILogic {
 	private class ProfileActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == screen.getProfile().getBtnHome()){
-				screen.show(Screen.MAINMENU);
+				screen.show("mainmenu");
 			}
 		}
 	}
@@ -99,7 +95,7 @@ public class GUILogic {
 		public void actionPerformed(ActionEvent e) {
 
 			if (e.getSource() == screen.getCalendar().getBtnHome()){
-				screen.show(Screen.MAINMENU);
+				screen.show("mainmenu");
 			}
 
 		}
@@ -109,7 +105,7 @@ public class GUILogic {
 		public void actionPerformed(ActionEvent e) {
 
 			if (e.getSource() == screen.getEvents().getBtnHome()){
-				screen.show(Screen.MAINMENU);
+				screen.show("mainmenu");
 			}
 		}
 	}
