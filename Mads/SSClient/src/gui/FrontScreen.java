@@ -4,14 +4,20 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.JButton;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.ImageIcon;
+
+import JsonClasses.AuthUser;
+
 import java.awt.Font;
+
 
 public class FrontScreen extends JPanel {
 	private JTextField forecastField;
-
+	
 	/**
 	 * Create the panel.
 	 */
@@ -22,9 +28,13 @@ public class FrontScreen extends JPanel {
 	private JButton btnExit = new JButton("");
 	private final JLabel lblBackground = new JLabel("");
 	private final JLabel lblWelcomeToCbs = new JLabel("Welcome to CBS Calendar.");
+	private final JLabel lblgetUserName = new JLabel("");
 	public FrontScreen() {
 		setLayout(null);
 		setBounds(0, 0, 1024, 768);
+		
+		
+		
 		
 		JLabel lblNewLabel = new JLabel("quote");
 		lblNewLabel.setBounds(131, 41, 102, 50);
@@ -55,6 +65,12 @@ public class FrontScreen extends JPanel {
 		lblWelcomeToCbs.setBounds(373, 142, 398, 68);
 		
 		add(lblWelcomeToCbs);
+		lblgetUserName.setBounds(821, 59, 76, 14);
+		System.out.println();
+		
+		add(lblgetUserName);
+		
+		
 		lblBackground.setIcon(new ImageIcon(FrontScreen.class.getResource("/images/login-mainframe.jpg")));
 		lblBackground.setBounds(0, 0, 1024, 768);
 		

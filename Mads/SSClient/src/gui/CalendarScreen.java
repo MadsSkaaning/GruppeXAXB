@@ -21,6 +21,7 @@ import javax.swing.ImageIcon;
 
 import java.awt.event.ActionEvent;
 import java.awt.Font;
+import javax.swing.JCheckBox;
 
 public class CalendarScreen extends JPanel {
 
@@ -30,6 +31,9 @@ public class CalendarScreen extends JPanel {
 	private JTable calendarTable;
 	private JTextField textField;
 	private JTextField textField_1;
+	private JTextField textFieldUserName;
+	private JTextField txtInviteUsernames;
+	private JTextField input1;
 	
 	public CalendarScreen() {
 		setLayout(null);
@@ -50,22 +54,19 @@ public class CalendarScreen extends JPanel {
 		btntest.setBounds(124, 285, 73, 23);
 		addEventPanel.add(btntest);
 		
-		JTextField input1 = new JTextField(20);
+		input1 = new JTextField(20);
 		input1.setBounds(160, 124, 166, 20);
-		JTextField input2 = new JTextField(20);
-		input2.setBounds(160, 152, 166, 20);
 		
-		JLabel label_3 = new JLabel("Field 1");
-		label_3.setBounds(82, 127, 73, 14);
-		addEventPanel.add(label_3);
+		JLabel lblCalendarName = new JLabel("Calendar Name");
+		lblCalendarName.setBounds(21, 127, 134, 14);
+		addEventPanel.add(lblCalendarName);
 		addEventPanel.add(input1);
-		JLabel label = new JLabel("Field 2");
-		label.setBounds(82, 155, 73, 14);
-		addEventPanel.add(label);
-		addEventPanel.add(input2);		
+		JLabel lblPublicOrPrivate = new JLabel("Set Calendar as private");
+		lblPublicOrPrivate.setBounds(21, 155, 134, 14);
+		addEventPanel.add(lblPublicOrPrivate);
 		
 		JLabel label_1 = new JLabel("Field 2");
-		label_1.setBounds(82, 214, 73, 14);
+		label_1.setBounds(21, 214, 134, 14);
 		addEventPanel.add(label_1);
 		
 		textField = new JTextField(20);
@@ -73,7 +74,7 @@ public class CalendarScreen extends JPanel {
 		addEventPanel.add(textField);
 		
 		JLabel label_2 = new JLabel("Field 2");
-		label_2.setBounds(82, 183, 73, 14);
+		label_2.setBounds(21, 183, 134, 14);
 		addEventPanel.add(label_2);
 		
 		textField_1 = new JTextField(20);
@@ -87,10 +88,46 @@ public class CalendarScreen extends JPanel {
 		addEventPanel.setVisible(false);
 		add(addEventPanel);
 		
-		JLabel lblAddNewEvent = new JLabel("Add New Event");
-		lblAddNewEvent.setFont(new Font("Tekton Pro", Font.PLAIN, 18));
-		lblAddNewEvent.setBounds(160, 46, 166, 37);
-		addEventPanel.add(lblAddNewEvent);
+		JLabel lblAddNewCalendar = new JLabel("Add New Calendar");
+		lblAddNewCalendar.setFont(new Font("Tekton Pro", Font.PLAIN, 18));
+		lblAddNewCalendar.setBounds(160, 46, 166, 37);
+		addEventPanel.add(lblAddNewCalendar);
+		
+		textFieldUserName = new JTextField();
+		textFieldUserName.setBounds(380, 154, 166, 20);
+		addEventPanel.add(textFieldUserName);
+		textFieldUserName.setColumns(10);
+		
+		JButton btnClickMe = new JButton("Private:");
+		btnClickMe.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				txtInviteUsernames.setVisible(true);
+				textFieldUserName.setVisible(true);
+				
+			}
+		});
+		btnClickMe.setBounds(160, 151, 89, 23);
+		addEventPanel.add(btnClickMe);
+		
+		txtInviteUsernames = new JTextField();
+		txtInviteUsernames.setText("Invite usernames");
+		txtInviteUsernames.setBounds(262, 155, 108, 20);
+		addEventPanel.add(txtInviteUsernames);
+		txtInviteUsernames.setColumns(10);
+		
+		JButton btnAddCalendar = new JButton("Add Calendar");
+		btnAddCalendar.setBounds(241, 285, 108, 23);
+		addEventPanel.add(btnAddCalendar);
+		
+		
+		//hiding these variables hehe
+		
+		textFieldUserName.setVisible(false);
+		txtInviteUsernames.setVisible(false);
+		
+		
+		
 		
 
 		
@@ -150,10 +187,12 @@ public class CalendarScreen extends JPanel {
 		testfield.setText("yeah2");
 		add(testfield2);
 		
-		JButton btnAdd = new JButton("Add Event");
+		JButton btnAdd = new JButton("Add Calendar");
 		btnAdd.setLocation(121, 6);
 		btnAdd.setSize(100, 100);
 		add(btnAdd);
+		
+		
 		
 				
 				JLabel lblBackground = new JLabel("");
@@ -161,6 +200,10 @@ public class CalendarScreen extends JPanel {
 				lblBackground.setBounds(0, 0, 1024, 768);
 				add(lblBackground);
 		
+				
+				
+				
+				
 		
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -172,6 +215,9 @@ public class CalendarScreen extends JPanel {
 				addEventPanel.setVisible(true);
 				scrollPane_1.setVisible(false);
 				
+				txtInviteUsernames.setVisible(false);
+				textFieldUserName.setVisible(false);
+				
 
 				
 			}
@@ -182,11 +228,14 @@ public class CalendarScreen extends JPanel {
 				addEventPanel.setVisible(false);
 				scrollPane_1.setVisible(true);
 				
+				textFieldUserName.setText("");
+				input1.setText("");
 				
 			}
 		});
 
 	}
+	
 	
 	public void addActionListener (ActionListener l){
 		

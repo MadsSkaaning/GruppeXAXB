@@ -36,7 +36,6 @@ public class Login {
 		
 		String objecttilserver = gson.toJson(AU);
 		
-		
 		return objecttilserver;
 				
 		
