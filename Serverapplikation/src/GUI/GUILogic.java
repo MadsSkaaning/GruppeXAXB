@@ -33,8 +33,7 @@ public class GUILogic {
 		screen.getEventlist().addActionListener(new EventListActionListener());
 		screen.getAddEventGUI().addActionListener(new AddEventGUIActionListener());
 		screen.getAddUser().addActionListener(new AddUserActionListener());
-		
-		
+		screen.getAddCalendar().addActionListener(new AddCalendarActionListener());
 		
 	}
 	public void run() {
@@ -146,7 +145,6 @@ public class GUILogic {
 				String Password = screen.getAddUser().getTextField_Password().getText();
 				String Active = "1";
 				
-				final DateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS'0'");
 				
 				if (Email.equals("")|| Type.equals("")|| Password.equals(""))
 				{
@@ -166,6 +164,51 @@ public class GUILogic {
 							, "Error message",JOptionPane.PLAIN_MESSAGE);
 					
 					screen.show(Screen.USERLIST);
+										
+				} catch (SQLException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				}
+				
+				
+			}
+		}
+	}
+	
+	private class AddCalendarActionListener implements ActionListener {
+		public void actionPerformed(ActionEvent e) {
+			if (e.getSource() == screen.getAddCalendar().getBtnLogout()){
+				screen.show(Screen.LOGIN);
+			}
+			if (e.getSource() == screen.getAddCalendar().getBtnMainMenu()){
+				screen.show(Screen.MAINMENU);
+			}
+	
+			if (e.getSource() == screen.getAddCalendar().getBtnSubmit()){
+				String Email = screen.getAddCalendar().getTextField_Email().getText();
+				String Type ="";
+				String Password ="";
+				String Active = "1";
+				
+				if (Email.equals("")|| Type.equals("")|| Password.equals(""))
+				{
+					JOptionPane.showMessageDialog(null, "\nPlease fill out all the fields"
+							, "Error message",JOptionPane.PLAIN_MESSAGE);
+				}
+				else
+				{
+				QueryBuilder qb = new QueryBuilder();
+				
+				String[] kolonner = { "calendarname", "createdby", "privatepublic", "active"};
+				String[] Values = { Email, Password, Type, Active};
+				try {
+					qb.insertInto("users", kolonner ).values(Values).Execute();
+					
+					JOptionPane.showMessageDialog(null, "\nCalendar has been succesfully added!"
+							, "Error message",JOptionPane.PLAIN_MESSAGE);
+					
+					screen.show(Screen.CALENDARLIST);
 										
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
@@ -216,7 +259,6 @@ public class GUILogic {
 				screen.show(Screen.ADDUSER);
 			}
 			if (e.getSource() == screen.getUserList().getBtnDelete()){
-				
 			}
 
 		}
@@ -242,6 +284,9 @@ public class GUILogic {
 			}
 			if (e.getSource() == screen.getCalendarList().getBtnLogout()){
 				screen.show(Screen.LOGIN);
+			}
+			if (e.getSource() == screen.getUserList().getBtnAdd()){
+				screen.show(Screen.ADDCALENDAR);
 			}
 		}
 	}

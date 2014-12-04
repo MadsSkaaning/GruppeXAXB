@@ -70,9 +70,9 @@ import model.QueryBuild.QueryBuilder;
 
 			
 			//Laver tabellen inde i Eventlisten.
-			String[] columnNames = { "Event ID","Name", "Start Date", "Note", "Created By" };
+			String[] columnNames = { "Event ID", "Location", "Created by", "Start", "End", "Name", "Description", "Calendar ID", "Active", "CustomEvent" };
 
-			Object[][] data = new Object[getEventCount()][5];
+			Object[][] data = new Object[getEventCount()][10];
 	        
 			
 		    
@@ -83,10 +83,17 @@ import model.QueryBuild.QueryBuilder;
 		        int count = 0;
 		        while (rs.next()) {
 		        	data[count][0] = rs.getString("eventid");
-		        	data[count][1] = rs.getString("name");
-		        	data[count][2] = rs.getString("start");
-		        	data[count][3] = rs.getString("text");
-		        	data[count][4] = rs.getString("createdby");
+		        	data[count][1] = rs.getString("location");
+		        	data[count][2] = rs.getString("createdby");
+		        	data[count][3] = rs.getString("start");
+		        	data[count][4] = rs.getString("end");
+		        	data[count][5] = rs.getString("eventname");
+		        	data[count][6] = rs.getString("description");
+		        	data[count][7] = rs.getString("calendarid");
+		        	data[count][8] = rs.getString("active");
+		        	data[count][9] = rs.getString("customevent");
+
+
 
 		        	count++;
 		        }

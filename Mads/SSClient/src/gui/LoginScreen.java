@@ -46,8 +46,8 @@ public class LoginScreen extends JPanel {
 		add(passwordField);
 		
 		
-		usernameField.setText("yolo fuck");
-		passwordField.setText("hej");
+		usernameField.setText("user");
+		passwordField.setText("cbs");
 		
 		
 		JLabel lblPasssword = new JLabel("Passsword:");

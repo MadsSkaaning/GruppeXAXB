@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS users
 	userid int NOT NULL AUTO_INCREMENT,
 	email varchar(40) NOT NULL,
 	active tinyint(5) NOT NULL,
-	created datetime NOT NULL,
+	created datetime DEFAULT CURRENT_TIMESTAMP,
 	type varchar(20) NOT NULL,
 	password varchar(200) NOT NULL,
 	PRIMARY KEY (userid)

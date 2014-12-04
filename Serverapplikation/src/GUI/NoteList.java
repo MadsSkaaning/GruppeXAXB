@@ -15,11 +15,15 @@ import java.awt.Font;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.swing.JButton;
 import javax.swing.border.MatteBorder;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.BevelBorder;
+
+import model.QueryBuild.QueryBuilder;
 
 public class NoteList extends JPanel {
 	private JTable table;
@@ -30,6 +34,8 @@ public class NoteList extends JPanel {
 	private JButton btnMainMenu;
 	private JButton btnLogout;
 	private JLabel label;
+	private ResultSet rs;
+
 	
 
 	/**
@@ -39,17 +45,33 @@ public class NoteList extends JPanel {
 		setSize(new Dimension(1024, 768));
 		setLayout(null);
 		
+		
+		
 		//Laver tabellen inde i Eventlisten.
-		String[] columnNames = { "Note", "Event", "Date", "Numbers of Notes" };
+		String[] columnNames = { "Note ID", "Event ID", "Created By", "Note", "Create Time", "Active" };
 
-		Object[][] data = {
+		Object[][] data = new Object[getNoteCount()][6];
+		
+		   try {
+				QueryBuilder qb = new QueryBuilder();
+				rs = qb.selectFrom("notes").all().ExecuteQuery();
+				
+		        int count = 0;
+		        while (rs.next()) {
 
-				{ "D�K Julefrokost", "11.11.2022", "Game on!","3"},
-				{ "D�K Julefrokost", "11.11.2022", "Game on!","3"},
-				{ "D�K Julefrokost", "11.11.2022", "Game on!","3"},
-				{ "D�K Julefrokost", "11.11.2022", "Game on!","3" },
-				{ "D�K Julefrokost", "11.11.2022", "Game on!","3" } 
-				};
+		        	data[count][0] = rs.getString("noteid");
+		        	data[count][1] = rs.getString("eventid");
+		        	data[count][2] = rs.getString("createdby");
+		        	data[count][3] = rs.getString("note");
+		        	data[count][4] = rs.getString("datetime");
+		        	data[count][5] = rs.getString("active");
+
+		        	
+		        	count++;
+		        }
+			} catch (SQLException e1) {
+				e1.printStackTrace();
+			}
 
 		final JTable table = new JTable(data, columnNames);
 		table.setSurrendersFocusOnKeystroke(true);
@@ -127,6 +149,8 @@ public class NoteList extends JPanel {
 		btnLogout.addActionListener(l);
 		btnMainMenu.addActionListener(l);
 	}
+	
+	
 
 	public JButton getBtnDelete() {
 		return btnDelete;
@@ -144,4 +168,29 @@ public class NoteList extends JPanel {
 		return btnLogout;
 	}
 	
+
+
+public int getNoteCount(){
+	
+	int count = 0;
+	
+	QueryBuilder qb2 = new QueryBuilder();
+	try {
+		rs = qb2.selectFrom("notes").all().ExecuteQuery();
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	
+	try {
+		while(rs.next()){
+			
+			count++;
+		}
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return count; 
+}
 }
