@@ -43,7 +43,7 @@ public class SwitchMethods extends Model
 		getConn();
 		boolean authenticate = false;
 		
-		resultSet= qb.selectFrom("calendar").where("name", "=", newCalendarName).ExecuteQuery();
+		resultSet= qb.selectFrom("calendar").where("calendarname", "=", newCalendarName).ExecuteQuery();
 				
 				//("select * from test.calendar where Name = '"+newCalendarName+"';");
 		while(resultSet.next())
@@ -95,7 +95,7 @@ public class SwitchMethods extends Model
 		if(!calendarExists.equals(""))
 		{
 			String [] value = {"CreatedBy"};
-			resultSet = qb.selectFrom(value, "Calendar").where("Name", "=", calendarName).ExecuteQuery();
+			resultSet = qb.selectFrom(value, "Calendar").where("calendername", "=", calendarName).ExecuteQuery();
 			while(resultSet.next())
 			{
 				usernameOfCreator = resultSet.toString();
