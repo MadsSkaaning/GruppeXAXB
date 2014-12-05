@@ -119,6 +119,12 @@ public class Login extends JPanel {
 		add(lblBackground);
 
 	}
+	
+	public void addActionListener(ActionListener l) {
+		btnLogIn.addActionListener(l);
+		btnForgotLogIn.addActionListener(l);
+}
+	
 
 	public JTextField getTextField() {
 		return textFieldUsername;
@@ -132,10 +138,7 @@ public class Login extends JPanel {
 	public JButton getBtnForgotLogIn() {
 		return btnForgotLogIn;
 	}
-	public void addActionListener(ActionListener l) {
-		btnLogIn.addActionListener(l);
-		btnForgotLogIn.addActionListener(l);
-}
+
 
 	public JTextField getTextFieldUsername() {
 		return textFieldUsername;

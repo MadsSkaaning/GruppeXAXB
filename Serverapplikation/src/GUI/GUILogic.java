@@ -55,6 +55,10 @@ public class GUILogic {
 				if(u == false){
 					JOptionPane.showMessageDialog(null, "\nPlease enter a valid username & password."
 							, "Error message",JOptionPane.PLAIN_MESSAGE);
+					
+					System.out.println(screen.getLogin().getTextFieldUsername().getText());
+					System.out.println(screen.getLogin().getTextFieldPassword().getText());
+
 			}
 
 			if	(u != true)
