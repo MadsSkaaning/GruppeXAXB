@@ -40,7 +40,9 @@ public class NoteList extends JPanel {
 	private JLabel lblEnterTheNote;
 	private JTextField textField;
 	private JButton btnCancel;
-	private JButton btnfinaldelete;
+	private JButton btnDeleteNote;
+	private JLabel lblActive;
+	private JTextField EnabledisabletextField;
 
 	
 
@@ -106,7 +108,7 @@ public class NoteList extends JPanel {
 		lblHeader.setBounds(365, 138, 368, 90);
 		add(lblHeader);
 		
-		btnDelete = new JButton("Delete");
+		btnDelete = new JButton("Edit");
 		btnDelete.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				deleteNotepanel.setVisible(true);
@@ -153,8 +155,8 @@ public class NoteList extends JPanel {
 		// Hiding the delete calendar panel unless btn delete is clicked
 		deleteNotepanel.setVisible(false);
 		
-		lblEnterTheNote = new JLabel("Enter the ID of the note you want to delete.");
-		lblEnterTheNote.setBounds(49, 52, 291, 44);
+		lblEnterTheNote = new JLabel("Enter the ID of the note you want to edit.");
+		lblEnterTheNote.setBounds(66, 54, 235, 44);
 		deleteNotepanel.add(lblEnterTheNote);
 		
 		textField = new JTextField();
@@ -162,7 +164,13 @@ public class NoteList extends JPanel {
 		deleteNotepanel.add(textField);
 		textField.setColumns(10);
 		
-		JButton btnDeleteNote = new JButton("Delete!");
+		btnDeleteNote = new JButton("Edit");
+		btnDeleteNote.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			deleteNotepanel.setVisible(false);
+			scrollPane.setVisible(true);
+			}
+		});
 		btnDeleteNote.setBounds(212, 227, 89, 23);
 		deleteNotepanel.add(btnDeleteNote);
 		
@@ -170,6 +178,15 @@ public class NoteList extends JPanel {
 		
 					btnCancel.setBounds(66, 227, 89, 23);
 					deleteNotepanel.add(btnCancel);
+					
+					lblActive = new JLabel("Active = 1, Inactive = 2");
+					lblActive.setBounds(110, 162, 140, 23);
+					deleteNotepanel.add(lblActive);
+					
+					EnabledisabletextField = new JTextField();
+					EnabledisabletextField.setBounds(110, 187, 140, 29);
+					deleteNotepanel.add(EnabledisabletextField);
+					EnabledisabletextField.setColumns(10);
 					
 							
 							
@@ -194,7 +211,7 @@ public class NoteList extends JPanel {
 		btnDelete.addActionListener(l);
 		btnLogout.addActionListener(l);
 		btnMainMenu.addActionListener(l);
-//		btnfinaldelete.addActionListener(l);
+		btnDeleteNote.addActionListener(l);
 		
 	}
 	
@@ -220,16 +237,18 @@ public class NoteList extends JPanel {
 	public void setTextField(JTextField textField) {
 		this.textField = textField;
 	}
-
-	public JButton getBtnfinaldelete() {
-		return btnfinaldelete;
+	
+	public JButton getBtnDeleteNote() {
+		return btnDeleteNote;
 	}
 
-	public void setBtnfinaldelete(JButton btnfinaldelete) {
-		this.btnfinaldelete = btnfinaldelete;
+
+	public JTextField getEnabledisabletextField() {
+		return EnabledisabletextField;
 	}
 
-public int getNoteCount(){
+
+	public int getNoteCount(){
 	
 	int count = 0;
 	
