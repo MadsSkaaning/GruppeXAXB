@@ -264,13 +264,13 @@ public class SwitchMethods extends Model
 		String usernameOfCreator ="";
 		String eventExists = "";
 		resultSet = qb.selectFrom("events").where("eventid", "=", eventid).ExecuteQuery();
-		System.out.println("test");
+
 				
 //				("select * from events where eventid = '"+eventid+"';");
 		while(resultSet.next())
 		{
 			eventExists = resultSet.toString();
-			System.out.println("test1");
+
 		}
 		//Husk at indsætte ! før eventExist når klient tilknyttes.
 		if(!eventExists.equals(""))
@@ -289,7 +289,7 @@ public class SwitchMethods extends Model
 			}
 			else
 			{
-				System.out.println("test5");
+
 				String [] keys = {"active"};
 				String [] values = {"0"};
 				qb.update("events", keys, values).where("eventid", "=", eventid).Execute();
@@ -355,14 +355,13 @@ public class SwitchMethods extends Model
 	
 	
 	
-	
-	public String createNewNote  (String eventid, String createdby, String note, String datetime, String calendarid) throws SQLException
+	public String createNewNote  (String eventid, String createdby, String note, String datetime) throws SQLException
 	{
 		String stringToBeReturned ="";
 		testConnection();
 
 			try {
-				addNewNote(eventid, createdby, note, datetime, calendarid);
+				addNewNote(eventid, createdby, note, datetime);
 				stringToBeReturned = "The new note has been created!";
 			} catch (Exception e) {
 				stringToBeReturned = ("Something went wrong.");
@@ -372,18 +371,16 @@ public class SwitchMethods extends Model
 		return stringToBeReturned;
 	}
 	
-	
-	
-	
-	
-	public void addNewNote (String eventid, String createdby, String note, String datetime, String calendarid) throws SQLException
+	public void addNewNote (String eventid, String createdby, String note, String datetime) throws SQLException
 	{
-		String [] keys = {"eventid","createdby","note","datetime", "caledarid", "active"};
-		String [] values = {eventid, createdby, note, datetime, calendarid, "1",};
+		String [] keys = {"eventid","createdby","note","datetime", "active"};
+		String [] values = {eventid, createdby, note, datetime, "1",};
 		qb.insertInto("notes", keys).values(values).Execute();
 		
 //		doUpdate("insert into test.calendar (Name, Active, CreatedBy, PrivatePublic) VALUES ('"+newCalendarName+"', '1', '"+userName+"', '"+publicOrPrivate+"');");
 	}
+	
+
 	
 	
 	public String deleteNote (String createdby, String noteid) throws SQLException
@@ -410,20 +407,21 @@ public class SwitchMethods extends Model
 		if(!noteExists.equals(""))
 		{
 			String [] value = {"createdby"};
-			resultSet = qb.selectFrom(value, "notes").where("noteid", "=", noteid).ExecuteQuery();
+			resultSet = qb.selectFrom(value, "notes").where("createdby", "=", createdby).ExecuteQuery();
 			while(resultSet.next())
 			{
 				usernameOfCreator = resultSet.toString();
 				System.out.println(usernameOfCreator);
 			}
-			if(!usernameOfCreator.equals(createdby))
+			//Husk at tilføj ! foran username igen, når klienten kan genkende den der er logget ind // Samuel.
+			if(usernameOfCreator.equals(createdby))
 			{
 				stringToBeReturned = "Only the creator of the event is able to delete it.";
 			}
 			else
 			{
-				String [] keys = {"Active"};
-				String [] values = {"2"};
+				String [] keys = {"active"};
+				String [] values = {"0"};
 				qb.update("notes", keys, values).where("noteid", "=", noteid).Execute();
 				stringToBeReturned = "Note has been deleted";
 			}
@@ -436,6 +434,47 @@ public class SwitchMethods extends Model
 		
 		return stringToBeReturned;
 	}
+	
+	public String getNote (String noteid) throws SQLException
+	{
+		String stringToBeReturned ="";
+		testConnection();
+		stringToBeReturned = fetchNote(noteid);
+
+		return stringToBeReturned;
+	}
+	
+	public String fetchNote (String noteid) throws SQLException
+	{
+		
+		String stringToBeReturned = "";
+		String eventExists = "";
+		resultSet = qb.selectFrom("notes").where("noteid", "=", noteid).ExecuteQuery();
+	
+		while(resultSet.next())
+			
+		{
+
+			eventExists = resultSet.toString();
+
+		}
+		if(!eventExists.equals(noteid)) {
+			
+			String [] getkeys = {"noteid","createdby", "note", "datetime"};
+			resultSet = qb.selectFrom("notes").where("noteid", "=", noteid).ExecuteQuery();
+			System.out.println("test");
+			stringToBeReturned = resultSet.toString();
+
+		}
+		else	
+			{
+			
+				stringToBeReturned = "You don't have access to this event or it does not exist";
+			
+			}
+		return stringToBeReturned;
+	}	
+	
 	
 	
 	
