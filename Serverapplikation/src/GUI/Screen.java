@@ -17,7 +17,7 @@ public class Screen extends JFrame {
 	public static final String NOTELIST = "screennoteList";
 	public static final String USERLIST = "screenuserList";
 	public static final String EVENTLIST = "screeneventList";
-	public static final String ADDEVENTGUI = "screenaddEventGUI";
+	public static final String ADDEVENT = "screenaddEvent";
 	public static final String ADDUSER = "screenaddUser";
 	public static final String CALENDARLIST = "screencalendarList";
 	public static final String ADDCALENDAR = "screenaddCalendar";
@@ -30,7 +30,11 @@ public class Screen extends JFrame {
 	private final UserList userlist = new UserList();
 	private final CalendarList calendarList = new CalendarList();
 	private final EventList eventList = new EventList();
+<<<<<<< Updated upstream
 	private final AddEventGUI addEventGUI;
+=======
+	private AddEvent addEvent;
+>>>>>>> Stashed changes
 	private final AddUser addUser = new AddUser();
 	private final AddCalendar addCalendar = new AddCalendar();
 	
@@ -48,8 +52,8 @@ public class Screen extends JFrame {
 		this.setContentPane(contentPane);
 		contentPane.setLayout(new CardLayout(0, 0));
 		
-		addEventGUI = new AddEventGUI();
-		contentPane.add(addEventGUI, "screenaddEventGUI");
+		addEvent = new AddEvent();
+		contentPane.add(addEvent, "screenaddEvent");
 		login.getBtnLogIn().setContentAreaFilled(false);
 		login.getBtnForgotLogIn().setContentAreaFilled(false);
 		
@@ -98,8 +102,8 @@ public class Screen extends JFrame {
 	public EventList getEventlist() {
 		return eventList;
 	}
-	public AddEventGUI getAddEventGUI() {
-		return addEventGUI;
+	public AddEvent getAddEventGUI() {
+		return addEvent;
 	}
 	public AddUser getAddUser() {
 		return addUser;

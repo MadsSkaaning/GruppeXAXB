@@ -22,6 +22,7 @@ import javax.swing.JButton;
 
 	import javax.swing.border.CompoundBorder;
 import javax.swing.border.BevelBorder;
+import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.JTextPane;
 
@@ -49,6 +50,11 @@ import model.QueryBuild.QueryBuilder;
 		private final JLabel lblBackground = new JLabel("");
 		private JComboBox DropdownList;
 		private ResultSet rs;
+		private JPanel deleteEventpanel;
+		private JLabel lblEnterTheEvent;
+		private JTextField textField;
+		private JButton btnCancel;
+		private JButton btnDeleteEvent;
 		
 		
 		public EventList() {
@@ -123,11 +129,18 @@ import model.QueryBuild.QueryBuilder;
 			add(scrollPane);
 			
 			btnDelete = new JButton("Delete");
+			btnDelete.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					deleteEventpanel.setVisible(true);
+					scrollPane.setVisible(false);
+				}
+			});
 			btnDelete.setOpaque(true);
 			btnDelete.setForeground(new Color(0, 0, 205));
 			btnDelete.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
 			btnDelete.setBounds(856, 377, 118, 29);
 			add(btnDelete);
+			
 			
 			btnAdd = new JButton("Add");
 			btnAdd.setOpaque(true);
@@ -153,6 +166,44 @@ import model.QueryBuild.QueryBuilder;
 			btnLogout.setBorder(null);
 			btnLogout.setBounds(10, 63, 153, 41);
 			add(btnLogout);
+			
+			deleteEventpanel = new JPanel();
+			deleteEventpanel.setBorder(new LineBorder(new Color(0, 0, 0), 3, true));
+			deleteEventpanel.setBounds(365, 250, 369, 359);
+			add(deleteEventpanel);
+			deleteEventpanel.setLayout(null);
+			
+			
+			// Hiding the delete calendar panel unless btn delete is clicked
+			deleteEventpanel.setVisible(false);
+			
+			lblEnterTheEvent = new JLabel("Enter the ID of the event you want to delete.");
+			lblEnterTheEvent.setBounds(51, 52, 293, 44);
+			deleteEventpanel.add(lblEnterTheEvent);
+			
+			textField = new JTextField();
+			textField.setBounds(110, 122, 140, 29);
+			deleteEventpanel.add(textField);
+			textField.setColumns(10);
+			
+			JButton btnDeleteEvent_1 = new JButton("Delete!");
+			btnDeleteEvent_1.setBounds(212, 227, 89, 23);
+			deleteEventpanel.add(btnDeleteEvent_1);
+			
+			btnCancel = new JButton("Cancel");
+			
+						btnCancel.setBounds(66, 227, 89, 23);
+						deleteEventpanel.add(btnCancel);
+						
+								
+								
+								btnCancel.addActionListener(new ActionListener() {
+									public void actionPerformed(ActionEvent arg0) {
+										
+										deleteEventpanel.setVisible(false);
+										scrollPane.setVisible(true);
+									}
+								});
 			lblBackground.setIcon(new ImageIcon(NoteList.class.getResource("/Images/MetalBackground.jpg")));
 			lblBackground.setBounds(0, 0, 1024, 768);
 			add(lblBackground);
@@ -166,6 +217,7 @@ import model.QueryBuild.QueryBuilder;
 			btnLogout.addActionListener(l);
 			btnMainMenu.addActionListener(l);
 			DropdownList.addActionListener(l);
+//			btnDeleteEvent.addActionListener(l);
 		}
 
 		public JButton getBtnAdd() {
@@ -189,7 +241,31 @@ import model.QueryBuild.QueryBuilder;
 			return btnMainMenu;
 			
 		}
-		
+
+		public JTextField getTextField() {
+			return textField;
+		}
+
+		public void setTextField(JTextField textField) {
+			this.textField = textField;
+		}
+
+		public JButton getBtnCancel() {
+			return btnCancel;
+		}
+
+		public void setBtnCancel(JButton btnCancel) {
+			this.btnCancel = btnCancel;
+		}
+
+		public JButton getBtnDeleteEvent() {
+			return btnDeleteEvent;
+		}
+
+		public void setBtnDeleteEvent(JButton btnDeleteEvent) {
+			this.btnDeleteEvent = btnDeleteEvent;
+		}
+
 		public int getEventCount(){
 			
 			int count = 0;

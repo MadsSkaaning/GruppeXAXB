@@ -45,6 +45,7 @@ import javax.swing.border.LineBorder;
 		 * Create the panel.
 		 */
 		
+		
 		private JButton btnAdd;
 		private JButton btnDelete;
 		private JButton btnLogout;
@@ -212,7 +213,7 @@ import javax.swing.border.LineBorder;
 			btnLogout.addActionListener(l);
 			btnMainMenu.addActionListener(l);
 			DropdownList.addActionListener(l);
-			//btnfinaldelete.addActionListener(l);
+//			btnfinaldelete.addActionListener(l);
 		}
 
 		public JButton getBtnAdd() {

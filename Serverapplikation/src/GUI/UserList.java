@@ -12,8 +12,10 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.BevelBorder;
+import javax.swing.border.LineBorder;
 
 import java.awt.Color;
 
@@ -34,12 +36,16 @@ public class UserList extends JPanel {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private boolean DEBUG = false;
 	private JButton btnAdd;
 	private JButton btnDelete;
 	private JButton btnLogout;
 	private JButton btnMainMenu;
 	private ResultSet rs;
+	private JPanel deleteuserpanel;
+	private JLabel lblEnterTheCalendar;
+	private JTextField textField;
+	private JButton btnCancel;
+	private JButton btnFinalDeleteUser;
 	
     @SuppressWarnings("null")
 	public UserList() {
@@ -83,14 +89,7 @@ public class UserList extends JPanel {
         table.setFillsViewportHeight(true);
         table.setRowSelectionAllowed(true);
         
- 
-        if (DEBUG) {
-            table.addMouseListener(new MouseAdapter() {
-                public void mouseClicked(MouseEvent e) {
-                    printDebugData(table);
-                }
-            });
-        }
+
         setLayout(null);
  
         //Create the scroll pane and add the table to it.
@@ -114,10 +113,6 @@ public class UserList extends JPanel {
         
         btnLogout = new JButton("");
         btnLogout.setIcon(new ImageIcon(UserList.class.getResource("/Images/Logout.png")));
-        btnLogout.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        	}
-        });
         btnLogout.setForeground(Color.WHITE);
         btnLogout.setFont(new Font("Arial", Font.BOLD, 30));
         btnLogout.setContentAreaFilled(false);
@@ -127,10 +122,6 @@ public class UserList extends JPanel {
         
         btnMainMenu = new JButton("");
         btnMainMenu.setIcon(new ImageIcon(UserList.class.getResource("/Images/homebtn.png")));
-        btnMainMenu.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        	}
-        });
         btnMainMenu.setForeground(Color.WHITE);
         btnMainMenu.setFont(new Font("Arial", Font.BOLD, 30));
         btnMainMenu.setContentAreaFilled(false);
@@ -144,12 +135,59 @@ public class UserList extends JPanel {
         btnDelete.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
 		btnDelete.setBounds(856, 377, 118, 29);
         add(btnDelete);
+		btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				deleteuserpanel.setVisible(true);
+				scrollPane.setVisible(false);
+				
+				
+			}
+		});
         
         JLabel lblUserlist = new JLabel("Userlist");
         lblUserlist.setForeground(Color.WHITE);
         lblUserlist.setFont(new Font("Arial", Font.BOLD, 78));
         lblUserlist.setBounds(365, 138, 368, 90);
         add(lblUserlist);
+        
+        deleteuserpanel = new JPanel();
+        deleteuserpanel.setBorder(new LineBorder(new Color(0, 0, 0), 3, true));
+        deleteuserpanel.setBounds(365, 250, 369, 359);
+        add(deleteuserpanel);
+        deleteuserpanel.setLayout(null);
+        
+        
+        // Hiding the delete calendar panel unless btn delete is clicked
+        deleteuserpanel.setVisible(false);
+        
+        lblEnterTheCalendar = new JLabel("Enter the ID of the user you want to delete.");
+        lblEnterTheCalendar.setBounds(47, 52, 281, 44);
+        deleteuserpanel.add(lblEnterTheCalendar);
+        
+        textField = new JTextField();
+        textField.setBounds(110, 122, 140, 29);
+        deleteuserpanel.add(textField);
+        textField.setColumns(10);
+        
+        JButton btnFinalDeleteUser_1 = new JButton("Delete!");
+        btnFinalDeleteUser_1.setBounds(212, 227, 89, 23);
+        deleteuserpanel.add(btnFinalDeleteUser_1);
+        
+        btnCancel = new JButton("Cancel");
+        
+        			btnCancel.setBounds(66, 227, 89, 23);
+        			deleteuserpanel.add(btnCancel);
+        			
+        					
+        					
+        					btnCancel.addActionListener(new ActionListener() {
+        						public void actionPerformed(ActionEvent arg0) {
+        							
+        							deleteuserpanel.setVisible(false);
+        							scrollPane.setVisible(true);
+        						}
+        					});
     
         JLabel lblBackground = new JLabel("Background");
         lblBackground.setIcon(new ImageIcon(UserList.class.getResource("/Images/MetalBackground.jpg")));
@@ -161,54 +199,11 @@ public class UserList extends JPanel {
   
     }
  
-    private void printDebugData(JTable table) {
-        int numRows = table.getRowCount();
-        int numCols = table.getColumnCount();
-        javax.swing.table.TableModel model = table.getModel();
  
-        System.out.println("Value of data: ");
-        for (int i=0; i < numRows; i++) {
-            System.out.print("    row " + i + ":");
-            for (int j=0; j < numCols; j++) {
-                System.out.print("  " + model.getValueAt(i, j));
-            }
-            System.out.println();
-        }
-        System.out.println("--------------------------");
-    }
- 
-    /**
-     * Create the GUI and show it.  For thread safety,
-     * this method should be invoked from the
-     * event-dispatching thread.
-     */
-    private static void createAndShowGUI() {
-        //Create and set up the window.
-        JFrame frame = new JFrame("SimpleTableDemo");
-        frame.setSize(1024, 768);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
- 
-        //Create and set up the content pane.
-        UserList newContentPane = new UserList();
-        newContentPane.setOpaque(true); //content panes must be opaque
-        frame.setContentPane(newContentPane);
-        frame.setVisible(true);
-    }
- 
-    public static void main(String[] args) {
-        //Schedule a job for the event-dispatching thread:
-        //creating and showing this application's GUI.
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI();
 
-        }
-        });
-    }
     
     public void addActionListener(ActionListener l) {
 		btnAdd.addActionListener(l);
-		btnDelete.addActionListener(l);
 		btnLogout.addActionListener(l);
 		btnMainMenu.addActionListener(l);
 		
@@ -230,6 +225,36 @@ public class UserList extends JPanel {
 		return btnLogout;
 	}
 	
+	
+	
+	public JTextField getTextField() {
+		return textField;
+	}
+
+
+
+
+	public void setTextField(JTextField textField) {
+		this.textField = textField;
+	}
+
+
+
+
+	public JButton getBtnFinalDeleteUser() {
+		return btnFinalDeleteUser;
+	}
+
+
+
+
+	public void setBtnFinalDeleteUser(JButton btnFinalDeleteUser) {
+		this.btnFinalDeleteUser = btnFinalDeleteUser;
+	}
+
+
+
+
 	public int getUserCount(){
 		
 		int count = 0;
