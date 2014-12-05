@@ -186,12 +186,14 @@ public class GUILogic {
 			}
 	
 			if (e.getSource() == screen.getAddCalendar().getBtnSubmit()){
-				String Email = screen.getAddCalendar().getTextField_Email().getText();
-				String Type ="";
-				String Password ="";
-				String Active = "1";
 				
-				if (Email.equals("")|| Type.equals("")|| Password.equals(""))
+								
+				String CalendarName = screen.getAddCalendar().getTextField_Name().getText();
+				String Active = "1";
+				//Hardcoded created by and user name, to 1 and user. HAS TO BE CHANGED.
+				String CreatedBy = "user";
+				String PrivatePublic = "1";
+				if (CalendarName.equals(""))
 				{
 					JOptionPane.showMessageDialog(null, "\nPlease fill out all the fields"
 							, "Error message",JOptionPane.PLAIN_MESSAGE);
@@ -200,10 +202,10 @@ public class GUILogic {
 				{
 				QueryBuilder qb = new QueryBuilder();
 				
-				String[] kolonner = { "calendarname", "createdby", "privatepublic", "active"};
-				String[] Values = { Email, Password, Type, Active};
+				String[] kolonner = { "calendarname", "createdby", "privatepublic", "active", };
+				String[] Values = { CalendarName, CreatedBy, PrivatePublic, Active};
 				try {
-					qb.insertInto("users", kolonner ).values(Values).Execute();
+					qb.insertInto("calendar", kolonner ).values(Values).Execute();
 					
 					JOptionPane.showMessageDialog(null, "\nCalendar has been succesfully added!"
 							, "Error message",JOptionPane.PLAIN_MESSAGE);
@@ -285,9 +287,10 @@ public class GUILogic {
 			if (e.getSource() == screen.getCalendarList().getBtnLogout()){
 				screen.show(Screen.LOGIN);
 			}
-			if (e.getSource() == screen.getUserList().getBtnAdd()){
+			if (e.getSource() == screen.getCalendarList().getBtnAdd()){
 				screen.show(Screen.ADDCALENDAR);
 			}
+			
 		}
 	}
 	
