@@ -24,10 +24,8 @@ public class Events {
 			{
 				//String values from SQL database (must be created)
 				int eventID = rs.getInt("eventid");
-				int type = rs.getInt("type");
 				int location = rs.getInt("location");
 				int createdby = rs.getInt("createdby");
-				
 				
 				Date startDate = rs.getDate("start");
 				Time startTime = rs.getTime("start");
@@ -35,28 +33,31 @@ public class Events {
 				Date endDate = rs.getDate("end");
 				Time endTime = rs.getTime("end");
 				
-				String nameEvent = rs.getString("name");
-				String text = rs.getString("text");
+				String nameEvent = rs.getString("eventname");
+				String description = rs.getString("description");
+				int calendarId = rs.getInt("calendarid");
+				int active= rs.getInt("active");
+				int customevent = rs.getInt("customnevent");
 				
 				String stringEventID = String.valueOf(eventID);
-				String stringType = String.valueOf(type);
 				String stringLocation = String.valueOf(location);
 				String stringCreatedby = String.valueOf(createdby);
 				String stringStartDate = String.valueOf(startDate);
 				String stringStartTime = String.valueOf(startTime);				
 				String stringEndDate = String.valueOf(endDate);
 				String stringEndTime = String.valueOf(endTime);
-				
 				ArrayList<String> alStart = new ArrayList<String>();
 				alStart.add(stringStartDate + "" + stringStartTime);
-				
 				ArrayList<String> alEnd = new ArrayList<String>();
 				alEnd.add(stringEndDate + "" + stringEndTime);
+				String stringNameEvent = String.valueOf(nameEvent);
+				String stringDescription = String.valueOf(description);
+				String stringCalendarId = String.valueOf(calendarId);
+				String stringActive = String.valueOf(active);
+				String stringCustomevent = String.valueOf(customevent);
 				
-				
-				System.out.println(String.valueOf(startDate.getTime()));
-				
-				events.add(new Event(stringEventID, stringEventID, stringType, stringType, stringLocation, stringLocation,stringCreatedby, alStart, alEnd));				
+								
+				events.add(new Event(stringEventID, stringLocation, stringCreatedby, stringNameEvent, stringDescription, stringCalendarId , stringActive, stringCustomevent, alStart, alEnd));				
 			}
 			
 		} catch (SQLException e) {
@@ -76,10 +77,4 @@ public class Events {
         return Arrays.toString(events.toArray());
     }
     
-    public static void main(String []args){
-    	Events Hej = new Events();
-    	
-    	Hej.getEvents();
-    	System.out.println(Hej.toString());
-    }
 }

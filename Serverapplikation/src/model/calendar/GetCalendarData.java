@@ -55,7 +55,7 @@ public class GetCalendarData {
 
         //tester events activityID's
         for (int i = 0; i < events.getEvents().size(); i++){
-            System.out.println(events.getEvents().get(i).getActivityid());
+          //  System.out.println(events.getEvents().get(i).getActivityid());
         }
     }
 }

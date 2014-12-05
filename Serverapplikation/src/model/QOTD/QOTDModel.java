@@ -1,4 +1,4 @@
-package model.QOTD;
+  package model.QOTD;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -35,7 +35,7 @@ public class QOTDModel {
     /**
      *
      */ 
-    private static String readUrl(String urlString) throws Exception {
+    public static String readUrl(String urlString) throws Exception {
     	
         BufferedReader reader = null;
         try {
@@ -71,16 +71,19 @@ public class QOTDModel {
     			JSONParser jsonParser = new JSONParser();
     			JSONObject jsonObject = (JSONObject) jsonParser.parse(json);
     			
-    			String quote = (String) jsonObject.get("quote");
+    			String quote = json;
+    			
+    			quote = quote.replace("'","''");
+    			
     			String author = (String) jsonObject.get("author");
     			String topic = (String) jsonObject.get("topic");
 
     			
-    			String[] keys = {"qotd"};
-    			String[] keys2 = {quote};
+    			String[] fields = {"qotd"};
+    			String[] values = {quote};
     			
     			
-    			qb.update("dailyupdate", keys, keys2).where("msg_type", "=", "1").Execute();
+    			qb.update("dailyupdate", fields, values).where("msg_type", "=", "1").Execute();
     			
     	
 			} catch (Exception e) {

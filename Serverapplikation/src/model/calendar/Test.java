@@ -6,7 +6,15 @@ public class Test {
 	{
 		// TODO Auto-generated method stub
 		Events etest = new Events();
-		etest.getEvents();
+		
+		
+		etest.setEvents(etest.getEvents());
+		
+		//for(int i = 0; < etest.eve)
+
+		
+		
+		
 	}
 
 }

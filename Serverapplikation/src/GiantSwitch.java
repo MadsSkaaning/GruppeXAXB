@@ -128,9 +128,11 @@ public class GiantSwitch {
 		 ** QUOTE **
 		 **********/
 		case "getQuote":
-
-		answer = QOTDKlasse.getQuote();
-			System.out.println(answer);
+			QOTDKlasse.saveQuote();
+			answer = QOTDKlasse.getQuote();
+			System.out.println("Received Quote Request");
+			
+			//answer = "skerder Hassan";
 			
 			break;
 
