@@ -1,6 +1,7 @@
 import java.io.*;
 import java.net.*;
 
+import model.database.DatabaseInit;
 import JsonClasses.CalendarInfo;
 
 import com.google.gson.stream.JsonReader;
@@ -16,6 +17,9 @@ class TCPServer{
 		Configurations cf = new Configurations();
 		ServerSocket welcomeSocket = new ServerSocket(Integer.parseInt(cf.getServersocket()));
 		System.out.println("Server listens on port " + cf.getServersocket());
+		
+		DatabaseInit launchdb = new DatabaseInit();
+		launchdb.go();
 		
 		//While something is true
 		while(true){
