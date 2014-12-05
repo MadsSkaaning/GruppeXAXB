@@ -36,8 +36,6 @@ public class AddEvent extends JPanel {
 	private JTextField textField_End;
 	private JTextField textField_Name;
 	private JTextField textField_Text;
-	private JLabel lblType;
-	private JTextField textField_Type;
 
 	/**
 	 * Create the panel.
@@ -60,37 +58,37 @@ public class AddEvent extends JPanel {
 		textField_Location = new JTextField();
 		textField_Location.setForeground(new Color(105, 105, 105));
 		textField_Location.setColumns(10);
-		textField_Location.setBounds(755, 191, 120, 34);
+		textField_Location.setBounds(532, 209, 120, 34);
 		add(textField_Location);
 
 		JLabel lblEmail = new JLabel("Location");
 		lblEmail.setForeground(new Color(255, 255, 255));
 		lblEmail.setFont(new Font("Arial", Font.BOLD, 26));
-		lblEmail.setBounds(483, 195, 109, 30);
+		lblEmail.setBounds(260, 213, 109, 30);
 		add(lblEmail);
 
 		textField_Createdby = new JTextField();
 		textField_Createdby.setForeground(new Color(105, 105, 105));
 		textField_Createdby.setColumns(10);
-		textField_Createdby.setBounds(755, 238, 120, 34);
+		textField_Createdby.setBounds(532, 256, 120, 34);
 		add(textField_Createdby);
 
 		JLabel lblTeam = new JLabel("Created by");
 		lblTeam.setFont(new Font("Arial", Font.BOLD, 26));
 		lblTeam.setForeground(new Color(255, 255, 255));
-		lblTeam.setBounds(483, 242, 133, 31);
+		lblTeam.setBounds(260, 260, 233, 31);
 		add(lblTeam);
 
 		textField_Start = new JTextField();
 		textField_Start.setForeground(new Color(105, 105, 105));
 		textField_Start.setColumns(10);
-		textField_Start.setBounds(755, 285, 120, 34);
+		textField_Start.setBounds(532, 303, 120, 34);
 		add(textField_Start);
 
 		JLabel lblCreateddate = new JLabel("Start");
 		lblCreateddate.setForeground(new Color(255, 255, 255));
 		lblCreateddate.setFont(new Font("Arial", Font.BOLD, 26));
-		lblCreateddate.setBounds(483, 288, 159, 31);
+		lblCreateddate.setBounds(260, 306, 159, 31);
 		add(lblCreateddate);
 
 		btnSubmit = new JButton("Create event");
@@ -106,7 +104,7 @@ public class AddEvent extends JPanel {
 			}
 		}
 		);
-		btnSubmit.setBounds(553, 544, 239, 43);
+		btnSubmit.setBounds(330, 562, 239, 43);
 		add(btnSubmit);
 
 		
@@ -123,59 +121,45 @@ public class AddEvent extends JPanel {
 				lblUserInfo = new JLabel("Create event");
 				lblUserInfo.setForeground(Color.WHITE);
 				lblUserInfo.setFont(new Font("Arial", Font.BOLD, 78));
-				lblUserInfo.setBounds(451, 115, 466, 91);
+				lblUserInfo.setBounds(228, 133, 466, 91);
 				add(lblUserInfo);
 						
 						lblEnd = new JLabel("End");
 						lblEnd.setForeground(Color.WHITE);
 						lblEnd.setFont(new Font("Arial", Font.BOLD, 26));
-						lblEnd.setBounds(483, 337, 159, 31);
+						lblEnd.setBounds(260, 355, 159, 31);
 						add(lblEnd);
 						
 						lblName = new JLabel("Name");
 						lblName.setForeground(Color.WHITE);
 						lblName.setFont(new Font("Arial", Font.BOLD, 26));
-						lblName.setBounds(483, 379, 159, 31);
+						lblName.setBounds(260, 397, 159, 31);
 						add(lblName);
 								
-								lblText = new JLabel("Text");
+								lblText = new JLabel("Description");
 								lblText.setForeground(Color.WHITE);
 								lblText.setFont(new Font("Arial", Font.BOLD, 26));
-								lblText.setBounds(483, 429, 159, 31);
+								lblText.setBounds(260, 447, 195, 31);
 								add(lblText);
 								
 								textField_End = new JTextField();
 								textField_End.setForeground(SystemColor.controlDkShadow);
 								textField_End.setColumns(10);
-								textField_End.setBounds(755, 332, 120, 34);
+								textField_End.setBounds(532, 350, 120, 34);
 								add(textField_End);
 								
 								textField_Name = new JTextField();
 								textField_Name.setForeground(SystemColor.controlDkShadow);
 								textField_Name.setColumns(10);
-								textField_Name.setBounds(755, 379, 120, 34);
+								textField_Name.setBounds(532, 397, 120, 34);
 								add(textField_Name);
 								
 								textField_Text = new JTextField();
 								textField_Text.setForeground(SystemColor.controlDkShadow);
 								textField_Text.setColumns(10);
-								textField_Text.setBounds(755, 426, 120, 34);
+								textField_Text.setBounds(532, 444, 120, 34);
 								add(textField_Text);
-								
-								textField_Type = new JTextField();
-								textField_Type.setForeground(SystemColor.controlDkShadow);
-								textField_Type.setColumns(10);
-								textField_Type.setBounds(755, 473, 120, 34);
-								add(textField_Type);
-								
-								lblType = new JLabel("Type");
-								lblType.setForeground(Color.WHITE);
-								lblType.setFont(new Font("Arial", Font.BOLD, 26));
-								lblType.setBounds(483, 471, 159, 31);
-								add(lblType);
-						//=======
-						
-						//>>>>>>> FETCH_HEAD
+
 								
 								JLabel lblBackground = new JLabel("");
 								lblBackground.setSize(new Dimension(1024, 768));
@@ -218,10 +202,6 @@ public class AddEvent extends JPanel {
 		return textField_Text;
 	}
 	
-
-	public JTextField getTextField_Type() {
-		return textField_Type;
-	}
 
 	public JButton getBtnSubmit() {
 		return btnSubmit;

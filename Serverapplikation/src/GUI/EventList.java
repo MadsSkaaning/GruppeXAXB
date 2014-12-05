@@ -108,6 +108,8 @@ import model.QueryBuild.QueryBuilder;
 			}
 
 			final JTable table = new JTable(data, columnNames);
+			table.setColumnSelectionAllowed(true);
+			table.setCellSelectionEnabled(true);
 			table.setSurrendersFocusOnKeystroke(true);
 			table.setPreferredScrollableViewportSize(new Dimension(500, 100));
 			table.setFillsViewportHeight(true);

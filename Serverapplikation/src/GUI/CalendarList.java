@@ -37,6 +37,8 @@ import javax.swing.DefaultComboBoxModel;
 import model.QueryBuild.QueryBuilder;
 
 import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 
 
 	public class CalendarList extends JPanel {
@@ -58,6 +60,9 @@ import javax.swing.border.LineBorder;
 		private JTextField textField;
 		private JButton btnCancel;
 		private JButton btnfinaldelete;
+		private JScrollPane scrollPane;
+		private JLabel lblEnterTo;
+		private JTextField enabledisabletextField;
 		
 		
 		public CalendarList() {
@@ -107,6 +112,7 @@ import javax.swing.border.LineBorder;
 			table.setPreferredScrollableViewportSize(new Dimension(500, 100));
 			table.setFillsViewportHeight(true);
 			table.setRowSelectionAllowed(true);
+			
 
 			// Create the scroll pane and add the table to it.
 			final JScrollPane scrollPane = new JScrollPane(table);
@@ -123,7 +129,7 @@ import javax.swing.border.LineBorder;
 			// Add the scroll pane to this panel.
 			add(scrollPane);
 			
-			btnDelete = new JButton("Delete");
+			btnDelete = new JButton("Edit");
 			btnDelete.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent arg0) {
 					
@@ -174,8 +180,8 @@ import javax.swing.border.LineBorder;
 			// Hiding the delete calendar panel unless btn delete is clicked
 			deletecalpanel.setVisible(false);
 			
-			lblEnterTheCalendar = new JLabel("Enter the ID of the calendar you want to delete.");
-			lblEnterTheCalendar.setBounds(66, 52, 242, 44);
+			lblEnterTheCalendar = new JLabel("Enter the ID of the calendar you want to edit.");
+			lblEnterTheCalendar.setBounds(66, 52, 350, 44);
 			deletecalpanel.add(lblEnterTheCalendar);
 			
 			textField = new JTextField();
@@ -183,7 +189,15 @@ import javax.swing.border.LineBorder;
 			deletecalpanel.add(textField);
 			textField.setColumns(10);
 			
-			JButton btnfinaldelete = new JButton("Delete!");
+			btnfinaldelete = new JButton("Delete!");
+			btnfinaldelete.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					
+					deletecalpanel.setVisible(false);
+					scrollPane.setVisible(true);
+					
+				}
+			});
 			btnfinaldelete.setBounds(212, 227, 89, 23);
 			deletecalpanel.add(btnfinaldelete);
 			
@@ -191,6 +205,18 @@ import javax.swing.border.LineBorder;
 			
 						btnCancel.setBounds(66, 227, 89, 23);
 						deletecalpanel.add(btnCancel);
+						
+						lblEnterTo = new JLabel("Enter 0 to disable and 1 to enable");
+						lblEnterTo.setBounds(77, 162, 403, 29);
+						deletecalpanel.add(lblEnterTo);
+						
+						enabledisabletextField = new JTextField();
+						enabledisabletextField.setBounds(131, 196, 86, 20);
+						deletecalpanel.add(enabledisabletextField);
+						enabledisabletextField.setColumns(10);
+						lblBackground.setBounds(0, 0, 1024, 768);
+						add(lblBackground);
+						lblBackground.setIcon(new ImageIcon(NoteList.class.getResource("/Images/MetalBackground.jpg")));
 						
 								
 								
@@ -201,9 +227,6 @@ import javax.swing.border.LineBorder;
 										scrollPane.setVisible(true);
 									}
 								});
-			lblBackground.setIcon(new ImageIcon(NoteList.class.getResource("/Images/MetalBackground.jpg")));
-			lblBackground.setBounds(0, 0, 1024, 768);
-			add(lblBackground);
 
 		}
 		
@@ -213,7 +236,8 @@ import javax.swing.border.LineBorder;
 			btnLogout.addActionListener(l);
 			btnMainMenu.addActionListener(l);
 			DropdownList.addActionListener(l);
-//			btnfinaldelete.addActionListener(l);
+			btnfinaldelete.addActionListener(l);
+			
 		}
 
 		public JButton getBtnAdd() {
@@ -246,6 +270,12 @@ import javax.swing.border.LineBorder;
 			return textField;
 		}
 		
+		public JTextField getEnabledisabletextField() {
+			return enabledisabletextField;
+		}
+
+
+
 		public int getEventCount(){
 			
 			int count = 0;
@@ -269,5 +299,7 @@ import javax.swing.border.LineBorder;
 			}
 			return count; 
 		}
+
+
 	}
 
