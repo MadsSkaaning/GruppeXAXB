@@ -2,12 +2,13 @@ package GUI;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 import GUI.UserInformation;
-import GUI.AuthUser;
+import databaseMethods.SwitchMethods;
 
 import javax.swing.JOptionPane;
 
@@ -18,9 +19,7 @@ public class GUILogic {
 	private Screen screen;
 	private boolean u;
 	private boolean full = false;
-	
-	AuthUser a = new AuthUser();  
-	
+		
 	public GUILogic(){
 		screen = new Screen();
 
@@ -44,33 +43,27 @@ public class GUILogic {
 	
 	private class LoginActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			try{
-				
-			String userName = screen.getLogin().getTextFieldUsername().getText();
-			String password = screen.getLogin().getTextFieldPassword().getText();
-			u=a.login(userName, password);
-			
 			if (e.getSource() == screen.getLogin().getBtnLogIn()){
 				
-				if(u == false){
-					JOptionPane.showMessageDialog(null, "\nPlease enter a valid username & password."
-							, "Error message",JOptionPane.PLAIN_MESSAGE);
-					
-					System.out.println(screen.getLogin().getTextFieldUsername().getText());
-					System.out.println(screen.getLogin().getTextFieldPassword().getText());
-
-			}
-
-			if	(u != true)
-					{
-						screen.show(Screen.MAINMENU);
-					}
+			SwitchMethods logmein = new SwitchMethods();
+			String email = screen.getLogin().getTextFieldUsername().getText();
+			String password = screen.getLogin().getTextFieldPassword().getText();
 				
-	
+					try {
+						if(logmein.authenticateadmin(email, password).equals("0") )
+						screen.show(Screen.MAINMENU);
+						else{
+							System.out.println("error besked");	}
+					} catch (Exception e1) {
+						// TODO Auto-generated catch block
+						e1.printStackTrace();
+					}
+
+				
+
+					
+				
 			}	
-			}	
-			catch(Exception e3){
-			}
 		}	
 	}
 	private class MainMenuActionListener implements ActionListener {
