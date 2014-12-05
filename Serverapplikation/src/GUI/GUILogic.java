@@ -53,14 +53,11 @@ public class GUILogic {
 						if(logmein.authenticateadmin(email, password).equals("0") )
 						screen.show(Screen.MAINMENU);
 						else{
-							System.out.println("error besked");	}
+							JOptionPane.showMessageDialog(null, "Wrong combination. Please try again!");	}
 					} catch (Exception e1) {
-						// TODO Auto-generated catch block
+					
 						e1.printStackTrace();
 					}
-
-				
-
 					
 				
 			}	
@@ -437,10 +434,7 @@ public class GUILogic {
 				screen.show(Screen.ADDCALENDAR);
 			}
 			
-			
-			
-			// Testing shit muddafucka
-			
+						
 			if(e.getSource() == screen.getCalendarList().getBtnfinaldelete()){
 				
 				String CalendarID = screen.getCalendarList().getTextField().getText();
@@ -465,10 +459,6 @@ public class GUILogic {
 					qb.update("calendar", keys, values).where("calendarid", "=", CalendarID).Execute();
 					JOptionPane.showMessageDialog(null, "\nCalendar has been succesfully deleted!"
 							, "Error message",JOptionPane.PLAIN_MESSAGE);
-					
-//			Delete this after quicki fix works.
-//					screen.getCalendarList().getScrollPane().setVisible(true);
-//					screen.getCalendarList().getDeletecalpanel().setVisible(false);
 
 				
 				} catch (SQLException e1) {
