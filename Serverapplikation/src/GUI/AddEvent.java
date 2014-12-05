@@ -46,7 +46,6 @@ public class AddEvent extends JPanel {
 		setSize(new Dimension(1024, 768));
 		setLayout(null);
 		
-
         btnLogout = new JButton("");
         btnLogout.setIcon(new ImageIcon(UserList.class.getResource("/Images/Logout.png")));
         btnLogout.setForeground(Color.WHITE);
@@ -60,6 +59,9 @@ public class AddEvent extends JPanel {
 		textField_Location.setForeground(new Color(105, 105, 105));
 		textField_Location.setColumns(10);
 		textField_Location.setBounds(532, 209, 120, 34);
+		textField_Location.setText("1");
+		textField_Location.setEditable(false);
+		
 		add(textField_Location);
 
 		JLabel lblEmail = new JLabel("Location");

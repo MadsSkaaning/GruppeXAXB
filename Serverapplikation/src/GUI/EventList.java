@@ -49,7 +49,6 @@ import model.QueryBuild.QueryBuilder;
 		private JButton btnLogout;
 		private JButton btnMainMenu;
 		private final JLabel lblBackground = new JLabel("");
-		private JComboBox DropdownList;
 		private ResultSet rs;
 		private JPanel deleteEventpanel;
 		private JLabel lblEnterTheEvent;
@@ -63,13 +62,6 @@ import model.QueryBuild.QueryBuilder;
 		public EventList() {
 			setSize(new Dimension(1024, 768));
 			setLayout(null);
-			
-			DropdownList = new JComboBox();
-			DropdownList.setBackground(Color.WHITE);
-			DropdownList.setModel(new DefaultComboBoxModel(new String[] {"Hold XA Calendar", "Hold XB Calendar", "Custom Events"}));
-			DropdownList.setForeground(Color.BLACK);
-			DropdownList.setBounds(802, 240, 216, 53);
-			add(DropdownList);
 
 			JLabel lblEvents = new JLabel("Eventlist");
 			lblEvents.setForeground(Color.WHITE);
@@ -236,7 +228,6 @@ import model.QueryBuild.QueryBuilder;
 			btnDelete.addActionListener(l);
 			btnLogout.addActionListener(l);
 			btnMainMenu.addActionListener(l);
-			DropdownList.addActionListener(l);
 			btnDeleteEvent.addActionListener(l);
 		}
 
@@ -244,9 +235,6 @@ import model.QueryBuild.QueryBuilder;
 			return btnAdd;
 		}
 
-		public JComboBox getDropdownList() {
-			return DropdownList;
-		}
 
 
 		public JButton getBtnDelete() {

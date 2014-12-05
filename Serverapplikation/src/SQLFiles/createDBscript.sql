@@ -50,8 +50,9 @@ CREATE TABLE IF NOT EXISTS events
 CREATE TABLE IF NOT EXISTS locationdata
 (
 	locationdataid int NOT NULL AUTO_INCREMENT,
-	longitude int NOT NULL,
-	latitude int UNIQUE,
+	longitude double NOT NULL,
+	latitude double NOT NULL,
+	locationdataname varchar(30) NOT NULL,
 	PRIMARY KEY (locationdataid)
 );
 
@@ -133,15 +134,12 @@ ALTER TABLE userevents
 ;
 
 
-ALTER TABLE notes
-	ADD FOREIGN KEY (createdby)
-	REFERENCES users (userid)
-	ON UPDATE RESTRICT
-;
 
 
 INSERT INTO `cbscalendar`.`users` (`userid`, `email`, `active`, `created`, `type`, `password`) VALUES ('1', 'admin', '1', '2014-05-12 10:00:00', 'admin', 'admin');
-
 INSERT INTO `cbscalendar`.`users` (`userid`, `email`, `active`, `created`, `type`, `password`) VALUES ('2', 'user', '1', '2014-05-12 10:01:00', 'user', 'user');
-
+INSERT INTO `cbscalendar`.`calendar` (`calendarid`, `calendarname`, `createdby`, `privatepublic`, `active`) VALUES ('1', 'Public Calendar', '1', '1', '1');
+INSERT INTO `cbscalendar`.`locationdata` (`locationdataid`, `longitude`, `latitude`, `locationdataname`) VALUES ('1', '12.529092', '55.681589', 'Frederiksberg');
+INSERT INTO `cbscalendar`.`events` (`eventid`, `location`, `createdby`, `start`, `end`, `eventname`, `description`, `calendarid`, `active`, `customevent`) VALUES ('1', '1', '1', '2014-12-31 18:00:00', '2014-12-31 22:00:00', 'New Years Eve!', 'Going to be Legen - wait for it - dary!', '1', '1', '0');
+INSERT INTO `cbscalendar`.`notes` (`noteid`, `eventid`, `createdby`, `note`, `dateTime`, `active`) VALUES ('1', '1', '1', 'This is best song in the world. ', '2014-12-31 20:00:00', '1');
 
