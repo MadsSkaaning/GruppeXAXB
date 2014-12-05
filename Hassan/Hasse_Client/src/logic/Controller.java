@@ -82,6 +82,19 @@ public class Controller {
 			}
 			
 			break;
+		
+		case "createNote":
+			
+			try {
+				dothis = clientconnection.serverComm(login.createNote());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			break;
+			
+			
+			
 			
 	case "getCalendar":
 			
@@ -120,6 +133,26 @@ public class Controller {
 		
 		try {
 			dothis = clientconnection.serverComm(login.deleteEvent());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		break;
+		
+	case "deleteNote":
+		
+		try {
+			dothis = clientconnection.serverComm(login.deleteNote());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		break;
+		
+	case "getNote":
+		
+		try {
+			dothis = clientconnection.serverComm(login.getNote());
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

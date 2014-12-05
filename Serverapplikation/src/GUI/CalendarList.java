@@ -3,6 +3,7 @@
 	import javax.swing.JPanel;
 
 	import java.awt.Dimension;
+import java.awt.ScrollPane;
 
 	import javax.swing.JLabel;
 import javax.swing.ImageIcon;
@@ -35,12 +36,17 @@ import javax.swing.DefaultComboBoxModel;
 
 import model.QueryBuild.QueryBuilder;
 
+import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
+
 
 	public class CalendarList extends JPanel {
 
 		/**
 		 * Create the panel.
 		 */
+		
 		
 		private JButton btnAdd;
 		private JButton btnDelete;
@@ -49,6 +55,14 @@ import model.QueryBuild.QueryBuilder;
 		private final JLabel lblBackground = new JLabel("");
 		private JComboBox DropdownList;
 		private ResultSet rs;
+		private JPanel deletecalpanel;
+		private JLabel lblEnterTheCalendar;
+		private JTextField textField;
+		private JButton btnCancel;
+		private JButton btnfinaldelete;
+		private JScrollPane scrollPane;
+		private JLabel lblEnterTo;
+		private JTextField enabledisabletextField;
 		
 		
 		public CalendarList() {
@@ -98,9 +112,10 @@ import model.QueryBuild.QueryBuilder;
 			table.setPreferredScrollableViewportSize(new Dimension(500, 100));
 			table.setFillsViewportHeight(true);
 			table.setRowSelectionAllowed(true);
+			
 
 			// Create the scroll pane and add the table to it.
-			JScrollPane scrollPane = new JScrollPane(table);
+			final JScrollPane scrollPane = new JScrollPane(table);
 			scrollPane.setBorder(new CompoundBorder(new BevelBorder(
 					BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255,
 							255), new Color(0, 0, 205), new Color(255, 255, 255)),
@@ -114,7 +129,16 @@ import model.QueryBuild.QueryBuilder;
 			// Add the scroll pane to this panel.
 			add(scrollPane);
 			
-			btnDelete = new JButton("Delete");
+			btnDelete = new JButton("Edit");
+			btnDelete.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					
+					deletecalpanel.setVisible(true);
+					scrollPane.setVisible(false);
+					
+					
+				}
+			});
 			btnDelete.setOpaque(true);
 			btnDelete.setForeground(new Color(0, 0, 205));
 			btnDelete.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
@@ -145,10 +169,64 @@ import model.QueryBuild.QueryBuilder;
 			btnLogout.setBorder(null);
 			btnLogout.setBounds(10, 63, 153, 41);
 			add(btnLogout);
-			lblBackground.setIcon(new ImageIcon(NoteList.class.getResource("/Images/MetalBackground.jpg")));
-			lblBackground.setBounds(0, 0, 1024, 768);
-			add(lblBackground);
-	
+			
+			deletecalpanel = new JPanel();
+			deletecalpanel.setBorder(new LineBorder(new Color(0, 0, 0), 3, true));
+			deletecalpanel.setBounds(365, 250, 369, 359);
+			add(deletecalpanel);
+			deletecalpanel.setLayout(null);
+			
+			
+			// Hiding the delete calendar panel unless btn delete is clicked
+			deletecalpanel.setVisible(false);
+			
+			lblEnterTheCalendar = new JLabel("Enter the ID of the calendar you want to edit.");
+			lblEnterTheCalendar.setBounds(66, 52, 350, 44);
+			deletecalpanel.add(lblEnterTheCalendar);
+			
+			textField = new JTextField();
+			textField.setBounds(110, 122, 140, 29);
+			deletecalpanel.add(textField);
+			textField.setColumns(10);
+			
+			btnfinaldelete = new JButton("Delete!");
+			btnfinaldelete.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+					
+					deletecalpanel.setVisible(false);
+					scrollPane.setVisible(true);
+					
+				}
+			});
+			btnfinaldelete.setBounds(212, 227, 89, 23);
+			deletecalpanel.add(btnfinaldelete);
+			
+			btnCancel = new JButton("Cancel");
+			
+						btnCancel.setBounds(66, 227, 89, 23);
+						deletecalpanel.add(btnCancel);
+						
+						lblEnterTo = new JLabel("Enter 0 to disable and 1 to enable");
+						lblEnterTo.setBounds(77, 162, 403, 29);
+						deletecalpanel.add(lblEnterTo);
+						
+						enabledisabletextField = new JTextField();
+						enabledisabletextField.setBounds(131, 196, 86, 20);
+						deletecalpanel.add(enabledisabletextField);
+						enabledisabletextField.setColumns(10);
+						lblBackground.setBounds(0, 0, 1024, 768);
+						add(lblBackground);
+						lblBackground.setIcon(new ImageIcon(NoteList.class.getResource("/Images/MetalBackground.jpg")));
+						
+								
+								
+								btnCancel.addActionListener(new ActionListener() {
+									public void actionPerformed(ActionEvent arg0) {
+										
+										deletecalpanel.setVisible(false);
+										scrollPane.setVisible(true);
+									}
+								});
 
 		}
 		
@@ -158,6 +236,8 @@ import model.QueryBuild.QueryBuilder;
 			btnLogout.addActionListener(l);
 			btnMainMenu.addActionListener(l);
 			DropdownList.addActionListener(l);
+			btnfinaldelete.addActionListener(l);
+			
 		}
 
 		public JButton getBtnAdd() {
@@ -182,6 +262,20 @@ import model.QueryBuild.QueryBuilder;
 			
 		}
 		
+		public JButton getBtnfinaldelete(){
+			return btnfinaldelete;
+		}
+		
+		public JTextField getTextField() {
+			return textField;
+		}
+		
+		public JTextField getEnabledisabletextField() {
+			return enabledisabletextField;
+		}
+
+
+
 		public int getEventCount(){
 			
 			int count = 0;
@@ -205,5 +299,7 @@ import model.QueryBuild.QueryBuilder;
 			}
 			return count; 
 		}
+
+
 	}
 

@@ -99,15 +99,22 @@ public class GUILogic {
 				screen.show(Screen.MAINMENU);
 			}
 			if (e.getSource() == screen.getAddEventGUI().getBtnSubmit()){
-				String Type = screen.getAddEventGUI().getTextField_Type().getText();
 				String Location = screen.getAddEventGUI().getTextField_Location().getText();
 				String Createdby = screen.getAddEventGUI().getTextField_Createdby().getText();
 				String start = screen.getAddEventGUI().getTextField_Start().getText();
 				String end = screen.getAddEventGUI().getTextField_End().getText();
-				String name = screen.getAddEventGUI().getTextField_Name().getText();
+				String eventname = screen.getAddEventGUI().getTextField_Name().getText();
 				String text = screen.getAddEventGUI().getTextField_Text().getText();
-
-				if (Type.equals("")|| Location.equals("")|| Createdby.equals("")|| start.equals("")|| end.equals("")|| name.equals("")|| text.equals(""))
+				
+				String active = "1";
+				String customevent = "1";
+				
+				//calendarid 1 is meant only to be the admin calendar which is public to everyone.
+				// Admin cannot add events into a specific user calendar.
+				
+				String calendarid = "1";
+				
+				if (Location.equals("")|| Createdby.equals("")|| start.equals("")|| end.equals("")|| eventname.equals("")|| text.equals(""))
 				{
 					JOptionPane.showMessageDialog(null, "\nPlease fill out all the fields"
 							, "Error message",JOptionPane.PLAIN_MESSAGE);
@@ -116,13 +123,21 @@ public class GUILogic {
 				{
 				QueryBuilder qb = new QueryBuilder();
 				
-				String[] kolonner = { "eventid", "type", "location", "createdby", "start", "end", "name", "text"};
-				String[] Values = { Type, Location, Createdby, start, end, name, text};
+				String[] kolonner = { "location", "createdby", "start", "end", "eventname", "description", "calendarid", "active", "customevent"};
+				String[] Values = { Location, Createdby, start, end, eventname, text, calendarid, active, customevent };
+				
+				
 				try {
-					qb.insertInto("events", kolonner ).values(Values).ExecuteQuery();
+					qb.insertInto("events", kolonner ).values(Values).Execute();
+					
+					JOptionPane.showMessageDialog(null, "\nEvent has been succesfully added!"
+							, "OBS",JOptionPane.PLAIN_MESSAGE);
+					
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
-					e1.printStackTrace();
+					JOptionPane.showMessageDialog(null, "\nERROR: Please fill out fields correctly."
+							, "Error message",JOptionPane.PLAIN_MESSAGE);
+					
 				}
 				}
 				
@@ -186,12 +201,14 @@ public class GUILogic {
 			}
 	
 			if (e.getSource() == screen.getAddCalendar().getBtnSubmit()){
-				String Email = screen.getAddCalendar().getTextField_Email().getText();
-				String Type ="";
-				String Password ="";
-				String Active = "1";
 				
-				if (Email.equals("")|| Type.equals("")|| Password.equals(""))
+								
+				String CalendarName = screen.getAddCalendar().getTextField_Name().getText();
+				String Active = "1";
+				//Hardcoded created by and user name, to 1 and user. HAS TO BE CHANGED.
+				String CreatedBy = "user";
+				String PrivatePublic = "1";
+				if (CalendarName.equals(""))
 				{
 					JOptionPane.showMessageDialog(null, "\nPlease fill out all the fields"
 							, "Error message",JOptionPane.PLAIN_MESSAGE);
@@ -200,15 +217,18 @@ public class GUILogic {
 				{
 				QueryBuilder qb = new QueryBuilder();
 				
-				String[] kolonner = { "calendarname", "createdby", "privatepublic", "active"};
-				String[] Values = { Email, Password, Type, Active};
+				String[] kolonner = { "calendarname", "createdby", "privatepublic", "active", };
+				String[] Values = { CalendarName, CreatedBy, PrivatePublic, Active};
 				try {
-					qb.insertInto("users", kolonner ).values(Values).Execute();
+					qb.insertInto("calendar", kolonner ).values(Values).Execute();
 					
 					JOptionPane.showMessageDialog(null, "\nCalendar has been succesfully added!"
 							, "Error message",JOptionPane.PLAIN_MESSAGE);
 					
 					screen.show(Screen.CALENDARLIST);
+					
+					
+					
 										
 				} catch (SQLException e1) {
 					// TODO Auto-generated catch block
@@ -273,6 +293,9 @@ public class GUILogic {
 			if (e.getSource() == screen.getEventlist().getBtnLogout()){
 				screen.show(Screen.LOGIN);
 			}
+			if (e.getSource() == screen.getEventlist().getBtnAdd()){
+				screen.show(Screen.ADDEVENT);
+			}
 		}
 	}
 	
@@ -285,11 +308,54 @@ public class GUILogic {
 			if (e.getSource() == screen.getCalendarList().getBtnLogout()){
 				screen.show(Screen.LOGIN);
 			}
-			if (e.getSource() == screen.getUserList().getBtnAdd()){
+			if (e.getSource() == screen.getCalendarList().getBtnAdd()){
 				screen.show(Screen.ADDCALENDAR);
 			}
+			
+			
+			
+			// Testing shit muddafucka
+			
+			if(e.getSource() == screen.getCalendarList().getBtnfinaldelete()){
+				
+				String CalendarID = screen.getCalendarList().getTextField().getText();
+				
+				if	(CalendarID.equals("")) {
+					
+					JOptionPane.showMessageDialog(null, "\nPlease fill out the Calendar ID"
+							, "Error message",JOptionPane.PLAIN_MESSAGE);
+					}
+				
+				else
+				{
+				QueryBuilder qb = new QueryBuilder();
+				
+				String activestatus = screen.getCalendarList().getEnabledisabletextField().getText();
+				
+				
+				String[] keys = { "active" };
+				String[] values = { activestatus};
+				try {
+					
+					qb.update("calendar", keys, values).where("calendarid", "=", CalendarID).Execute();
+					JOptionPane.showMessageDialog(null, "\nCalendar has been succesfully deleted!"
+							, "Error message",JOptionPane.PLAIN_MESSAGE);
+					
+//			Delete this after quicki fix works.
+//					screen.getCalendarList().getScrollPane().setVisible(true);
+//					screen.getCalendarList().getDeletecalpanel().setVisible(false);
+
+				
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "\nCalendar ID doesnt exist. Try again!"
+							, "Error message",JOptionPane.PLAIN_MESSAGE);
+					
+					e1.printStackTrace();
+				}
+				}
+			}
+	
 		}
 	}
-	
-	
 }

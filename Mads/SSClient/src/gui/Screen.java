@@ -9,7 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 import java.awt.CardLayout;
 
-public class MainScreen extends JFrame {
+public class Screen extends JFrame {
 
 	private LoginScreen loginScreen = new LoginScreen();
 	private CalendarScreen calendarScreen = new CalendarScreen();
@@ -19,7 +19,7 @@ public class MainScreen extends JFrame {
 	private CardLayout changecards = new CardLayout();
 	
 
-	public MainScreen() {
+	public Screen() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1024, 768);
 		contentPane = new JPanel();
@@ -30,36 +30,18 @@ public class MainScreen extends JFrame {
 		
 		
 		//Her adder jeg de forskellige panels til MainScreen
-		
 		contentPane.add(loginScreen, "loginScreen");
 		contentPane.add(calendarScreen, "calendarScreen");
 		contentPane.add(eventScreen, "eventScreen");
 		contentPane.add(frontScreen, "frontScreen");
 		
-		
-		
-		
-		
-		
-		
-	
-		
-		
-		
-		
 	}
 	
-	
-	//laver en metode der kan skifte mellem, hvilket JPanel der vises
 	public void show (String card) {
 		changecards.show(getContentPane(),  card);
 	}
-	
-	//laver getters for de forskellige panels, som jeg vil bruge i en GUILogic klasse, der tager sig af tryk på knapper
-	
+		
 	public LoginScreen getLoginScreen(){
-		
-		
 		return loginScreen;
 	
 	}

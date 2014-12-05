@@ -1,6 +1,2 @@
-/logic
 /gui
-/database
-/config
-/shared
-/JsonClasses
+/logic

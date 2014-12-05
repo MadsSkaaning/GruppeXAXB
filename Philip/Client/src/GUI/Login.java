@@ -129,7 +129,7 @@ public class Login extends JPanel {
 		
 		return username;
 	}
-
+ 
 	@SuppressWarnings("deprecation")
 	public String getPassword(){
 		

@@ -3,36 +3,28 @@ package gui;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+
 import logic.Controller;
-
-
-
-
 
 
 public class GuiLogic {
 	
 	
- private MainScreen screen;
-private Object loginScreen;
+ private Screen screen;
  
 
  
  public GuiLogic(){
 	 
 	 
-	 screen = new MainScreen();
-	 LoginScreen lis = new LoginScreen();
+	 screen = new Screen();
 
 		screen.getLoginScreen().addActionListener(new LoginActionListener());
 		screen.getFrontScreen().addActionListener(new FrontActionListener());
 		screen.getEventScreen().AddActionListener(new UserEventActionListener());
 		screen.getCalendarScreen().addActionListener(new CalendarActionListener());
-		
-	 
-	 
-	 
-	 
+
  }
  
  
@@ -62,7 +54,11 @@ private Object loginScreen;
 				{
 					screen.show("frontScreen");
 					
-				}else{System.out.println("failed2");}
+				}else{
+					
+					JOptionPane.showMessageDialog(null, "\nYour input was wrong. Please try again."
+							, "Error message",JOptionPane.PLAIN_MESSAGE);
+					}
 			}
 			
 			

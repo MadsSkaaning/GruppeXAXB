@@ -3,10 +3,13 @@ package logic;
 import JsonClasses.AuthUser;
 import JsonClasses.CreateCalendar;
 import JsonClasses.CreateEvent;
+import JsonClasses.CreateNote;
 import JsonClasses.DeleteCalendar;
 import JsonClasses.DeleteEvent;
+import JsonClasses.DeleteNote;
 import JsonClasses.GetCalendar;
 import JsonClasses.GetEvent;
+import JsonClasses.GetNote;
 import JsonClasses.QOTD;
 import JsonClasses.WeatherInfo;
 
@@ -31,13 +34,19 @@ public class ObjectCreator {
 	
 	private CreateEvent CE = new CreateEvent();
 	
+	private CreateNote CN = new CreateNote();
+	
 	private GetCalendar gC = new GetCalendar();
 	
 	private GetEvent gE = new GetEvent();
 	
+	private GetNote gN = new GetNote();
+	
 	private DeleteEvent DE = new DeleteEvent();
 	
 	private DeleteCalendar DC = new DeleteCalendar();
+	
+	private DeleteNote DN = new DeleteNote();
 	
 	
 	public String authenticateUser(){
@@ -136,10 +145,6 @@ public String deleteCalendar(){
 
 
 			}
-	
-	
-	
-
 
 public String getEvent(){
 	
@@ -163,6 +168,48 @@ public String deleteEvent(){
 	
 	String getDeleteEvent = gson.toJson(DE);
 	return getDeleteEvent;
+
+
+
+}
+
+public String createNote(){
+	
+	
+	CN.setEventID("1");
+	CN.setCreatedby("1");
+	CN.setNote("Dette er en hardcodet note, til at se om det egentlig virker!");
+	CN.setDatetime("2011-11-11 11:11:11");
+	
+	
+	
+	String createNoteRequest = gson.toJson(CN);
+	return createNoteRequest;
+}
+
+
+public String getNote(){
+	
+	
+	
+	gN.setNoteID("1");
+	
+	String getNoteRequest = gson.toJson(gN);
+	return getNoteRequest;
+
+
+
+}
+
+public String deleteNote(){
+	
+	
+	
+	DN.setCreatedby("1");
+	DN.setNoteID("1");
+	
+	String getDeleteNote = gson.toJson(DN);
+	return getDeleteNote;
 
 
 

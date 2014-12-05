@@ -18,13 +18,12 @@ import java.awt.event.KeyEvent;
 import java.awt.SystemColor;
 
 public class AddCalendar extends JPanel {
-	private JTextField textField_Email;
+	private JTextField textField_Name;
 	private JButton btnSubmit;
 	private JButton btnLogout;
 	private JLabel lblCBSlogo;
 	private JButton btnMainMenu;
 	private JLabel lblUserInfo;
-	private JButton btnNewButton;
 
 	/**
 	 * Create the panel.
@@ -49,12 +48,12 @@ public class AddCalendar extends JPanel {
 		btnLogout.setBounds(21, 57, 153, 41);
 		add(btnLogout);
 
-		textField_Email = new JTextField();
-		textField_Email.setForeground(new Color(105, 105, 105));
-		textField_Email.setName("");
-		textField_Email.setBounds(696, 272, 120, 34);
-		add(textField_Email);
-		textField_Email.setColumns(10);
+		textField_Name = new JTextField();
+		textField_Name.setForeground(new Color(105, 105, 105));
+		textField_Name.setName("");
+		textField_Name.setBounds(696, 272, 120, 34);
+		add(textField_Name);
+		textField_Name.setColumns(10);
 
 		JLabel lblUserID = new JLabel("Calendar name");
 		lblUserID.setForeground(new Color(255, 255, 255));
@@ -62,12 +61,12 @@ public class AddCalendar extends JPanel {
 		lblUserID.setBounds(424, 272, 186, 30);
 		add(lblUserID);
 
-		JLabel lblEmail = new JLabel("Private or public");
+		JLabel lblEmail = new JLabel("Calendars will be public.");
 		lblEmail.setForeground(new Color(255, 255, 255));
 		lblEmail.setFont(new Font("Arial", Font.BOLD, 26));
-		lblEmail.setBounds(424, 318, 217, 30);
+		lblEmail.setBounds(444, 354, 354, 59);
 		add(lblEmail);
-		textField_Email.hashCode();
+		textField_Name.hashCode();
 
 		btnSubmit = new JButton("Create Calendar");
 		btnSubmit.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
@@ -82,7 +81,7 @@ public class AddCalendar extends JPanel {
 			}
 		}
 		);
-		btnSubmit.setBounds(486, 426, 300, 43);
+		btnSubmit.setBounds(480, 491, 300, 43);
 		add(btnSubmit);
 
 		
@@ -101,10 +100,6 @@ public class AddCalendar extends JPanel {
 				lblUserInfo.setFont(new Font("Arial", Font.BOLD, 78));
 				lblUserInfo.setBounds(285, 151, 638, 90);
 				add(lblUserInfo);
-				
-				btnNewButton = new JButton("Click for private");
-				btnNewButton.setBounds(696, 324, 120, 28);
-				add(btnNewButton);
 								
 				JLabel lblBackground = new JLabel("");
 				lblBackground.setSize(new Dimension(1024, 768));
@@ -124,10 +119,9 @@ public class AddCalendar extends JPanel {
 
 	
 
-	public JTextField getTextField_Email() {
-		return textField_Email;
+	public JTextField getTextField_Name() {
+		return textField_Name;
 	}
-
 	
 	public JButton getBtnSubmit() {
 		return btnSubmit;

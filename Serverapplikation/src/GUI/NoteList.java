@@ -10,6 +10,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
+import javax.swing.JTextField;
 
 import java.awt.Font;
 import java.awt.Color;
@@ -19,6 +20,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.swing.JButton;
+import javax.swing.border.LineBorder;
 import javax.swing.border.MatteBorder;
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.BevelBorder;
@@ -30,11 +32,15 @@ public class NoteList extends JPanel {
 	private final JLabel lblBackground = new JLabel("");
 	private JLabel lblHeader;
 	private JButton btnDelete;
-	private JButton btnAdd;
 	private JButton btnMainMenu;
 	private JButton btnLogout;
 	private JLabel label;
 	private ResultSet rs;
+	private JPanel deleteNotepanel;
+	private JLabel lblEnterTheNote;
+	private JTextField textField;
+	private JButton btnCancel;
+	private JButton btnfinaldelete;
 
 	
 
@@ -80,7 +86,7 @@ public class NoteList extends JPanel {
 		table.setRowSelectionAllowed(true);
 
 		// Create the scroll pane and add the table to it.
-		JScrollPane scrollPane = new JScrollPane(table);
+		final JScrollPane scrollPane = new JScrollPane(table);
 		scrollPane.setBorder(new CompoundBorder(new BevelBorder(
 				BevelBorder.LOWERED, new Color(0, 0, 205), new Color(255, 255,
 						255), new Color(0, 0, 205), new Color(255, 255, 255)),
@@ -101,18 +107,17 @@ public class NoteList extends JPanel {
 		add(lblHeader);
 		
 		btnDelete = new JButton("Delete");
+		btnDelete.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				deleteNotepanel.setVisible(true);
+				scrollPane.setVisible(false);
+			}
+		});
 		btnDelete.setOpaque(true);
 		btnDelete.setForeground(new Color(0, 0, 205));
 		btnDelete.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
 		btnDelete.setBounds(856, 377, 118, 29);
 		add(btnDelete);
-		
-		btnAdd = new JButton("Add");
-		btnAdd.setOpaque(true);
-		btnAdd.setForeground(new Color(0, 0, 205));
-		btnAdd.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
-		btnAdd.setBounds(856, 343, 118, 29);
-		add(btnAdd);
 		
         btnLogout = new JButton("");
         btnLogout.setIcon(new ImageIcon(UserList.class.getResource("/Images/Logout.png")));
@@ -137,17 +142,60 @@ public class NoteList extends JPanel {
 		label.setIcon(new ImageIcon(NoteList.class.getResource("/Images/CBSLogo3.png")));
 		label.setBounds(10, 698, 250, 59);
 		add(label);
+		
+		deleteNotepanel = new JPanel();
+		deleteNotepanel.setBorder(new LineBorder(new Color(0, 0, 0), 3, true));
+		deleteNotepanel.setBounds(365, 250, 369, 359);
+		add(deleteNotepanel);
+		deleteNotepanel.setLayout(null);
+		
+		
+		// Hiding the delete calendar panel unless btn delete is clicked
+		deleteNotepanel.setVisible(false);
+		
+		lblEnterTheNote = new JLabel("Enter the ID of the note you want to delete.");
+		lblEnterTheNote.setBounds(49, 52, 291, 44);
+		deleteNotepanel.add(lblEnterTheNote);
+		
+		textField = new JTextField();
+		textField.setBounds(110, 122, 140, 29);
+		deleteNotepanel.add(textField);
+		textField.setColumns(10);
+		
+		JButton btnDeleteNote = new JButton("Delete!");
+		btnDeleteNote.setBounds(212, 227, 89, 23);
+		deleteNotepanel.add(btnDeleteNote);
+		
+		btnCancel = new JButton("Cancel");
+		
+					btnCancel.setBounds(66, 227, 89, 23);
+					deleteNotepanel.add(btnCancel);
+					
+							
+							
+							btnCancel.addActionListener(new ActionListener() {
+								public void actionPerformed(ActionEvent arg0) {
+									
+									deleteNotepanel.setVisible(false);
+									scrollPane.setVisible(true);
+								}
+							});
 		lblBackground.setIcon(new ImageIcon(NoteList.class.getResource("/Images/MetalBackground.jpg")));
 		lblBackground.setBounds(0, 0, 1024, 768);
 		
 		add(lblBackground);
+		lblBackground.setIcon(new ImageIcon(NoteList.class.getResource("/Images/MetalBackground.jpg")));
+		lblBackground.setBounds(0, 0, 1024, 768);
+		add(lblBackground);
+
 	}
 	
 	public void addActionListener(ActionListener l) {
-		btnAdd.addActionListener(l);
 		btnDelete.addActionListener(l);
 		btnLogout.addActionListener(l);
 		btnMainMenu.addActionListener(l);
+//		btnfinaldelete.addActionListener(l);
+		
 	}
 	
 	
@@ -156,9 +204,6 @@ public class NoteList extends JPanel {
 		return btnDelete;
 	}
 
-	public JButton getBtnAdd() {
-		return btnAdd;
-	}
 
 	public JButton getBtnMainMenu() {
 		return btnMainMenu;
@@ -167,8 +212,22 @@ public class NoteList extends JPanel {
 	public JButton getBtnLogout() {
 		return btnLogout;
 	}
-	
 
+	public JTextField getTextField() {
+		return textField;
+	}
+
+	public void setTextField(JTextField textField) {
+		this.textField = textField;
+	}
+
+	public JButton getBtnfinaldelete() {
+		return btnfinaldelete;
+	}
+
+	public void setBtnfinaldelete(JButton btnfinaldelete) {
+		this.btnfinaldelete = btnfinaldelete;
+	}
 
 public int getNoteCount(){
 	
