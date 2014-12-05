@@ -23,7 +23,6 @@ public class AddUser extends JPanel {
 	private JTextField textField_Password;
 	private JButton btnSubmit;
 	private JButton btnLogout;
-	private JLabel lblCBSlogo;
 	private JButton btnMainMenu;
 	private JLabel lblUserInfo;
 	private JButton btnCancel;
@@ -35,11 +34,6 @@ public class AddUser extends JPanel {
 		setPreferredSize(new Dimension(1024, 768));
 		setSize(new Dimension(1024, 768));
 		setLayout(null);
-		
-		lblCBSlogo = new JLabel("");
-		lblCBSlogo.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/CBSLogo3.png")));
-		lblCBSlogo.setBounds(10, 698, 250, 59);
-		add(lblCBSlogo);
 		
 
 		btnLogout = new JButton("");
