@@ -24,7 +24,7 @@ public class AddCalendar extends JPanel {
 	private JLabel lblCBSlogo;
 	private JButton btnMainMenu;
 	private JLabel lblUserInfo;
-
+	private JButton btnCancel;
 	/**
 	 * Create the panel.
 	 */
@@ -100,7 +100,15 @@ public class AddCalendar extends JPanel {
 				lblUserInfo.setFont(new Font("Arial", Font.BOLD, 78));
 				lblUserInfo.setBounds(285, 151, 638, 90);
 				add(lblUserInfo);
-								
+				
+				btnCancel = new JButton("Cancel");
+				btnCancel.setForeground(Color.WHITE);
+				btnCancel.setFont(new Font("Arial", Font.BOLD, 30));
+				btnCancel.setContentAreaFilled(false);
+				btnCancel.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
+				btnCancel.setBounds(533, 602, 171, 41);
+				add(btnCancel);
+				
 				JLabel lblBackground = new JLabel("");
 				lblBackground.setSize(new Dimension(1024, 768));
 				lblBackground.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/MetalBackground.jpg")));
@@ -115,6 +123,7 @@ public class AddCalendar extends JPanel {
 		btnSubmit.addActionListener(l);
 		btnLogout.addActionListener(l);
 		btnMainMenu.addActionListener(l);
+		btnCancel.addActionListener(l);
 	}
 
 	
@@ -132,5 +141,8 @@ public class AddCalendar extends JPanel {
 	
 	public JButton getBtnLogout() {
 		return btnLogout;
+	}
+	public JButton getBtnCancel(){
+		return btnCancel;
 	}
 }

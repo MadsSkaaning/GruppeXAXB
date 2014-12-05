@@ -95,6 +95,10 @@ public class GUILogic {
 			if (e.getSource() == screen.getAddEventGUI().getBtnMainMenu()){
 				screen.show(Screen.MAINMENU);
 			}
+			if (e.getSource() == screen.getAddEventGUI().getBtnCancel()){
+				screen.show(Screen.EVENTLIST);
+			}
+				
 			if (e.getSource() == screen.getAddEventGUI().getBtnSubmit()){
 				String Location = screen.getAddEventGUI().getTextField_Location().getText();
 				String Createdby = screen.getAddEventGUI().getTextField_Createdby().getText();
@@ -150,6 +154,9 @@ public class GUILogic {
 			if (e.getSource() == screen.getAddUser().getBtnMainMenu()){
 				screen.show(Screen.MAINMENU);
 			}
+			if (e.getSource() == screen.getAddUser().getBtnCancel()){
+				screen.show(Screen.USERLIST);
+			}
 	
 			if (e.getSource() == screen.getAddUser().getBtnSubmit()){
 				String Email = screen.getAddUser().getTextField_Email().getText();
@@ -195,6 +202,9 @@ public class GUILogic {
 			}
 			if (e.getSource() == screen.getAddCalendar().getBtnMainMenu()){
 				screen.show(Screen.MAINMENU);
+			}
+			if (e.getSource() == screen.getAddCalendar().getBtnCancel()){
+				screen.show(Screen.CALENDARLIST);
 			}
 	
 			if (e.getSource() == screen.getAddCalendar().getBtnSubmit()){
@@ -364,6 +374,9 @@ public class GUILogic {
 			}
 			if (e.getSource() == screen.getEventlist().getBtnAdd()){
 				screen.show(Screen.ADDEVENT);
+			}
+			if (e.getSource() == screen.getEventlist().getBtnCancel()){
+				screen.show(Screen.EVENTLIST);
 			}
 			
 			if(e.getSource() == screen.getEventlist().getBtnDeleteEvent()){

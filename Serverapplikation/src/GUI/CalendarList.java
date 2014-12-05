@@ -53,7 +53,6 @@ import javax.swing.table.TableModel;
 		private JButton btnLogout;
 		private JButton btnMainMenu;
 		private final JLabel lblBackground = new JLabel("");
-		private JComboBox DropdownList;
 		private ResultSet rs;
 		private JPanel deletecalpanel;
 		private JLabel lblEnterTheCalendar;
@@ -68,13 +67,6 @@ import javax.swing.table.TableModel;
 		public CalendarList() {
 			setSize(new Dimension(1024, 768));
 			setLayout(null);
-			
-			DropdownList = new JComboBox();
-			DropdownList.setBackground(Color.WHITE);
-			DropdownList.setModel(new DefaultComboBoxModel(new String[] {"Hold XA Calendar", "Hold XB Calendar", "Custom Events"}));
-			DropdownList.setForeground(Color.BLACK);
-			DropdownList.setBounds(802, 240, 216, 53);
-			add(DropdownList);
 
 			JLabel lblEvents = new JLabel("Calendar list");
 			lblEvents.setForeground(Color.WHITE);
@@ -235,7 +227,6 @@ import javax.swing.table.TableModel;
 			btnDelete.addActionListener(l);
 			btnLogout.addActionListener(l);
 			btnMainMenu.addActionListener(l);
-			DropdownList.addActionListener(l);
 			btnfinaldelete.addActionListener(l);
 			
 		}
@@ -243,11 +234,6 @@ import javax.swing.table.TableModel;
 		public JButton getBtnAdd() {
 			return btnAdd;
 		}
-
-		public JComboBox getDropdownList() {
-			return DropdownList;
-		}
-
 
 		public JButton getBtnDelete() {
 			return btnDelete;
