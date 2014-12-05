@@ -30,27 +30,12 @@ public class Screen extends JFrame {
 	private final UserList userlist = new UserList();
 	private final CalendarList calendarList = new CalendarList();
 	private final EventList eventList = new EventList();
-	private AddEventGUI addEventGUI;
+	private final AddEventGUI addEventGUI;
 	private final AddUser addUser = new AddUser();
 	private final AddCalendar addCalendar = new AddCalendar();
 	
 	CardLayout c;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					Screen frame = new Screen();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	public Screen() {
 		setTitle("CBS Calendar Extra");

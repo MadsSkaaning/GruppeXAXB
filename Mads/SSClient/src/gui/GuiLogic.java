@@ -13,7 +13,7 @@ import logic.Controller;
 public class GuiLogic {
 	
 	
- private MainScreen screen;
+ private Screen screen;
 private Object loginScreen;
  
 
@@ -21,7 +21,7 @@ private Object loginScreen;
  public GuiLogic(){
 	 
 	 
-	 screen = new MainScreen();
+	 screen = new Screen();
 	 LoginScreen lis = new LoginScreen();
 
 		screen.getLoginScreen().addActionListener(new LoginActionListener());
