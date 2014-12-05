@@ -85,7 +85,7 @@ public class SwitchMethods extends Model
 		String stringToBeReturned = "";
 		String usernameOfCreator ="";
 		String calendarExists = "";
-		resultSet = qb.selectFrom("Calendar").where("Name", "=", calendarName).ExecuteQuery();
+		resultSet = qb.selectFrom("Calendar").where("calendarname", "=", calendarName).ExecuteQuery();
 				
 //				("select * from calendar where Name = '"+calendarName+"';");
 		while(resultSet.next())
@@ -95,21 +95,22 @@ public class SwitchMethods extends Model
 		if(!calendarExists.equals(""))
 		{
 			String [] value = {"CreatedBy"};
-			resultSet = qb.selectFrom(value, "Calendar").where("calendername", "=", calendarName).ExecuteQuery();
+			resultSet = qb.selectFrom(value, "Calendar").where("createdby", "=", createdby).ExecuteQuery();
 			while(resultSet.next())
 			{
 				usernameOfCreator = resultSet.toString();
 				System.out.println(usernameOfCreator);
 			}
-			if(!usernameOfCreator.equals(createdby))
+			if(usernameOfCreator.equals(createdby))
 			{
 				stringToBeReturned = "Only the creator of the calendar is able to delete it.";
 			}
 			else
 			{
-				String [] keys = {"Active"};
-				String [] values = {"2"};
-				qb.update("Calendar", keys, values).where("Name", "=", calendarName).Execute();
+				System.out.println("test5");
+				String [] keys = {"active"};
+				String [] values = {"0"};
+				qb.update("Calendar", keys, values).where("calendarname", "=", calendarName).Execute();
 				stringToBeReturned = "Calendar has been set inactive";
 			}
 			stringToBeReturned = resultSet.toString();
@@ -291,7 +292,7 @@ public class SwitchMethods extends Model
 				System.out.println("test5");
 				String [] keys = {"active"};
 				String [] values = {"0"};
-				qb.update("events", keys, values).where("createdby", "=", createdby).Execute();
+				qb.update("events", keys, values).where("eventid", "=", eventid).Execute();
 				stringToBeReturned = "Event has been deleted";
 			}
 			stringToBeReturned = resultSet.toString();

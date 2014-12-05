@@ -94,6 +94,17 @@ public class Controller {
 			break;
 			
 			
+	case "deleteCalendar":
+		
+		try {
+			dothis = clientconnection.serverComm(login.deleteCalendar());
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		break;
+			
+			
 	case "getEvent":
 		
 		try {

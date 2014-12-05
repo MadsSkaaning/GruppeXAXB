@@ -71,7 +71,7 @@ public class GuiLogic {
 				
 				Controller userInputs = new Controller();
 				
-				userInputs.userControlls("deleteEvent");
+				userInputs.userControlls("deleteCalendar");
 				
 				screen.show("calendarScreen");
 			}

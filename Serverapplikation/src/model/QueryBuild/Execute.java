@@ -100,7 +100,7 @@ public class Execute extends Model {
         String sql = "";
 
         if (getQueryBuilder().isSoftDelete()) {
-            sql = UPDATE + getQueryBuilder().getTableName() + " SET active = 1" +
+            sql = UPDATE + getQueryBuilder().getTableName() + " SET active = 0" +
                     WHERE + getWhere().getWhereKey() + " " + getWhere().getWhereOperator() + " " + getWhere().getWhereValue() + ";  ";
             try {
                 getConnection(false);
