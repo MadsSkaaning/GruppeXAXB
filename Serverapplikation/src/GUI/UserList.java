@@ -2,6 +2,7 @@ package GUI;
 
 
 import java.awt.Dimension;
+import java.awt.ScrollPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
@@ -46,6 +47,8 @@ public class UserList extends JPanel {
 	private JTextField textField;
 	private JButton btnCancel;
 	private JButton btnFinalDeleteUser;
+	private JLabel lblActive;
+	private JTextField enabledisabletextField;
 	
     @SuppressWarnings("null")
 	public UserList() {
@@ -129,7 +132,7 @@ public class UserList extends JPanel {
         btnMainMenu.setBounds(18, 15, 153, 41);
         add(btnMainMenu);
         
-        btnDelete = new JButton("Delete");
+        btnDelete = new JButton("Edit");
         btnDelete.setOpaque(true);
         btnDelete.setForeground(new Color(0, 0, 205));
         btnDelete.setBorder(new MatteBorder(1, 1, 1, 1, (Color) new Color(0, 0, 255)));
@@ -161,8 +164,8 @@ public class UserList extends JPanel {
         // Hiding the delete calendar panel unless btn delete is clicked
         deleteuserpanel.setVisible(false);
         
-        lblEnterTheCalendar = new JLabel("Enter the ID of the user you want to delete.");
-        lblEnterTheCalendar.setBounds(47, 52, 281, 44);
+        lblEnterTheCalendar = new JLabel("Enter the ID of the user you want to edit.");
+        lblEnterTheCalendar.setBounds(65, 52, 281, 44);
         deleteuserpanel.add(lblEnterTheCalendar);
         
         textField = new JTextField();
@@ -170,14 +173,39 @@ public class UserList extends JPanel {
         deleteuserpanel.add(textField);
         textField.setColumns(10);
         
-        JButton btnFinalDeleteUser_1 = new JButton("Delete!");
-        btnFinalDeleteUser_1.setBounds(212, 227, 89, 23);
-        deleteuserpanel.add(btnFinalDeleteUser_1);
+        btnFinalDeleteUser = new JButton("Edit!");
+        btnFinalDeleteUser.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent arg0) {
+        		
+        		scrollPane.setVisible(true);
+        		deleteuserpanel.setVisible(false);
+        		
+        	}
+        });
+        btnFinalDeleteUser.setBounds(212, 227, 89, 23);
+        deleteuserpanel.add(btnFinalDeleteUser);
         
         btnCancel = new JButton("Cancel");
         
         			btnCancel.setBounds(66, 227, 89, 23);
         			deleteuserpanel.add(btnCancel);
+        			
+        			lblActive = new JLabel("Active = 1, Inactive = 0");
+        			lblActive.setBounds(105, 162, 254, 14);
+        			deleteuserpanel.add(lblActive);
+        			
+        			enabledisabletextField = new JTextField();
+        			enabledisabletextField.setBounds(110, 187, 140, 20);
+        			deleteuserpanel.add(enabledisabletextField);
+        			enabledisabletextField.setColumns(10);
+        			
+        			    JLabel lblBackground = new JLabel("Background");
+        			    lblBackground.setIcon(new ImageIcon(UserList.class.getResource("/Images/MetalBackground.jpg")));
+        			    lblBackground.setBackground(new Color(245, 245, 245));
+        			    lblBackground.setForeground(new Color(245, 255, 250));
+        			    lblBackground.setOpaque(true);
+        			    lblBackground.setBounds(0, 0, 1024, 768);
+        			    add(lblBackground);
         			
         					
         					
@@ -188,14 +216,6 @@ public class UserList extends JPanel {
         							scrollPane.setVisible(true);
         						}
         					});
-    
-        JLabel lblBackground = new JLabel("Background");
-        lblBackground.setIcon(new ImageIcon(UserList.class.getResource("/Images/MetalBackground.jpg")));
-        lblBackground.setBackground(new Color(245, 245, 245));
-        lblBackground.setForeground(new Color(245, 255, 250));
-        lblBackground.setOpaque(true);
-        lblBackground.setBounds(0, 0, 1024, 768);
-        add(lblBackground);
   
     }
  
@@ -206,6 +226,7 @@ public class UserList extends JPanel {
 		btnAdd.addActionListener(l);
 		btnLogout.addActionListener(l);
 		btnMainMenu.addActionListener(l);
+		btnFinalDeleteUser.addActionListener(l);
 		
 	}
 
@@ -247,9 +268,8 @@ public class UserList extends JPanel {
 
 
 
-
-	public void setBtnFinalDeleteUser(JButton btnFinalDeleteUser) {
-		this.btnFinalDeleteUser = btnFinalDeleteUser;
+	public JTextField getEnabledisabletextField() {
+		return enabledisabletextField;
 	}
 
 

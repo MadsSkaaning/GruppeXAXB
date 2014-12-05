@@ -3,6 +3,7 @@
 	import javax.swing.JPanel;
 
 	import java.awt.Dimension;
+import java.awt.ScrollPane;
 
 	import javax.swing.JLabel;
 import javax.swing.ImageIcon;
@@ -55,6 +56,8 @@ import model.QueryBuild.QueryBuilder;
 		private JTextField textField;
 		private JButton btnCancel;
 		private JButton btnDeleteEvent;
+		private JTextField EnabledisabletextField;
+		private JLabel lblActiveInactive;
 		
 		
 		public EventList() {
@@ -130,7 +133,7 @@ import model.QueryBuild.QueryBuilder;
 			// Add the scroll pane to this panel.
 			add(scrollPane);
 			
-			btnDelete = new JButton("Delete");
+			btnDelete = new JButton("Edit");
 			btnDelete.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 					deleteEventpanel.setVisible(true);
@@ -188,14 +191,29 @@ import model.QueryBuild.QueryBuilder;
 			deleteEventpanel.add(textField);
 			textField.setColumns(10);
 			
-			JButton btnDeleteEvent_1 = new JButton("Delete!");
-			btnDeleteEvent_1.setBounds(212, 227, 89, 23);
-			deleteEventpanel.add(btnDeleteEvent_1);
+			btnDeleteEvent = new JButton("Edit!");
+			btnDeleteEvent.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent arg0) {
+				scrollPane.setVisible(true);
+				deleteEventpanel.setVisible(false);
+				}
+			});
+			btnDeleteEvent.setBounds(212, 227, 89, 23);
+			deleteEventpanel.add(btnDeleteEvent);
 			
 			btnCancel = new JButton("Cancel");
 			
 						btnCancel.setBounds(66, 227, 89, 23);
 						deleteEventpanel.add(btnCancel);
+						
+						EnabledisabletextField = new JTextField();
+						EnabledisabletextField.setBounds(110, 187, 140, 29);
+						deleteEventpanel.add(EnabledisabletextField);
+						EnabledisabletextField.setColumns(10);
+						
+						lblActiveInactive = new JLabel("Active =1, Inactive = 0");
+						lblActiveInactive.setBounds(120, 162, 152, 14);
+						deleteEventpanel.add(lblActiveInactive);
 						
 								
 								
@@ -219,7 +237,7 @@ import model.QueryBuild.QueryBuilder;
 			btnLogout.addActionListener(l);
 			btnMainMenu.addActionListener(l);
 			DropdownList.addActionListener(l);
-//			btnDeleteEvent.addActionListener(l);
+			btnDeleteEvent.addActionListener(l);
 		}
 
 		public JButton getBtnAdd() {
@@ -267,6 +285,11 @@ import model.QueryBuild.QueryBuilder;
 		public void setBtnDeleteEvent(JButton btnDeleteEvent) {
 			this.btnDeleteEvent = btnDeleteEvent;
 		}
+		
+		public JTextField getEnabledisabletextField() {
+			return EnabledisabletextField;
+		}
+
 
 		public int getEventCount(){
 			

@@ -6,11 +6,11 @@ use cbscalendar;
 CREATE TABLE IF NOT EXISTS Calendar
 (
 	calendarid int NOT NULL AUTO_INCREMENT,
-	Name varchar(255) NOT NULL,
-	active tinyint,
+	calendarname varchar(255) NOT NULL,
 	createdby varchar(255) NOT NULL,
 	privatepublic tinyint NOT NULL COMMENT '1 = public
 	2 = private',
+	active tinyint(4) NOT NULL,
 	PRIMARY KEY (calendarid)
 );
 
@@ -30,19 +30,20 @@ CREATE TABLE IF NOT EXISTS dailyupdate
 CREATE TABLE IF NOT EXISTS events
 (
 	eventid int NOT NULL AUTO_INCREMENT,
-	type int NOT NULL,
 	location int,
 	createdby int NOT NULL,
 	start datetime NOT NULL,
 	end datetime NOT NULL,
-	name varchar(0) NOT NULL,
-	text text NOT NULL,
+	eventname varchar(100) NOT NULL,
+	description varchar(300) NOT NULL,
 	-- Decides wether the event is an import-event or user created
 	-- 
-	customevent boolean COMMENT 'Decides wether the event is an import-event or user created
-',
 	calendarid int NOT NULL,
-	PRIMARY KEY (eventid)
+	PRIMARY KEY (eventid),
+	active tinyint(4) NOT NULL,
+
+	customevent boolean COMMENT 'Decides wether the event is an import-event or user created
+'
 );
 
 
@@ -60,20 +61,10 @@ CREATE TABLE IF NOT EXISTS notes
 	noteid int NOT NULL AUTO_INCREMENT,
 	eventid int NOT NULL,
 	createdby varchar(255) NOT NULL,
-	text text,
+	note varchar(2000),
 	dateTime datetime NOT NULL,
-	active bit,
+	active tinyint(4) NOT NULL,
 	PRIMARY KEY (noteid)
-);
-
-
-
-CREATE TABLE IF NOT EXISTS roles
-(
-	roleid int NOT NULL AUTO_INCREMENT,
-	userid int NOT NULL,
-	type varchar(200) NOT NULL,
-	PRIMARY KEY (roleid)
 );
 
 
@@ -88,24 +79,13 @@ CREATE TABLE IF NOT EXISTS users
 (
 	userid int NOT NULL AUTO_INCREMENT,
 	email varchar(40) NOT NULL,
-	active boolean,
-	created datetime NOT NULL,
+	active tinyint(5) NOT NULL,
+	created datetime DEFAULT CURRENT_TIMESTAMP,
+	type varchar(20) NOT NULL,
 	password varchar(200) NOT NULL,
 	PRIMARY KEY (userid)
 );
 
-/* Create Dummy Account */
-
-INSERT INTO `cbscalendar`.`users`
-(`email`,
-`active`,
-`created`,
-`password`)
-VALUES
-("admin",
-true,
-"2014-10-10 00:00:00",
-"2OkRtrxUND6zSG0HaT0AXQ==");
 
 
 /* Create Foreign Keys */
@@ -145,12 +125,6 @@ ALTER TABLE events
 ;
 
 
-ALTER TABLE roles
-	ADD FOREIGN KEY (userid)
-	REFERENCES users (userid)
-	ON UPDATE RESTRICT
-;
-
 
 ALTER TABLE userevents
 	ADD FOREIGN KEY (userid)
@@ -165,5 +139,9 @@ ALTER TABLE notes
 	ON UPDATE RESTRICT
 ;
 
+
+INSERT INTO `cbscalendar`.`users` (`userid`, `email`, `active`, `created`, `type`, `password`) VALUES ('1', 'admin', '1', '2014-05-12 10:00:00', 'admin', 'admin');
+
+INSERT INTO `cbscalendar`.`users` (`userid`, `email`, `active`, `created`, `type`, `password`) VALUES ('2', 'user', '1', '2014-05-12 10:01:00', 'user', 'user');
 
 

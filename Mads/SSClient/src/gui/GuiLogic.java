@@ -46,8 +46,11 @@ public class GuiLogic {
 				Controller userInputs = new Controller();
 
 				
-				screen.getLoginScreen().getUsername();
-				screen.getLoginScreen().getPassword();
+				String username = screen.getLoginScreen().getUsername();
+				String password = screen.getLoginScreen().getPassword();
+				
+//				screen.getLoginScreen().getUsername();
+//				screen.getLoginScreen().getPassword();
 								
 				if(userInputs.userControlls("login").equals("login"))
 					

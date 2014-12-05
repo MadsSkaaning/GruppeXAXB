@@ -2,12 +2,13 @@ package GUI;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
 import GUI.UserInformation;
-import GUI.AuthUser;
+import databaseMethods.SwitchMethods;
 
 import javax.swing.JOptionPane;
 
@@ -18,9 +19,7 @@ public class GUILogic {
 	private Screen screen;
 	private boolean u;
 	private boolean full = false;
-	
-	AuthUser a = new AuthUser();  
-	
+		
 	public GUILogic(){
 		screen = new Screen();
 
@@ -44,29 +43,24 @@ public class GUILogic {
 	
 	private class LoginActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-			try{
-				
-			String userName = screen.getLogin().getTextFieldUsername().getText();
-			String password = screen.getLogin().getTextFieldPassword().getText();
-			u=a.login(userName, password);
-			
 			if (e.getSource() == screen.getLogin().getBtnLogIn()){
 				
-				if(u == false){
-					JOptionPane.showMessageDialog(null, "\nPlease enter a valid username & password."
-							, "Error message",JOptionPane.PLAIN_MESSAGE);
-			}
-
-			if	(u != true)
-					{
-						screen.show(Screen.MAINMENU);
-					}
+			SwitchMethods logmein = new SwitchMethods();
+			String email = screen.getLogin().getTextFieldUsername().getText();
+			String password = screen.getLogin().getTextFieldPassword().getText();
 				
-	
+					try {
+						if(logmein.authenticateadmin(email, password).equals("0") )
+						screen.show(Screen.MAINMENU);
+						else{
+							JOptionPane.showMessageDialog(null, "Wrong combination. Please try again!");	}
+					} catch (Exception e1) {
+					
+						e1.printStackTrace();
+					}
+					
+				
 			}	
-			}	
-			catch(Exception e3){
-			}
 		}	
 	}
 	private class MainMenuActionListener implements ActionListener {
@@ -98,6 +92,10 @@ public class GUILogic {
 			if (e.getSource() == screen.getAddEventGUI().getBtnMainMenu()){
 				screen.show(Screen.MAINMENU);
 			}
+			if (e.getSource() == screen.getAddEventGUI().getBtnCancel()){
+				screen.show(Screen.EVENTLIST);
+			}
+				
 			if (e.getSource() == screen.getAddEventGUI().getBtnSubmit()){
 				String Location = screen.getAddEventGUI().getTextField_Location().getText();
 				String Createdby = screen.getAddEventGUI().getTextField_Createdby().getText();
@@ -153,6 +151,9 @@ public class GUILogic {
 			if (e.getSource() == screen.getAddUser().getBtnMainMenu()){
 				screen.show(Screen.MAINMENU);
 			}
+			if (e.getSource() == screen.getAddUser().getBtnCancel()){
+				screen.show(Screen.USERLIST);
+			}
 	
 			if (e.getSource() == screen.getAddUser().getBtnSubmit()){
 				String Email = screen.getAddUser().getTextField_Email().getText();
@@ -198,6 +199,9 @@ public class GUILogic {
 			}
 			if (e.getSource() == screen.getAddCalendar().getBtnMainMenu()){
 				screen.show(Screen.MAINMENU);
+			}
+			if (e.getSource() == screen.getAddCalendar().getBtnCancel()){
+				screen.show(Screen.CALENDARLIST);
 			}
 	
 			if (e.getSource() == screen.getAddCalendar().getBtnSubmit()){
@@ -263,6 +267,42 @@ public class GUILogic {
 			if (e.getSource() == screen.getNoteList().getBtnLogout()){
 				screen.show(Screen.LOGIN);
 			}
+			
+			if(e.getSource() == screen.getNoteList().getBtnDeleteNote()){
+				
+				String NoteID = screen.getNoteList().getTextField().getText();
+				
+				if	(NoteID.equals("")) {
+					
+					JOptionPane.showMessageDialog(null, "\nPlease fill out the Note ID"
+							, "Error message",JOptionPane.PLAIN_MESSAGE);
+					}
+				
+				else
+				{
+				QueryBuilder qb = new QueryBuilder();
+				
+				String activestatus = screen.getNoteList().getEnabledisabletextField().getText();
+				
+				
+				String[] keys = { "active" };
+				String[] values = { activestatus};
+				try {
+					
+					qb.update("notes", keys, values).where("noteid", "=", NoteID).Execute();
+					JOptionPane.showMessageDialog(null, "\nThe note has been succesfully edited!"
+							, "Error message",JOptionPane.PLAIN_MESSAGE);
+
+				
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "\nNote ID doesnt exist. Try again!"
+							, "Error message",JOptionPane.PLAIN_MESSAGE);
+					
+					e1.printStackTrace();
+				}
+				}
+			}
 		}
 	}
 	
@@ -280,7 +320,43 @@ public class GUILogic {
 			}
 			if (e.getSource() == screen.getUserList().getBtnDelete()){
 			}
+			
+			if(e.getSource() == screen.getUserList().getBtnFinalDeleteUser()){
+				
+				String UserID = screen.getUserList().getTextField().getText();
+				
+				if	(UserID.equals("")) {
+					
+					JOptionPane.showMessageDialog(null, "\nPlease fill out the User ID"
+							, "Error message",JOptionPane.PLAIN_MESSAGE);
+					}
+				
+				else
+				{
+				QueryBuilder qb = new QueryBuilder();
+				
+				String activestatus = screen.getUserList().getEnabledisabletextField().getText();
+				
+				
+				String[] keys = { "active" };
+				String[] values = { activestatus};
+				try {
+					
+					qb.update("users", keys, values).where("userid", "=", UserID).Execute();
+					JOptionPane.showMessageDialog(null, "\nThe user has been succesfully edited!"
+							, "Error message",JOptionPane.PLAIN_MESSAGE);
+					
+				
+				} catch (SQLException e1) {
 
+					JOptionPane.showMessageDialog(null, "\nUser ID doesnt exist. Try again!"
+							, "Error message",JOptionPane.PLAIN_MESSAGE);
+					
+					e1.printStackTrace();
+				}
+				}
+			}
+			
 		}
 	}
 	
@@ -296,6 +372,52 @@ public class GUILogic {
 			if (e.getSource() == screen.getEventlist().getBtnAdd()){
 				screen.show(Screen.ADDEVENT);
 			}
+			if (e.getSource() == screen.getEventlist().getBtnCancel()){
+				screen.show(Screen.EVENTLIST);
+			}
+			
+			if(e.getSource() == screen.getEventlist().getBtnDeleteEvent()){
+				
+				String EventID  = screen.getEventlist().getTextField().getText();
+				
+				if	(EventID.equals("")) {
+					
+					JOptionPane.showMessageDialog(null, "\nPlease fill out the Event ID"
+							, "Error message",JOptionPane.PLAIN_MESSAGE);
+					}
+				
+				else
+				{
+				QueryBuilder qb = new QueryBuilder();
+				
+				String activestatus = screen.getEventlist().getEnabledisabletextField().getText();
+				
+				
+				String[] keys = { "active" };
+				String[] values = { activestatus};
+				try {
+					
+					qb.update("events", keys, values).where("eventid", "=", EventID).Execute();
+					JOptionPane.showMessageDialog(null, "\nThe event has been succesfully changed!"
+							, "Error message",JOptionPane.PLAIN_MESSAGE);
+					
+
+				
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "\nEvent ID doesnt exist. Try again!"
+							, "Error message",JOptionPane.PLAIN_MESSAGE);
+					
+					e1.printStackTrace();
+				}
+				}
+			}
+			
+			
+			
+			
+			
+			
 		}
 	}
 	
@@ -312,10 +434,7 @@ public class GUILogic {
 				screen.show(Screen.ADDCALENDAR);
 			}
 			
-			
-			
-			// Testing shit muddafucka
-			
+						
 			if(e.getSource() == screen.getCalendarList().getBtnfinaldelete()){
 				
 				String CalendarID = screen.getCalendarList().getTextField().getText();
@@ -340,10 +459,6 @@ public class GUILogic {
 					qb.update("calendar", keys, values).where("calendarid", "=", CalendarID).Execute();
 					JOptionPane.showMessageDialog(null, "\nCalendar has been succesfully deleted!"
 							, "Error message",JOptionPane.PLAIN_MESSAGE);
-					
-//			Delete this after quicki fix works.
-//					screen.getCalendarList().getScrollPane().setVisible(true);
-//					screen.getCalendarList().getDeletecalpanel().setVisible(false);
 
 				
 				} catch (SQLException e1) {

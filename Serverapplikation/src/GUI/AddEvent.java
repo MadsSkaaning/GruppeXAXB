@@ -36,6 +36,7 @@ public class AddEvent extends JPanel {
 	private JTextField textField_End;
 	private JTextField textField_Name;
 	private JTextField textField_Text;
+	private JButton btnCancel;
 
 	/**
 	 * Create the panel.
@@ -159,13 +160,21 @@ public class AddEvent extends JPanel {
 								textField_Text.setColumns(10);
 								textField_Text.setBounds(532, 444, 120, 34);
 								add(textField_Text);
-
 								
-								JLabel lblBackground = new JLabel("");
-								lblBackground.setSize(new Dimension(1024, 768));
-								lblBackground.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/MetalBackground.jpg")));
-								lblBackground.setBounds(0, 0, 1024, 768);
-								add(lblBackground);
+								btnCancel = new JButton("Cancel");
+								btnCancel.setForeground(Color.WHITE);
+								btnCancel.setFont(new Font("Arial", Font.BOLD, 30));
+								btnCancel.setContentAreaFilled(false);
+								btnCancel.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
+								btnCancel.setBounds(365, 627, 171, 41);
+								add(btnCancel);
+								
+																
+																JLabel lblBackground = new JLabel("");
+																lblBackground.setSize(new Dimension(1024, 768));
+																lblBackground.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/MetalBackground.jpg")));
+																lblBackground.setBounds(0, 0, 1024, 768);
+																add(lblBackground);
 		
 		
 
@@ -175,6 +184,7 @@ public class AddEvent extends JPanel {
 		btnSubmit.addActionListener(l);
 		btnLogout.addActionListener(l);
 		btnMainMenu.addActionListener(l);
+		btnCancel.addActionListener(l);
 	}
 
 	
@@ -213,4 +223,8 @@ public class AddEvent extends JPanel {
 	public JButton getBtnLogout() {
 		return btnLogout;
 	}
+	public JButton getBtnCancel() {
+		return btnCancel;
+	}
+	
 }

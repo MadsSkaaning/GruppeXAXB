@@ -71,12 +71,7 @@ public class Login extends JPanel {
 		btnLogIn.setForeground(new Color(255, 255, 255));
 		btnLogIn.setBackground(Color.WHITE);
 		btnLogIn.setBorder(null);
-		btnLogIn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0){
-				textFieldUsername.setText("");
-				textFieldPassword.setText("");
-			}
-		});
+
 		textFieldUsername.setOpaque(false);
 		textFieldUsername.setHorizontalAlignment(SwingConstants.CENTER);
 		textFieldUsername.setForeground(Color.BLACK);
@@ -119,6 +114,12 @@ public class Login extends JPanel {
 		add(lblBackground);
 
 	}
+	
+	public void addActionListener(ActionListener l) {
+		btnLogIn.addActionListener(l);
+		btnForgotLogIn.addActionListener(l);
+}
+	
 
 	public JTextField getTextField() {
 		return textFieldUsername;
@@ -132,10 +133,7 @@ public class Login extends JPanel {
 	public JButton getBtnForgotLogIn() {
 		return btnForgotLogIn;
 	}
-	public void addActionListener(ActionListener l) {
-		btnLogIn.addActionListener(l);
-		btnForgotLogIn.addActionListener(l);
-}
+
 
 	public JTextField getTextFieldUsername() {
 		return textFieldUsername;

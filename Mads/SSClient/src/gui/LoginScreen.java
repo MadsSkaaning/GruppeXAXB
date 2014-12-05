@@ -83,15 +83,12 @@ public JTextField getUsernameField(){
 	
 	public  String getPassword(){
 		
-		password = passwordField.getText();
-		return password;
+		return passwordField.getText();
 	}
 	
 	public String getUsername(){
-		
-		username = usernameField.getText();
-		
-		return username;
+				
+		return usernameField.getText();
 	}
 	
 	

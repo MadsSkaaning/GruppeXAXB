@@ -223,6 +223,57 @@ public class SwitchMethods extends Model
 		}
 	}
 	
+	
+	
+	// Testing admin login.
+	
+	public String authenticateadmin(String email, String password) throws Exception {
+
+		// Old working string. String[] keys = {"userid", "email", "active", "password", "isAdmin"};
+
+		String[] keys = {"userid", "email", "active", "password"};
+		
+		
+		qb = new QueryBuilder();
+
+		// Henter info om bruger fra database via querybuilder
+		resultSet = qb.selectFrom(keys, "users").where("email", "=", email).ExecuteQuery();
+
+		// Hvis en bruger med forespurgt email findes
+		if (resultSet.next()){
+
+			// Hvis brugeren er aktiv
+			if(resultSet.getInt("active")==1)
+			{					
+				// Hvis passwords matcher
+				if(resultSet.getString("password").equals(password))
+				{
+					int userID = resultSet.getInt("userid");
+
+					String[] key = {"type"};
+
+					resultSet = qb.selectFrom(key, "users").where("userid", "=", new Integer(userID).toString()).ExecuteQuery();
+
+					// Hvis brugeren baade logger ind og er registreret som admin, eller hvis brugeren baade logger ind og er registreret som bruger
+					if(resultSet.next() && (resultSet.getString("type").equals("admin")))
+					{
+						return "0"; // returnerer "0" hvis bruger/admin er godkendt
+					} else {
+						return "4"; // returnerer fejlkoden "4" hvis brugertype ikke stemmer overens med loginplatform
+					}
+				} else {
+					return "3"; // returnerer fejlkoden "3" hvis password ikke matcher
+				}
+			} else {
+				return "2"; // returnerer fejlkoden "2" hvis bruger er sat som inaktiv
+			}
+		} else {
+			return "1"; // returnerer fejlkoden "1" hvis email ikke findes
+		}
+	}
+	
+	
+	
 	public String createNewEvent (int createdby, String eventname, String start, String end, String location, String description, String calendarid) throws SQLException
 	{
 		String stringToBeReturned ="";
