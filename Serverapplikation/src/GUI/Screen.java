@@ -30,11 +30,7 @@ public class Screen extends JFrame {
 	private final UserList userlist = new UserList();
 	private final CalendarList calendarList = new CalendarList();
 	private final EventList eventList = new EventList();
-<<<<<<< Updated upstream
-	private final AddEventGUI addEventGUI;
-=======
 	private AddEvent addEvent;
->>>>>>> Stashed changes
 	private final AddUser addUser = new AddUser();
 	private final AddCalendar addCalendar = new AddCalendar();
 	
