@@ -4,7 +4,7 @@ public class WeatherInfo {
 	private String weatherLocation;
 	private String weather;
 	private String temperature;
-	private String overallID = "weather";
+	private String overallID = "getClientForecast";
 	
 	public String getWeatherLocation() {
 		return weatherLocation;

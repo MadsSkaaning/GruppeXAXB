@@ -101,7 +101,7 @@ public class GiantSwitch {
 
 		case "createEvent":
 			CreateEvent CE = (CreateEvent)gson.fromJson(jsonString, CreateEvent.class);
-			System.out.println("Recieved saveEvent");
+			System.out.println("Recieved createEvent");
 			answer = SW.createNewEvent(CE.getCreatedby(), CE.getEventName(), CE.getStart(), CE.getEnd(), CE.getLocation(), CE.getDescription(), CE.getCalendarID());
 			break;
 
@@ -154,11 +154,8 @@ public class GiantSwitch {
 	        
 	        ArrayList<Forecast> forecastList = fm.requestForecast();
 	        
-	        for (int i = 0; i < forecastList.size(); i++) {
-	        	System.out.println(forecastList.get(i).toString());
-			}
-			
-			System.out.println("Recieved getClientForecast");
+	      answer = forecastList.toString();
+	        
 			break;
 		
 		default:

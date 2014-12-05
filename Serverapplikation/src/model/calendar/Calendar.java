@@ -6,11 +6,10 @@ import java.util.ArrayList;
 public class Calendar {
 
     private String calendarid;
-    private String type;
     private String title;
-    private String events;
     private String createdby;
     private String PrivatePublic;
+    private String active;
 
     // Settere og gettere for Event objektet 
 
@@ -21,12 +20,7 @@ public class Calendar {
         return calendarid;
     }
 
-    public void setType(String type){
-        this.type = type;
-    }
-    public String getType(){
-        return type;
-    }
+
 
     public void setTitle(String title){
         this.title = title;
@@ -34,12 +28,7 @@ public class Calendar {
     public String getTitle(){
         return title;
     }
-    public void setEvents(String events){
-        this.events = events;
-    }
-    public String getEvents(){
-        return events;
-	}
+ 
     
 	public String getCreatedby() {
 		return createdby;
@@ -53,14 +42,13 @@ public class Calendar {
 	public void setPrivatePublic(String privatepublic) {
 		PrivatePublic = privatepublic;
 	}
-	public Calendar(String calendarid, String type, String title,
-			String events, String createdby, String privatepublic) {
+	public Calendar(String calendarid, String title,
+		 String createdby, String privatepublic, String active) {
 		
 		super();
 		this.calendarid = calendarid;
-		this.type = type;
 		this.title = title;
-		this.events = events;
+		this.createdby = createdby;
 	}
     
     

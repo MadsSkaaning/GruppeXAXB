@@ -5,12 +5,17 @@ public class Test {
 	public static void main(String[] args) 
 	{
 		// TODO Auto-generated method stub
-		Events etest = new Events();
+		GetCalendarData skerderG = new GetCalendarData();
 		
+		try {
+			
+			skerderG.getDataFromCalendar();
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		etest.setEvents(etest.getEvents());
-		
-		//for(int i = 0; < etest.eve)
 
 		
 		

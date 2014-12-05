@@ -6,6 +6,7 @@ import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+
 import model.QueryBuild.QueryBuilder;
 
 public class Calendars {
@@ -19,24 +20,17 @@ public class Calendars {
 				{
 					//String values from SQL database (must be created)
 					int CalendarID = rs.getInt("calendarid");
-					int type = rs.getInt("type");
-					int title = rs.getInt("title");
-					int events = rs.getInt("events");
+					String name = rs.getString("name");
 					int createdby = rs.getInt("createdby");
 					int privatepublic = rs.getInt("privatepublic");
-					
-					String nameEvent = rs.getString("name");
-					String text = rs.getString("text");
-					
+					int active = rs.getInt("active");
 					String stringCalendarID = String.valueOf(CalendarID);
-					String stringType = String.valueOf(type);
-					String stringtitle = String.valueOf(title);
-					String stringevents = String.valueOf(events);
+					String stringtitle = String.valueOf(name);
 					String stringcreatedby = String.valueOf(createdby);
 					String stringprivatepublic = String.valueOf(privatepublic);
-
+					String stringActive = String.valueOf(active);
 					
-					calendars.add(new Calendar(stringCalendarID, stringType, stringtitle,stringevents, stringcreatedby, stringprivatepublic));				
+					calendars.add(new Calendar(stringCalendarID, stringtitle, stringcreatedby, stringprivatepublic, stringActive));				
 				}
 				
 			} catch (SQLException e) {
