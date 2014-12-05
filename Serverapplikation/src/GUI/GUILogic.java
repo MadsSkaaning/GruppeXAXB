@@ -263,6 +263,42 @@ public class GUILogic {
 			if (e.getSource() == screen.getNoteList().getBtnLogout()){
 				screen.show(Screen.LOGIN);
 			}
+			
+			if(e.getSource() == screen.getNoteList().getBtnDeleteNote()){
+				
+				String NoteID = screen.getNoteList().getTextField().getText();
+				
+				if	(NoteID.equals("")) {
+					
+					JOptionPane.showMessageDialog(null, "\nPlease fill out the Note ID"
+							, "Error message",JOptionPane.PLAIN_MESSAGE);
+					}
+				
+				else
+				{
+				QueryBuilder qb = new QueryBuilder();
+				
+				String activestatus = screen.getNoteList().getEnabledisabletextField().getText();
+				
+				
+				String[] keys = { "active" };
+				String[] values = { activestatus};
+				try {
+					
+					qb.update("notes", keys, values).where("noteid", "=", NoteID).Execute();
+					JOptionPane.showMessageDialog(null, "\nThe note has been succesfully edited!"
+							, "Error message",JOptionPane.PLAIN_MESSAGE);
+
+				
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "\nNote ID doesnt exist. Try again!"
+							, "Error message",JOptionPane.PLAIN_MESSAGE);
+					
+					e1.printStackTrace();
+				}
+				}
+			}
 		}
 	}
 	
@@ -280,7 +316,43 @@ public class GUILogic {
 			}
 			if (e.getSource() == screen.getUserList().getBtnDelete()){
 			}
+			
+			if(e.getSource() == screen.getUserList().getBtnFinalDeleteUser()){
+				
+				String UserID = screen.getUserList().getTextField().getText();
+				
+				if	(UserID.equals("")) {
+					
+					JOptionPane.showMessageDialog(null, "\nPlease fill out the User ID"
+							, "Error message",JOptionPane.PLAIN_MESSAGE);
+					}
+				
+				else
+				{
+				QueryBuilder qb = new QueryBuilder();
+				
+				String activestatus = screen.getUserList().getEnabledisabletextField().getText();
+				
+				
+				String[] keys = { "active" };
+				String[] values = { activestatus};
+				try {
+					
+					qb.update("users", keys, values).where("userid", "=", UserID).Execute();
+					JOptionPane.showMessageDialog(null, "\nThe user has been succesfully edited!"
+							, "Error message",JOptionPane.PLAIN_MESSAGE);
+					
+				
+				} catch (SQLException e1) {
 
+					JOptionPane.showMessageDialog(null, "\nUser ID doesnt exist. Try again!"
+							, "Error message",JOptionPane.PLAIN_MESSAGE);
+					
+					e1.printStackTrace();
+				}
+				}
+			}
+			
 		}
 	}
 	
@@ -296,6 +368,49 @@ public class GUILogic {
 			if (e.getSource() == screen.getEventlist().getBtnAdd()){
 				screen.show(Screen.ADDEVENT);
 			}
+			
+			if(e.getSource() == screen.getEventlist().getBtnDeleteEvent()){
+				
+				String EventID  = screen.getEventlist().getTextField().getText();
+				
+				if	(EventID.equals("")) {
+					
+					JOptionPane.showMessageDialog(null, "\nPlease fill out the Event ID"
+							, "Error message",JOptionPane.PLAIN_MESSAGE);
+					}
+				
+				else
+				{
+				QueryBuilder qb = new QueryBuilder();
+				
+				String activestatus = screen.getEventlist().getEnabledisabletextField().getText();
+				
+				
+				String[] keys = { "active" };
+				String[] values = { activestatus};
+				try {
+					
+					qb.update("events", keys, values).where("eventid", "=", EventID).Execute();
+					JOptionPane.showMessageDialog(null, "\nThe event has been succesfully changed!"
+							, "Error message",JOptionPane.PLAIN_MESSAGE);
+					
+
+				
+				} catch (SQLException e1) {
+
+					JOptionPane.showMessageDialog(null, "\nEvent ID doesnt exist. Try again!"
+							, "Error message",JOptionPane.PLAIN_MESSAGE);
+					
+					e1.printStackTrace();
+				}
+				}
+			}
+			
+			
+			
+			
+			
+			
 		}
 	}
 	
