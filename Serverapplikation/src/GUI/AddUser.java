@@ -83,10 +83,11 @@ public class AddUser extends JPanel {
 		lblTeam.setBounds(424, 364, 127, 30);
 		add(lblTeam);
 
-		btnSubmit = new JButton("Create User");
+		btnSubmit = new JButton("");
+		btnSubmit.setIcon(new ImageIcon(AddUser.class.getResource("/Images/add_user.png")));
 		btnSubmit.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 		btnSubmit.setContentAreaFilled(false);
-		btnSubmit.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
+		btnSubmit.setBorder(null);
 		btnSubmit.setForeground(new Color(255, 255, 255));
 		btnSubmit.setFont(new Font("Arial", Font.BOLD, 30));
 		btnSubmit.addActionListener(new ActionListener() {
@@ -96,7 +97,7 @@ public class AddUser extends JPanel {
 			}
 		}
 		);
-		btnSubmit.setBounds(511, 486, 239, 43);
+		btnSubmit.setBounds(557, 489, 153, 41);
 		add(btnSubmit);
 
 		

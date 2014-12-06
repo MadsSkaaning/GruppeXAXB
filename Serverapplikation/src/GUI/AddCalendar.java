@@ -17,13 +17,31 @@ import java.awt.Cursor;
 import java.awt.event.KeyEvent;
 import java.awt.SystemColor;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class AddCalendar.
+ */
 public class AddCalendar extends JPanel {
+	
+	/** The text field_ name. */
 	private JTextField textField_Name;
+	
+	/** The btn submit. */
 	private JButton btnSubmit;
+	
+	/** The btn logout. */
 	private JButton btnLogout;
+	
+	/** The lbl cb slogo. */
 	private JLabel lblCBSlogo;
+	
+	/** The btn main menu. */
 	private JButton btnMainMenu;
+	
+	/** The lbl user info. */
 	private JLabel lblUserInfo;
+	
+	/** The btn cancel. */
 	private JButton btnCancel;
 	/**
 	 * Create the panel.
@@ -77,7 +95,6 @@ public class AddCalendar extends JPanel {
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			//Submit changes to databases
-			//hvad sker der n�r �ndringer ved en bruger submittes
 			}
 		}
 		);
@@ -119,6 +136,11 @@ public class AddCalendar extends JPanel {
 
 	}
 	
+	/**
+	 * Adds the action listener.
+	 *
+	 * @param l the l
+	 */
 	public void addActionListener(ActionListener l) {
 		btnSubmit.addActionListener(l);
 		btnLogout.addActionListener(l);
@@ -128,20 +150,47 @@ public class AddCalendar extends JPanel {
 
 	
 
+	/**
+	 * Gets the text field_ name.
+	 *
+	 * @return the text field_ name
+	 */
 	public JTextField getTextField_Name() {
 		return textField_Name;
 	}
 	
+	/**
+	 * Gets the btn submit.
+	 *
+	 * @return the btn submit
+	 */
 	public JButton getBtnSubmit() {
 		return btnSubmit;
 	}
+	
+	/**
+	 * Gets the btn main menu.
+	 *
+	 * @return the btn main menu
+	 */
 	public JButton getBtnMainMenu() {
 		return btnMainMenu;
 	}
 	
+	/**
+	 * Gets the btn logout.
+	 *
+	 * @return the btn logout
+	 */
 	public JButton getBtnLogout() {
 		return btnLogout;
 	}
+	
+	/**
+	 * Gets the btn cancel.
+	 *
+	 * @return the btn cancel
+	 */
 	public JButton getBtnCancel(){
 		return btnCancel;
 	}
