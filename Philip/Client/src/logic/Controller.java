@@ -10,9 +10,9 @@ public class Controller {
 	
 	TCPClient clientconnection = new TCPClient();
 	
-	GUILogic gui = new GUILogic();
+	private GUILogic gui;
 	
-	Loginlogik loginlogik = new Loginlogik();
+	ObjectCreator objectCreator = new ObjectCreator();
 	
 	String choice;
 	
@@ -29,7 +29,7 @@ public class Controller {
 		case "login":
 			
 			try {
-			if(clientconnection.serverComm(loginlogik.authenticateUser()).equals("0")){
+			if(clientconnection.serverComm(objectCreator.authenticateUser()).equals("0")){
 				
 				dothis = "login";
 			}
@@ -40,6 +40,53 @@ public class Controller {
 			} 
 			break;
 			
+		case "qotd":
+			try {
+					
+					dothis = (clientconnection.serverComm(objectCreator.getQuote()));
+				
+					
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} 
+				break;
+				
+		case "weather":
+			try {
+					
+					dothis = (clientconnection.serverComm(objectCreator.getWeather()));
+				
+					
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} 
+				break;
+		
+		case "calendar":
+			try {
+					
+					dothis = (clientconnection.serverComm(objectCreator.CalendarInfo()));
+				
+					
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} 
+				break;
+			
+		case "getEvents":
+			try {
+					
+					dothis = (clientconnection.serverComm(objectCreator.getEvent()));
+				
+					
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} 
+				break;
 			
 			default: System.out.println("failed");
 			
@@ -49,7 +96,14 @@ public class Controller {
 		
 		return dothis;
 		
-		}	
+		}
+
+		
+
+	public GUILogic getGui() {
+		return gui;
+	}
+
 		
 		
 	

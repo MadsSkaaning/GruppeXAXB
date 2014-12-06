@@ -28,6 +28,8 @@ import java.awt.Dimension;
 
 import javax.swing.JPasswordField;
 
+import logic.Controller;
+
 public class Login extends JPanel {
 	private final JLabel lblWelcome = new JLabel("Welcome to CBS Calendar");
 	private final JLabel lblUsername = new JLabel("Username:");
@@ -35,10 +37,11 @@ public class Login extends JPanel {
 	public final JButton btnLogIn = new JButton("Log In");
 	private JTextField textFieldUsername = new JTextField();
 	private final JLabel lblBackground = new JLabel("");
-	public final JPasswordField textFieldPassword = new JPasswordField();
-	
+	private final JPasswordField textFieldPassword = new JPasswordField();
+
 	String password;
 	String username;
+	
 
 	/**
 	 * Create the panel.
@@ -50,33 +53,25 @@ public class Login extends JPanel {
 		setLayout(null);
 		lblWelcome.setHorizontalAlignment(SwingConstants.CENTER);
 		lblWelcome.setCursor(Cursor.getPredefinedCursor(Cursor.N_RESIZE_CURSOR));
-		lblWelcome.setForeground(new Color(255, 255, 255));
+		lblWelcome.setForeground(Color.LIGHT_GRAY);
 		lblWelcome.setFont(new Font("Arial", Font.BOLD, 22));
 		lblWelcome.setBounds(339, 90, 346, 107);
 		
 		add(lblWelcome);
 		
-		lblUsername.setForeground(new Color(255, 255, 255));
+		lblUsername.setForeground(Color.LIGHT_GRAY);
 		lblUsername.setFont(new Font("Arial", Font.BOLD, 26));
 		lblUsername.setBounds(442, 209, 139, 30);
 		
 		add(lblUsername);
 		
-		lblPassword.setForeground(new Color(255, 255, 255));
+		
+		lblPassword.setForeground(Color.LIGHT_GRAY);
 		lblPassword.setFont(new Font("Arial", Font.BOLD, 26));
 		lblPassword.setBounds(442, 300, 139, 30);
 		
 		add(lblPassword);
 		
-		btnLogIn.setContentAreaFilled(false);
-		btnLogIn.setFont(new Font("Arial", Font.BOLD, 30));
-		btnLogIn.setForeground(new Color(255, 255, 255));
-		btnLogIn.setBackground(Color.WHITE);
-		btnLogIn.setOpaque(false);
-		btnLogIn.setBorderPainted(false);
-		btnLogIn.setBounds(401, 449, 222, 51);
-		add(btnLogIn);
-
 		textFieldUsername.setOpaque(false);
 		textFieldUsername.setHorizontalAlignment(SwingConstants.CENTER);
 		textFieldUsername.setForeground(Color.BLACK);
@@ -98,6 +93,15 @@ public class Login extends JPanel {
 		
 		add(textFieldPassword);
 		
+		btnLogIn.setContentAreaFilled(false);
+		btnLogIn.setFont(new Font("Arial", Font.BOLD, 30));
+		btnLogIn.setForeground(Color.LIGHT_GRAY);
+		btnLogIn.setBackground(Color.WHITE);
+		btnLogIn.setOpaque(false);
+		btnLogIn.setBorderPainted(false);
+		btnLogIn.setBounds(401, 449, 222, 51);
+		add(btnLogIn);
+		
 		
 		lblBackground.setHorizontalAlignment(SwingConstants.CENTER);
 		lblBackground.setIcon(new ImageIcon(Login.class.getResource("/img/philip-bg.png")));
@@ -107,36 +111,69 @@ public class Login extends JPanel {
 
 	}
 
-	
-	public void addActionListener(ActionListener l) {
-		btnLogIn.addActionListener(l);
-}
-	
-
-	public JButton getBtnLogIn() {
 		
-		return btnLogIn;
-	}
 
 
 	public JTextField getTextFieldUsername() {
 		return textFieldUsername;
 	}
 
-	public String getUsername(){
-		
-		username = textFieldUsername.getText();
-		
+
+
+
+	public void setTextFieldUsername(JTextField textFieldUsername) {
+		this.textFieldUsername = textFieldUsername;
+	}
+
+
+
+
+//	public String getPassword() {
+//		return password;
+//	}
+//
+//
+//
+//
+//	public void setPassword(String password) {
+//		this.password = password;
+//	}
+
+
+
+
+	public String getUsername() {
 		return username;
 	}
- 
-	@SuppressWarnings("deprecation")
-	public String getPassword(){
-		
-		password = textFieldPassword.getText();
-		
-		return password;
+
+
+
+
+	public void setUsername(String username) {
+		this.username = username;
 	}
-	
+
+
+
+
+	public JButton getBtnLogIn() {
+		return btnLogIn;
+	}
+
+
+
+
+	public JPasswordField getTextFieldPassword() {
+		return textFieldPassword;
+	}
+
+
+
+
+	public void addActionListener(ActionListener l) {
+		btnLogIn.addActionListener(l);
+		System.out.println(getTextFieldUsername().getText());
+		System.out.println(getTextFieldPassword().getText());
+}
 
 	}

@@ -4,18 +4,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import logic.Controller;
 
-//import GUI.UserInformation;
 
-
-
-
-
-
-//import model.QueryBuild.*;
 
 
 public class GUILogic {
 	private Screen screen;
+	private Login login;
 
 	
 	
@@ -28,6 +22,8 @@ public class GUILogic {
 		screen.getProfile().addActionListener(new ProfileActionListener());
 		screen.getCalendar().addActionListener(new CalendarActionListener());
 		screen.getEvents().addActionListener(new EventsActionListener());
+		screen.getAddCalendar().addActionListener(new AddCalendarActionListener());
+		screen.getAddEvent().addActionListener(new AddEventActionListener());
 
 		
 		
@@ -41,17 +37,13 @@ public class GUILogic {
 	private class LoginActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == screen.getLogin().getBtnLogIn()){
-				
-				screen.getLogin().getUsername();
-				screen.getLogin().getPassword();
-				
+				screen.getLogin().getTextFieldUsername().getText();
+				screen.getLogin().getTextFieldPassword().getText();
 				Controller userInputs = new Controller();
-				
 				if(userInputs.userControlls("login").equals("login")){
 				
 				
-				
-					screen.show("mainmenu");
+					screen.show(Screen.MAINMENU);
 					
 				}else{System.out.println("failed2");}
 			}
@@ -97,6 +89,10 @@ public class GUILogic {
 			if (e.getSource() == screen.getCalendar().getBtnHome()){
 				screen.show("mainmenu");
 			}
+			
+			if (e.getSource() == screen.getCalendar().getBtnAdd()){
+				screen.show("addcalendar");
+			}
 
 		}
 	}
@@ -107,8 +103,46 @@ public class GUILogic {
 			if (e.getSource() == screen.getEvents().getBtnHome()){
 				screen.show("mainmenu");
 			}
+			
+			if(e.getSource() == screen.getEvents().getBtnAdd()){
+				screen.show("addevent");
+			}
 		}
 	}
 	
+	private class AddCalendarActionListener implements ActionListener{
+		public void actionPerformed(ActionEvent e) {
+			
+			if (e.getSource() == screen.getAddCalendar().getBtnAdd()){
+				
+				screen.getAddCalendar().getCalendarName();
+				screen.getAddCalendar().getPublicPrivate();
+				
+			}
+			
+			if (e.getSource() == screen.getAddCalendar().getBtnCancel()){
+				screen.show("calendar");
+			}
+			
+			if (e.getSource() == screen.getAddCalendar().getBtnHome()){
+				screen.show("mainmenu");
+			}
+		}
+	}
+	
+	private class AddEventActionListener implements ActionListener{
+		public void actionPerformed(ActionEvent e){
+			
+			if (e.getSource() == screen.getAddEvent().getBtnCancel()){
+				
+				screen.show("events");
+			}
+			
+			if (e.getSource() == screen.getAddEvent().getBtnHome()){
+				
+				screen.show("mainmenu");
+			}
+		}
+	}
 	
 }

@@ -33,38 +33,35 @@ import java.sql.SQLException;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
+import logic.Controller;
+
 //import model.QueryBuild.QueryBuilder;
 
 
 	public class Events extends JPanel {
 		private JButton btnHome;
 		private final JLabel lblBackground = new JLabel("");
-		private JComboBox DropdownList;
-		private JTextField txtEvents;
+		private JLabel lblEvents;
 		private JLabel lblLoggedin;
 		private JLabel labelUser;
 		private JButton btnAdd;
+		private JLabel lblEventsHeader;
 		
 		public Events() {
 			setBounds(0, 0, 1024, 768);
 			setLayout(null);
-			
-			DropdownList = new JComboBox();
-			DropdownList.setBackground(Color.WHITE);
-			DropdownList.setModel(new DefaultComboBoxModel(new String[] {"Hold XA Calendar", "Hold XB Calendar", "OSV"}));
-			DropdownList.setForeground(Color.BLACK);
-			DropdownList.setBounds(728, 249, 216, 53);
-			add(DropdownList);
+
+			Controller mycont = new Controller();
 			
 			btnAdd = new JButton("Add");
 			btnAdd.setBounds(738, 325, 206, 53);
 			add(btnAdd);
 
-			JLabel lblEvents = new JLabel("Events");
-			lblEvents.setForeground(Color.WHITE);
-			lblEvents.setFont(new Font("Arial", Font.BOLD, 78));
-			lblEvents.setBounds(328, 132, 368, 90);
-			add(lblEvents);
+			lblEventsHeader = new JLabel("Events");
+			lblEventsHeader.setForeground(Color.LIGHT_GRAY);
+			lblEventsHeader.setFont(new Font("Arial", Font.BOLD, 78));
+			lblEventsHeader.setBounds(328, 132, 368, 90);
+			add(lblEventsHeader);
 
 			
 			btnHome = new JButton("Home");
@@ -75,11 +72,14 @@ import javax.swing.DefaultComboBoxModel;
 			btnHome.setBounds(0, 0, 96, 76);
 			add(btnHome);
 			
-			txtEvents = new JTextField();
-			txtEvents.setText("EVENTS");
-			txtEvents.setBounds(100, 249, 521, 366);
-			add(txtEvents);
-			txtEvents.setColumns(10);
+			String events = mycont.userControlls("getEvents");
+			
+			lblEvents = new JLabel();
+			lblEvents.setForeground(Color.LIGHT_GRAY);
+			lblEvents.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
+			lblEvents.setText("EVENTS");
+			lblEvents.setBounds(100, 249, 521, 366);
+			add(lblEvents);
 	
 			
 			lblLoggedin = new JLabel("Logged in as:");
@@ -99,12 +99,7 @@ import javax.swing.DefaultComboBoxModel;
 		
 		public void addActionListener(ActionListener l) {
 			btnHome.addActionListener(l);
-			DropdownList.addActionListener(l);
 			btnAdd.addActionListener(l);
-		}
-
-		public JComboBox getDropdownList() {
-			return DropdownList;
 		}
 
 		public JButton getBtnHome() {

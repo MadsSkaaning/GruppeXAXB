@@ -6,7 +6,6 @@ public class RunGUI {
 		
 		
 		GUILogic logic = new GUILogic();
-		//My comment for ... Special customized for SAM
 		logic.run();
 		
 	}

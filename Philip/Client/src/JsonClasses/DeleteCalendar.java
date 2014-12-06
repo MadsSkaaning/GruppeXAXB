@@ -1,13 +1,23 @@
-package shared;
+package JsonClasses;
 
 public class DeleteCalendar implements java.io.Serializable 
 {
 	private  final long serialVersionUID = 1L;
 	private String overallID = "deleteCalendar";
 	private String calendarName;
-	private String userName;
+	private String createdby;
+	private String active;
 	
-	//Getters and setters for everything, bitch
+	
+	
+	public String getActive() {
+		return active;
+	}
+
+	public void setActive(String active) {
+		this.active = active;
+	}
+
 	public String getOverallID() {
 		return overallID;
 	}
@@ -20,10 +30,13 @@ public class DeleteCalendar implements java.io.Serializable
 	public void setCalendarName(String calendarName) {
 		this.calendarName = calendarName;
 	}
-	public String getUserName() {
-		return userName;
+
+	public String getCreatedby() {
+		return createdby;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+
+	public void setCreatedby(String createdby) {
+		this.createdby = createdby;
 	}
+
 }

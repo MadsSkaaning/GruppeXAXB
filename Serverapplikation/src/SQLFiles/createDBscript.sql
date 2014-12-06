@@ -142,4 +142,5 @@ INSERT INTO `cbscalendar`.`calendar` (`calendarid`, `calendarname`, `createdby`,
 INSERT INTO `cbscalendar`.`locationdata` (`locationdataid`, `longitude`, `latitude`, `locationdataname`) VALUES ('1', '12.529092', '55.681589', 'Frederiksberg');
 INSERT INTO `cbscalendar`.`events` (`eventid`, `location`, `createdby`, `start`, `end`, `eventname`, `description`, `calendarid`, `active`, `customevent`) VALUES ('1', '1', '1', '2014-12-31 18:00:00', '2014-12-31 22:00:00', 'New Years Eve!', 'Going to be Legen - wait for it - dary!', '1', '1', '0');
 INSERT INTO `cbscalendar`.`notes` (`noteid`, `eventid`, `createdby`, `note`, `dateTime`, `active`) VALUES ('1', '1', '1', 'This is best song in the world. ', '2014-12-31 20:00:00', '1');
+INSERT INTO `cbscalendar`.`dailyupdate` (`date`, `qotd`, `msg_type`) VALUES ('02-02-02 02:02:02', 'Dummy qotd', '1');
 

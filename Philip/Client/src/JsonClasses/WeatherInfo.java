@@ -1,10 +1,12 @@
-package shared;
+package JsonClasses;
+
 public class WeatherInfo {
+
 	
 	private String weatherLocation;
 	private String weather;
 	private String temperature;
-	private String overallID = "weather";
+	private String overallID = "getClientForecast";
 	
 	public String getWeatherLocation() {
 		return weatherLocation;
@@ -24,6 +26,13 @@ public class WeatherInfo {
 	public void setTemperature(String temperature) {
 		this.temperature = temperature;
 	}
+	public String getOverallID() {
+		return overallID;
+	}
+	public void setOverallID(String overallID) {
+		this.overallID = overallID;
+	}
+	
 	
 	
 }
