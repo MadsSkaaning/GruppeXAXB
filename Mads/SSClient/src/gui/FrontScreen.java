@@ -36,10 +36,16 @@ public class FrontScreen extends JPanel {
 	private final JLabel lblBackground = new JLabel("");
 	private final JLabel lblWelcomeToCbs = new JLabel("Welcome to CBS Calendar.");
 	private final JLabel lblgetUserName = new JLabel("");
-	private final JLabel lblQotd = new JLabel("QOTD");
+	private final JLabel lblQotd = new JLabel("Quote of the day");
 	private final JLabel lblgetQotd = new JLabel("");
 	private final JLabel lblWeatherInfo = new JLabel("");
-	private final JLabel lblNewLabel = new JLabel("Weather");
+	private final JLabel lblWeather = new JLabel("Forecast - Next 8 days");
+	private final JLabel lblQuote = new JLabel("Quote");
+	private final JLabel lblAuthor = new JLabel("New label");
+	private final JLabel lblCategory = new JLabel("New label");
+	private final JLabel lblIconAuthor = new JLabel("");
+	private final JLabel lblIconQuote = new JLabel("");
+	private final JLabel lblIconCategory = new JLabel("");
 	
 	
 	public FrontScreen() {
@@ -61,7 +67,7 @@ public class FrontScreen extends JPanel {
 		btnExit.setBounds(10, 74, 153, 41);
 		add(btnExit);
 		lblWelcomeToCbs.setFont(new Font("Snap ITC", Font.PLAIN, 18));
-		lblWelcomeToCbs.setBounds(340, 135, 318, 68);
+		lblWelcomeToCbs.setBounds(341, 126, 318, 68);
 		
 		add(lblWelcomeToCbs);
 		lblgetUserName.setBounds(821, 59, 76, 14);
@@ -69,45 +75,91 @@ public class FrontScreen extends JPanel {
 		
 		add(lblgetUserName);
 		lblQotd.setFont(new Font("Snap ITC", Font.PLAIN, 18));
-		lblQotd.setBounds(82, 187, 153, 50);
+		lblQotd.setBounds(351, 187, 415, 50);
 		
 		add(lblQotd);
-		lblgetQotd.setBounds(10, 236, 298, 300);
 		
-		Border border = BorderFactory.createLineBorder(Color.BLUE, 5);
-
-		lblgetQotd.setBorder(border);
-		lblgetQotd.setText(mycontroller.userControlls("qotd"));
+		Border border = BorderFactory.createLineBorder(Color.BLUE, 3);
+		lblWeatherInfo.setBounds(10, 420, 985, 247);
 		
-		add(lblgetQotd);
-		lblWeatherInfo.setBounds(609, 248, 360, 300);
-		//lblWeatherInfo.setText(mycontroller.userControlls("getWeather"));
+		String forecast = mycontroller.userControlls("getWeather");
+		forecast = forecast.replace("},", "<br/>");
+		forecast = forecast.replace("[", "");
+		forecast = forecast.replace("{date='", " Date: ");
+		forecast = forecast.replace("12:00:00 CET", "");
+		forecast = forecast.replace(", desc=", " Description: ");
+		forecast = forecast.replace("Forecast{date=", "");
+		forecast = forecast.replace(", celsius='", " Temperature: ");
+		
+		
+		lblWeatherInfo.setText("<html><body><p>" + forecast + "</body></p></html>");
 		lblWeatherInfo.setBorder(border);
 		add(lblWeatherInfo);
 		
 		
-		lblNewLabel.setFont(new Font("Snap ITC", Font.PLAIN, 18));
-		lblNewLabel.setBounds(724, 187, 141, 50);
+		lblWeather.setFont(new Font("Snap ITC", Font.PLAIN, 18));
+		lblWeather.setBounds(335, 425, 294, 50);
 		
-		add(lblNewLabel);
+		add(lblWeather);
 		
 		
 		
+		String qotd = mycontroller.userControlls("qotd");
+		String[] qotdparts = qotd.split(":");
+		String quotedontuse = qotdparts[0]; 
+		String quote = qotdparts[1];
+		String author = qotdparts[2]; 
+		String topic = qotdparts[3];
 
+		// Trying to remove {}:
+		String quoteF = quote;
+		quoteF = quoteF.replace("{", "");
+		quoteF = quoteF.replace("quote", "");
+		quoteF = quoteF.replace("author", "");
+		
+		String authorF = author;
+		authorF = authorF.replace("{", "");
+		authorF = authorF.replace("topic", "");
+		
+		String topicF = topic;
+		topicF = topicF.replace("{", "");
+		topicF = topicF.replace("}", "");
 		
 		
 		
-//		String quoteOfTheDay = (mycontroller.userControlls("qotd"));
-//		String[] strs = quoteOfTheDay.split(",");
-//		quoteOfTheDay = quoteOfTheDay.replace("{", "");
-//		
-//		
-//		for (String s : strs) {
-//				s.replace("quote", "fucker");
-//			    lblNewLabel_1.setText(s);
-//		}
+		
+		lblQuote.setBounds(81, 248, 914, 41);
 		
 		
+		lblQuote.setText(quoteF);
+		
+		add(lblQuote);
+		lblAuthor.setBounds(81, 300, 816, 20);
+		lblAuthor.setText(authorF);
+		
+		add(lblAuthor);
+		lblgetQotd.setBounds(10, 187, 985, 203);
+		
+				lblgetQotd.setBorder(border);
+				
+				add(lblgetQotd);
+		lblCategory.setBounds(81, 336, 816, 14);
+		
+		lblCategory.setText(topicF);
+		
+		add(lblCategory);
+		lblIconAuthor.setIcon(new ImageIcon(FrontScreen.class.getResource("/images/author.png")));
+		lblIconAuthor.setBounds(26, 295, 32, 32);
+		
+		add(lblIconAuthor);
+		lblIconQuote.setIcon(new ImageIcon(FrontScreen.class.getResource("/images/quote.png")));
+		lblIconQuote.setBounds(26, 258, 32, 32);
+		
+		add(lblIconQuote);
+		lblIconCategory.setIcon(new ImageIcon(FrontScreen.class.getResource("/images/Nuvola_apps_bookcase.png")));
+		lblIconCategory.setBounds(27, 338, 32, 32);
+		
+		add(lblIconCategory);
 		
 		
 		lblBackground.setIcon(new ImageIcon(FrontScreen.class.getResource("/images/login-mainframe.jpg")));

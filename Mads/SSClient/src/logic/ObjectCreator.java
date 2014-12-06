@@ -17,6 +17,21 @@ public class ObjectCreator {
 	private WeatherInfo weather = new WeatherInfo();
 	private CreateCalendar createCal = new CreateCalendar();
 	
+	//unused but called methods to retrieve info to client
+	
+	private CalendarInfo CI = new CalendarInfo();
+	private CreateEvent CE = new CreateEvent();
+	private CreateNote CN = new CreateNote();
+	private DeleteCalendar DC = new DeleteCalendar();
+	private DeleteEvent DE = new DeleteEvent();
+	private DeleteNote DN = new DeleteNote();
+	private Eventsinfo EI = new Eventsinfo();
+	private GetCalendar GC = new GetCalendar();
+	private GetEvent GE = new GetEvent();
+	private GetNote GN = new GetNote();
+		
+	
+	
 	
 	//Det her er en metode der opretter authenticate user og sender til esrveren.
 	public String authenticateUser(){
@@ -51,5 +66,14 @@ public class ObjectCreator {
 		
 		return createCalendar;
 	}
+	
+	
+	public String getEvent(){
+		
+		String getEvent = gson.toJson(GE);
+		return getEvent;
+		
+	}
+	
 	
 }

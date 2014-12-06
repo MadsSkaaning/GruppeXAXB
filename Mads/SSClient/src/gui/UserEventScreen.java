@@ -10,11 +10,16 @@ import javax.swing.JButton;
 import javax.swing.ImageIcon;
 import javax.swing.border.LineBorder;
 
+import java.awt.Font;
+
+import logic.Controller;
+
 public class UserEventScreen extends JPanel {
 	private JTable table;
 	private JButton btnHome = new JButton("");
 	private JLabel lblBackground;
 	private JLabel lblEvents;
+	private JLabel lblEventsView;
 
 	public UserEventScreen() {
 		setLayout(null);
@@ -32,11 +37,22 @@ public class UserEventScreen extends JPanel {
 		lblEvents.setBounds(412, 77, 153, 41);
 		add(lblEvents);
 		
+		lblEventsView = new JLabel("New label");
+		lblEventsView.setFont(new Font("Snap ITC", Font.PLAIN, 18));
+		lblEventsView.setBounds(198, 231, 437, 342);
+		add(lblEventsView);
+		
 		lblBackground = new JLabel("New label");
 		lblBackground.setIcon(new ImageIcon(UserEventScreen.class.getResource("/images/login-mainframe.jpg")));
 		lblBackground.setBounds(0, 0, 1024, 768);
 		add(lblBackground);
 
+		
+		Controller mycontroller = new Controller();
+		
+		String event = mycontroller.userControlls("getEvent");
+
+		System.out.println(event);
 		
 		// Opretter et panel her der skal være 
 		final JPanel addEventPanel = new JPanel();

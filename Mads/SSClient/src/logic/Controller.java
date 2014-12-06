@@ -61,6 +61,26 @@ public class Controller {
 			} 
 			break;
 			
+			
+			
+		case "getEvent":
+			
+			//Sæt her authenticateuser til den metode du har oprettet i din object creatoren
+			
+			try {
+			
+				dothis = clientconnection.serverComm(objCreator.getEvent());
+				
+			} catch (Exception e) {
+
+				System.out.println("fail");
+			} 
+			break;
+			
+			
+			
+			//CC doesnt quite work all the way
+			
 		case "createCalendar":
 			
 			//Sæt her authenticateuser til den metode du har oprettet i din object creatoren

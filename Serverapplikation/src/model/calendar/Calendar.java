@@ -20,8 +20,6 @@ public class Calendar {
         return calendarid;
     }
 
-
-
     public void setTitle(String title){
         this.title = title;
     }
