@@ -54,7 +54,7 @@ import logic.Controller;
 			Controller mycont = new Controller();
 			
 			btnAdd = new JButton("Add");
-			btnAdd.setBounds(738, 325, 206, 53);
+			btnAdd.setBounds(738, 173, 206, 53);
 			add(btnAdd);
 
 			lblEventsHeader = new JLabel("Events");
@@ -72,13 +72,20 @@ import logic.Controller;
 			btnHome.setBounds(0, 0, 96, 76);
 			add(btnHome);
 			
-			String events = mycont.userControlls("getEvents");
+			String events = mycont.userControlls("getEvent");
 			
 			lblEvents = new JLabel();
-			lblEvents.setForeground(Color.LIGHT_GRAY);
 			lblEvents.setFont(new Font("Lucida Grande", Font.PLAIN, 16));
-			lblEvents.setText("EVENTS");
-			lblEvents.setBounds(100, 249, 521, 366);
+			lblEvents.setForeground(Color.LIGHT_GRAY);
+			events = events.replace("activityid", "<br/> <br/>");
+//			events = events.replace("Forecast{date=", "");
+//			events = events.replace("[", "");
+//			events = events.replace("]", "");
+//			events = events.replace("celsius=", "Temperature: ");
+//			events = events.replace("desc=", "Risk of rain: ");
+//			events = events.replace("12:00:00", "");
+			lblEvents.setText("<html>" + events + "</html>");
+			lblEvents.setBounds(22, 249, 956, 413);
 			add(lblEvents);
 	
 			

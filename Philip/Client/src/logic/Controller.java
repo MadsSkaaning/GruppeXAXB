@@ -181,7 +181,7 @@ public class Controller {
 		case "getEvent":
 			try {
 					
-					dothis = (clientconnection.serverComm(objectCreator.getEvent()));
+					dothis = (clientconnection.serverComm(objectCreator.getEventFromCBS()));
 				
 					
 				} catch (Exception e) {

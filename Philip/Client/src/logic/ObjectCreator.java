@@ -41,6 +41,8 @@ public class ObjectCreator {
 	
 	private WeatherInfo WE = new WeatherInfo();//
 	
+	private GetFromCBS GF = new GetFromCBS();
+	
 
 	
 
@@ -204,5 +206,13 @@ public class ObjectCreator {
 		return getNoteRequest;
 	}
 	
+	public String getEventFromCBS(){
+		
+		String getEventFromCBSRequest = gson.toJson(GF);
+		
+		return getEventFromCBSRequest;
+		
+		
+	}
 	
 }
