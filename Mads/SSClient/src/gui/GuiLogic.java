@@ -12,9 +12,6 @@ public class GuiLogic {
 	
 	
  private Screen screen;
- 
-
- 
  public GuiLogic(){
 	 
 	 
@@ -24,9 +21,7 @@ public class GuiLogic {
 		screen.getFrontScreen().addActionListener(new FrontActionListener());
 		screen.getEventScreen().AddActionListener(new UserEventActionListener());
 		screen.getCalendarScreen().addActionListener(new CalendarActionListener());
-
  }
- 
  
  
  public void run() {
@@ -44,14 +39,7 @@ public class GuiLogic {
 			if (e.getSource() == screen.getLoginScreen().getbtnLogic()){
 
 				Controller userInputs = new Controller();
-
-				
-				String username = screen.getLoginScreen().getUsername();
-				String password = screen.getLoginScreen().getPassword();
-				
-//				screen.getLoginScreen().getUsername();
-//				screen.getLoginScreen().getPassword();
-								
+							
 				if(userInputs.userControlls("login").equals("login"))
 					
 				{

@@ -9,13 +9,10 @@ import gui.*;
 public class Controller {
 	
 	TcpClient clientconnection = new TcpClient();
-	
-	GuiLogic gui = new GuiLogic();
-	
-	Login login = new Login();
-	
+	private GuiLogic gui;
+	ObjectCreator objCreator = new ObjectCreator();
 	String choice;
-	
+
 	
 	public String userControlls (String choice){
 		
@@ -29,14 +26,14 @@ public class Controller {
 		case "login":
 			
 			try {
-			if(clientconnection.serverComm(login.authenticateUser()).equals("0")){
+			if(clientconnection.serverComm(objCreator.authenticateUser()).equals("0")){
 				
 				dothis = "login";
 			}
 				
 			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+
+				System.out.println("fail");
 			} 
 			break;
 			
@@ -49,7 +46,17 @@ public class Controller {
 		
 		return dothis;
 		
-		}	
+		}
+
+
+	public GuiLogic getGui() {
+		return gui;
+	}
+
+
+	public void setGui(GuiLogic gui) {
+		this.gui = gui;
+	}	
 		
 		
 	

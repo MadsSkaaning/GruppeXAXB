@@ -101,6 +101,14 @@ public class LoginScreen extends JFrame {
 		txtEnterCbsEmail.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		txtEnterCbsEmail.setBounds(396, 336, 170, 30);
 
+		
+		
+		
+		
+		txtEnterCbsEmail.setText("user");
+		passwordField.setText("user");
+		
+		
 		// Use this to make select all text when clicking the Login name field
 		txtEnterCbsEmail.addFocusListener(new FocusAdapter() {
 			public void focusGained(FocusEvent fEvt) {

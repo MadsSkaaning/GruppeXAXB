@@ -15,8 +15,7 @@ public class TcpClient {
 
 		ObjectOutputStream outToServer = new ObjectOutputStream(
 				clientSocket.getOutputStream());
-		
-		
+
 		outToServer.writeObject(request);
 		outToServer.flush();
 		
