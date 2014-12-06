@@ -120,7 +120,7 @@ public class MainMenu extends JPanel {
 		lblWeather = new JLabel("Weatherforecast");
 		lblWeather.setForeground(Color.LIGHT_GRAY);
 		lblWeather.setFont(new Font("Lucida Grande", Font.ITALIC, 23));
-		lblWeather.setBounds(455, 427, 215, 78);
+		lblWeather.setBounds(453, 381, 215, 78);
 		add(lblWeather);
 		
 		String qotd = (mycont.userControlls("qotd"));

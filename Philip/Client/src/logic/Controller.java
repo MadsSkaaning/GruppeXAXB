@@ -87,7 +87,110 @@ public class Controller {
 					e.printStackTrace();
 				} 
 				break;
+				
+				
+		case "createCalendar":
+			try {
+					
+					dothis = (clientconnection.serverComm(objectCreator.createCalendar()));
+				
+					
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} 
+				break;
+				
+				
+		case "createEvent":
+			try {
+					
+					dothis = (clientconnection.serverComm(objectCreator.createEvent()));
+				
+					
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} 
+				break;
+				
+				
+		case "getNote":
+			try {
+					
+					dothis = (clientconnection.serverComm(objectCreator.createNote()));
+				
+					
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} 
+				break;
+				
+				
+		case "deleteCalendar":
+			try {
+					
+					dothis = (clientconnection.serverComm(objectCreator.deleteCalendar()));
+				
+					
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} 
+				break;
+				
+		case "deleteEvent":
+			try {
+					
+					dothis = (clientconnection.serverComm(objectCreator.deleteEvent()));
+				
+					
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} 
+				break;
 			
+				
+		case "deleteNote":
+			try {
+					
+					dothis = (clientconnection.serverComm(objectCreator.deleteNote()));
+				
+					
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} 
+				break;
+				
+				
+		case "getCalendar":
+			try {
+					
+					dothis = (clientconnection.serverComm(objectCreator.getCalendar()));
+				
+					
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} 
+				break;
+				
+		case "getEvent":
+			try {
+					
+					dothis = (clientconnection.serverComm(objectCreator.getEvent()));
+				
+					
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} 
+				break;
+				
+				
 			default: System.out.println("failed");
 			
 			

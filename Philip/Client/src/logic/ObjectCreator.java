@@ -166,14 +166,7 @@ public class ObjectCreator {
 		return deleteNoteRequest;
 	}
 	
-	public String CalendarInfo(){
-//		
-//		CI.setCalendarID("");
-//		CI.setCalendarName("");
-//		CI.setCreatedby("");
-//		CI.setPublicOrPrivate(1);
-//		CI.setActive("");
-		
+	public String CalendarInfo(){		
 		
 		String calendarInfoRequest = gson.toJson(CI);
 		
@@ -195,6 +188,20 @@ public class ObjectCreator {
 		return getEventRequest;
 		
 		
+	}
+	
+	public String getCalendar(){
+		
+		String getCalendarRequest = gson.toJson(GE);
+		
+		return getCalendarRequest;
+	}
+	
+	public String getNote(){
+		
+		String getNoteRequest = gson.toJson(GE);
+		
+		return getNoteRequest;
 	}
 	
 	
