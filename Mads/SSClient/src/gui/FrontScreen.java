@@ -34,7 +34,6 @@ public class FrontScreen extends JPanel {
 	private JButton btnLogOut = new JButton("");
 	private JButton btnExit = new JButton("");
 	private final JLabel lblBackground = new JLabel("");
-	private final JLabel lblWelcomeToCbs = new JLabel("Welcome to CBS Calendar.");
 	private final JLabel lblgetUserName = new JLabel("");
 	private final JLabel lblQotd = new JLabel("Quote of the day");
 	private final JLabel lblgetQotd = new JLabel("");
@@ -66,16 +65,12 @@ public class FrontScreen extends JPanel {
 		btnExit.setIcon(new ImageIcon(FrontScreen.class.getResource("/images/exit.png")));
 		btnExit.setBounds(10, 74, 153, 41);
 		add(btnExit);
-		lblWelcomeToCbs.setFont(new Font("Snap ITC", Font.PLAIN, 18));
-		lblWelcomeToCbs.setBounds(341, 126, 318, 68);
-		
-		add(lblWelcomeToCbs);
 		lblgetUserName.setBounds(821, 59, 76, 14);
 		System.out.println();
 		
 		add(lblgetUserName);
 		lblQotd.setFont(new Font("Snap ITC", Font.PLAIN, 18));
-		lblQotd.setBounds(351, 187, 415, 50);
+		lblQotd.setBounds(342, 138, 415, 50);
 		
 		add(lblQotd);
 		
@@ -98,7 +93,7 @@ public class FrontScreen extends JPanel {
 		
 		
 		lblWeather.setFont(new Font("Snap ITC", Font.PLAIN, 18));
-		lblWeather.setBounds(335, 425, 294, 50);
+		lblWeather.setBounds(328, 379, 294, 50);
 		
 		add(lblWeather);
 		

@@ -11,7 +11,9 @@ public class TcpClient {
 		
 		this.request = request;
 		
-		Socket clientSocket = new Socket("localhost", 8888);
+		
+		Configurations cf = new Configurations();		
+		Socket clientSocket = new Socket(cf.getHost(), Integer.parseInt(cf.getServerhost()));
 
 		ObjectOutputStream outToServer = new ObjectOutputStream(
 				clientSocket.getOutputStream());
@@ -22,14 +24,14 @@ public class TcpClient {
 		
 		ObjectInputStream infromserver = new ObjectInputStream(clientSocket.getInputStream());
 		
-		String svarfraserver = infromserver.readObject().toString().trim();
+		String serverReply = infromserver.readObject().toString().trim();
 		
-		System.out.println("FROM SERVER: " + svarfraserver);
+		System.out.println("FROM SERVER: " + serverReply);
 		
 		
 		clientSocket.close();
 		
-		return svarfraserver;
+		return serverReply;
 	}
 	
 	

@@ -10,7 +10,6 @@ import gui.LoginScreen;
 
 public class ObjectCreator {
 	
-	private LoginScreen login;
 	private Gson gson = new GsonBuilder().create();
 	private AuthUser AU = new AuthUser();
 	private QOTD quote = new QOTD(null, null, null);
@@ -72,6 +71,36 @@ public class ObjectCreator {
 		
 		String getEvent = gson.toJson(GE);
 		return getEvent;
+		
+	}
+
+	public String createNote() {
+		
+		String createNote = gson.toJson(CN);
+		return createNote;
+	}
+
+	public String createEvent() {
+
+		String createEvent = gson.toJson(CE);
+		return createEvent;
+		
+	}
+
+	public String deleteEvent() {
+
+		String deleteEvent = gson.toJson(DE);
+		return deleteEvent;
+	}
+
+	public String deleteCalendar() {
+		String deleteCalendar = gson.toJson(DC);
+		return deleteCalendar;
+	}
+
+	public String deleteNote() {
+		String deleteNote = gson.toJson(DN);
+		return deleteNote;
 		
 	}
 	
