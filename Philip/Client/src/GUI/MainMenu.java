@@ -26,7 +26,6 @@ public class MainMenu extends JPanel {
 	private JLabel label;
 	private JButton btnLogOut;
 	private JButton btnEvents;
-	private JButton btnProfile;
 	private JButton btnCalendar;
 	private JLabel lblLoggedin;
 	private JLabel labelUser;
@@ -56,16 +55,7 @@ public class MainMenu extends JPanel {
 		btnEvents.setOpaque(false);
 		btnEvents.setBorderPainted(false);
 		add(btnEvents);
-		
-		btnProfile = new JButton("Profile");
-		btnProfile.setContentAreaFilled(false);
-		btnProfile.setForeground(Color.WHITE);
-		btnProfile.setFont(new Font("Arial", Font.BOLD, 30));
-		btnProfile.setBackground(Color.WHITE);
-		btnProfile.setOpaque(false);
-		btnProfile.setBorderPainted(false);
-		btnProfile.setBounds(644, 70, 145, 50);
-		add(btnProfile);
+
 		
 		lblLoggedin = new JLabel("Logged in as:");
 		lblLoggedin.setBounds(846, 49, 98, 16);
@@ -172,15 +162,12 @@ public class MainMenu extends JPanel {
 	}
 	public void addActionListener(ActionListener l) {
 		btnLogOut.addActionListener(l);
-		btnProfile.addActionListener(l);
 		btnCalendar.addActionListener(l);
 		btnEvents.addActionListener(l);
 		
 		
 	}
-	public JButton getBtnProfile() {
-		return btnProfile;
-	}
+
 	public JButton getBtnEvents() {
 		return btnEvents;
 	}

@@ -215,6 +215,8 @@ public class GiantSwitch {
 		}
 		  else if (ID.contains("createNote")) {
 			return "createNote";
+		}else if(ID.contains("importCalendar")){
+			return "importCalendar";
 		}
 
 		else
