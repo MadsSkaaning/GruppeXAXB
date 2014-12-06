@@ -5,12 +5,15 @@ import com.google.gson.Gson;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
+import java.util.ArrayList;
+
+import org.json.simple.JSONObject;
 
 /**
  * Created by jesperbruun on 13/10/14.
  */
 public class GetCalendarData {
-	
+	Events cbsevents = new Events();
 	EncryptUserID e = new EncryptUserID();
 
 	//henter data fra URL og l??er ind til en string
@@ -31,9 +34,9 @@ public class GetCalendarData {
                 reader.close();
         }
     }
-    //Nu har vi alle data liggende i en string (JSON). 
-    //Saa bruger vi Google's udviklede library Json string. den kan lave det om til java objekter
-    //Events laver en arraylist af Event
+    
+    
+
     
     /**
      * Allows client to retrieve CBS's calendar and then access it.
@@ -49,9 +52,17 @@ public class GetCalendarData {
         String json = readUrl("http://calendar.cbs.dk/events.php/"+userID+"/"+e.getKey()+".json");
         
         System.out.println(json);
+        
 
         Gson gson = new Gson();
-      //
+        
+       ArrayList<Event> sup = gson.fromJson(json, Events.class).getEvents();
+        
+       cbsevents.setEvents(sup);
+       
+       System.out.println(cbsevents.toString());
+     
+        
 
         
     }
