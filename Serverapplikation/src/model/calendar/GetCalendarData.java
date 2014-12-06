@@ -42,7 +42,7 @@ public class GetCalendarData {
      * Allows client to retrieve CBS's calendar and then access it.
      * @throws Exception
      */
-    public void getDataFromCalendar() throws Exception {
+    public String getDataFromCalendar() throws Exception {
 
         /**
          * Get URL From calendar.cbs.dk -> Subscribe -> change URL to end with .json
@@ -51,16 +51,9 @@ public class GetCalendarData {
     	String userID = "haje13ac";
         String json = readUrl("http://calendar.cbs.dk/events.php/"+userID+"/"+e.getKey()+".json");
         
-        System.out.println(json);
-        
-
-        Gson gson = new Gson();
-        
-       ArrayList<Event> sup = gson.fromJson(json, Events.class).getEvents();
-        
-       cbsevents.setEvents(sup);
+        return json;
        
-       System.out.println(cbsevents.toString());
+        
      
         
 

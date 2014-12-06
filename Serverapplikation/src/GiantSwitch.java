@@ -5,6 +5,7 @@ import model.Forecast.Forecast;
 import model.Forecast.ForecastModel;
 import model.QOTD.QOTDModel;
 import model.calendar.Event;
+import model.calendar.GetCalendarData;
 import model.note.Note;
 import JsonClasses.AuthUser;
 import JsonClasses.CalendarInfo;
@@ -32,6 +33,7 @@ public class GiantSwitch {
 
 		Note noteKlasse = new Note();
 		ForecastModel forecastKlasse = new ForecastModel();
+		GetCalendarData getCBScalendar = new GetCalendarData();
 		QOTDModel QOTDKlasse = new QOTDModel();
 		SwitchMethods SW = new SwitchMethods();
 		
@@ -47,6 +49,14 @@ public class GiantSwitch {
 
 		case "importCalendar":
 			System.out.println("Recieved importCourse");
+			
+			try {
+				answer = getCBScalendar.getDataFromCalendar();
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
 			break;
 
 		/**********
@@ -140,9 +150,7 @@ public class GiantSwitch {
 			QOTDKlasse.saveQuote();
 			answer = QOTDKlasse.getQuote();
 			System.out.println("Received Quote Request");
-			
-			//answer = "skerder Hassan";
-			
+						
 			break;
 
 		/************
