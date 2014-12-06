@@ -1,6 +1,7 @@
 package JsonClasses;
 
 public class QOTD {
+	//Alle JSON klasser indenholder getters og setters for, hvad de består af hver især
 
 	private String quote;
 	private String author;

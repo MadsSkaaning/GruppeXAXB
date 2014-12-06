@@ -2,6 +2,8 @@ package JsonClasses;
 
 public class DeleteCalendar implements java.io.Serializable 
 {
+	//Alle JSON klasser indenholder getters og setters for, hvad de består af hver især
+
 	private  final long serialVersionUID = 1L;
 	private String overallID = "deleteCalendar";
 	private String calendarName;

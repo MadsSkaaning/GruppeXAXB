@@ -1,6 +1,7 @@
 package JsonClasses;
 
 public class GetNote {
+	//Alle JSON klasser indenholder getters og setters for, hvad de består af hver især
 
 	private  final long serialVersionUID = 1L;
 	private String overallID = "getNote";

@@ -1,5 +1,7 @@
 package JsonClasses;
 
+//Alle JSON klasser indenholder getters og setters for, hvad de består af hver især
+
 public class AuthUser implements java.io.Serializable
 {
 	private  final long serialVersionUID = 2L;

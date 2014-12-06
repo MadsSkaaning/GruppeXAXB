@@ -1,7 +1,8 @@
 package JsonClasses;
 
 public class DeleteNote {
-	
+	//Alle JSON klasser indenholder getters og setters for, hvad de består af hver især
+
 	private  final long serialVersionUID = 1L;
 	private String overallID = "deleteNote";
 	private String noteID;

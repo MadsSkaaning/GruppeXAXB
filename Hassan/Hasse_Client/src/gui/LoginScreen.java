@@ -12,40 +12,28 @@ import javax.swing.JPasswordField;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+//Login screen, igen med getters og ActionListeners
+
 public class LoginScreen extends JPanel {
-	 private JTextField usernameField;
-	 private JPasswordField passwordField;
+	 private JTextField usernameField = new JTextField();
+	 private JPasswordField passwordField = new JPasswordField();
 
 	JButton btnLogin = new JButton("Login");
-	String password;
-	String username;
+	
 	public LoginScreen() {
 		setLayout(null);
-		
-		usernameField = new JTextField();
-		usernameField.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				if(e.getActionCommand().equals(usernameField)){
-					
-					username = usernameField.getText();
-					usernameField.setText("");
-					
-					
-				}
-				
-			}
-		});
+		setBounds(100, 100, 1020, 768);
+
 		
 		usernameField.setBounds(481, 290, 200, 26);
 		add(usernameField);
 	
 		usernameField.setColumns(10);
-		btnLogin.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
+		passwordField.setLocation(481, 339);
+		passwordField.setSize(200, 26);
+
 		
+		add(passwordField);
 		
 		
 		btnLogin.setBounds(592, 414, 89, 23);
@@ -56,20 +44,6 @@ public class LoginScreen extends JPanel {
 		lblUsername.setBounds(414, 293, 58, 20);
 		add(lblUsername);
 		
-		passwordField = new JPasswordField();
-		passwordField.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-				if(e.getActionCommand().equals(passwordField)){
-					
-					passwordField.setText(passwordField.getText());
-					password = passwordField.getText();
-					
-				}
-			}
-		});
-		passwordField.setBounds(481, 339, 200, 23);
-		add(passwordField);
 		
 		
 		JLabel lblPasssword = new JLabel("Passsword:");
@@ -98,17 +72,7 @@ public JTextField getUsernameField(){
 		return usernameField;
 	}
 	
-	@SuppressWarnings("deprecation")
-	public  String getPassword(){
-		
-		return password;
-	}
-	
-	public String getUsername(){
-		
-		
-		return username;
-	}
+
 	
 	
 	

@@ -9,6 +9,8 @@ import javax.swing.border.EmptyBorder;
 
 import java.awt.CardLayout;
 
+
+//Denne klasse er framet, der holder alle de forskellige panels, samt det JPanel, hvor CardLayoutet findes, Indenholder getters for selve JPanelsne, så de kan tilgås fra andre klasser.
 public class MainScreen extends JFrame {
 
 	private LoginScreen loginScreen = new LoginScreen();

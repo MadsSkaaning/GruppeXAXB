@@ -3,17 +3,19 @@ import gui.*;
 
 
 
+//Klasse der indenholder en switch metoder, der benyttes til at bestemme, hvilke requests der skal sendes til serveren.
 
 public class Controller {
 	
 	TcpClient clientconnection = new TcpClient();
 	
-	GuiLogic gui = new GuiLogic();
 	
 	ObjectCreator login = new ObjectCreator();
 	
 	String choice;
 	
+	
+	//Den primære switch metode.
 	
 	public String userControlls (String choice){
 		
@@ -63,15 +65,16 @@ public class Controller {
 			
 			break;
 		
-			
-			
-		case "createCalendar":
-			
-			try {
-				dothis = clientconnection.serverComm(login.createCalendar());
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
+			//Udkommenteret fordi denne metode ikke længere bliver kørt herfra, men igennem main logic.
+//			 Den er her for at illustrere, at jeg gerne orginalt ville havet haft samlet alle kommandoer til serveren i denne klasse.
+//			 Det var desværre ikke helt gennemtænkt, da opbygningen af min gui logic ummuligjorde det
+//		case "createCalendar":
+//			
+//			try {
+//				dothis = clientconnection.serverComm(login.createCalendar(dothis, dothis, 0));
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
 			
 		case "createEvent":
 			
@@ -92,20 +95,22 @@ public class Controller {
 			}
 			
 			break;
+
+
+			//Udkommenteret fordi denne metode ikke længere bliver kørt herfra, men igennem main logic.
+//			 Den er her for at illustrere, at jeg gerne orginalt ville havet haft samlet alle kommandoer til serveren i denne klasse.
+//			 Det var desværre ikke helt gennemtænkt, da opbygningen af min gui logic ummuligjorde det
 			
-			
-			
-			
-	case "getCalendar":
-			
-			try {
-				dothis = clientconnection.serverComm(login.getCalendar());
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			
-			break;
-			
+//	case "getCalendar":
+//			
+//			try {
+//				dothis = clientconnection.serverComm(login.getCalendar());
+//			} catch (Exception e) {
+//				e.printStackTrace();
+//			}
+//			
+//			break;
+//			
 			
 	case "deleteCalendar":
 		
@@ -161,7 +166,17 @@ public class Controller {
 			
 		default: System.out.println("Ã†VVVV");
 			
+		case "getCBS":
 			
+			
+			try {
+				dothis = clientconnection.serverComm(login.getCBSData());
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			
+			break;
 			
 			}
 		

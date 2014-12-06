@@ -9,6 +9,7 @@ import JsonClasses.DeleteEvent;
 import JsonClasses.DeleteNote;
 import JsonClasses.GetCalendar;
 import JsonClasses.GetEvent;
+import JsonClasses.GetFromCBS;
 import JsonClasses.GetNote;
 import JsonClasses.QOTD;
 import JsonClasses.WeatherInfo;
@@ -20,7 +21,10 @@ import gui.LoginScreen;
 
 public class ObjectCreator {
 	
-	private LoginScreen login = new LoginScreen();
+	
+	//Denne klasse bruges til at oprette JSON Objekter, der kan sendes til serveren.
+	//Hver metode pakker en JSON klasse til en Streng ved brug GSON API'et.
+	// Metoden kan så kaldes for at retunere en Streng af objektet.
 	
 	private Gson gson = new GsonBuilder().create();
 	
@@ -48,16 +52,27 @@ public class ObjectCreator {
 	
 	private DeleteNote DN = new DeleteNote();
 	
+	private GetFromCBS getCBS = new GetFromCBS();
+	
+
+	
+	private String createcalendarname;
+	
+	private String createdBy;
+	
+	private int publicprivate;
+	private String getcalendarname;
+	
+	//Grundet at mit loginScreen af UFORKLARLIGE årsager ikke kan hente texten fra textfields, har jeg været nødsaget til at hardcode loginet for en bruger...
+	//Det havde ellers skulle fungerer som f.eks. Create Calendar hvor den setter værdierne for den tilsvarende JSON klasse vha. værdierne fra tekstfelterne i LoginScreen();
 	
 	public String authenticateUser(){
 		
 		
-		AU.setAuthUserEmail("test");
+		AU.setAuthUserEmail("hasse");
 
-		System.out.println(login.getUsername());
 		AU.setAuthUserIsAdmin(false);
-		AU.setAuthUserPassword("123");
-		System.out.println(login.getPassword());
+		AU.setAuthUserPassword("hasse");
 				
 		String logintilserver = gson.toJson(AU);
 		
@@ -87,11 +102,15 @@ public class ObjectCreator {
 		return quoteRequest;
 	}
 	
-	public String createCalendar(){
+	public String createCalendar(String createcalendarname, String createdBy, int publicprivate){
 		
-		CC.setCalendarName("Fuckalting");
-		CC.setCreatedby("1");
-		CC.setPublicOrPrivate(1);
+		this.createcalendarname = createcalendarname;
+		this.createdBy = createdBy;
+		this.publicprivate = publicprivate;
+		
+		CC.setCalendarName(createcalendarname);
+		CC.setCreatedby(createdBy);
+		CC.setPublicOrPrivate(publicprivate);
 		
 		
 		
@@ -121,10 +140,10 @@ public String createEvent(){
 	}
 	
 	
-public String getCalendar(){
+public String getCalendar(String getcalendarname ){
 			
-			
-			gC.setCalendarName("Fuckalting");
+			this.getcalendarname = getcalendarname;
+			gC.setCalendarName(getcalendarname);
 			
 			String getCalendarRequest = gson.toJson(gC);
 			return getCalendarRequest;
@@ -213,6 +232,13 @@ public String deleteNote(){
 
 
 
+}
+
+public String getCBSData(){
+	
+	String getCBSData = gson.toJson(getCBS);
+	
+	return getCBSData;
 }
 
 }

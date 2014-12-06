@@ -1,5 +1,8 @@
 package JsonClasses;
 
+
+//Alle JSON klasser indenholder getters og setters for, hvad de består af hver især
+
 public class CreateEvent implements java.io.Serializable
 {
 	private  final long serialVersionUID = 1L;

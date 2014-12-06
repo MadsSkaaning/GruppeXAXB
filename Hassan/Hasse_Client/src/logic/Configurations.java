@@ -9,6 +9,9 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
+//Klasser der læser configurations data fra en JSON fil. Skulle primært været blevet brugt til kryptering på klienten, da der er få hardcodede variable at finde her alligevel....
+//Er her pga. mulig vider udvikling.
+
 public class Configurations {
     private String host;
     private String port;
