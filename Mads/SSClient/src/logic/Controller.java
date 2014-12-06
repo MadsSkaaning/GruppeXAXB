@@ -79,8 +79,6 @@ public class Controller {
 
 
 		case "getEvent":
-
-
 			try {
 
 				dothis = clientconnection.serverComm(objCreator.getEvent());

@@ -62,8 +62,8 @@ public class ObjectCreator {
 
 	/** The gn. */
 	private GetNote GN = new GetNote();
-
-
+	
+	private GetFromCBS GFCBS = new GetFromCBS();
 
 
 	//Authenticates user and sends object to servers and expects server to send 
@@ -141,8 +141,8 @@ public class ObjectCreator {
 	 */
 	public String getEvent(){
 
-		String getEvent = gson.toJson(GE);
-		return getEvent;
+		String getEventData = gson.toJson(GFCBS);
+		return getEventData;
 
 	}
 

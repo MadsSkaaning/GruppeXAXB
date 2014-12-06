@@ -14,16 +14,34 @@ import java.awt.Font;
 
 import logic.Controller;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class UserEventScreen.
+ */
 public class UserEventScreen extends JPanel {
+
+	/** The table. */
 	private JTable table;
+
+	/** The btn home. */
 	private JButton btnHome = new JButton("");
+
+	/** The lbl background. */
 	private JLabel lblBackground;
+
+	/** The lbl events. */
 	private JLabel lblEvents;
+
+	/** The lbl events view. */
 	private JLabel lblEventsView;
 
+	/**
+	 * Instantiates a new user event screen.
+	 */
 	public UserEventScreen() {
 		setLayout(null);
 		setBounds(0,0,1024,768);
+
 
 		table = new JTable();
 		table.setBounds(108, 508, 407, -173);
@@ -38,21 +56,27 @@ public class UserEventScreen extends JPanel {
 		add(lblEvents);
 
 		lblEventsView = new JLabel("New label");
-		lblEventsView.setFont(new Font("Snap ITC", Font.PLAIN, 18));
-		lblEventsView.setBounds(198, 231, 437, 342);
+		lblEventsView.setFont(new Font("Arial", Font.PLAIN, 11));
+		lblEventsView.setBounds(40, 143, 937, 520);
+
+
+		Controller mycontroller = new Controller();
+		String event = mycontroller.userControls("getEvent");
+
+		event = event.replace("{", "");
+		event = event.replace("activityid", "<br/>");
+
+
+
+		lblEventsView.setText("<html>" + event + "</html>");
+
 		add(lblEventsView);
+
 
 		lblBackground = new JLabel("New label");
 		lblBackground.setIcon(new ImageIcon(UserEventScreen.class.getResource("/images/login-mainframe.jpg")));
 		lblBackground.setBounds(0, 0, 1024, 768);
 		add(lblBackground);
-
-
-		Controller mycontroller = new Controller();
-
-		String event = mycontroller.userControls("getEvent");
-
-		System.out.println(event);
 
 		// Opretter et panel her der skal være 
 		final JPanel addEventPanel = new JPanel();
@@ -64,11 +88,21 @@ public class UserEventScreen extends JPanel {
 	}
 
 
+	/**
+	 * Gets the return.
+	 *
+	 * @return the return
+	 */
 	public JButton getReturn(){
 
 		return btnHome;
 	}
 
+	/**
+	 * Adds the action listener.
+	 *
+	 * @param l the l
+	 */
 	public void AddActionListener(ActionListener l){
 
 		btnHome.addActionListener(l);
