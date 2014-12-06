@@ -19,7 +19,6 @@ public class GUILogic {
 
 		screen.getLogin().addActionListener(new LoginActionListener());
 		screen.getMainMenu().addActionListener(new MainMenuActionListener());
-		screen.getProfile().addActionListener(new ProfileActionListener());
 		screen.getCalendar().addActionListener(new CalendarActionListener());
 		screen.getEvents().addActionListener(new EventsActionListener());
 		screen.getAddCalendar().addActionListener(new AddCalendarActionListener());
@@ -66,20 +65,7 @@ public class GUILogic {
 				screen.show("events");
 			}
 			
-			if (e.getSource() == screen.getMainMenu().getBtnProfile()){
-				screen.show("profile");
-			}
-			
-			
 
-		}
-	}
-
-	private class ProfileActionListener implements ActionListener {
-		public void actionPerformed(ActionEvent e) {
-			if (e.getSource() == screen.getProfile().getBtnHome()){
-				screen.show("mainmenu");
-			}
 		}
 	}
 	

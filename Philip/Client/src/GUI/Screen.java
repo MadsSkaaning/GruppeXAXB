@@ -21,7 +21,6 @@ public class Screen extends JFrame {
 	
 	private Login login = new Login();
 	private MainMenu mainmenu = new MainMenu();
-	private Profile profile = new Profile();
 	private Calendar calendar = new Calendar();
 	private Events events = new Events();
 	private AddCalendar addcalendar = new AddCalendar();
@@ -54,8 +53,6 @@ public class Screen extends JFrame {
 		
 		contentPane.add(mainmenu, "mainmenu");
 		
-		contentPane.add(profile, "profile");
-		
 		contentPane.add(calendar, "calendar");
 		
 		contentPane.add(events, "events");
@@ -72,9 +69,6 @@ public class Screen extends JFrame {
 	
 	public MainMenu getMainMenu() {
 		return mainmenu;
-	}
-	public Profile getProfile() {
-		return profile;
 	}
 	
 	public Calendar getCalendar() {
