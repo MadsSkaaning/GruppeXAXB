@@ -47,11 +47,45 @@ public class Controller {
 			} 
 			break;
 			
+		case "getWeather":
+			
+			//Sæt her authenticateuser til den metode du har oprettet i din object creatoren
+			
+			try {
+			
+				dothis = clientconnection.serverComm(objCreator.getWeather());
+				
+			} catch (Exception e) {
+
+				System.out.println("fail");
+			} 
+			break;
+			
+		case "createCalendar":
+			
+			//Sæt her authenticateuser til den metode du har oprettet i din object creatoren
+			
+			try {
+			
+				dothis = clientconnection.serverComm(objCreator.createCalendar());
+				
+			} catch (Exception e) {
+
+				System.out.println("fail");
+			} 
+			break;
 			
 			
+			
+
 			default: System.out.println("failed");
 			
 			}
+		
+		
+		
+		
+		
 		
 		return dothis;
 		

@@ -14,6 +14,8 @@ public class ObjectCreator {
 	private Gson gson = new GsonBuilder().create();
 	private AuthUser AU = new AuthUser();
 	private QOTD quote = new QOTD(null, null, null);
+	private WeatherInfo weather = new WeatherInfo();
+	private CreateCalendar createCal = new CreateCalendar();
 	
 	
 	//Det her er en metode der opretter authenticate user og sender til esrveren.
@@ -30,8 +32,24 @@ public class ObjectCreator {
 
 	// ALa den her metode opretter jeg denne.
 	public String getQOTD() {
-		String objecttilserver = gson.toJson(quote);
-		return objecttilserver;
+		String qotdToServer = gson.toJson(quote);
+		return qotdToServer;
+	}
+
+	public String getWeather() {
+		String weatherToServer = gson.toJson(weather);
+		return weatherToServer;
+	}
+
+	public String createCalendar() {
+		String createCalendar = gson.toJson(createCal);
+		
+		createCal.setCalendarName("Testname");
+		createCal.setCreatedby("1");
+		createCal.setPublicOrPrivate(0);
+		createCal.setActive("1");
+		
+		return createCalendar;
 	}
 	
 }

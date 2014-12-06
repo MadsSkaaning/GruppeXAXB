@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 import logic.Controller;
+import logic.ObjectCreator;
 
 
 public class GuiLogic {
@@ -59,11 +60,17 @@ public class GuiLogic {
 				screen.show("calendarScreen");
 			}
 			
-			else if (e.getSource() == screen.getFrontScreen().getEvenList()){
+			if (e.getSource() == screen.getFrontScreen().getEvenList()){
 				
 				screen.show("eventScreen");
-				
 			}
+			
+			if (e.getSource() == screen.getFrontScreen().getLogOut()){
+				
+				screen.show("loginScreen");
+			}
+			
+			
 
 		}
 	}
@@ -76,6 +83,15 @@ public class GuiLogic {
 			if(e.getSource()==screen.getCalendarScreen().getReturn()){
 				
 				screen.show("frontScreen");
+			}
+			
+			if(e.getSource()==screen.getCalendarScreen().getBtnCreateTestEvent()){
+				
+				ObjectCreator objCreator = new ObjectCreator();
+				objCreator.createCalendar();
+				
+				
+			
 			}
 
 		}

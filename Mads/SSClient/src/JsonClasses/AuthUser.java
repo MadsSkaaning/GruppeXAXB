@@ -13,6 +13,7 @@ public class AuthUser implements java.io.Serializable
 	//	this.email = email;
 	//	this.password = password;
 	//}
+	//Getters and setters for everything, bitch
 	
 	public boolean isAuthenticated() {
 		return isAuthenticated;

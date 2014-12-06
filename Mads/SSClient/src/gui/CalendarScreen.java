@@ -29,12 +29,13 @@ public class CalendarScreen extends JPanel {
 	
 	private JButton btnHome = new JButton("");
 	private JTable calendarTable;
-	private JTextField textField;
-	private JTextField textField_1;
 	private JTextField textFieldUserName;
-	private JTextField txtInviteUsernames;
+	private JLabel txtInviteUsernames;
 	private JTextField input1;
+	private JButton btnCreateTestEvent;
 	
+
+
 	public CalendarScreen() {
 		setLayout(null);
 		setBounds(0, 0, 1024, 768);
@@ -51,7 +52,7 @@ public class CalendarScreen extends JPanel {
 		addEventPanel.setLayout(null);
 		
 		JButton btntest = new JButton("Close");
-		btntest.setBounds(124, 285, 73, 23);
+		btntest.setBounds(135, 291, 73, 23);
 		addEventPanel.add(btntest);
 		
 		input1 = new JTextField(20);
@@ -61,30 +62,11 @@ public class CalendarScreen extends JPanel {
 		lblCalendarName.setBounds(21, 127, 134, 14);
 		addEventPanel.add(lblCalendarName);
 		addEventPanel.add(input1);
-		JLabel lblPublicOrPrivate = new JLabel("Set Calendar as private");
-		lblPublicOrPrivate.setBounds(21, 155, 134, 14);
+		JLabel lblPublicOrPrivate = new JLabel("Click to set calendar private. Otherwise it will be public per default.");
+		lblPublicOrPrivate.setBounds(31, 152, 499, 28);
 		addEventPanel.add(lblPublicOrPrivate);
 		
-		JLabel label_1 = new JLabel("Field 2");
-		label_1.setBounds(21, 214, 134, 14);
-		addEventPanel.add(label_1);
-		
-		textField = new JTextField(20);
-		textField.setBounds(160, 211, 166, 20);
-		addEventPanel.add(textField);
-		
-		JLabel label_2 = new JLabel("Field 2");
-		label_2.setBounds(21, 183, 134, 14);
-		addEventPanel.add(label_2);
-		
-		textField_1 = new JTextField(20);
-		textField_1.setBounds(160, 180, 166, 20);
-		
 		 java.util.Date date= new java.util.Date();
-
-		
-		textField_1.setText("" + date);
-		addEventPanel.add(textField_1);
 		addEventPanel.setVisible(false);
 		add(addEventPanel);
 		
@@ -94,7 +76,7 @@ public class CalendarScreen extends JPanel {
 		addEventPanel.add(lblAddNewCalendar);
 		
 		textFieldUserName = new JTextField();
-		textFieldUserName.setBounds(380, 154, 166, 20);
+		textFieldUserName.setBounds(295, 191, 166, 20);
 		addEventPanel.add(textFieldUserName);
 		textFieldUserName.setColumns(10);
 		
@@ -107,24 +89,22 @@ public class CalendarScreen extends JPanel {
 				
 			}
 		});
-		btnClickMe.setBounds(160, 151, 89, 23);
+		btnClickMe.setBounds(41, 190, 89, 23);
 		addEventPanel.add(btnClickMe);
 		
-		txtInviteUsernames = new JTextField();
-		txtInviteUsernames.setText("Invite usernames");
-		txtInviteUsernames.setBounds(262, 155, 108, 20);
+		txtInviteUsernames = new JLabel();
+		txtInviteUsernames.setText("Invite userid");
+		txtInviteUsernames.setBounds(177, 191, 108, 20);
 		addEventPanel.add(txtInviteUsernames);
-		txtInviteUsernames.setColumns(10);
 		
 		JButton btnAddCalendar = new JButton("Add Calendar");
-		btnAddCalendar.setBounds(241, 285, 108, 23);
+		btnAddCalendar.setBounds(252, 291, 108, 23);
 		addEventPanel.add(btnAddCalendar);
 		
 		
 		//hiding these variables hehe
 		
 		textFieldUserName.setVisible(false);
-		txtInviteUsernames.setVisible(false);
 		
 		
 		
@@ -188,9 +168,13 @@ public class CalendarScreen extends JPanel {
 		add(testfield2);
 		
 		JButton btnAdd = new JButton("Add Calendar");
-		btnAdd.setLocation(121, 6);
-		btnAdd.setSize(100, 100);
+		btnAdd.setLocation(98, 47);
+		btnAdd.setSize(173, 34);
 		add(btnAdd);
+				
+				btnCreateTestEvent = new JButton("Create Test Event");
+				btnCreateTestEvent.setBounds(749, 53, 163, 28);
+				add(btnCreateTestEvent);
 		
 		
 		
@@ -207,11 +191,6 @@ public class CalendarScreen extends JPanel {
 		
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//JOptionPane.showConfirmDialog(null, "the game is rigged.");
-				
-				//JOptionPane.showConfirmDialog(testfield, testfield2);
-				
-				
 				addEventPanel.setVisible(true);
 				scrollPane_1.setVisible(false);
 				
@@ -240,11 +219,15 @@ public class CalendarScreen extends JPanel {
 	public void addActionListener (ActionListener l){
 		
 		btnHome.addActionListener(l);
-		
+		btnCreateTestEvent.addActionListener(l);
 	}
 	
 	public JButton getReturn(){
-		
 		return btnHome;
 	}
+	
+	public JButton getBtnCreateTestEvent() {
+		return btnCreateTestEvent;
+	}
+	
 }

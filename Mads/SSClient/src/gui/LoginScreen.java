@@ -23,6 +23,8 @@ public class LoginScreen extends JPanel {
 	 private JLabel lblUsername;
 	 private JLabel lblPassword;
 	 private AuthUser user;
+	 private JLabel lblBackground;
+	 private JLabel lblPleaseEnterYou;
 	
 	public LoginScreen() {
 		setBounds(0, 0, 1024, 768);
@@ -54,6 +56,16 @@ public class LoginScreen extends JPanel {
 		btnLogin.setIcon(new ImageIcon(LoginScreen.class.getResource("/images/Login-Button.png")));
 		btnLogin.setBounds(533, 386, 153, 41);
 		add(btnLogin);
+		
+		lblPleaseEnterYou = new JLabel("Please enter you login information below.");
+		lblPleaseEnterYou.setFont(new Font("Snap ITC", Font.PLAIN, 18));
+		lblPleaseEnterYou.setBounds(329, 195, 465, 41);
+		add(lblPleaseEnterYou);
+		
+		lblBackground = new JLabel("");
+		lblBackground.setIcon(new ImageIcon(LoginScreen.class.getResource("/images/login-mainframe.jpg")));
+		lblBackground.setBounds(0, 0, 1024, 768);
+		add(lblBackground);
 		
 		System.out.println("here (GUI CLASS)");
 
