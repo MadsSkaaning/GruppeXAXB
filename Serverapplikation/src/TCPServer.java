@@ -9,8 +9,18 @@ import com.mysql.jdbc.Connection;
 
 import config.Configurations;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class TCPServer.
+ */
 class TCPServer{    
 	
+	/**
+	 * The main method.
+	 *
+	 * @param argv the arguments
+	 * @throws Exception the exception
+	 */
 	public static void main(String argv[]) throws Exception       {
 
 		//Creates a socket to send and recieve messages in port 8888

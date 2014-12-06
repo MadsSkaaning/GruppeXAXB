@@ -10,7 +10,6 @@ public class AuthenticateUser {
 
 	private QueryBuilder qb;
 
-	// Metoden faar email og password fra switchen (udtrukket fra en json) samt en boolean der skal saettes til true hvis det er serveren der logger paa, og false hvis det er en klient
 	/**
 	 * Allows the client to log in
 	 * @param email
@@ -19,8 +18,8 @@ public class AuthenticateUser {
 	 * @return
 	 * @throws Exception
 	 */
-		
-		public int authenticate(String email, String password, boolean isAdmin) throws Exception {
+
+	public int authenticate(String email, String password, boolean isAdmin) throws Exception {
 
 		String[] keys = {"userid", "email", "active", "password"};
 
@@ -50,12 +49,12 @@ public class AuthenticateUser {
 						System.out.println("pik og patter");
 
 						return 0; // returnerer "0" hvis bruger/admin er godkendt
-						
+
 					} else {
 						return 4; // returnerer fejlkoden "4" hvis brugertype ikke stemmer overens med loginplatform
 					}
 				} else {
-					
+
 					return 3; // returnerer fejlkoden "3" hvis password ikke matcher
 				}
 			} else {

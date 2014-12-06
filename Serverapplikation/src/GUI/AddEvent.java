@@ -22,20 +22,52 @@ import java.awt.Cursor;
 import java.awt.event.KeyEvent;
 import java.awt.SystemColor;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class AddEvent.
+ */
 public class AddEvent extends JPanel {
+	
+	/** The text field_ location. */
 	private JTextField textField_Location;
+	
+	/** The text field_ createdby. */
 	private JTextField textField_Createdby;
+	
+	/** The text field_ start. */
 	private JTextField textField_Start;
+	
+	/** The btn submit. */
 	private JButton btnSubmit;
+	
+	/** The btn logout. */
 	private JButton btnLogout;
+	
+	/** The btn main menu. */
 	private JButton btnMainMenu;
+	
+	/** The lbl user info. */
 	private JLabel lblUserInfo;
+	
+	/** The lbl end. */
 	private JLabel lblEnd;
+	
+	/** The lbl name. */
 	private JLabel lblName;
+	
+	/** The lbl text. */
 	private JLabel lblText;
+	
+	/** The text field_ end. */
 	private JTextField textField_End;
+	
+	/** The text field_ name. */
 	private JTextField textField_Name;
+	
+	/** The text field_ text. */
 	private JTextField textField_Text;
+	
+	/** The btn cancel. */
 	private JButton btnCancel;
 
 	/**
@@ -182,6 +214,11 @@ public class AddEvent extends JPanel {
 
 	}
 	
+	/**
+	 * Adds the action listener.
+	 *
+	 * @param l the l
+	 */
 	public void addActionListener(ActionListener l) {
 		btnSubmit.addActionListener(l);
 		btnLogout.addActionListener(l);
@@ -190,41 +227,93 @@ public class AddEvent extends JPanel {
 	}
 
 	
+	/**
+	 * Gets the text field_ location.
+	 *
+	 * @return the text field_ location
+	 */
 	public JTextField getTextField_Location() {
 		return textField_Location;
 	}
 
+	/**
+	 * Gets the text field_ createdby.
+	 *
+	 * @return the text field_ createdby
+	 */
 	public JTextField getTextField_Createdby() {
 		return textField_Createdby;
 	}
 
+	/**
+	 * Gets the text field_ start.
+	 *
+	 * @return the text field_ start
+	 */
 	public JTextField getTextField_Start() {
 		return textField_Start;
 	}
 
+	/**
+	 * Gets the text field_ end.
+	 *
+	 * @return the text field_ end
+	 */
 	public JTextField getTextField_End() {
 		return textField_End;
 	}
 
+	/**
+	 * Gets the text field_ name.
+	 *
+	 * @return the text field_ name
+	 */
 	public JTextField getTextField_Name() {
 		return textField_Name;
 	}
 
+	/**
+	 * Gets the text field_ text.
+	 *
+	 * @return the text field_ text
+	 */
 	public JTextField getTextField_Text() {
 		return textField_Text;
 	}
 	
 
+	/**
+	 * Gets the btn submit.
+	 *
+	 * @return the btn submit
+	 */
 	public JButton getBtnSubmit() {
 		return btnSubmit;
 	}
+	
+	/**
+	 * Gets the btn main menu.
+	 *
+	 * @return the btn main menu
+	 */
 	public JButton getBtnMainMenu() {
 		return btnMainMenu;
 	}
 	
+	/**
+	 * Gets the btn logout.
+	 *
+	 * @return the btn logout
+	 */
 	public JButton getBtnLogout() {
 		return btnLogout;
 	}
+	
+	/**
+	 * Gets the btn cancel.
+	 *
+	 * @return the btn cancel
+	 */
 	public JButton getBtnCancel() {
 		return btnCancel;
 	}

@@ -1,35 +1,71 @@
 package model.QueryBuild;
 
+
+// TODO: Auto-generated Javadoc
 /**
- * Created by jesperbruun on 16/10/14.
+ * The Class Values.
  */
 public class Values {
 
-    private QueryBuilder queryBuilder;
-    private String[] values;
+	/** The query builder. */
+	private QueryBuilder queryBuilder;
+	
+	/** The values. */
+	private String[] values;
 
-    private void setValues(String[] values){
-        this.values = values;
-    }
-    protected String[] getValues(){
-        return values;
-    }
+	/**
+	 * Sets the values.
+	 *
+	 * @param values the new values
+	 */
+	private void setValues(String[] values){
+		this.values = values;
+	}
+	
+	/**
+	 * Gets the values.
+	 *
+	 * @return the values
+	 */
+	protected String[] getValues(){
+		return values;
+	}
 
-    protected QueryBuilder getQueryBuilder(){
-        return this.queryBuilder;
-    }
+	/**
+	 * Gets the query builder.
+	 *
+	 * @return the query builder
+	 */
+	protected QueryBuilder getQueryBuilder(){
+		return this.queryBuilder;
+	}
 
-    public Values(QueryBuilder queryBuilder){
-        this.queryBuilder = queryBuilder;
-    }
-    private Values(){
+	/**
+	 * Instantiates a new values.
+	 *
+	 * @param queryBuilder the query builder
+	 */
+	public Values(QueryBuilder queryBuilder){
+		this.queryBuilder = queryBuilder;
+	}
+	
+	/**
+	 * Instantiates a new values.
+	 */
+	private Values(){
 
-    }
+	}
 
-    public Execute values(String[] values){
-        Values v = new Values();
-        v.setValues(values);
-        return new Execute(getQueryBuilder(), v);
-    }
+	/**
+	 * Values.
+	 *
+	 * @param values the values
+	 * @return the execute
+	 */
+	public Execute values(String[] values){
+		Values v = new Values();
+		v.setValues(values);
+		return new Execute(getQueryBuilder(), v);
+	}
 
 }

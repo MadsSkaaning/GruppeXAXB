@@ -9,12 +9,18 @@ import java.util.Date;
 import model.QueryBuild.QueryBuilder;
 
 /**
- * Created by jesperbruun on 10/10/14. Den laver selve arrayet af alle generede
- * Event
+ * The Class Events.
  */
 public class Events {
+
+	/** The events. */
 	ArrayList<Event> events = new ArrayList<Event>();
 
+	/**
+	 * Gets the events.
+	 *
+	 * @return the events
+	 */
 	public ArrayList<Event> getEvents() {
 		QueryBuilder qb = new QueryBuilder();
 		try {
@@ -44,9 +50,9 @@ public class Events {
 				ArrayList<String> alEnd = new ArrayList<String>();
 				alEnd.add(stringEndDate + "" + stringEndTime);
 				System.out.println(String.valueOf(startDate.getTime()));
-				
-				
-				
+
+
+
 				//events.add(new Event(stringEndTime, stringEndTime, stringEndTime, stringEndTime, string, alEnd, alEnd, stringLocation));
 			}
 		} catch (SQLException e) {
@@ -55,16 +61,29 @@ public class Events {
 		return events;
 	}
 
+	/**
+	 * Sets the events.
+	 *
+	 * @param event the new events
+	 */
 	public void setEvents(ArrayList<Event> event) {
 		this.events = event;
 	}
 
 	// Konverterer array events til en tekst streng
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		return Arrays.toString(events.toArray());
 	}
 
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String[] args) {
 		Events Hej = new Events();
 		Hej.getEvents();

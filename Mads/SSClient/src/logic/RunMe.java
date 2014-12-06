@@ -15,6 +15,7 @@ public class RunMe {
 	 */
 	public static void main(String[] args) {
 
+		//Starting the program and continue to the GUI LoginScreen to authenticate.
 		GuiLogic gui = new GuiLogic();
 
 		gui.run();

@@ -7,36 +7,41 @@ import java.io.IOException;
 import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class DatabaseInit.
+ */
 public class DatabaseInit extends Model {
 
-    //Test main method
-    public static void main(String[] args) {
-        try {
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
+	public static void main(String[] args) {
+		try {
 			new DatabaseInit().go();
 		} catch (SQLException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-    }
+	}
 
-    public void go() throws SQLException, IOException {
+	/**
+	 * Go.
+	 *
+	 * @throws SQLException the SQL exception
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
+	public void go() throws SQLException, IOException {
 
-//        String[] keys = {"firstKey", "secondKey"};
-//        QueryBuilder qb = new QueryBuilder();
-//        resultSet = qb.selectFrom("users").all().ExecuteQuery();
-//        resultSet = qb.selectFrom(keys, "events").where("id", "=", "123").ExecuteQuery();
-//
-//        while (resultSet.next()){
-//            System.out.println(resultSet.getString("email"));
-//        }
-//        resultSet.close();
 
-        if (doesDatabaseExist()) {
-            System.out.print("Database environment does exist");
-        } else {
-            System.out.print("Database environment does NOT exist");
-            readfromSqlFile("src/SQLFiles/createDBscript.sql");
-        }
+		if (doesDatabaseExist()) {
+			System.out.print("Database environment does exist");
+		} else {
+			System.out.print("Database environment does NOT exist");
+			readfromSqlFile("src/SQLFiles/createDBscript.sql");
+		}
 
-    }
+	}
 }

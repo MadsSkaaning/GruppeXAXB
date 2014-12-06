@@ -23,13 +23,23 @@ import com.google.gson.*;
 
 import databaseMethods.SwitchMethods;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class GiantSwitch.
+ */
 public class GiantSwitch {
 	
 	
 	
+	/**
+	 * Giant switch method.
+	 *
+	 * @param jsonString the json string
+	 * @return the string
+	 * @throws SQLException the SQL exception
+	 */
 	public String GiantSwitchMethod(String jsonString) throws SQLException {
 
-		//Events eventsKlasse = new Events(0, 0, 0, jsonString, jsonString, jsonString, jsonString, jsonString);
 
 		Note noteKlasse = new Note();
 		ForecastModel forecastKlasse = new ForecastModel();
@@ -176,6 +186,12 @@ public class GiantSwitch {
 
 	//Creates a loooong else if statement, which checks the JSon string which keyword it contains, and returns the following 
 	//keyword if
+	/**
+	 * Determine.
+	 *
+	 * @param ID the id
+	 * @return the string
+	 */
 	public String Determine(String ID) {
 
 		if (ID.contains("getEvent")) {

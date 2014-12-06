@@ -23,6 +23,9 @@ public class Controller {
 	 * @param choice the choice
 	 * @return the string
 	 */
+	
+	
+	// Creating the user controls with the switch "choice".
 	public String userControls (String choice){
 
 		this.choice = choice;

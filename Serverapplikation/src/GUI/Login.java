@@ -29,14 +29,34 @@ import java.awt.Dimension;
 
 import javax.swing.JPasswordField;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Login.
+ */
 public class Login extends JPanel {
+	
+	/** The lbl welcome. */
 	private final JLabel lblWelcome = new JLabel("Welcome");
+	
+	/** The lbl username. */
 	private final JLabel lblUsername = new JLabel("Username");
+	
+	/** The lbl password. */
 	private final JLabel lblPassword = new JLabel("Password");
+	
+	/** The btn log in. */
 	private final JButton btnLogIn = new JButton("");
+	
+	/** The btn forgot log in. */
 	private final JButton btnForgotLogIn = new JButton("Enter username and password.");
+	
+	/** The text field username. */
 	private final JTextField textFieldUsername = new JTextField();
+	
+	/** The lbl background. */
 	private final JLabel lblBackground = new JLabel("");
+	
+	/** The text field password. */
 	private final JPasswordField textFieldPassword = new JPasswordField();
 	
 
@@ -115,17 +135,32 @@ public class Login extends JPanel {
 
 	}
 	
+	/**
+	 * Adds the action listener.
+	 *
+	 * @param l the l
+	 */
 	public void addActionListener(ActionListener l) {
 		btnLogIn.addActionListener(l);
 		btnForgotLogIn.addActionListener(l);
 }
 	
 
+	/**
+	 * Gets the text field.
+	 *
+	 * @return the text field
+	 */
 	public JTextField getTextField() {
 		return textFieldUsername;
 	}
 
 
+	/**
+	 * Gets the btn log in.
+	 *
+	 * @return the btn log in
+	 */
 	public JButton getBtnLogIn() {
 		
 		System.out.println(getTextFieldUsername().getText());
@@ -133,15 +168,30 @@ public class Login extends JPanel {
 		return btnLogIn;
 	}
 
+	/**
+	 * Gets the btn forgot log in.
+	 *
+	 * @return the btn forgot log in
+	 */
 	public JButton getBtnForgotLogIn() {
 		return btnForgotLogIn;
 	}
 
 
+	/**
+	 * Gets the text field username.
+	 *
+	 * @return the text field username
+	 */
 	public JTextField getTextFieldUsername() {
 		return textFieldUsername;
 	}
 
+	/**
+	 * Gets the text field password.
+	 *
+	 * @return the text field password
+	 */
 	public JPasswordField getTextFieldPassword() {
 		return textFieldPassword;
 	}

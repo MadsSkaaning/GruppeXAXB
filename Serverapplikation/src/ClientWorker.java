@@ -11,24 +11,50 @@ import com.google.gson.GsonBuilder;
 import config.Configurations;
 import GUI.GUILogic;
 import JsonClasses.AuthUser;
+import JsonClasses.CalendarInfo;
 
 
+// TODO: Auto-generated Javadoc
 //Når serveren starter - kører denne klasse.
 
+/**
+ * The Class ClientWorker.
+ */
 public class ClientWorker implements  Runnable{
+	
+	/** The connection socket conected. */
 	private Socket connectionSocketConected;
+	
+	/** The ci. */
 	private CalendarInfo CI = new CalendarInfo();
+	
+	/** The gs. */
 	private GiantSwitch GS = new GiantSwitch();
+	
+	/** The cryp. */
 	private encryption cryp = new encryption();
+	
+	/** The incoming json. */
 	private String incomingJson;
+	
+	/** The cf. */
 	private Configurations cf = new Configurations();
 	
+	/** The gson. */
 	Gson gson = new GsonBuilder().create();
 	
+	/**
+	 * Instantiates a new client worker.
+	 *
+	 * @param connectionSocket the connection socket
+	 */
 	ClientWorker(Socket connectionSocket){
 		this.connectionSocketConected = connectionSocket;
 	}
 	
+	/* (non-Javadoc)
+	 * @see java.lang.Runnable#run()
+	 */
 	public void run(){
 		try{
 			System.out.println("forbindelse Oprettet!");
@@ -47,14 +73,7 @@ public class ClientWorker implements  Runnable{
 			
 			
 			String input = (String) inFromClient.readObject();
-			
-		    
-			
-			
 			String svar = GS.GiantSwitchMethod(input);
-			
-			
-					
 			outToClient.writeObject(svar);
 			
 			

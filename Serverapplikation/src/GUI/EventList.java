@@ -38,6 +38,10 @@ import javax.swing.DefaultComboBoxModel;
 import model.QueryBuild.QueryBuilder;
 
 
+	// TODO: Auto-generated Javadoc
+/**
+	 * The Class EventList.
+	 */
 	public class EventList extends JPanel {
 
 		/**
@@ -45,20 +49,47 @@ import model.QueryBuild.QueryBuilder;
 		 */
 		
 		private JButton btnAdd;
+		
+		/** The btn delete. */
 		private JButton btnDelete;
+		
+		/** The btn logout. */
 		private JButton btnLogout;
+		
+		/** The btn main menu. */
 		private JButton btnMainMenu;
+		
+		/** The lbl background. */
 		private final JLabel lblBackground = new JLabel("");
+		
+		/** The rs. */
 		private ResultSet rs;
+		
+		/** The delete eventpanel. */
 		private JPanel deleteEventpanel;
+		
+		/** The lbl enter the event. */
 		private JLabel lblEnterTheEvent;
+		
+		/** The text field. */
 		private JTextField textField;
+		
+		/** The btn cancel. */
 		private JButton btnCancel;
+		
+		/** The btn delete event. */
 		private JButton btnDeleteEvent;
+		
+		/** The Enabledisabletext field. */
 		private JTextField EnabledisabletextField;
+		
+		/** The lbl active inactive. */
 		private JLabel lblActiveInactive;
 		
 		
+		/**
+		 * Instantiates a new event list.
+		 */
 		public EventList() {
 			setSize(new Dimension(1024, 768));
 			setLayout(null);
@@ -223,6 +254,11 @@ import model.QueryBuild.QueryBuilder;
 
 		}
 		
+		/**
+		 * Adds the action listener.
+		 *
+		 * @param l the l
+		 */
 		public void addActionListener(ActionListener l) {
 			btnAdd.addActionListener(l);
 			btnDelete.addActionListener(l);
@@ -231,54 +267,114 @@ import model.QueryBuild.QueryBuilder;
 			btnDeleteEvent.addActionListener(l);
 		}
 
+		/**
+		 * Gets the btn add.
+		 *
+		 * @return the btn add
+		 */
 		public JButton getBtnAdd() {
 			return btnAdd;
 		}
 
 
 
+		/**
+		 * Gets the btn delete.
+		 *
+		 * @return the btn delete
+		 */
 		public JButton getBtnDelete() {
 			return btnDelete;
 		}
 
+		/**
+		 * Gets the btn logout.
+		 *
+		 * @return the btn logout
+		 */
 		public JButton getBtnLogout() {
 			return btnLogout;
 		}
 
+		/**
+		 * Gets the btn main menu.
+		 *
+		 * @return the btn main menu
+		 */
 		public JButton getBtnMainMenu() {
 			return btnMainMenu;
 			
 		}
 
+		/**
+		 * Gets the text field.
+		 *
+		 * @return the text field
+		 */
 		public JTextField getTextField() {
 			return textField;
 		}
 
+		/**
+		 * Sets the text field.
+		 *
+		 * @param textField the new text field
+		 */
 		public void setTextField(JTextField textField) {
 			this.textField = textField;
 		}
 
+		/**
+		 * Gets the btn cancel.
+		 *
+		 * @return the btn cancel
+		 */
 		public JButton getBtnCancel() {
 			return btnCancel;
 		}
 
+		/**
+		 * Sets the btn cancel.
+		 *
+		 * @param btnCancel the new btn cancel
+		 */
 		public void setBtnCancel(JButton btnCancel) {
 			this.btnCancel = btnCancel;
 		}
 
+		/**
+		 * Gets the btn delete event.
+		 *
+		 * @return the btn delete event
+		 */
 		public JButton getBtnDeleteEvent() {
 			return btnDeleteEvent;
 		}
 
+		/**
+		 * Sets the btn delete event.
+		 *
+		 * @param btnDeleteEvent the new btn delete event
+		 */
 		public void setBtnDeleteEvent(JButton btnDeleteEvent) {
 			this.btnDeleteEvent = btnDeleteEvent;
 		}
 		
+		/**
+		 * Gets the enabledisabletext field.
+		 *
+		 * @return the enabledisabletext field
+		 */
 		public JTextField getEnabledisabletextField() {
 			return EnabledisabletextField;
 		}
 
 
+		/**
+		 * Gets the event count.
+		 *
+		 * @return the event count
+		 */
 		public int getEventCount(){
 			
 			int count = 0;

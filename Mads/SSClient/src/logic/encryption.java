@@ -5,7 +5,6 @@ package logic;
  * The Class encryption.
  */
 public class encryption {
-	//	Decryption path
 	/**
 	 * Decrypt.
 	 *
@@ -14,6 +13,10 @@ public class encryption {
 	 */
 	public String decrypt(byte[] b)
 	{
+		
+		// Getting the configurations to get the set values in config.json
+		// Can prove useful the cryptkey is to be changed.
+		// This system is NOT using the encryption - as it turned out to be bugged when returning the answer from the server to client. 
 		Configurations CF = new Configurations();
 
 

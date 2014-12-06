@@ -41,6 +41,10 @@ import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 
 
+	// TODO: Auto-generated Javadoc
+/**
+	 * The Class CalendarList.
+	 */
 	public class CalendarList extends JPanel {
 
 		/**
@@ -49,21 +53,50 @@ import javax.swing.table.TableModel;
 		
 		
 		private JButton btnAdd;
+		
+		/** The btn delete. */
 		private JButton btnDelete;
+		
+		/** The btn logout. */
 		private JButton btnLogout;
+		
+		/** The btn main menu. */
 		private JButton btnMainMenu;
+		
+		/** The lbl background. */
 		private final JLabel lblBackground = new JLabel("");
+		
+		/** The rs. */
 		private ResultSet rs;
+		
+		/** The deletecalpanel. */
 		private JPanel deletecalpanel;
+		
+		/** The lbl enter the calendar. */
 		private JLabel lblEnterTheCalendar;
+		
+		/** The text field. */
 		private JTextField textField;
+		
+		/** The btn cancel. */
 		private JButton btnCancel;
+		
+		/** The btnfinaldelete. */
 		private JButton btnfinaldelete;
+		
+		/** The scroll pane. */
 		private JScrollPane scrollPane;
+		
+		/** The lbl enter to. */
 		private JLabel lblEnterTo;
+		
+		/** The enabledisabletext field. */
 		private JTextField enabledisabletextField;
 		
 		
+		/**
+		 * Instantiates a new calendar list.
+		 */
 		public CalendarList() {
 			setSize(new Dimension(1024, 768));
 			setLayout(null);
@@ -222,6 +255,11 @@ import javax.swing.table.TableModel;
 
 		}
 		
+		/**
+		 * Adds the action listener.
+		 *
+		 * @param l the l
+		 */
 		public void addActionListener(ActionListener l) {
 			btnAdd.addActionListener(l);
 			btnDelete.addActionListener(l);
@@ -231,37 +269,77 @@ import javax.swing.table.TableModel;
 			
 		}
 
+		/**
+		 * Gets the btn add.
+		 *
+		 * @return the btn add
+		 */
 		public JButton getBtnAdd() {
 			return btnAdd;
 		}
 
+		/**
+		 * Gets the btn delete.
+		 *
+		 * @return the btn delete
+		 */
 		public JButton getBtnDelete() {
 			return btnDelete;
 		}
 
+		/**
+		 * Gets the btn logout.
+		 *
+		 * @return the btn logout
+		 */
 		public JButton getBtnLogout() {
 			return btnLogout;
 		}
 
+		/**
+		 * Gets the btn main menu.
+		 *
+		 * @return the btn main menu
+		 */
 		public JButton getBtnMainMenu() {
 			return btnMainMenu;
 			
 		}
 		
+		/**
+		 * Gets the btnfinaldelete.
+		 *
+		 * @return the btnfinaldelete
+		 */
 		public JButton getBtnfinaldelete(){
 			return btnfinaldelete;
 		}
 		
+		/**
+		 * Gets the text field.
+		 *
+		 * @return the text field
+		 */
 		public JTextField getTextField() {
 			return textField;
 		}
 		
+		/**
+		 * Gets the enabledisabletext field.
+		 *
+		 * @return the enabledisabletext field
+		 */
 		public JTextField getEnabledisabletextField() {
 			return enabledisabletextField;
 		}
 
 
 
+		/**
+		 * Gets the event count.
+		 *
+		 * @return the event count
+		 */
 		public int getEventCount(){
 			
 			int count = 0;

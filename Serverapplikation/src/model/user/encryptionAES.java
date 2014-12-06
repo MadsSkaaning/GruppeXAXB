@@ -6,14 +6,28 @@ import javax.crypto.Cipher;
 import sun.misc.*;
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class encryptionAES.
+ */
 public class encryptionAES {
 	
+		/** The algorithm. */
 		private static String algorithm = "AES";
+		
+		/** The key value. */
 		private static byte[] keyValue=new byte[] 
 		{ 'D', 'I', 'S', 'T', '@', 'D', 'O', 'E', 'K', '4', 'E', 'V', 'A', 'H', '!', '!' };
 
 		        // Performs Encryption
-		        @SuppressWarnings("restriction")
+		        /**
+        		 * Encrypt.
+        		 *
+        		 * @param plainText the plain text
+        		 * @return the string
+        		 * @throws Exception the exception
+        		 */
+        		@SuppressWarnings("restriction")
 				public static String encrypt(String plainText) throws Exception 
 		        {
 		                Key key = generateKey();
@@ -25,7 +39,14 @@ public class encryptionAES {
 		        }
 
 		        // Performs decryption
-		        @SuppressWarnings("restriction")
+		        /**
+        		 * Decrypt.
+        		 *
+        		 * @param encryptedText the encrypted text
+        		 * @return the string
+        		 * @throws Exception the exception
+        		 */
+        		@SuppressWarnings("restriction")
 				public static String decrypt(String encryptedText) throws Exception 
 		        {
 		                // generate key 
@@ -39,14 +60,26 @@ public class encryptionAES {
 		        }
 
 		//generateKey() is used to generate a secret key for AES algorithm
-		        private static Key generateKey() throws Exception 
+		        /**
+		 * Generate key.
+		 *
+		 * @return the key
+		 * @throws Exception the exception
+		 */
+		private static Key generateKey() throws Exception 
 		        {
 		                Key key = new SecretKeySpec(keyValue, algorithm);
 		                return key;
 		        }
 
 		        // performs encryption & decryption 
-		        public static void main(String[] args) throws Exception 
+		        /**
+        		 * The main method.
+        		 *
+        		 * @param args the arguments
+        		 * @throws Exception the exception
+        		 */
+        		public static void main(String[] args) throws Exception 
 		        {
 		        	
 		                String plainText = "cbs";

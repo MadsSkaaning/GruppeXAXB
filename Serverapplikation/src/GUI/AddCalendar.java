@@ -22,25 +22,25 @@ import java.awt.SystemColor;
  * The Class AddCalendar.
  */
 public class AddCalendar extends JPanel {
-	
+
 	/** The text field_ name. */
 	private JTextField textField_Name;
-	
+
 	/** The btn submit. */
 	private JButton btnSubmit;
-	
+
 	/** The btn logout. */
 	private JButton btnLogout;
-	
+
 	/** The lbl cb slogo. */
 	private JLabel lblCBSlogo;
-	
+
 	/** The btn main menu. */
 	private JButton btnMainMenu;
-	
+
 	/** The lbl user info. */
 	private JLabel lblUserInfo;
-	
+
 	/** The btn cancel. */
 	private JButton btnCancel;
 	/**
@@ -50,12 +50,12 @@ public class AddCalendar extends JPanel {
 		setPreferredSize(new Dimension(1024, 768));
 		setSize(new Dimension(1024, 768));
 		setLayout(null);
-		
+
 		lblCBSlogo = new JLabel("");
 		lblCBSlogo.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/CBSLogo3.png")));
 		lblCBSlogo.setBounds(10, 698, 250, 59);
 		add(lblCBSlogo);
-		
+
 
 		btnLogout = new JButton("");
 		btnLogout.setIcon(new ImageIcon(AddCalendar.class.getResource("/Images/Logout.png")));
@@ -94,48 +94,48 @@ public class AddCalendar extends JPanel {
 		btnSubmit.setFont(new Font("Arial", Font.BOLD, 30));
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			//Submit changes to databases
+				//Submit changes to databases
 			}
 		}
-		);
+				);
 		btnSubmit.setBounds(480, 491, 300, 43);
 		add(btnSubmit);
 
-		
-				
-				btnMainMenu = new JButton("");
-				btnMainMenu.setIcon(new ImageIcon(AddCalendar.class.getResource("/Images/homebtn.png")));
-				btnMainMenu.setForeground(Color.WHITE);
-				btnMainMenu.setFont(new Font("Arial", Font.BOLD, 30));
-				btnMainMenu.setContentAreaFilled(false);
-				btnMainMenu.setBorder(null);
-				btnMainMenu.setBounds(22, 11, 153, 41);
-				add(btnMainMenu);
-				
-				lblUserInfo = new JLabel("Create Calendar");
-				lblUserInfo.setForeground(Color.WHITE);
-				lblUserInfo.setFont(new Font("Arial", Font.BOLD, 78));
-				lblUserInfo.setBounds(285, 151, 638, 90);
-				add(lblUserInfo);
-				
-				btnCancel = new JButton("Cancel");
-				btnCancel.setForeground(Color.WHITE);
-				btnCancel.setFont(new Font("Arial", Font.BOLD, 30));
-				btnCancel.setContentAreaFilled(false);
-				btnCancel.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-				btnCancel.setBounds(533, 602, 171, 41);
-				add(btnCancel);
-				
-				JLabel lblBackground = new JLabel("");
-				lblBackground.setSize(new Dimension(1024, 768));
-				lblBackground.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/MetalBackground.jpg")));
-				lblBackground.setBounds(0, 0, 1024, 768);
-				add(lblBackground);
-		
-		
+
+
+		btnMainMenu = new JButton("");
+		btnMainMenu.setIcon(new ImageIcon(AddCalendar.class.getResource("/Images/homebtn.png")));
+		btnMainMenu.setForeground(Color.WHITE);
+		btnMainMenu.setFont(new Font("Arial", Font.BOLD, 30));
+		btnMainMenu.setContentAreaFilled(false);
+		btnMainMenu.setBorder(null);
+		btnMainMenu.setBounds(22, 11, 153, 41);
+		add(btnMainMenu);
+
+		lblUserInfo = new JLabel("Create Calendar");
+		lblUserInfo.setForeground(Color.WHITE);
+		lblUserInfo.setFont(new Font("Arial", Font.BOLD, 78));
+		lblUserInfo.setBounds(285, 151, 638, 90);
+		add(lblUserInfo);
+
+		btnCancel = new JButton("Cancel");
+		btnCancel.setForeground(Color.WHITE);
+		btnCancel.setFont(new Font("Arial", Font.BOLD, 30));
+		btnCancel.setContentAreaFilled(false);
+		btnCancel.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
+		btnCancel.setBounds(533, 602, 171, 41);
+		add(btnCancel);
+
+		JLabel lblBackground = new JLabel("");
+		lblBackground.setSize(new Dimension(1024, 768));
+		lblBackground.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/MetalBackground.jpg")));
+		lblBackground.setBounds(0, 0, 1024, 768);
+		add(lblBackground);
+
+
 
 	}
-	
+
 	/**
 	 * Adds the action listener.
 	 *
@@ -148,7 +148,7 @@ public class AddCalendar extends JPanel {
 		btnCancel.addActionListener(l);
 	}
 
-	
+
 
 	/**
 	 * Gets the text field_ name.
@@ -158,7 +158,7 @@ public class AddCalendar extends JPanel {
 	public JTextField getTextField_Name() {
 		return textField_Name;
 	}
-	
+
 	/**
 	 * Gets the btn submit.
 	 *
@@ -167,7 +167,7 @@ public class AddCalendar extends JPanel {
 	public JButton getBtnSubmit() {
 		return btnSubmit;
 	}
-	
+
 	/**
 	 * Gets the btn main menu.
 	 *
@@ -176,7 +176,7 @@ public class AddCalendar extends JPanel {
 	public JButton getBtnMainMenu() {
 		return btnMainMenu;
 	}
-	
+
 	/**
 	 * Gets the btn logout.
 	 *
@@ -185,7 +185,7 @@ public class AddCalendar extends JPanel {
 	public JButton getBtnLogout() {
 		return btnLogout;
 	}
-	
+
 	/**
 	 * Gets the btn cancel.
 	 *

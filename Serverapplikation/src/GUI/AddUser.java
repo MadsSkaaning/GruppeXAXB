@@ -17,14 +17,34 @@ import java.awt.Cursor;
 import java.awt.event.KeyEvent;
 import java.awt.SystemColor;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class AddUser.
+ */
 public class AddUser extends JPanel {
+
+	/** The text field_ email. */
 	private JTextField textField_Email;
+
+	/** The text field_ type. */
 	private JTextField textField_Type;
+
+	/** The text field_ password. */
 	private JTextField textField_Password;
+
+	/** The btn submit. */
 	private JButton btnSubmit;
+
+	/** The btn logout. */
 	private JButton btnLogout;
+
+	/** The btn main menu. */
 	private JButton btnMainMenu;
+
+	/** The lbl user info. */
 	private JLabel lblUserInfo;
+
+	/** The btn cancel. */
 	private JButton btnCancel;
 
 	/**
@@ -34,7 +54,7 @@ public class AddUser extends JPanel {
 		setPreferredSize(new Dimension(1024, 768));
 		setSize(new Dimension(1024, 768));
 		setLayout(null);
-		
+
 
 		btnLogout = new JButton("");
 		btnLogout.setIcon(new ImageIcon(AddUser.class.getResource("/Images/Logout.png")));
@@ -92,49 +112,54 @@ public class AddUser extends JPanel {
 		btnSubmit.setFont(new Font("Arial", Font.BOLD, 30));
 		btnSubmit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-			//Submit changes to databases
-			//hvad sker der n�r �ndringer ved en bruger submittes
+				//Submit changes to databases
+				//hvad sker der n�r �ndringer ved en bruger submittes
 			}
 		}
-		);
+				);
 		btnSubmit.setBounds(557, 489, 153, 41);
 		add(btnSubmit);
 
-		
-				
-				btnMainMenu = new JButton("");
-				btnMainMenu.setIcon(new ImageIcon(AddUser.class.getResource("/Images/homebtn.png")));
-				btnMainMenu.setForeground(Color.WHITE);
-				btnMainMenu.setFont(new Font("Arial", Font.BOLD, 30));
-				btnMainMenu.setContentAreaFilled(false);
-				btnMainMenu.setBorder(null);
-				btnMainMenu.setBounds(22, 11, 153, 41);
-				add(btnMainMenu);
-				
-				lblUserInfo = new JLabel("Create user");
-				lblUserInfo.setForeground(Color.WHITE);
-				lblUserInfo.setFont(new Font("Arial", Font.BOLD, 78));
-				lblUserInfo.setBounds(392, 151, 464, 90);
-				add(lblUserInfo);
-				
-				btnCancel = new JButton("Cancel");
-				btnCancel.setForeground(Color.WHITE);
-				btnCancel.setFont(new Font("Arial", Font.BOLD, 30));
-				btnCancel.setContentAreaFilled(false);
-				btnCancel.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
-				btnCancel.setBounds(551, 574, 171, 41);
-				add(btnCancel);
-				
-				JLabel lblBackground = new JLabel("");
-				lblBackground.setSize(new Dimension(1024, 768));
-				lblBackground.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/MetalBackground.jpg")));
-				lblBackground.setBounds(0, 0, 1024, 768);
-				add(lblBackground);
-		
-		
+
+
+		btnMainMenu = new JButton("");
+		btnMainMenu.setIcon(new ImageIcon(AddUser.class.getResource("/Images/homebtn.png")));
+		btnMainMenu.setForeground(Color.WHITE);
+		btnMainMenu.setFont(new Font("Arial", Font.BOLD, 30));
+		btnMainMenu.setContentAreaFilled(false);
+		btnMainMenu.setBorder(null);
+		btnMainMenu.setBounds(22, 11, 153, 41);
+		add(btnMainMenu);
+
+		lblUserInfo = new JLabel("Create user");
+		lblUserInfo.setForeground(Color.WHITE);
+		lblUserInfo.setFont(new Font("Arial", Font.BOLD, 78));
+		lblUserInfo.setBounds(392, 151, 464, 90);
+		add(lblUserInfo);
+
+		btnCancel = new JButton("Cancel");
+		btnCancel.setForeground(Color.WHITE);
+		btnCancel.setFont(new Font("Arial", Font.BOLD, 30));
+		btnCancel.setContentAreaFilled(false);
+		btnCancel.setBorder(new CompoundBorder(new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0)), new BevelBorder(BevelBorder.LOWERED, new Color(255, 255, 255), new Color(0, 0, 0), new Color(255, 255, 255), new Color(0, 0, 0))));
+		btnCancel.setBounds(551, 574, 171, 41);
+		add(btnCancel);
+
+		JLabel lblBackground = new JLabel("");
+		lblBackground.setSize(new Dimension(1024, 768));
+		lblBackground.setIcon(new ImageIcon(UserInfo.class.getResource("/Images/MetalBackground.jpg")));
+		lblBackground.setBounds(0, 0, 1024, 768);
+		add(lblBackground);
+
+
 
 	}
-	
+
+	/**
+	 * Adds the action listener.
+	 *
+	 * @param l the l
+	 */
 	public void addActionListener(ActionListener l) {
 		btnSubmit.addActionListener(l);
 		btnLogout.addActionListener(l);
@@ -142,31 +167,68 @@ public class AddUser extends JPanel {
 		btnCancel.addActionListener(l);
 	}
 
-	
 
+
+	/**
+	 * Gets the text field_ email.
+	 *
+	 * @return the text field_ email
+	 */
 	public JTextField getTextField_Email() {
 		return textField_Email;
 	}
 
+	/**
+	 * Gets the text field_ type.
+	 *
+	 * @return the text field_ type
+	 */
 	public JTextField getTextField_Type() {
 		return textField_Type;
 	}
 
+	/**
+	 * Gets the text field_ password.
+	 *
+	 * @return the text field_ password
+	 */
 	public JTextField getTextField_Password() {
 		return textField_Password;
 	}
 
-	
+
+	/**
+	 * Gets the btn submit.
+	 *
+	 * @return the btn submit
+	 */
 	public JButton getBtnSubmit() {
 		return btnSubmit;
 	}
+
+	/**
+	 * Gets the btn main menu.
+	 *
+	 * @return the btn main menu
+	 */
 	public JButton getBtnMainMenu() {
 		return btnMainMenu;
 	}
-	
+
+	/**
+	 * Gets the btn logout.
+	 *
+	 * @return the btn logout
+	 */
 	public JButton getBtnLogout() {
 		return btnLogout;
 	}
+
+	/**
+	 * Gets the btn cancel.
+	 *
+	 * @return the btn cancel
+	 */
 	public JButton getBtnCancel(){
 		return btnCancel;
 	}

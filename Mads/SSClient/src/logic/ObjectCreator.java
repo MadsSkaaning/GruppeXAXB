@@ -12,6 +12,9 @@ import gui.LoginScreen;
 /**
  * The Class ObjectCreator.
  */
+
+// This class is used to create the objects to be send to the server. 
+// It is being packed in the JsonClasses
 public class ObjectCreator {
 
 	/** The gson. */
@@ -29,9 +32,7 @@ public class ObjectCreator {
 	/** The create cal. */
 	private CreateCalendar createCal = new CreateCalendar();
 
-	//unused but called methods to retrieve info to client
-
-	/** The ci. */
+	/** The Calendar Info. */
 	private CalendarInfo CI = new CalendarInfo();
 
 	/** The ce. */
@@ -50,6 +51,7 @@ public class ObjectCreator {
 	private DeleteNote DN = new DeleteNote();
 
 	/** The ei. */
+	//This EventInfo isnt used yet, but is one of the methods on the GiantSwitch serverside.
 	private Eventsinfo EI = new Eventsinfo();
 
 	/** The gc. */
@@ -72,18 +74,29 @@ public class ObjectCreator {
 	 *
 	 * @return the string
 	 */
+
+	//This authenticates the user, by setting the values in the AuthUser object AU.
 	public String authenticateUser(){
 
+
+		//This is not meant to be hardcoded.
 		AU.setAuthUserEmail("user");
 		AU.setAuthUserPassword("user");
 		AU.setAuthUserIsAdmin(false);
+
+		/**The original idea was to call it straight from the GUI class, but after 5 hours of non completion, i've chosed
+		to move on - somehow it cant connect with the 3 classes as supposed.
+
+		This has to do with the creation of objects in both ObjectCreator, Controller class and the GuiLogic. Unfortunately.
+		 */ 
 
 		String objecttilserver = gson.toJson(AU);
 		return objecttilserver;
 
 	}
 
-	// ALa den her metode opretter jeg denne.
+
+
 	/**
 	 * Gets the qotd.
 	 *

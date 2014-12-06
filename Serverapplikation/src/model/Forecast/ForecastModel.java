@@ -20,125 +20,147 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ForecastModel.
+ */
 public class ForecastModel {
 
-	     // Json parser to retrieve and map data from openweathermap.org
-	     private ArrayList<Forecast> forecastList = new ArrayList();
-	     private String weatherDescription = "";
-	     QueryBuilder qb = new QueryBuilder();
-	     Configurations cf = new Configurations();
-	     
-	     // 
-	     public ArrayList<Forecast> requestForecast() {
-	         URL url;
-	         HttpURLConnection conn;
-	         BufferedReader rd;
-	         String line;
-	         String result = "";
+	// Json parser to retrieve and map data from openweathermap.org
+	/** The forecast list. */
+	private ArrayList<Forecast> forecastList = new ArrayList();
+	
+	/** The weather description. */
+	private String weatherDescription = "";
+	
+	/** The qb. */
+	QueryBuilder qb = new QueryBuilder();
+	
+	/** The cf. */
+	Configurations cf = new Configurations();
 
-	         Configurations cf = new Configurations();
-	         
-	         
-	         try {
-	             url = new URL("http://api.openweathermap.org/data/2.5/forecast/daily?lat=" + cf.getWeather_lat() + "&lon=" + cf.getWeather_lon() + "&cnt=14&mode=json&units=metric");
-	             conn = (HttpURLConnection) url.openConnection();
-	             conn.setRequestMethod("GET");
-	             
-	             //henter indholder fra hjemmesiden efter vi har aabnet en forbindelse
-	             rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-	             while ((line = rd.readLine()) != null) {
-	             	
-	             	//vi skal ligge alle linjerne oven i hinanden
-	                 result += line;
-	             }
-	             rd.close();
-	         } catch (IOException e) {
-	             e.printStackTrace();
-	         } 
+	// 
+	/**
+	 * Request forecast.
+	 *
+	 * @return the array list
+	 */
+	public ArrayList<Forecast> requestForecast() {
+		URL url;
+		HttpURLConnection conn;
+		BufferedReader rd;
+		String line;
+		String result = "";
 
-	         try {
-	             JSONParser jsonParser = new JSONParser();
-	             JSONObject jsonObject = (JSONObject) jsonParser.parse(result);
+		Configurations cf = new Configurations();
 
-	             // get an array from the JSON object
-	             JSONArray list = (JSONArray) jsonObject.get("list");
 
-	             Iterator i = list.iterator();
+		try {
+			url = new URL("http://api.openweathermap.org/data/2.5/forecast/daily?lat=" + cf.getWeather_lat() + "&lon=" + cf.getWeather_lon() + "&cnt=14&mode=json&units=metric");
+			conn = (HttpURLConnection) url.openConnection();
+			conn.setRequestMethod("GET");
 
-	             // take each value from the json array separately
-	             while (i.hasNext()) {
+			//henter indholder fra hjemmesiden efter vi har aabnet en forbindelse
+			rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+			while ((line = rd.readLine()) != null) {
 
-	                 JSONObject innerObj = (JSONObject) i.next();
+				//vi skal ligge alle linjerne oven i hinanden
+				result += line;
+			}
+			rd.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} 
 
-	                 Date date = new Date((Long) innerObj.get("dt") * 1000L);
-	                 String string_date = date.toString();
-	                 
-	                 JSONObject temp = (JSONObject) innerObj.get("temp");
-	                 double celsius = (Double) temp.get("day");
-	                 
-	                 String temperatur = String.valueOf(celsius);
-	                 JSONArray subList = (JSONArray) innerObj.get("weather");
+		try {
+			JSONParser jsonParser = new JSONParser();
+			JSONObject jsonObject = (JSONObject) jsonParser.parse(result);
 
-	                 Iterator y = subList.iterator();
+			// get an array from the JSON object
+			JSONArray list = (JSONArray) jsonObject.get("list");
 
-	                 while (y.hasNext()) {
-	                     JSONObject childObj = (JSONObject) y.next();
+			Iterator i = list.iterator();
 
-	                     weatherDescription = (String) childObj.get("description");
+			// take each value from the json array separately
+			while (i.hasNext()) {
 
-	                 }
-	                 
-	                 forecastList.add(new Forecast(string_date, temperatur, weatherDescription));
-	                 
-	             }
-	         } catch (ParseException ex) {
-	             ex.printStackTrace();
-	         } catch (NullPointerException ex) {
-	             ex.printStackTrace();
-	         }
-	         return forecastList;
-	     }
-	     
-	     // Henter vejrudsigten og gemmer de hentede data i en ArrayList
-	     public ArrayList<Forecast> getForecast() throws SQLException{
-	     	QueryBuilder qb = new QueryBuilder();
-	     	Date date = new Date(); // Current date & time
-	     	long maxTimeNoUpdate = 3600; // Maximum one hour with no update
-	     	ArrayList<Forecast> forecastFromDB = new ArrayList();
-	     	
-	     	long date1 = date.getTime();
-	     	long date2 = date.getTime() - maxTimeNoUpdate; // minus 1 hour -- should be fetched from database
-	     	
-	     	long timeSinceUpdate = 3601; 
-	     	
-	     	// if more than 1 hour ago, do update
-	     	if(timeSinceUpdate > Long.parseLong(cf.getWeather_expiration_time())){
-	     		// return fresh weather data
-	     		return this.requestForecast();
-	     	} else {
-	     		// Query database and fetch existing weather data from db
-	     		ResultSet forecast = null;
-	     		try {
-	     			forecast = qb.selectFrom("dailyupdate").where("msg_type", "=", "forecast").ExecuteQuery();
-					// Method to add these ResultSet values to ArrayList needs to be created
-					return (ArrayList<Forecast>) forecastFromDB;
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+				JSONObject innerObj = (JSONObject) i.next();
+
+				Date date = new Date((Long) innerObj.get("dt") * 1000L);
+				String string_date = date.toString();
+
+				JSONObject temp = (JSONObject) innerObj.get("temp");
+				double celsius = (Double) temp.get("day");
+
+				String temperatur = String.valueOf(celsius);
+				JSONArray subList = (JSONArray) innerObj.get("weather");
+
+				Iterator y = subList.iterator();
+
+				while (y.hasNext()) {
+					JSONObject childObj = (JSONObject) y.next();
+
+					weatherDescription = (String) childObj.get("description");
+
 				}
-	     		
-	     		//Do something nice with ResultSet in order to make it into an ArrayList
-	     		try {
-					while(forecast.next()){
-						//forecastFromDB.add("xx");
-						return forecastFromDB;
-					}
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+
+				forecastList.add(new Forecast(string_date, temperatur, weatherDescription));
+
+			}
+		} catch (ParseException ex) {
+			ex.printStackTrace();
+		} catch (NullPointerException ex) {
+			ex.printStackTrace();
+		}
+		return forecastList;
+	}
+
+	// Henter vejrudsigten og gemmer de hentede data i en ArrayList
+	/**
+	 * Gets the forecast.
+	 *
+	 * @return the forecast
+	 * @throws SQLException the SQL exception
+	 */
+	public ArrayList<Forecast> getForecast() throws SQLException{
+		QueryBuilder qb = new QueryBuilder();
+		Date date = new Date(); // Current date & time
+		long maxTimeNoUpdate = 3600; // Maximum one hour with no update
+		ArrayList<Forecast> forecastFromDB = new ArrayList();
+
+		long date1 = date.getTime();
+		long date2 = date.getTime() - maxTimeNoUpdate; // minus 1 hour -- should be fetched from database
+
+		long timeSinceUpdate = 3601; 
+
+		// if more than 1 hour ago, do update
+		if(timeSinceUpdate > Long.parseLong(cf.getWeather_expiration_time())){
+			// return fresh weather data
+			return this.requestForecast();
+		} else {
+			// Query database and fetch existing weather data from db
+			ResultSet forecast = null;
+			try {
+				forecast = qb.selectFrom("dailyupdate").where("msg_type", "=", "forecast").ExecuteQuery();
+				// Method to add these ResultSet values to ArrayList needs to be created
+				return (ArrayList<Forecast>) forecastFromDB;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			//Do something nice with ResultSet in order to make it into an ArrayList
+			try {
+				while(forecast.next()){
+					//forecastFromDB.add("xx");
+					return forecastFromDB;
 				}
-	     		return null;
-	     	}
-	     }
-	 
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return null;
+		}
+	}
+
 }

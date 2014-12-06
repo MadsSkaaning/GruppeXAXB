@@ -13,16 +13,39 @@ import javax.swing.border.CompoundBorder;
 import javax.swing.border.BevelBorder;
 import java.awt.Dimension;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class MainMenu.
+ */
 public class MainMenu extends JPanel {
+	
+	/** The label. */
 	private JLabel label;
+	
+	/** The lbl main menu. */
 	private JLabel lblMainMenu;
+	
+	/** The btn log out. */
 	private JButton btnLogOut;
+	
+	/** The btn userlist. */
 	private JButton btnUserlist;
+	
+	/** The btn userlist_1. */
 	private JButton btnUserlist_1;
+	
+	/** The btn eventlist. */
 	private JButton btnEventlist;
+	
+	/** The btn notelist. */
 	private JButton btnNotelist;
+	
+	/** The btn calendar list. */
 	private JButton btnCalendarList;
 	
+	/**
+	 * Instantiates a new main menu.
+	 */
 	public MainMenu() {
 		setSize(new Dimension(1024, 768));
 		setLayout(null);
@@ -103,6 +126,12 @@ public class MainMenu extends JPanel {
 		add(lblBackground);
 
 	}
+	
+	/**
+	 * Adds the action listener.
+	 *
+	 * @param l the l
+	 */
 	public void addActionListener(ActionListener l) {
 		btnLogOut.addActionListener(l);
 		btnEventlist.addActionListener(l);
@@ -112,18 +141,48 @@ public class MainMenu extends JPanel {
 		
 		
 	}
+	
+	/**
+	 * Gets the btn userlist.
+	 *
+	 * @return the btn userlist
+	 */
 	public JButton getBtnUserlist() {
 		return btnUserlist_1;
 	}
+	
+	/**
+	 * Gets the btn eventlist.
+	 *
+	 * @return the btn eventlist
+	 */
 	public JButton getBtnEventlist() {
 		return btnEventlist;
 	}
+	
+	/**
+	 * Gets the btn notelist.
+	 *
+	 * @return the btn notelist
+	 */
 	public JButton getBtnNotelist() {
 		return btnNotelist;
 	}
+	
+	/**
+	 * Gets the btn log out.
+	 *
+	 * @return the btn log out
+	 */
 	public JButton getBtnLogOut() {
 		return btnLogOut;
 	}
+	
+	/**
+	 * Gets the btn calendar list.
+	 *
+	 * @return the btn calendar list
+	 */
 	public JButton getBtnCalendarList() {
 		return btnCalendarList;
 	}
