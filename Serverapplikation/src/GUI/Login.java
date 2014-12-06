@@ -127,6 +127,9 @@ public class Login extends JPanel {
 
 
 	public JButton getBtnLogIn() {
+		
+		System.out.println(getTextFieldUsername().getText());
+		
 		return btnLogIn;
 	}
 
@@ -143,5 +146,6 @@ public class Login extends JPanel {
 		return textFieldPassword;
 	}
 
+	
 
 	}

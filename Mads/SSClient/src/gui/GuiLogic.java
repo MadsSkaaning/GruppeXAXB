@@ -34,7 +34,6 @@ public class GuiLogic {
  
 	public class LoginActionListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
-//			if (e.getSource() == screen.getLoginScreen().getbtnLogic()){
 				
 			if (e.getSource() == screen.getLoginScreen().getbtnLogic()){
 
@@ -51,9 +50,6 @@ public class GuiLogic {
 							, "Error message",JOptionPane.PLAIN_MESSAGE);
 					}
 			}
-			
-			
-
 		}
 	}
 	
@@ -68,8 +64,6 @@ public class GuiLogic {
 				screen.show("eventScreen");
 				
 			}
-			
-			
 
 		}
 	}
@@ -83,12 +77,9 @@ public class GuiLogic {
 				
 				screen.show("frontScreen");
 			}
-			
-			
+
 		}
-		
-		
-		
+
 	}
 	
 	private class UserEventActionListener implements ActionListener {
@@ -105,11 +96,5 @@ public class GuiLogic {
 		
 		
 	}
-	
-	
-public Class<LoginActionListener> getLoginActionListener(){
-	
-	return LoginActionListener.class;
-}	
 
 }

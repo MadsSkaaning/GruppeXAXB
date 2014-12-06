@@ -76,6 +76,7 @@ public class Screen extends JFrame {
 	}
 	
 	public Login getLogin() {
+		System.out.println("hey");
 		return login;
 	}
 	

@@ -1,6 +1,7 @@
 package logic;
 
-import JsonClasses.AuthUser;
+
+import JsonClasses.*;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -12,37 +13,25 @@ public class ObjectCreator {
 	private LoginScreen login;
 	private Gson gson = new GsonBuilder().create();
 	private AuthUser AU = new AuthUser();
+	private QOTD quote = new QOTD(null, null, null);
 	
+	
+	//Det her er en metode der opretter authenticate user og sender til esrveren.
 	public String authenticateUser(){
-		
-		
-//		String user = login.getUsernameField().getText();
-//		String password = login.getPasswordField().getText();
-//		
-//		System.out.println(user);
-//		System.out.println(password);
-//		
-//		System.out.println(login.getUsernameField().getText());
-//		System.out.println(login.getPasswordField().getText());
-//		
-//		AU.setAuthUserEmail(user);
-//		AU.setAuthUserPassword(password);
-//		AU.setAuthUserIsAdmin(false);
-		
-		AU.getAuthUserEmail();
-		System.out.println("");
-		
 		
 		AU.setAuthUserEmail("user");
 		AU.setAuthUserPassword("user");
 		AU.setAuthUserIsAdmin(false);
 		
-		System.out.println(AU.getAuthUserEmail());
-		System.out.println(AU.getAuthUserPassword());
-		
 		String objecttilserver = gson.toJson(AU);
-		
 		return objecttilserver;
 		
 	}
+
+	// ALa den her metode opretter jeg denne.
+	public String getQOTD() {
+		String objecttilserver = gson.toJson(quote);
+		return objecttilserver;
+	}
+	
 }

@@ -14,9 +14,10 @@ import JsonClasses.AuthUser;
 
 import java.awt.Font;
 
+import logic.Controller;
+
 
 public class FrontScreen extends JPanel {
-	private JTextField forecastField;
 	
 	/**
 	 * Create the panel.
@@ -29,12 +30,17 @@ public class FrontScreen extends JPanel {
 	private final JLabel lblBackground = new JLabel("");
 	private final JLabel lblWelcomeToCbs = new JLabel("Welcome to CBS Calendar.");
 	private final JLabel lblgetUserName = new JLabel("");
+	private final JLabel lblQotd = new JLabel("QOTD");
+	private final JLabel lblQotdFrame = new JLabel("");
+	private JTextField textField;
 	public FrontScreen() {
 		setLayout(null);
 		setBounds(0, 0, 1024, 768);
 		
 		
+		Controller mycontroller = new Controller();
 		
+
 		
 		JLabel lblNewLabel = new JLabel("quote");
 		lblNewLabel.setBounds(131, 41, 102, 50);
@@ -43,12 +49,6 @@ public class FrontScreen extends JPanel {
 		JLabel lblLoggedInAs = new JLabel("Logged in as");
 		lblLoggedInAs.setBounds(722, 41, 200, 50);
 		add(lblLoggedInAs);
-		
-		forecastField = new JTextField();
-		forecastField.setBounds(380, 327, 293, 133);
-		forecastField.setEditable(false);
-		add(forecastField);
-		forecastField.setColumns(10);
 		btnCalendar.setIcon(new ImageIcon(FrontScreen.class.getResource("/images/calendarbtn.png")));
 		btnCalendar.setBounds(342, 74, 153, 41);
 		add(btnCalendar);
@@ -69,6 +69,35 @@ public class FrontScreen extends JPanel {
 		System.out.println();
 		
 		add(lblgetUserName);
+		lblQotd.setFont(new Font("Snap ITC", Font.PLAIN, 18));
+		lblQotd.setBounds(821, 151, 153, 50);
+		
+		add(lblQotd);
+		lblQotdFrame.setIcon(new ImageIcon(FrontScreen.class.getResource("/images/CBS baggrund_20.png")));
+		lblQotdFrame.setBounds(781, 151, 212, 304);		
+		add(lblQotdFrame);
+		
+		textField = new JTextField();
+		textField.setBounds(550, 277, 193, 178);
+		
+		
+		textField.setText(mycontroller.userControlls("qotd"));
+		
+		
+		String quoteOfTheDay = (mycontroller.userControlls("qotd"));
+		String[] strs = quoteOfTheDay.split(",");
+		quoteOfTheDay = quoteOfTheDay.replace("{", "");
+		
+		for (String s : strs) {
+					
+					s.replace("quote", "fucker");
+			      System.out.println(s);
+		}
+		
+		
+		
+		add(textField);
+		textField.setColumns(10);
 		
 		
 		lblBackground.setIcon(new ImageIcon(FrontScreen.class.getResource("/images/login-mainframe.jpg")));
