@@ -10,22 +10,24 @@ public class encryption {
 	public String decrypt(byte[] b)
 	{
 		Configurations CF = new Configurations();
-//		Defines the decryption value of the byte
-		//The 4 lines below needs to work later on, but for now, it will be hardcode
-		//System.out.println(CF.getFfcryptkey());
-		System.out.println(CF.getFfcryptkey());
+		
+		//Først fås krypterings nøglen fra konfigurations filen
+		
 		String crypKey = CF.getFfcryptkey();
-		System.out.println(crypKey);
-		double gladKo = Double.parseDouble(crypKey);
-		byte ff = (byte) gladKo;
-//		Generates for loop containing decryption value
+		
+		
+		double doubleCryptKey = Double.parseDouble(crypKey);
+		
+		byte ff = (byte) doubleCryptKey;
+		
+//		Så laver vi et for loop går hele det byte array, som metoden bliver kaldt med igennem.
 		for(int i = 0 ; i<b.length ; i++)
 		{
 			b[i] = (byte)(b[i]^ff);
 		}
-//		Generates new String without any white spaces following or leading
+//		Laver en ny streng, hvor alle whites spaces er fjernet og retunerer den.
 		String encrypted = new String(b).trim();
-//		Returns decrypted String
+
 		return encrypted;
 	}
 }
