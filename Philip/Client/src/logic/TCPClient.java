@@ -7,8 +7,8 @@ import java.io.*;
 public class TCPClient {
 	
 	 String request;
-	 
-	 
+	encryption decryptserver = new encryption();
+	 Configurations cf = new Configurations();
 	 
 	 
 	
@@ -16,26 +16,25 @@ public class TCPClient {
 		
 		this.request = request;
 		
-		Configurations cf = new Configurations();
-		
-		cf.getServerhost();
-		
-		Socket clientSocket = new Socket("localhost", 4444);
+		Socket clientSocket = new Socket(cf.getHost(), Integer.parseInt(cf.getServerhost()));
 
-		ObjectOutputStream outToServer = new ObjectOutputStream(
+		DataOutputStream outToServer = new DataOutputStream(
 				clientSocket.getOutputStream());
 		
 		
-		outToServer.writeObject(request);
+		outToServer.write(decryptserver.decrypt(request.getBytes()).getBytes());
 		outToServer.flush();
 		
 		
-		ObjectInputStream infromserver = new ObjectInputStream(clientSocket.getInputStream());
+		DataInputStream infromserver = new DataInputStream(clientSocket.getInputStream());
 		
-		String svarfraserver = infromserver.readObject().toString().trim();
+		byte[] b = new byte[500000];
+		
+		infromserver.read(b);
+		
+		String svarfraserver = decryptserver.decrypt(b);
 		
 		System.out.println("FROM SERVER: " + svarfraserver);
-		
 		
 		clientSocket.close();
 		

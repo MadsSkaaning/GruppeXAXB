@@ -23,7 +23,7 @@ class TCPServer{
 	 */
 	public static void main(String argv[]) throws Exception       {
 
-		//Creates a socket to send and recieve messages in port 8888
+		//Creates a socket to send and recieve messages
 		Configurations cf = new Configurations();
 		ServerSocket welcomeSocket = new ServerSocket(Integer.parseInt(cf.getServersocket()));
 		System.out.println("Server listens on port " + cf.getServersocket());
