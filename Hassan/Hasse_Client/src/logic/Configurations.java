@@ -9,158 +9,162 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
-//Klasser der læser configurations data fra en JSON fil. Skulle primært været blevet brugt til kryptering på klienten, da der er få hardcodede variable at finde her alligevel....
-//Er her pga. mulig vider udvikling.
+// TODO: Auto-generated Javadoc
+/**
+* The Class Configurations.
+*/
 
+
+// Using this class to prevent hardcoded variables for server.
+// Can prove useful, if server changes its serversocket, port or host adress
 public class Configurations {
-    private String host;
-    private String port;
-    private String username;
-    private String dbname;
-    private String password;
 
-    // FFkey is used in Encryption.java
-    private String ffcryptkey;
+/** The host. */
+private String host;
 
-    // Weather variables
-    private String weather_expiration_time;
-    private String weather_lat;
-    private String weather_lon;
-    private String weather_future_in_days;
+/** The port. */
+private String port;
 
-    public String getHost() {
-    	ReadFile();
-        return host;
-    }
+/** The serverhost. */
+private String serverhost;
 
-    public void setHost(String host) {
-    	
-        this.host = host;
-    }
+/** The ffcryptkey. */
+private String ffcryptkey;
 
-    public String getPort() {
-    	ReadFile();
-        return port;
-    }
+/**
+* Instantiates a new configurations.
+*/
+public Configurations() {
 
-    public void setPort(String port) {
-        this.port = port;
-    }
-
-    public String getUsername() {
-    	
-    	ReadFile();
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-    	ReadFile();
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getDbname() {
-    	ReadFile();
-        return dbname;
-    }
-
-    public void setDbname(String dbname) {
-        this.dbname = dbname;
-    }
-
-    public String getFfcryptkey() {
-    	ReadFile();
-        return ffcryptkey;
-    }
-
-    public void setFfcryptkey(String ffcryptkey) {
-        this.ffcryptkey = ffcryptkey;
-    }
+ReadFile();
+}
 
 
-// Weather settrs and getters.
-
-    public String getWeather_expiration_time() {
-    	ReadFile();
-        return weather_expiration_time;
-    }
-
-    public void setWeather_expiration_time(String weather_expiration_time) {
-        this.weather_expiration_time = weather_expiration_time;
-    }
+/**
+* Gets the serverhost socket port.
+* Which is the port of the socket
+* @return the serverhost
+*/
+public String getServerhost() {
+return serverhost;
+}
 
 
-    public String getWeather_lat() {
-    	ReadFile();
-        return weather_lat;
-    }
-
-    public void setWeather_lat(String weather_lat) {
-        this.weather_lat = weather_lat;
-    }
-
-
-    public String getWeather_lon() {
-    	ReadFile();
-        return weather_lon;
-    }
-
-    public void setWeather_lon(String weather_lon) {
-        this.weather_lon = weather_lon;
-    }
-
-    public String getWeather_future_in_days() {
-    	ReadFile();
-        return weather_future_in_days;
-    }
-
-    public void setWeather_future_in_days(String weather_future_in_days) {
-        this.weather_future_in_days = weather_future_in_days;
-    }
+/**
+* Sets the serverhost.
+*
+* @param serverhost the new serverhost
+*/
+public void setServerhost(String serverhost) {
+this.serverhost = serverhost;
+}
 
 
-    // Method to read files from jSON file
+/**
+* Gets the host.
+*
+* @return the host
+*/
+public String getHost() {
+return host;
+}
 
-    public void ReadFile() {
-        JSONParser jsonParser = new JSONParser();
+/**
+* Sets the host.
+*
+* @param host the new host
+*/
+public void setHost(String host) {
 
-        try {
-            FileReader json = new FileReader("src/config.json");
+this.host = host;
+}
 
-            Object obj = jsonParser.parse(json);
-            JSONObject jsonObject = (JSONObject) obj;
+/**
+* Gets the port.
+*
+* @return the port
+*/
+public String getPort() {
+return port;
+}
 
-            // Getting json values for SQL variables and DB
-            setHost((String) jsonObject.get("host"));
-            setPort((String) jsonObject.get("port"));
-            setUsername((String) jsonObject.get("username"));
-            setDbname((String) jsonObject.get("dbname"));
-            setPassword((String) jsonObject.get("password"));
+/**
+* Sets the port.
+*
+* @param port the new port
+*/
+public void setPort(String port) {
+this.port = port;
+}
 
-            // Getting json values for KEY variables
-            setFfcryptkey((String) jsonObject.get("ffcryptkey"));
 
-            // Getting json values for weather variables
-            setWeather_expiration_time((String) jsonObject.get("weather_expiration_date"));
-            setWeather_lat((String) jsonObject.get("weather_lat"));
-            setWeather_lon((String) jsonObject.get("weather_lon"));
-            setWeather_future_in_days((String) jsonObject.get("weather_future_in_days"));
+/**
+* Gets the ffcryptkey.
+*
+* @return the ffcryptkey
+*/
+public String getFfcryptkey() {
+return ffcryptkey;
+}
 
-        } catch (ParseException ex) {
-            ex.printStackTrace();
-        } catch (NullPointerException ex) {
-            ex.printStackTrace();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+/**
+* Sets the ffcryptkey.
+*
+* @param ffcryptkey the new ffcryptkey
+*/
+public void setFfcryptkey(String ffcryptkey) {
+this.ffcryptkey = ffcryptkey;
+}
+
+
+// Method to read files from jSON file
+/**
+* Read file.
+*/
+public void ReadFile() {
+JSONParser jsonParser = new JSONParser();
+
+try {
+FileReader json = new FileReader("src/config.json");
+
+Object obj = jsonParser.parse(json);
+JSONObject jsonObject = (JSONObject) obj;
+
+// Getting json values for SQL variables and DB
+setHost((String) jsonObject.get("host"));
+setPort((String) jsonObject.get("port"));
+
+// Getting json values for KEY variables
+setFfcryptkey((String) jsonObject.get("ffcryptkey"));
+
+// Getting json values for server host
+setServerhost((String) jsonObject.get("serverhost"));
+
+
+} catch (ParseException ex) {
+ex.printStackTrace();
+} catch (NullPointerException ex) {
+ex.printStackTrace();
+} catch (FileNotFoundException e) {
+e.printStackTrace();
+} catch (IOException e) {
+e.printStackTrace();
+}
+}
+
+
+/**
+* The main method.
+*
+* @param args the arguments
+*/
+public static void main (String [] args ){
+
+Configurations cf = new Configurations();
+
+System.out.println(cf.ffcryptkey);
+
+
+}
+
 }

@@ -1,6 +1,8 @@
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
@@ -32,7 +34,7 @@ public class ClientWorker implements  Runnable{
 	private GiantSwitch GS = new GiantSwitch();
 	
 	/** The cryp. */
-	private encryption cryp = new encryption();
+	private encryption encryption = new encryption();
 	
 	/** The incoming json. */
 	private String incomingJson;
@@ -58,10 +60,8 @@ public class ClientWorker implements  Runnable{
 	public void run(){
 		try{
 			System.out.println("forbindelse Oprettet!");
-			
-			ObjectInputStream inFromClient = new ObjectInputStream(connectionSocketConected.getInputStream());
-			
-			ObjectOutputStream outToClient = new ObjectOutputStream(connectionSocketConected.getOutputStream());
+			DataInputStream inFromClient = new DataInputStream(connectionSocketConected.getInputStream());
+			DataOutputStream outToClient = new DataOutputStream(connectionSocketConected.getOutputStream());
 			System.out.println("Outtoclient oprettet!");
 			//Sets client sentence equals input from client
 			//incomingJson = inFromClient.readLine();			
@@ -69,13 +69,30 @@ public class ClientWorker implements  Runnable{
 			
 			
 			System.out.println("Besked modtaget!");
+			
 			System.out.println("Received: ");
 			
+			byte[] b = new byte[50000000];
 			
-			String input = (String) inFromClient.readObject();
+			inFromClient.read(b);
+
+			String input = encryption.decrypt(b);
+			
+			System.out.println(input);
+			
 			String svar = GS.GiantSwitchMethod(input);
-			outToClient.writeObject(svar);
 			
+			
+			System.out.println(svar +"hehehehe");
+			
+			
+			
+			outToClient.write(encryption.decrypt(svar.getBytes()).getBytes());
+			
+			String test = encryption.decrypt(svar.getBytes());
+			
+			System.out.println("eheh" + test);
+
 			
 			System.out.println("svar sendt");
 			

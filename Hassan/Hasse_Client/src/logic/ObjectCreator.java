@@ -70,9 +70,8 @@ public class ObjectCreator {
 		
 		
 		AU.setAuthUserEmail("hasse");
-
 		AU.setAuthUserIsAdmin(false);
-		AU.setAuthUserPassword("hasse");
+		AU.setAuthUserPassword("123");
 				
 		String logintilserver = gson.toJson(AU);
 		

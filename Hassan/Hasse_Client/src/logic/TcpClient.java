@@ -7,7 +7,8 @@ import java.io.*;
 public class TcpClient {
 	
 	 String request;
-	 
+	 EncryptionFromServer decryptserver = new EncryptionFromServer();
+	 Configurations cf = new Configurations();
 	 //Klienten opretter forbindelsen til serveren gennem en metode.
 	 
 	 
@@ -15,25 +16,34 @@ public class TcpClient {
 	 //Efter at være blevet kaldt retunerer metoden en String svarende til serveres svar. 
 	//Metoden lukker forbindelsen efter hver gang den bliver kaldt for at spare ressourcer.
 	 
-	 //Man kunne have lavet kryptering ved at kryptere den strengen fra constructeren inden den sendte den ud til serveren, og decryptere svaret inden metoden returnere svaret. (hvis altså serveren lavede samme kryptering)
+	
 	
 	public  String serverComm(String request) throws Exception {
 		
 		this.request = request;
 		
-		Socket clientSocket = new Socket("localhost", 8888);
+		Socket clientSocket = new Socket(cf.getHost(), Integer.parseInt(cf.getPort()));
 
-		ObjectOutputStream outToServer = new ObjectOutputStream(
+		DataOutputStream outToServer = new DataOutputStream(
 				clientSocket.getOutputStream());
 		
 		
-		outToServer.writeObject(request);
+		outToServer.write(decryptserver.decrypt(request.getBytes()).getBytes());
 		outToServer.flush();
 		
 		
-		ObjectInputStream infromserver = new ObjectInputStream(clientSocket.getInputStream());
+		DataInputStream inFromServer = new DataInputStream(clientSocket.getInputStream());
 		
-		String svarfraserver = infromserver.readObject().toString().trim();
+		
+		byte[] b = new byte[500000];
+		
+		inFromServer.read(b);
+		
+	
+		
+		String svarfraserver = decryptserver.decrypt(b);
+		
+		
 		
 		System.out.println("FROM SERVER: " + svarfraserver);
 		

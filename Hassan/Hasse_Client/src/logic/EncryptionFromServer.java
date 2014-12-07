@@ -1,12 +1,11 @@
-import config.Configurations;
+package logic;
 
 
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class encryption.
  */
-public class encryption {
+public class EncryptionFromServer {
 	//	Decryption path
 	/**
 	 * Decrypt.
@@ -14,6 +13,8 @@ public class encryption {
 	 * @param b the b
 	 * @return the string
 	 */
+	
+	//Crypteringsmetoden, modtager en streng repræssenteret som et byte array, krypterer den et byte ad gangen og retunerer den.
 	public String decrypt(byte[] b)
 	{
 		Configurations CF = new Configurations();

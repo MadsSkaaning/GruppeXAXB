@@ -58,7 +58,7 @@ public class MainLogic {
 					//Efter login bliver et quote og ugens forecasts hentet fra serverens vejr API (requesten går altså ikke gennem serverens database - endnu. 
 					//Bemærk at hvis API'et er overbelastet kan  klienten fryse ved tryk på login, udkommenter koden nedenfor og så skulle den køre igen.
 				
-					screen.getFrontScreen().getForecastfield().setText(userInputs.userControlls("forecast"));
+				screen.getFrontScreen().getForecastfield().setText(userInputs.userControlls("forecast"));
 					
 					screen.getFrontScreen().getQuoteField().setText(userInputs.userControlls("quote"));
 					
