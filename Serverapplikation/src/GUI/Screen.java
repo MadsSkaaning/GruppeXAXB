@@ -131,7 +131,6 @@ public class Screen extends JFrame {
 	 * @return the login
 	 */
 	public Login getLogin() {
-		System.out.println("hey");
 		return login;
 	}
 	

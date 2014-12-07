@@ -37,6 +37,8 @@ class TCPServer{
 			Socket connectionSocket = welcomeSocket.accept();
 			ClientWorker client= new ClientWorker(connectionSocket);
 			Thread thread = new Thread(client, "client");
+			System.out.println("IP: " + connectionSocket.getLocalAddress() + " has connected to the server");
+			
 			thread.start();
 		}
 		

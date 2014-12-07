@@ -5,9 +5,6 @@ import org.apache.commons.lang.StringEscapeUtils;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
-
-// TODO: Auto-generated Javadoc
 /**
  * The Class Execute.
  */

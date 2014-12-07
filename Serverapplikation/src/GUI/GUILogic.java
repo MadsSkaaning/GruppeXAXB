@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 
 import model.QueryBuild.*;
 import GUI.Screen;
+import JsonClasses.AuthUser;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -262,7 +263,6 @@ public class GUILogic {
 						screen.show(Screen.USERLIST);
 
 					} catch (SQLException e1) {
-						// TODO Auto-generated catch block
 						e1.printStackTrace();
 					}
 				}
@@ -305,7 +305,10 @@ public class GUILogic {
 				String CalendarName = screen.getAddCalendar().getTextField_Name().getText();
 				String Active = "1";
 				//Hardcoded created by and user name, to 1 and user. HAS TO BE CHANGED.
-				String CreatedBy = "user";
+				String CreatedBy = "admin";
+				
+				
+				
 				String PrivatePublic = "1";
 				if (CalendarName.equals(""))
 				{

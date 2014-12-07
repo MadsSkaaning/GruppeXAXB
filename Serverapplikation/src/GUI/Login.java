@@ -162,9 +162,7 @@ public class Login extends JPanel {
 	 * @return the btn log in
 	 */
 	public JButton getBtnLogIn() {
-		
-		System.out.println(getTextFieldUsername().getText());
-		
+				
 		return btnLogIn;
 	}
 
