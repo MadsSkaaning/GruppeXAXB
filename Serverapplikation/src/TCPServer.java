@@ -32,13 +32,19 @@ class TCPServer{
 		launchdb.go();
 		
 		//While something is true
-		while(true){
-			//Creates a socket and a buffered reader which recieves some sort of input from somewhere around the internet!
-			Socket connectionSocket = welcomeSocket.accept();
-			ClientWorker client= new ClientWorker(connectionSocket);
-			Thread thread = new Thread(client, "client");
-			System.out.println("IP: " + connectionSocket.getLocalAddress() + " has connected to the server");
-			thread.start();
+		try {
+			while(true){
+				//Creates a socket and a buffered reader which recieves some sort of input from somewhere around the internet!
+				Socket connectionSocket = welcomeSocket.accept();
+				ClientWorker client= new ClientWorker(connectionSocket);
+				Thread thread = new Thread(client, "client");
+				System.out.println("IP: " + connectionSocket.getLocalAddress() + " has connected to the server");
+				thread.start();
+			}
+		} catch (Exception e) {
+			System.out.println("Something went wrong establishing a connection between the server and client.\n See Errorlog below.");
+			e.printStackTrace();
+			System.out.println("ERROR LOG DONE \n \n");
 		}
 	}
 }

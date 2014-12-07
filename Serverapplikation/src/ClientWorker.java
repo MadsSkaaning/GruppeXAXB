@@ -82,17 +82,7 @@ public class ClientWorker implements  Runnable{
 			
 			String svar = GS.GiantSwitchMethod(input);
 			
-			
-			System.out.println(svar +"hehehehe");
-			
-			
-			
 			outToClient.write(encryption.decrypt(svar.getBytes()).getBytes());
-			
-			String test = encryption.decrypt(svar.getBytes());
-			
-			System.out.println("eheh" + test);
-
 			
 			System.out.println("svar sendt");
 			
