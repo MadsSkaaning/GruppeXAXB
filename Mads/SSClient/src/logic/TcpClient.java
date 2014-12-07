@@ -12,6 +12,10 @@ public class TcpClient {
 
 	/** The request. */
 	String request;
+	
+	Encryption decryptClass = new Encryption();
+	Configurations cf = new Configurations();		
+
 
 	/**
 	 * Server comm.
@@ -25,19 +29,26 @@ public class TcpClient {
 		this.request = request;
 
 
-		Configurations cf = new Configurations();		
 		Socket clientSocket = new Socket(cf.getHost(), Integer.parseInt(cf.getServerhost()));
 
-		ObjectOutputStream outToServer = new ObjectOutputStream(
+		DataOutputStream outToServer = new DataOutputStream(
 				clientSocket.getOutputStream());
 
-		outToServer.writeObject(request);
+		
+		outToServer.write(decryptClass.decrypt(request.getBytes()).getBytes());
 		outToServer.flush();
 
 
-		ObjectInputStream inFromServer = new ObjectInputStream(clientSocket.getInputStream());
+		DataInputStream inFromServer = new DataInputStream(clientSocket.getInputStream());
 
-		String serverReply = inFromServer.readObject().toString().trim();
+		
+		byte[] b = new byte[250000];
+		
+		inFromServer.read(b);
+		
+		String serverReply = decryptClass.decrypt(b);
+		
+	//	String serverReply = inFromServer.readObject().toString().trim();
 
 		System.out.println("FROM SERVER: " + serverReply);
 

@@ -4,7 +4,7 @@ package logic;
 /**
  * The Class encryption.
  */
-public class encryption {
+public class Encryption {
 	/**
 	 * Decrypt.
 	 *
@@ -20,9 +20,7 @@ public class encryption {
 		Configurations CF = new Configurations();
 
 
-		System.out.println(CF.getFfcryptkey());
 		String configKey = CF.getFfcryptkey();
-		System.out.println(configKey);
 		double cryptKey = Double.parseDouble(configKey);
 		byte ff = (byte) cryptKey;
 		//		Generates for loop containing decryption value
