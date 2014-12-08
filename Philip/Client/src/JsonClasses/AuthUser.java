@@ -12,11 +12,6 @@ public class AuthUser implements java.io.Serializable
 	private boolean isAdmin;
 	private boolean isAuthenticated;
 	
-	//public AuthUser(String email, String password) {
-	//	this.email = email;
-	//	this.password = password;
-	//}
-	
 	public boolean isAuthenticated() {
 		return isAuthenticated;
 	}

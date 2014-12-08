@@ -37,7 +37,7 @@ public class CreateEvent {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	//Getters and setters for everything, bitch
+
 	public String getOverallID() {
 		return overallID;
 	}
