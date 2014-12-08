@@ -59,17 +59,11 @@ public class ClientWorker implements  Runnable{
 	 */
 	public void run(){
 		try{
-			System.out.println("forbindelse Oprettet!");
+			System.out.println("Connection established!");
 			DataInputStream inFromClient = new DataInputStream(connectionSocketConected.getInputStream());
 			DataOutputStream outToClient = new DataOutputStream(connectionSocketConected.getOutputStream());
-			System.out.println("Outtoclient oprettet!");
-			//Sets client sentence equals input from client
-			//incomingJson = inFromClient.readLine();			
-			
-			
-			
-			System.out.println("Besked modtaget!");
-			
+			System.out.println("Outtoclient established");
+			System.out.println("Message received!");
 			System.out.println("Received: ");
 			
 			byte[] b = new byte[50000000];
@@ -84,7 +78,7 @@ public class ClientWorker implements  Runnable{
 			
 			outToClient.write(Encryption.decrypt(svar.getBytes()).getBytes());
 			
-			System.out.println("svar sendt");
+			System.out.println("Reply sent");
 			
 			
 		}catch(Exception exception){
