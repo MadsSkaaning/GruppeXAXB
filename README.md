@@ -1,4 +1,6 @@
 GruppeXAXB
 ==========
 
-Det her bliver lidt mere seriøst end sidst, røvhuller.
+This is the group of Hasse, Sam, Philip & Mads.
+
+This is our server application.
