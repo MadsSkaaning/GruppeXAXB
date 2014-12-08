@@ -6,7 +6,7 @@ import config.Configurations;
 /**
  * The Class encryption.
  */
-public class encryption {
+public class Encryption {
 	//	Decryption path
 	/**
 	 * Decrypt.

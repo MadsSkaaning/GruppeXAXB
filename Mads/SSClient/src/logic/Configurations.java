@@ -153,18 +153,4 @@ public class Configurations {
 	}
 
 
-	/**
-	 * The main method.
-	 *
-	 * @param args the arguments
-	 */
-	public static void main (String [] args ){
-
-		Configurations cf = new Configurations();
-
-		System.out.println(cf.ffcryptkey);
-
-
-	}
-
 }

@@ -79,7 +79,9 @@ public class ObjectCreator {
 	public String authenticateUser(){
 
 
-		//This is not meant to be hardcoded.
+		//This is not meant to be hardcoded. But somehow in this structure using the controller, obj creator and guilogic-
+		// this couldn't get value from a JTextField. Tried a lot of debugging, but this structure gets the text from the textfield,
+		// before it is even set.
 		AU.setAuthUserEmail("user");
 		AU.setAuthUserPassword("user");
 		AU.setAuthUserIsAdmin(false);

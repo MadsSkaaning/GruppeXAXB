@@ -34,7 +34,7 @@ public class ClientWorker implements  Runnable{
 	private GiantSwitch GS = new GiantSwitch();
 	
 	/** The cryp. */
-	private encryption encryption = new encryption();
+	private Encryption Encryption = new Encryption();
 	
 	/** The incoming json. */
 	private String incomingJson;
@@ -76,13 +76,13 @@ public class ClientWorker implements  Runnable{
 			
 			inFromClient.read(b);
 
-			String input = encryption.decrypt(b);
+			String input = Encryption.decrypt(b);
 			
 			System.out.println(input);
 			
 			String svar = GS.GiantSwitchMethod(input);
 			
-			outToClient.write(encryption.decrypt(svar.getBytes()).getBytes());
+			outToClient.write(Encryption.decrypt(svar.getBytes()).getBytes());
 			
 			System.out.println("svar sendt");
 			

@@ -26,6 +26,11 @@ public class Controller {
 	
 	
 	// Creating the user controls with the switch "choice".
+	
+	//Login Works - unfortunately due to lack of time the other cases does not work, but the concept is the same,
+	// as to why i have added the cases itself, as their function calling to the the server is functioning. 
+	
+	
 	public String userControls (String choice){
 
 		this.choice = choice;

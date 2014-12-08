@@ -66,6 +66,10 @@ public class GetCalendarData {
 		String userID = "haje13ac";
 		String json = readUrl("http://calendar.cbs.dk/events.php/"+userID+"/"+e.getKey()+".json");
 
+		
+		
+		
+		
 		return json;
 
 
