@@ -1,0 +1,15 @@
+{
+	"host": "localhost",
+	"port": "3306",
+	"username": "root",
+	"password": "looser",	
+	"ffcryptkey": "3.1470",
+	"weather_expiration_time": "3600",
+	"weather_lat": "55.681589",
+	"weather_lon": "12.529092",
+	"weather_future_in_days": "7",
+	"dbname": "cbscalendar",
+	"serversocket": "8888",
+	"qotdlink": "http://dist-sso.it-kartellet.dk/quote/",
+	"qotdupdatetime": "86400"
+}
