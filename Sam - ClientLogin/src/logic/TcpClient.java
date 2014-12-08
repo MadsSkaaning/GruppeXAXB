@@ -10,13 +10,14 @@ public class TcpClient {
 
 encryption Encryption = new encryption();
 
+Configurations config = new Configurations();
 
 
 	public  String serverComm(String request) throws Exception {
 
 		this.request = request;
 
-		Socket clientSocket = new Socket("localhost", 8888);
+		Socket clientSocket = new Socket(config.getHost(),Integer.parseInt(config.getServersocket()));
 
 		DataOutputStream outToServer = new DataOutputStream(
 				clientSocket.getOutputStream());
