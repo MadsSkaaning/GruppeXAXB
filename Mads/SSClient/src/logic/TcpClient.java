@@ -48,8 +48,6 @@ public class TcpClient {
 		
 		String serverReply = decryptClass.decrypt(b);
 		
-	//	String serverReply = inFromServer.readObject().toString().trim();
-
 		System.out.println("FROM SERVER: " + serverReply);
 
 
