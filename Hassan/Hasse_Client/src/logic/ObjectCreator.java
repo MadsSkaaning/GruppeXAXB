@@ -64,14 +64,14 @@ public class ObjectCreator {
 	private String getcalendarname;
 	
 	//Grundet at mit loginScreen af UFORKLARLIGE årsager ikke kan hente texten fra textfields, har jeg været nødsaget til at hardcode loginet for en bruger...
-	//Det havde ellers skulle fungerer som f.eks. Create Calendar hvor den setter værdierne for den tilsvarende JSON klasse vha. værdierne fra tekstfelterne i LoginScreen();
+	//Det havde ellers skulle fungerer som f.eks. Create Calendar hvor den setter værdierne for den tilsvarende JSON klasse vha. værdierne fra tekstfelterne.
 	
 	public String authenticateUser(){
 		
 		
-		AU.setAuthUserEmail("hasse");
+		AU.setAuthUserEmail("user");
 		AU.setAuthUserIsAdmin(false);
-		AU.setAuthUserPassword("123");
+		AU.setAuthUserPassword("user");
 				
 		String logintilserver = gson.toJson(AU);
 		
