@@ -1,19 +1,13 @@
-import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.io.InputStreamReader;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.net.Socket;
+
+import JsonClasses.CalendarInfo;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import config.Configurations;
-import GUI.GUILogic;
-import JsonClasses.AuthUser;
-import JsonClasses.CalendarInfo;
 
 
 // TODO: Auto-generated Javadoc

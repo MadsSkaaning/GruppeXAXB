@@ -4,11 +4,9 @@ import java.util.ArrayList;
 import model.Forecast.Forecast;
 import model.Forecast.ForecastModel;
 import model.QOTD.QOTDModel;
-import model.calendar.Event;
 import model.calendar.GetCalendarData;
 import model.note.Note;
 import JsonClasses.AuthUser;
-import JsonClasses.CalendarInfo;
 import JsonClasses.CreateCalendar;
 import JsonClasses.CreateEvent;
 import JsonClasses.CreateNote;
@@ -19,7 +17,8 @@ import JsonClasses.GetCalendar;
 import JsonClasses.GetEvent;
 import JsonClasses.GetNote;
 
-import com.google.gson.*;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import databaseMethods.SwitchMethods;
 

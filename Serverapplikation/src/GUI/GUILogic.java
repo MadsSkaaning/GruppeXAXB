@@ -1,20 +1,13 @@
 package GUI;
 
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.sql.ResultSet;
+import java.awt.event.ActionListener;
 import java.sql.SQLException;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-
-import GUI.UserInformation;
-import databaseMethods.SwitchMethods;
 
 import javax.swing.JOptionPane;
 
-import model.QueryBuild.*;
-import GUI.Screen;
-import JsonClasses.AuthUser;
+import model.QueryBuild.QueryBuilder;
+import databaseMethods.SwitchMethods;
 
 // TODO: Auto-generated Javadoc
 /**

@@ -3,7 +3,7 @@ package model.note;
 import java.sql.SQLException;
 
 import model.Model;
-import model.QueryBuild.*;
+import model.QueryBuild.QueryBuilder;
 
 // TODO: Auto-generated Javadoc
 /**

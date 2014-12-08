@@ -1,6 +1,5 @@
 package model.calendar;
 
-import java.util.ArrayList;
 
 
 // TODO: Auto-generated Javadoc

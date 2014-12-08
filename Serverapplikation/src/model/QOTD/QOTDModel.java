@@ -6,15 +6,8 @@ import java.net.URL;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
-
-
-
-
-
 import java.util.Date;
 
-import model.Forecast.Forecast;
 import model.QueryBuild.QueryBuilder;
 
 import org.json.simple.JSONObject;

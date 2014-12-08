@@ -1,11 +1,9 @@
 package model.database;
 
-import model.Model;
-import model.QueryBuild.QueryBuilder;
-
 import java.io.IOException;
-import java.sql.DatabaseMetaData;
 import java.sql.SQLException;
+
+import model.Model;
 
 // TODO: Auto-generated Javadoc
 /**

@@ -1,44 +1,26 @@
 	package GUI;
 
-	import javax.swing.JPanel;
-
-	import java.awt.Dimension;
-import java.awt.ScrollPane;
-
-	import javax.swing.JLabel;
-import javax.swing.ImageIcon;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-
-	import java.awt.Font;
-
-	import javax.swing.SwingConstants;
-import javax.swing.JButton;
-
 	import java.awt.Color;
-
-	import javax.swing.JScrollPane;
-
-	import java.awt.Component;
-
-	import javax.swing.border.CompoundBorder;
-import javax.swing.border.BevelBorder;
-import javax.swing.border.MatteBorder;
-import javax.swing.JTextPane;
-
-import java.awt.event.ActionListener;
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.border.MatteBorder;
 
 import model.QueryBuild.QueryBuilder;
-
-import javax.swing.border.LineBorder;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableModel;
 
 
 	// TODO: Auto-generated Javadoc

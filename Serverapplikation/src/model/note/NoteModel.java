@@ -1,6 +1,5 @@
 package model.note;
 
-import java.sql.SQLException;
 
 // TODO: Auto-generated Javadoc
 /**

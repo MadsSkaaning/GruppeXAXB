@@ -1,10 +1,11 @@
 package model.QueryBuild;
 
-import model.Model;
-import org.apache.commons.lang.StringEscapeUtils;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+import model.Model;
+
+import org.apache.commons.lang.StringEscapeUtils;
 /**
  * The Class Execute.
  */

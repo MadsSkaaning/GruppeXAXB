@@ -1,13 +1,19 @@
 package model;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 import com.ibatis.common.jdbc.ScriptRunner;
-import com.sun.org.apache.xml.internal.serializer.ToStream;
 
 import config.Configurations;
-
-import java.io.*;
-import java.sql.*;
-
-import org.apache.commons.io.input.ReaderInputStream;
 
 /**
  * model.Model superclass, never instansiated. All child model classes inherits its properties, classes and methods */
