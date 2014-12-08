@@ -2,6 +2,7 @@ import java.io.*;
 import java.net.*;
 
 import model.database.DatabaseInit;
+import GUI.GUILogic;
 import JsonClasses.CalendarInfo;
 
 import com.google.gson.stream.JsonReader;
@@ -30,6 +31,8 @@ class TCPServer{
 		
 		DatabaseInit launchdb = new DatabaseInit();
 		launchdb.go();
+		GUILogic logic = new GUILogic();
+		logic.run();
 		
 		//While something is true
 		try {
